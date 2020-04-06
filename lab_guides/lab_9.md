@@ -1,0 +1,763 @@
+
+10
+
+Combining models to maximize
+results
+Ensemble learning
+
+This chapter covers
+•
+
+What is ensemble learning.
+
+•
+
+Joining several weak classifiers to form a strong classifier.
+
+•
+
+Bagging: A method to randomly join several classifiers.
+
+•
+
+Boosting: A method to join several classifiers in a smarter way.
+
+•
+
+AdaBoost: A very successful example of boosting methods.
+
+After learning many interesting and very useful machine learning classifiers, a good question
+to ask is “Is there a way to combine them?”. Thankfully the answer is yes! In this chapter we
+learn several ways to build stronger classifiers by combining weaker ones. The methods we
+learn in this chapter are bagging and boosting. In a nutshell, bagging consists on constructing
+a few classifiers in a random way and putting them together. Boosting, on the other hand,
+consists of building these models in a smarter way, by picking each model strategically to
+focus on the previous models’ mistakes. One of the most popular examples of boosting is the
+AdaBoost algorithm (Adaptive Boosting), which we study at the end of the chapter.
+
+10.1 With a little help from our friends
+Here is the scenario. You have to take an exam that consists of 100 true/false questions on
+many different topics, such as math, geography, science, history, music, and so on. Luckily,
+you are allowed to call your five friends, Alice, Bob, Carlos, Dana, and Emily to help you. What
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+216
+
+are some techniques that you can use to get their help? Let me show you two techniques that
+I can think of.
+Technique 1: You send the exam to each of the five friends, and ask them to fill it in.
+Then you get the responses, and for each question, you make them vote. For example, if for
+question 1, three of your friends answered “True” and two answered “False”, you answer that
+question as “True”. We may still get some wrong, but if our friends are of the same level of
+knowledge and intelligence as us, we can imagine that the five of them together are likely to
+do better than only one of them.
+Technique 2: We give the exam to Alice, and ask her to answer the questions that she is
+the most sure about. She answers a few of them. We assume that those answers are good,
+since we focused on Alice’s strengths. Then we pass the remaining questions to Bob, and
+follow the same procedure with Carlos and Dana. For our last friend, Emily, we just ask her to
+answer all the remaining ones. This is a good technique as well, especially if our friends are
+experts in different disciplines.
+These are two examples of combining our friends to form a super-friend, who will likely do
+well in tests. The equivalent scenario in machine learning is when we have several classifiers
+that classify our data well, but not great, and we’d like to combine them into a super-classifier
+that classifies our data very well. This discipline is called ensemble learning.
+We call the set of classifiers weak learners, and the super-classifier they form when
+combined a strong learner.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+217
+
+Figure 10.1. Ensemble methods consist of joining several weak learners in order to build a strong learner.
+In this chapter we learn two ensemble learning techniques called bagging and boosting, which
+very much resemble the two previous techniques, respectively. In a nutshell, this is what
+bagging and boosting do:
+Bagging: We train a bunch of different classifiers on different random subsets of our data.
+We join them into a big classifier, which makes predictions by voting. In other words, the
+resulting classifier predicts what the majority of the other classifiers predict.
+A canonical example of a bagging model is random forests. Simply put, you pick a random
+subset of your data and build a decision tree that fits that subset. Then you do the same thing
+with another random subset of data. You continue in this fashion, building a set of decision
+trees. Then you build a classifier joining all these decision trees by making them vote. Since
+the trees were built on random subsets of you data, we call this a random forest.
+Why the name ‘bagging’? Well, there is no bag involved; bagging is short for Bootstrap
+AGGregatING.
+Boosting: Boosting is very similar to bagging, except the classifiers are not picked at
+random. Details vary between algorithms, but in a nutshell, each classifier is picked in a way
+that focuses on the weaknesses of the previous classifiers. Each classifier is not necessarily
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+218
+
+strong, but the union of them is. One way to do this is to modify our data by giving more
+weight to the misclassified points and less to the correctly classified ones, and fit the next
+classifier to this modified data.
+The canonical example of boosting that we learn in this chapter is AdaBoost (ADAptive
+BOOSTing). I encourage you to further your studies with other algorithms such as gradient
+boosted trees, and XGBoost (eXtreme Gradient Boosting).
+Most ensemble methods in this chapter use decision trees as the weak learners. Many
+ensemble methods started in order to prevent overfitting in decision trees, and for this reason
+decision trees tend to be more popular for this kind of approaches. However, as you read this
+chapter, I encourage you to look at how the strong learners would look if the weak learners
+were other types of classifiers, such as perceptrons, SVMs, and so on.
+
+10.2 Why an ensemble of learners? Why not just one really good
+learner?
+When I suggested combining several different weak learners to form a strong learner, a
+question may have popped into our minds. We’ve spent an entire book learning how to build
+strong learners, why all of a sudden do we want to combine them? For example, if we are
+going to combine a few simple decision trees, why not build one very robust one? Let me
+illustrate why with a small example.
+Let’s go back to our spam example in Chapter 7 (Decision Trees). To remind you, the
+dataset consisted of spam and ham emails, and the features were the number of times the
+words ‘lottery’ and ‘sale’ appeared on the email (Table 10.1).
+
+Table 10.1. Table of spam and ham emails, together with the number of appearances of the words
+‘lottery’ and ‘sale’ on each email.
+Lottery
+
+Sale
+
+Spam
+
+7
+
+1
+
+No
+
+3
+
+2
+
+No
+
+3
+
+9
+
+No
+
+1
+
+3
+
+No
+
+2
+
+6
+
+No
+
+4
+
+7
+
+No
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+219
+
+1
+
+9
+
+Yes
+
+3
+
+10
+
+Yes
+
+6
+
+5
+
+Yes
+
+7
+
+8
+
+Yes
+
+8
+
+4
+
+Yes
+
+9
+
+6
+
+Yes
+
+This table is plotted in Figure 10.2., where the triangles represent spam emails, and the
+squares represent ham emails.
+
+Figure 10.2. The plot of our dataset, where spam emails are triangles and ham emails are squares. In the
+horizontal axis we have the number of appearances of the word ‘lottery’, and in the vertical axis, the number of
+appearances of the word ‘sale’..
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+220
+
+For this dataset, we trained a decision tree which created a broken linear boundary, as
+illustrated in Figure 10.3.
+
+Figure 10.3. Left: A decision tree that classifies our dataset.
+Right: The boundary defined by this decision tree. Notice that it splits the data very well.
+So far, so good. That tree does a great job splitting our data. But what happens if we add the
+following two more points?
+
+Table 10.2. The new data points we are adding to the email dataset.
+Buy
+
+Lottery
+
+Spam
+
+8
+
+6
+
+No
+
+2
+
+2
+
+Yes
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+221
+
+Figure 10.4. The plot with the two new data points added.
+Now let’s try to fit a decision tree to this data. We can use sklearn, like we did in Chapter 7,
+with the following command in sklearn:
+spam_decision_tree = DecisionTreeClassifier()
+spam_decision_tree.fit(new_X,new_y)
+
+Feel free to look at more details in the repo www.github.com/luisguiserrano/manning. The
+decision tree and the boundary region can be seen in Figure 10.5.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+222
+
+Figure 10.5. Left: A decision tree that classifies our dataset.
+Right: The boundary defined by this decision tree. Notice that it splits the data very well, although it hints at
+overfitting, since the two isolated points would rather be treated as errors.
+There seems to be some overfitting going on. Those two new points that we added should be
+considered noise, but instead the tree went out of its way to classify them correctly. As we
+saw before, decision trees are very prone to overfitting. Could it be that random forests give
+us a nicer boundary? We’ll see in the next section!
+
+10.3 Bagging - Joining some classifiers together to build a stronger
+classifier
+Bagging is a technique in which we build a strong learner based on a set of weak learners. The
+way the strong learner makes a prediction is simply by allowing the weak learners to vote.
+Whichever prediction gets more votes, is the one the strong learner makes. You can imagine
+the weak learners to be any type of classifier, but in this chapter, we’ll use decision trees. And
+going by that analogy, a set of decision trees is called a forest. Since there is some
+randomness involved in building these trees, we’ll call it a random forest.
+
+10.3.1 Building random forests by joining several trees
+Let’s try to fit three trees to the data in Figure 10.4. In order to make things computationally
+easier, we’ll split the data into three random (almost) equal subsets, and we’ll fit a simple
+(depth one) tree to each dataset.
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+223
+
+Figure 10.6. Splitting our data into three subsets. Notice that the subsets need not be disjoint, and need not
+cover the entire data set..
+Now, we fit a decision tree in each one of them. Using sklearn, we get the three trees in Figure
+10.7.
+
+Figure 10.7. Three decision trees, each one fitting each of the subsets in Figure 10.6.
+But most importantly, the trees define the boundaries in the top of Figure 10.8. And now, we
+join these three classifiers into one random forest classifier by making them vote. This simply
+means that when a new email comes in, we check the predictions of the three decision trees.
+Whichever prediction got two or more votes, whether it’s spam or ham, is the prediction that
+the random forest makes. The boundary of the random forest is illustrated at the bottom of
+Figure 10.8.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+224
+
+Figure 10.8. On top, we can see the three boundaries of the decision trees from Figure 10.7. On the bottom, we
+can see how the three decision trees vote, to obtain the boundary of the corresponding random forest..
+Notice that the random forest is a good classifier, as it classifies most of the points correctly,
+but it allows a few mistakes in order to not overfit the data.
+
+10.3.2 Coding a random forest in sklearn
+Now you may be thinking “that way you partitioned the data was a bit convenient, what if you
+don’t get such nice subsets?” You are right, let’s allow sklearn to build a random forest, and
+see how it compares. We will build one with five decision trees, or ‘estimators’. The command
+is the following:
+from sklearn.ensemble import RandomForestClassifier
+random_forest_model = RandomForestClassifier(random_state=0, n_estimators=5)
+random_forest_model.fit(new_X,new_y)
+random_forest_model.score(new_X,new_y)
+
+When we plot the boundary defined by this random forests, we get Figure 10.9.
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+225
+
+Figure 10.9. The boundary of the random forest obtained with sklearn.
+Which seems like a nice boundary. But just out of curiosity, let’s plot the boundaries of the
+estimator trees. They are in Figure 10.10.
+
+Figure 10.10. The 5 estimators (learners) obtained from sklearn.
+Yikes! These are quite complex models, as a matter of fact, some seem to overfit, like
+Estimator 2. In the repo I have printed out all the decision trees, and you can see that
+estimators 2 and 3 have depth 6. But somehow, when we overimpose them together, we get a
+clean boundary. The beauty of machine learning.
+
+10.4 Boosting - Joining some classifiers together in a smarter way to
+get a stronger classifier
+Boosting is very similar to bagging, except now we don’t select the weak learners at random,
+but we select them in a more intelligent way. The way we do this is by training each learner to
+focus on the weaknesses of the previous ones. In other words, each learner tries really hard to
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+226
+
+correctly classify the points in which the previous classifiers. How do we do this? We start by
+training the first learner. We now look at which data points did the learner classify correctly.
+We shrink them by weighting them by a number smaller than 1. Then we look at the data
+points that the learner didn’t classify correctly. We enlarge them by weighting them by a
+number larger than 1. Now we have a new weighted dataset, where the errors of the first
+learner are weighted more heavily than the rest of the points. We now fit a second learner on
+this new dataset. The second learner, naturally, will try to fit the errors of the previous learner
+better. After the second learner, we now reweight the data based on which points it classified
+correctly and incorrectly. We now build a third learner on this new weighted dataset. We
+continue in this fashion, until we end up with a set of learners, each focusing on the previous
+learners’ weaknesses. As a final step, we make the classifiers vote. The voting canbe weighted
+if we need to. The best way to learn boosting is to look at a very famous example of it:
+AdaBoost.
+AdaBoost (Adaptive Boosting), developed by Freund and Shapire in 1997, is a very
+powerful boosting algorithm that has produced great results. In AdaBoost, all the weak
+learners are the simplest possible learner one can have: a decision tree of depth one, or a
+stump. In our example, a stump is represented by either a vertical or a horizontal line that
+splits our data. It is the classifier that picks only one of the features, and classifies the data
+based on if that feature is smaller or larger than some threshold.
+I will show you AdaBoost in a small example. We’ll try to classify the data in Figure 10.11.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+227
+
+Figure 10.11. The data set that we will classify next.
+First, we’ll do it conceptually, and next I will add some numbers.
+
+10.4.1 A big picture of AdaBoost
+First let’s try to fit a decision tree of depth one. That is simply a vertical or horizontal line.
+There are a few that work, so let’s pick the vertical line in the left of Figure 10.12, which
+correctly classifies the two triangles in the left, and all the squares. That classifier is weak
+learner 1.
+The next step is rescaling our data. We’ll enlarge the points that are misclassified, and
+shrink the ones that are correctly classified. You can imagine this as follows: In the beginning,
+each point has weight 1. After rescaling the data, some points have weights larger than one,
+and some have weights smaller than one. In the figures, we enlarge or shrink each data point
+to illustrate this. The data now looks like the right side of Figure 10.12.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+228
+
+Figure 10.12. Left: The first learner.
+Right: The rescaled dataset, where we have enlarged the misclassified points, and shrunk the correctly
+classified points..
+Now, we simply continue this process. On the rescaled data, we train a second learner. This
+second learner will be different, because this one tries harder to classify the bigger points
+(those with larger weight), and doesn’t worry so much about the small ones (those with
+smaller weight). After training this learner, we again enlarge the data accordingly. We repeat
+this process a third time, and then we decide to stop (we could keep going if we wanted to).
+The process is illustrated in Figure 10.13.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+229
+
+Figure 10.13. The whole AdaBoost process in our data set. First we train the first weak learner (top), next we
+rescale the points (bottom), and so on as we move to the right.
+Now, as a final step, we combine the three learners into one by voting, as illustrated by Figure
+10.14.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+230
+
+Figure 10.14. Making the three weak learners vote. The resulting strong learner is the one at the bottom.
+Ok, that’s the big picture explanation of AdaBoost. Let’s throw some math at it now.
+
+10.4.2 A detailed (mathematical) picture of AdaBoost
+In the previous section I showed you two steps of the algorithm, namely training new learners
+and rescaling the data. Rescaling data is done in two steps:
+1. Picking a number that is larger than 1.
+2. Multiplying all the errors by this number.
+
+THE DIFFERENCE BETWEEN PROBABILITY AND THE ODDS RATIO
+In order to come up with the rescaling factor, first let’s digress a bit into the difference
+between probability and odds. Let’s say we have a box with three balls, two red and one blue,
+and we draw one random ball from the box. The probabilities of obtaining a ball of each color
+are the following:
+•
+
+P(red ball) = ⅔.
+
+•
+
+P(blue ball) = ⅓.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+231
+
+However, one would like to say something along the lines of “It’s twice as likely to draw a red
+ball than to not draw a red ball”. For this, we use odds. We say that the odds of drawing a red
+ball are 2, and the odds of drawing a blue ball are ½. If the formula we used for probability
+was
+
+,
+Then the formula for odds (the odds ratio--OR) is
+
+.
+NOTE: The odds ratio (OR) shouldn’t be confused with the OR logical operator.
+Notice that since the total number of balls is #balls = #red balls + #blue balls, then we can
+conclude that
+
+.
+From here, we can see that in general, probability and odds are related via the following
+equation:
+
+where OR is the odds ratio. In the previous example, if the probability of a red ball is P(red
+ball) = ⅔, then the odds ratio is:
+
+The odds ratio is widely used in many areas in particular in science and betting. For our case,
+we’ll be using it to build our rescaling factor.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+232
+
+CALCULATING THE RESCALING FACTOR
+After we train a learner, this learner may make some mistakes. We need to blow up these
+mistakes, namely, multiply them by a number that is larger than one, so that the next
+classifier focuses more on them, and less on the points that are well classified. For reasons
+that we’ll see later, we want this factor to be large if our learner is good, and low if our learner
+is not that good.
+Many metrics would work as a rescaling factor, but the one we pick is very related to the
+odds ratio. In fact, the rescaling factor is the odds that the learner classifies a point correctly.
+Sounds like a lot of work, but it’s not so bad. Let’s do it in the example. We begin by
+assigning to every point a weight of 1. Now, let’s look at the accuracy of learner 1. It’s correct
+for 7 points, and wrong for 3 points, so its accuracy is 0.7. But let’s actually consider a
+different number. Let’s look at the number of correctly classified points divided by the number
+of incorrectly classified points. In this case, it is 7/3 = 2.33. That’s our rescaling factor. Notice
+that the better the model, the higher the rescaling factor. Therefore, the following formula
+works.
+
+As a matter of fact, we can do better. Since we’ll change the weights of the points during the
+process, the better way to formulate the rescaling factor is the following.
+
+Now we look at the three misclassified points in the model, and we multiply their weight by
+the rescaling factor 7/3. Our weights are now 7/3, 7/3, 7/3, 1, 1, 1, 1, 1, 1, 1. In order for
+them to ensure they still add to 10, let’s divide them all by their sum, which is 14. Our new
+weights are ⅙, ⅙, ⅙, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14. This rescaling process is
+illustrated in Figure 10.15.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+233
+
+Figure 10.15. We scale the errors by 7/3, and then we normalize everything so the sum of points is 10.
+Notice that if we fit a new classifier on this dataset, it will try to classify those three big
+triangles correctly, since they carry more weight. The best classifier is on the left of Figure
+10.16. In the same figure, we have repeated the calculation of the rescaling factor and the
+normalization.
+
+Figure 10.16. Again, we scale the errors by the rescaling factor and normalize.
+And as a final step, the best learner for the normalized dataset is simply the vertical line in
+Figure 10.17. For this one we will calculate the rescaling factor (you’ll see why in a bit), but
+we’ll stop training more learners right here.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+234
+
+Figure 10.17. Our last weak learner. We don’t need to scale the points anymore, since we are not building any
+more weak learners.
+
+JOINING THE LEARNERS - THE LOGIT
+Alright, we now have our three learners! But how do we put them together? In the last section
+we mentioned voting, but actually what we want is some kind of weighted voting, where the
+models that are doing very well get more of a say. We have a measure for how good models
+are, which is the rescaling factor, so what about using that one? For reasons that will be clear
+soon, what we actually want is the logarithm of the rescaling factor, also called the logit. Allow
+me to elaborate.
+Let’s imagine that we have three friends, Truthful Teresa, Unpredictable Umbert, and Lying
+Lenny. Truthful Teresa almost always says the truth, Lying Lenny almost always lies, and
+Unpredictable Umbert says the truth exactly half of the time, and lies the other half. Here is a
+question, out of those three, who is the least useful one?
+The way I see it, Truthful Teresa is tremendously reliable. As she almost always says the
+truth, when she tells us anything, we can be pretty sure that it’s true. Among the other two,
+though, I prefer Lying Lenny. Since he almost always lies, we pretty much have to do the
+opposite of what he says, and we’ll be correct most of the time! Unpredictable Umbert,
+however, is useless, since we don’t know if he’s telling the truth or lying.
+In that case, if we were to assign a weight to what each friend says, we’d give Truthful
+Teresa a very high score, Lying Lenny a very high negative score, and Unpredictable Umbert a
+score of zero.
+In machine learning, the equivalent for Truthful Teresa is a model with high accuracy,
+which correctly predicts points most of the time. The equivalent for Lying Lenny is a model
+with very low accuracy, and the equivalent to Unpredictable Umbert is a model with accuracy
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+235
+
+around 50%. Notice that between a model with accuracy around 50% and a model with
+terrible accuracy, one would actually prefer the one with terrible accuracy (if we are predicting
+only two classes). Why is this? Because a model that predicts the incorrect class most of the
+time can be turned into a model that predicts the correct class most of the time, by simply
+flipping the answer (the equivalent to listening to Lying Lenny and doing the exact opposite).
+On the other hand, a model that predicts the correct class around 50% of the time, is about as
+accurate as tossing a fair coin; it gives us no information.
+Therefore, we need to find a metric which is high (positive) for high accuracy models, high
+(negative) for low accuracy models, and around zero for models with 50% accuracy. Here are
+some examples of what we need:
+Truth 99% of the time: Very high score.
+Truth 70% of the time: Some positive score.
+Truth 50% of the time: Score of 0.
+Truth 30% of the time: Negative score.
+Truth 1% of the time: Very low negative score.
+Maybe odds can help us, let’s calculate the odds for each one of these cases.
+Truth 99% of the time: 99/1 = 99.
+Truth 70% of the time: 70/30 = 2.33 (remind you of something?).
+Truth 50% of the time: 50/50 = 1
+Truth 30% of the time: 30/70 = 0.43.
+Truth 1% of the time: 1/99 = 0.01.
+We need a function that assigns negative scores to the very small numbers, that also assigns
+0 to the value 1, and that also assigns positive scores to high numbers? What would this
+function be? If you said logarithm, that’s correct! In Table 10.3 I have calculated the logarithm
+of each of the values.
+
+Table 10.3. The accuracy, the odds, and the natural logarithm of the odds, for several different
+values.
+Accuracy
+
+Odds = #Correct/#Errors
+
+ln(Odds)
+
+99%
+
+99/1 = 99
+
+4.595
+
+70%
+
+70/30 = 2.333
+
+0.8473
+
+50%
+
+50/50 = 1
+
+0
+
+30%
+
+30/70 = 0.4286
+
+-0.8473
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+236
+
+1%
+
+1/99 = 0.0101
+
+-4.595
+
+The logarithm of the odds, which is commonly known as logit (short for “logistic unit”), is the
+weight that we assign to each model in the voting. In Figure 10.18 we can see a plot of this.
+
+Figure 10.18. The curve shows the plot of ln(odds) with respect to the accuracy. Notice that for small values of
+the accuracy, the ln(odds) is a very large negative number, and for higher values of the accuracy, the ln(odds) is
+a very large positive number). When the accuracy is 50% (or 0.5), the ln(odds) is precisely zero.
+Now we are ready to make the learners vote. Based on the odds, let’s calculate the logarithm
+of the odds of each of the three learners.
+•
+
+Learner 1:
+o
+o
+
+•
+
+Learner 2:
+o
+o
+
+•
+
+Odds: 7/3 = 2.33
+log(odds) = 0.846
+
+Odds: 7.84/2.13 = 3.68
+log(odds) = 1.303
+
+Learner 3:
+o
+o
+
+Odds = 8.46/1.35 = 6.27
+log(odds) = 1.836
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+237
+
+Figure 10.19. We use the ln(odds) to calculate the weights of the three weak learners.
+The way they vote is illustrated on Figure 10.20. Basically it weights each learner by its
+weight, and for each point, we add the weight if the learner classified the point as positive,
+and subtract the weight if it classified it as negative. If the resulting sum is positive, we
+classify the point positive, and if it is negative, we classify it as negative.
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+238
+
+Figure 10.20. We weight each of the weak learners, and make them vote based on this weighting (so the larger
+the weight, the more voting power that particular learner has).
+
+10.4.3 Coding AdaBoost in Sklearn
+Let’s use our original dataset, and train an AdaBoost classifier. We specify the number of
+learners as 6 using the parameter n_learners. The model we plot is in Figure 10.21.
+from sklearn.ensemble import AdaBoostClassifier
+adaboost_model = AdaBoostClassifier(random_state=0, n_estimators=6)
+adaboost_model.fit(new_X, new_y)
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+239
+
+Figure 10.21. The boundary of the AdaBoost strong learner given by sklearn.
+We can go a bit farther and actually explore the six learners we’ve used (Figure 10.22), using
+the following commands. Furthermore, the command estimator_weights will help us look at
+the weights of all the learners.
+estimators = adaboost_model.estimators_
+for estimator in estimators:
+plot_model(new_X, new_y, estimator)
+plt.show()
+
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+240
+
+Figure 10.22. The boundaries of the six weak learners given by sklearn.
+Notice that when the weak learners in Figure 10.22 vote, we get the strong learner in Figure
+10.21.
+
+10.5 Applications of ensemble methods
+Ensemble methods are some of the most useful machine learning techniques used nowadays
+as they exhibit great levels of performance with relatively low cost. One of the places where
+ensemble methods are used the most is in machine learning challenges such as the Netflix
+challenge. The Netflix challenge was a competition that Netflix organized, where they
+anonymized some data and made it public. The competitors’ goal was to build a better
+recommendation system than Netflix itself; the best system would win one million dollars. The
+winning team used a very strong combination of weak learners in an ensemble to win.
+
+10.6 Summary
+•
+
+Ensemble methods are ways we use to combine weak learners into a strong one. There
+are two major types of ensemble methods: Bagging and boosting.
+
+•
+
+Bagging, or bootstrap aggregating, consists of building successive learners on random
+©Manning Publications Co. To comment go to liveBook
+
+Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
+241
+
+subsets of our data, and then building a strong classifier based on a majority vote.
+•
+
+Boosting consists of building a sequence of learners, where each learner focuses on the
+weaknesses of the previous one, and then building a strong classifier based on a
+weighted majority vote of the learners.
+
+•
+
+Applications of ensemble methods range very widely, from recommendation algorithms
+to applications in medicine and biology.
+
+©Manning Publications Co. To comment go to liveBook
+
+
