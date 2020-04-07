@@ -6,29 +6,17 @@ A continuous approach to splitting
 points: Logistic regression
 
 This chapter covers
-•
+- The difference between hard assignments and soft assignments.
 
-The difference between hard assignments and soft assignments.
+- Activation functions such as the step function vs the sigmoid function.
 
-•
+- Discrete perceptrons vs continuous perceptrons.
 
-Activation functions such as the step function vs the sigmoid function.
+- The logistic regression algorithm for classifying data.
 
-•
+- Coding the logistic regression algorithm in Python.
 
-Discrete perceptrons vs continuous perceptrons.
-
-•
-
-The logistic regression algorithm for classifying data.
-
-•
-
-Coding the logistic regression algorithm in Python.
-
-•
-
-Using the softmax function to build classifiers for more than two classes.
+- Using the softmax function to build classifiers for more than two classes.
 
 In the previous chapter, we built a classifier that determined if a sentence was happy or sad.
 But as you can imagine, there are sentences that are happier than others. For example, the
@@ -188,17 +176,11 @@ have great similarities.
 In this section we cook up some error functions for a continuous perceptron classifier. But first
 let’s stop and think, what properties would we like a good error function to have? Here are
 some I can think of:
-•
+- If a point is correctly classified, the error is a small number.
 
-If a point is correctly classified, the error is a small number.
+- If a point is incorrectly classified, the error is a large number.
 
-•
-
-If a point is incorrectly classified, the error is a large number.
-
-•
-
-The error of a classifier at a set of points is the sum of errors at each point.
+- The error of a classifier at a set of points is the sum of errors at each point.
 
 Many functions satisfy these properties, and I will show you three of them; the absolute loss,
 the square loss, and the log loss. Let’s look at the scenario in Table 5.2 and Figure 5.4. This
@@ -207,18 +189,12 @@ of 1 to the happy points, and of 0 to the sad points. The point of the classifie
 predictions for these points that are as close as possible to the labels. We also have a
 continuous perceptron classifier represented by the line. The classifier then makes a prediction
 between 0 and 1 for each point in the plane, as follows:
-•
+- The points on the line are given a prediction of 0.5.
 
-The points on the line are given a prediction of 0.5.
-
-•
-
-Points that are up and to the right of the line are given predictions higher than 0.5, and
+- Points that are up and to the right of the line are given predictions higher than 0.5, and
 the farther a point is from the line in that direction, the closer its prediction is to 1.
 
-•
-
-Points that are down and to the left of the line are given predictions lower than 0.5,
+- Points that are down and to the left of the line are given predictions lower than 0.5,
 and the farther a point is from the line in that direction, the closer its prediction is to 0.
 
 ©Manning Publications Co. To comment go to liveBook
@@ -379,17 +355,13 @@ simply 1 minus the prediction that the point is happy. Now, note that a point th
 classified is assigned a high probability of being its label (whether happy or sad), and a point
 that is poorly classified is assigned a low probability of being its label. If that sounds a bit
 confusing, let’s look at our four points.
-•
-
-Point 1:
+- Point 1:
 o
 
 o
 o
 
-•
-
-o
+- o
 o
 
 Label = 1 (sad)
@@ -401,17 +373,13 @@ o
 
 o
 o
-•
-
-Prediction = 0.95
+- Prediction = 0.95
 Probability of being happy: 0.95
 
 Point 2:
 o
 
-•
-
-Label = 1 (happy)
+- Label = 1 (happy)
 
 Label = 1 (happy)
 Prediction = 0.3
@@ -522,14 +490,10 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 -ln(0.9) = 0.105
 
 We can write the log loss as following:
-•
-
-If the label is 0:
+- If the label is 0:
 o
 
-•
-
-log loss = -ln(1 - prediction)
+- log loss = -ln(1 - prediction)
 
 If the label is 1:
 o
@@ -676,9 +640,7 @@ to handle. What do we like? We like sums, they are much easier to handle. And ho
 turn products into sums? We have a very useful function called the logarithm, since the
 logarithm of a product is precisely the sum of the logarithms of the factors.
 To summarize, these are the steps for calculating the log loss:
-•
-
-For each point, we calculate the probability that the classifier predicts for its label
+- For each point, we calculate the probability that the classifier predicts for its label
 (happy or sad).
 
 ©Manning Publications Co. To comment go to liveBook
@@ -687,29 +649,19 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 120
 
-•
-
-We multiply all these probabilities to obtain the total probability that the classifier has
+- We multiply all these probabilities to obtain the total probability that the classifier has
 given to these labels.
 
-•
+- We apply the natural logarithm to that total probability.
 
-We apply the natural logarithm to that total probability.
-
-•
-
-Since the logarithm of a product is the sum of the logarithms of the factors, we obtain
+- Since the logarithm of a product is the sum of the logarithms of the factors, we obtain
 a sum of logarithms, one for each point.
 
-•
-
-We notice that all the terms are negative, since the logarithm of a number less than 1
+- We notice that all the terms are negative, since the logarithm of a number less than 1
 is a negative number. Thus, we multiply everything by minus 1 to get a sum of positive
 numbers.
 
-•
-
-This sum is our log loss.
+- This sum is our log loss.
 
 Notice that the classifier in the left, which is bad, has a log loss of 2.988. The classifier in the
 right, which is good, has a smaller log loss of 1.735. Thus, the log loss does its job, which is to
@@ -764,16 +716,12 @@ classifier which predicts whether a sentence is happy or sad by assigning scores
 Then we used the perceptron algorithm to slightly improve this classifier.
 The features, or words, were ‘aack’ and ‘beep’. The classifier and sentence are the
 following:
-•
-
-Classifier (scores):
+- Classifier (scores):
 o
 
 o
 o
-•
-
-‘Aack’: 1 pt.
+- ‘Aack’: 1 pt.
 ‘Beep’: 1 pts.
 Bias: -4 pts.
 
@@ -802,17 +750,11 @@ Since the score is positive, then the discrete perceptron classifier classifies 
 happy (which means it misclassifies it). In this example, we decided that we would update the
 scores by subtracting from them the error rate times the number of times each word appears
 in the sentence. If the error rate was 0.01, we did the following:
-•
+- Update the score of ‘aack’ by subtracting 2*0.01, thus obtaining 0.98.
 
-Update the score of ‘aack’ by subtracting 2*0.01, thus obtaining 0.98.
+- Update the score of ‘beep’ by subtracting 4*0.01, thus obtaining 0.96.
 
-•
-
-Update the score of ‘beep’ by subtracting 4*0.01, thus obtaining 0.96.
-
-•
-
-Update the bias by subtracting 0.01, thus obtaining -4.01.
+- Update the bias by subtracting 0.01, thus obtaining -4.01.
 
 Why did we subtract from the scores? Recall that in the perceptron algorithm, if the label was
 0 and the prediction 1, we would subtract from the scores, and if the label was 1 and the
@@ -839,17 +781,11 @@ the pages and read it if you need the definition before the example).
 The difference between the label and the prediction is 0-0.881 = -0.881. We’ll update the
 scores just as before, except we will scale everything by this number, -0.881 and we will
 always add to the scores.
-•
+- Update the score of ‘aack’ by adding 2*0.01*(-0.881), thus obtaining 0.982.
 
-Update the score of ‘aack’ by adding 2*0.01*(-0.881), thus obtaining 0.982.
+- Update the score of ‘beep’ by adding 4*0.01*(-0.881), thus obtaining 0.965.
 
-•
-
-Update the score of ‘beep’ by adding 4*0.01*(-0.881), thus obtaining 0.965.
-
-•
-
-Update the bias by adding 0.01*(-0.881), thus obtaining -4.009.
+- Update the bias by adding 0.01*(-0.881), thus obtaining -4.009.
 
 The new classifier will give the point the following score and prediction.
 
@@ -868,17 +804,11 @@ point is correctly classified. However, if we use the logistic regression algori
 same approach of updating the weights as with the previous example, we see that the
 difference between the label and the prediction is now 1 - 0.881 = 0.119 (since the label is 1).
 Let’s update the scores in the exact same way as before.
-•
+- Update the score of ‘aack’ by adding 2*0.01*(0.119), thus obtaining 1.002.
 
-Update the score of ‘aack’ by adding 2*0.01*(0.119), thus obtaining 1.002.
+- Update the score of ‘beep’ by adding 4*0.01*(0.119), thus obtaining 1.005.
 
-•
-
-Update the score of ‘beep’ by adding 4*0.01*(0.119), thus obtaining 1.005.
-
-•
-
-Update the bias by adding 0.01*(0.119), thus obtaining -3.999.
+- Update the bias by adding 0.01*(0.119), thus obtaining -3.999.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -902,36 +832,26 @@ the prediction, but this didn’t matter. We are ready to formally define the lo
 algorithm for our example.
 Logistic regression trick (pseudocode):
 Input:
-•
-
-A classifier with the following scores:
+- A classifier with the following scores:
 o
 
 o
 o
 
-•
-
-Score of ‘aack’: a.
+- Score of ‘aack’: a.
 Score of ‘beep’: b.
 Bias: c.
 
 A point with coordinates (x1, x2) (where x1 is the number of appearances of the word
 ‘aack’, and x2 of the word ‘beep’).
 
-•
-
-A learning rate η.
+- A learning rate η.
 
 Procedure :
-•
-
-Calculate the prediction that the classifier gives to the datapoint as:
+- Calculate the prediction that the classifier gives to the datapoint as:
 o
 
-•
-
-ŷ = σ(ax1 + bx2 + c)
+- ŷ = σ(ax1 + bx2 + c)
 
 Output a classifier with the following scores:
 o
@@ -947,9 +867,7 @@ And now that we have the logistic regression trick, we can easily write the pseu
 logistic regression algorithm.
 Logistic regression algorithm (pseudocode):
 Input:
-•
-
-A dataset of points, where every point has a positive or negative label.
+- A dataset of points, where every point has a positive or negative label.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -957,30 +875,20 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 125
 
-•
+- A number of epochs, n.
 
-A number of epochs, n.
-
-•
-
-A learning rate
+- A learning rate
 
 Procedure:
-•
-
-Start with a random line. In other words, start with random values for the score of each
+- Start with a random line. In other words, start with random values for the score of each
 word, and the bias.
 
-•
-
-Repeat the following procedure n times:
+- Repeat the following procedure n times:
 o
 
 o
 
-•
-
-Pick a random point.
+- Pick a random point.
 Apply the logistic regression trick to the point and the line. In other words, if the
 point is well classified, move the line a little farther from the point, and if it is
 misclassified, move the line a little closer to the point.
@@ -997,21 +905,13 @@ We use the same notation as in Chapter 4. The label of each sentence is the sent
 or sad). We have a language with n words. The features are the number of times each word
 appears, and the weights are the scores corresponding to the words. These weights include
 the bias, which corresponds to no word, it simply gets added to the score of every sentence.
-•
+- Features: x1, x2, … , xn
 
-Features: x1, x2, … , xn
+- Label: y
 
-•
+- Weights: w1, w2, … , wn
 
-Label: y
-
-•
-
-Weights: w1, w2, … , wn
-
-•
-
-Bias: b
+- Bias: b
 
 The score for a particular sentence is the sigmoid of the sum of the weight of each word (wi)
 times the number of times that appears (xi), plus the bias (b) (which we called the dot
@@ -1069,13 +969,9 @@ point has label 1. Since we called the label
 
 and the prediction
 
-•
+- If the label is y = 1, then log loss = ln (ŷ)
 
-If the label is y = 1, then log loss = ln (ŷ)
-
-•
-
-If the label is y = 0, then log loss = ln (1 − ŷ)
+- If the label is y = 0, then log loss = ln (1 − ŷ)
 
 , we get the following:
 
@@ -1137,17 +1033,11 @@ lr_algorithm(features, labels)
 ([0.46999999999999953, 0.09999999999999937], -0.6800000000000004)
 
 The classifier we obtain has the following weights and biases.
-•
+- w1 = 4.7
 
-w1 = 4.7
+- w2 = 0.1
 
-•
-
-w2 = 0.1
-
-•
-
-b = −0.6
+- b = −0.6
 
 The plot of the classifier (together with a plot of the previous classifiers at each of the epochs)
 is in Figure 5.12.
@@ -1192,9 +1082,7 @@ classifier.coefficients
 We get the following coefficients:
 •
 •
-•
-
-(the intercept)
+- (the intercept)
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -1231,32 +1119,20 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 131
 
-•
+- Dog classifier: 4
 
-Dog classifier: 4
+- Cat classifier: 2
 
-•
-
-Cat classifier: 2
-
-•
-
-Bird classifier: 1
+- Bird classifier: 1
 
 How do we turn these into probabilities? Well, here’s an idea: why don’t we divide all these
 three numbers by their sum, which is 7? Now we get the probabilities 4/7 for dog, 2/7 for cat,
 and 1/7 for bird. This works, but what if we have the following numbers:
-•
+- Dog classifier: 2
 
-Dog classifier: 2
+- Cat classifier: 0
 
-•
-
-Cat classifier: 0
-
-•
-
-Bird classifier: -2
+- Bird classifier: -2
 
 Their sum is 0, so when we try to divide by the sum, we have a problem. What if we square
 them? Then the sum is not zero, but our probabilities would be 2/4 for dog, 0 for cat, and 2/4
@@ -1270,31 +1146,19 @@ since all you need to go from one to the other is to scale the exponent. By defa
 when you don’t know what exponent to pick, you pick e, since the function ex has wonderful
 mathematical properties (for instance, it is its own derivative!). So we’ll go with ex. We apply it
 to all the scores, to get the following.
-•
+- Dog classifier: e2 = 7.389
 
-Dog classifier: e2 = 7.389
+- Cat classifier: e0 = 1
 
-•
-
-Cat classifier: e0 = 1
-
-•
-
-Bird classifier: e-2 = 0.135
+- Bird classifier: e-2 = 0.135
 
 Now, we do what we did before, we normalize, or divide by the sum of these three numbers in
 order for them to add to 1. The sum is 7.389 + 1 + 0.135 = 8.524, so we get the following:
-•
+- Probability of dog: 7.389/8.524 = 0.867
 
-Probability of dog: 7.389/8.524 = 0.867
+- Probability of cat: 1/8.524 = 0.117
 
-•
-
-Probability of cat: 1/8.524 = 0.117
-
-•
-
-Probability of bird: 0.135/8.524 = 0..016
+- Probability of bird: 0.135/8.524 = 0..016
 
 These are the three probabilities given by our three classifiers. The function we used was the
 softmax, and the general version is the following. If we have n classifiers which output the n
@@ -1312,47 +1176,33 @@ What would happen if we use the softmax formula for only two classes? We obtain 
 sigmoid function. I encourage you to convince yourself of this as an exercise.
 
 5.4 Summary
-•
-
-Continuous logistic classifiers (or continuous perceptrons) are very similar to their
+- Continuous logistic classifiers (or continuous perceptrons) are very similar to their
 discrete counterparts, except instead of making a discrete prediction such as 0 or 1,
 they predict any number between 0 and 1.
 
-•
-
-Continuous perceptrons are more useful than discrete perceptrons, since they give us
+- Continuous perceptrons are more useful than discrete perceptrons, since they give us
 more information. Continuous perceptrons don’t just tell us which class the classifier
 predicts, but it also gives us a probability. It would assign low probabilities to points it
 predicts to have label 0, and high probabilities to points it predicts to have label 1.
 
-•
-
-The log loss is an error function for continuous perceptrons. It is calculated separately
+- The log loss is an error function for continuous perceptrons. It is calculated separately
 for every point as the natural logarithm of the probability that the point is classified
 correctly according to its label.
 
-•
+- The total log loss of a classifier on a dataset is the sum of the log loss at every point.
 
-The total log loss of a classifier on a dataset is the sum of the log loss at every point.
-
-•
-
-The logistic regression trick takes a labelled data point and a line. If the point is
+- The logistic regression trick takes a labelled data point and a line. If the point is
 incorrectly classified, the line is moved closer to the point, and if it is correctly
 classified, the line is moved farther from the point. This is more useful than the
 perceptron trick, since the perceptron trick doesn’t move the line if the point is
 correctly classified.
 
-•
-
-The logistic regression algorithm is used to fit a continuous perceptron to a labelled
+- The logistic regression algorithm is used to fit a continuous perceptron to a labelled
 dataset. It consists of starting with a continuous perceptron with random weights, and
 continuously picking a random point and applying the logistic regression trick in order
 to obtain a slightly better classifier.
 
-•
-
-When we have several classes to predict, we can build several linear classifiers, and
+- When we have several classes to predict, we can build several linear classifiers, and
 combine them using the softmax function.
 
 ©Manning Publications Co. To comment go to liveBook

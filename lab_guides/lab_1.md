@@ -3,25 +3,15 @@ What is machine learning?
 
 It is common sense, except done by a computer
 This chapter covers:
-•
+- What is machine learning?
 
-What is machine learning?
+- Is machine learning hard? (Spoiler: No)
 
-•
+- Why you should read this book?
 
-Is machine learning hard? (Spoiler: No)
+- What will we learn in this book?
 
-•
-
-Why you should read this book?
-
-•
-
-What will we learn in this book?
-
-•
-
-How do humans think, how do machines think, and what does this have to do with machine
+- How do humans think, how do machines think, and what does this have to do with machine
 learning?
 
 I am super happy to join you in your learning journey!
@@ -270,45 +260,25 @@ Example 2: A seasonal annoying email friend
 Let us look more carefully at the emails that Bob sent us in the previous month. Let’s look at
 what day he sent them. Here are the emails with dates, and information about being spam or
 ham:
-•
+- Monday: Ham
 
-Monday: Ham
+- Tuesday: Ham
 
-•
+- Saturday: Spam
 
-Tuesday: Ham
+- Sunday: Spam
 
-•
+- Sunday: Spam
 
-Saturday: Spam
+- Wednesday: Ham
 
-•
+- Friday: Ham
 
-Sunday: Spam
+- Saturday: Spam
 
-•
+- Tuesday: Ham
 
-Sunday: Spam
-
-•
-
-Wednesday: Ham
-
-•
-
-Friday: Ham
-
-•
-
-Saturday: Spam
-
-•
-
-Tuesday: Ham
-
-•
-
-Thursday: Ham
+- Thursday: Ham
 
 Now things are different. Can you see a pattern? It seems that every email Bob sent during
 the week, is ham, and every email he sent during the weekend is spam. This makes sense,
@@ -339,50 +309,30 @@ turns out last Sunday he sent us an invitation to his birthday party, and we mis
 we miss it, because he sent it on the weekend. It seems that we need a better model. So let’s
 go back to look at Bob’s emails, in the following table, this is our remember step. Now let’s
 see if you can help me find a pattern.
-•
+- 1KB: Ham
 
-1KB: Ham
+- 12KB: Ham
 
-•
-
-12KB: Ham
-
-•
-
-16KB: Spam
+- 16KB: Spam
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 11
 
-•
+- 20KB: Spam
 
-20KB: Spam
+- 18KB: Spam
 
-•
+- 3KB: Ham
 
-18KB: Spam
+- 5KB: Ham
 
-•
+- 25KB: Spam
 
-3KB: Ham
+- 1KB: Ham
 
-•
-
-5KB: Ham
-
-•
-
-25KB: Spam
-
-•
-
-1KB: Ham
-
-•
-
-3KB: Ham
+- 3KB: Ham
 
 What do we see? It seems that the large emails tend to be spam, while the smaller ones tend
 to not be spam. This makes sense, since maybe the spam ones have a large attachment.
@@ -441,18 +391,14 @@ with features such as the sender, the date and time of day, the number of words,
 of spelling mistakes, the appearances of certain words such as “buy”, or similar words. A rule
 could easily look as follows:
 Rule 7:
-•
-
-If the email has two or more spelling mistakes, then it is classified as spam.
+- If the email has two or more spelling mistakes, then it is classified as spam.
 o
 
 Otherwise, if it has an attachment larger than 20KB, it is classified as spam.
 
 
 Otherwise, if the sender is not in our contact list, it is classified as spam.
-•
-
-Otherwise, if it has the words “buy” and “win”, it is classified as spam.
+- Otherwise, if it has the words “buy” and “win”, it is classified as spam.
 o Otherwise, it is classified as ham.
 
 Or even more mathematical, such as:
@@ -489,22 +435,16 @@ graphs of lines, equations, and probability. It is very helpful (although not ma
 know how to code, specially in Python, as you will be given the opportunity to implement and
 apply several models in real datasets throughout the book. After reading this book, you will be
 able to do the following:
-•
-
-Describe the most important algorithms in predictive machine learning and how they
+- Describe the most important algorithms in predictive machine learning and how they
 work, including linear and logistic regression, decision trees, naive Bayes, support
 vector machines, and neural networks.
 
 •
-•
-
-Identify what are their strengths and weaknesses, and what parameters they use.
+- Identify what are their strengths and weaknesses, and what parameters they use.
 Identify how these algorithms are used in the real world, and formulate potential ways
 to apply machine learning to any particular problem you would like to solve.
 
-•
-
-How to optimize these algorithms, compare them, and improve them, in order to build
+- How to optimize these algorithms, compare them, and improve them, in order to build
 the best machine learning models we can.
 
 If you have a particular dataset or problem in mind, we invite you to think about how to apply
@@ -513,20 +453,14 @@ point to implement and experiment with your own models.
 I am super excited to start this journey with you, and I hope you are as excited!
 
 1.6 Summary
-•
-
-Machine learning is easy! Anyone can do it, regardless of their background, all that is
+- Machine learning is easy! Anyone can do it, regardless of their background, all that is
 needed is a desire to learn, and great ideas to implement!
 
-•
-
-Machine learning is tremendously useful, and it is used in most disciplines. From
+- Machine learning is tremendously useful, and it is used in most disciplines. From
 science to technology to social problems and medicine, machine learning is making an
 impact, and will continue making it.
 
-•
-
-Machine learning is common sense, done by a computer. It mimics the ways humans
+- Machine learning is common sense, done by a computer. It mimics the ways humans
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -534,14 +468,10 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 15
 
 think in order to make decisions fast and accurately.
-•
-
-Just like humans make decisions based on experience, computers can make decisions
+- Just like humans make decisions based on experience, computers can make decisions
 based on previous data. This is what machine learning is all about.
 
-•
-
-Machine learning uses the remember-formulate-predict framework, as follows:
+- Machine learning uses the remember-formulate-predict framework, as follows:
 o
 
 o

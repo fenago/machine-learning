@@ -7,34 +7,20 @@ Using probability to its maximum:
 The naive Bayes algorithm
 
 This chapter covers
-•
+- What is Bayes theorem?
 
-What is Bayes theorem?
+- When are events dependent of independent?
 
-•
+- The prior and the posterior probabilities.
 
-When are events dependent of independent?
+- Calculating conditional probabilities based on events.
 
-•
+- What is the naive Bayes algorithm?
 
-The prior and the posterior probabilities.
-
-•
-
-Calculating conditional probabilities based on events.
-
-•
-
-What is the naive Bayes algorithm?
-
-•
-
-Using the naive Bayes algorithm to predict if an email is spam or ham, based on the words
+- Using the naive Bayes algorithm to predict if an email is spam or ham, based on the words
 in the email.
 
-•
-
-Coding the naive Bayes algorithm in Python.
+- Coding the naive Bayes algorithm in Python.
 
 Naive Bayes is a very important machine learning algorithm used for prediction. As opposed to
 the previous algorithms you’ve learned in this book, such as the perceptron algorithm, in
@@ -125,16 +111,12 @@ e)
 80-100%
 
 Let’s calculate it. To summarize, we have the following two pieces of information:
-•
-
-The test is correct 99% of the time. To be more exact (we checked with the doctor to
+- The test is correct 99% of the time. To be more exact (we checked with the doctor to
 confirm this), on average, out of every 100 healthy people, the test correctly diagnoses
 99 of them, and out of every 100 sick people, the test correctly diagnoses 99 of them.
 Therefore, both on healthy and sick people, the test has an accuracy of 99%.
 
-•
-
-On average, 1 out of every 10,000 people has the disease.
+- On average, 1 out of every 10,000 people has the disease.
 
 Let’s do some rough calculations to see what the probability would be. Let’s pick a random
 group of 10,000 people. Since on average, one out of every 10,000 people are sick, then we
@@ -170,33 +152,21 @@ of them have the disease? Since 1 out of every 10 thousand has the disease, then
 calculation shows that among 1 million people, 100 of them are sick. So we have our first
 piece of information.
 Out of 1 million people:
-•
+- 999,900 of them are healthy, and
 
-999,900 of them are healthy, and
-
-•
-
-100 of them are sick.
+- 100 of them are sick.
 
 Now, let’s say we test all of them. Since the test is correct 99% of the time, both among the
 healthy and among the sick, then we have a second piece of information.
 Out of 99,900 healthy people:
-•
+- 99% of them, or 989,901, are diagnosed as healthy, and
 
-99% of them, or 989,901, are diagnosed as healthy, and
-
-•
-
-1% of them, or 9,999, are diagnosed as sick.
+- 1% of them, or 9,999, are diagnosed as sick.
 
 Out of 100 sick people:
-•
+- 99% of them, or 99, are diagnosed as sick, and
 
-99% of them, or 99, are diagnosed as sick, and
-
-•
-
-1& of them, or 1, is diagnosed as healthy.
+- 1& of them, or 1, is diagnosed as healthy.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -364,19 +334,13 @@ Figure 6.6: We have removed (blurred) the emails that don’t contain the word �
 probabilities change. Now, since among the emails that contain the word ‘lottery’, there are 15 spam emails
 and 5 ham emails. Thus, the probability that an email containing the word ‘lottery’ is spam, is 75%.
 There we have it, that is Bayes Theorem. To summarize:
-•
-
-The prior is 20%, the probability that an email is spam, knowing nothing about the
+- The prior is 20%, the probability that an email is spam, knowing nothing about the
 email.
 
-•
-
-The event is that the email contains the word ‘lottery’. This helped us make a better
+- The event is that the email contains the word ‘lottery’. This helped us make a better
 estimate of the probability.
 
-•
-
-The posterior probability is 80%. This is the probability that the email is spam, given
+- The posterior probability is 80%. This is the probability that the email is spam, given
 that it contains the word ‘lottery’.
 
 6.2.3 What the math just happened? Turning ratios into probabilities
@@ -419,9 +383,7 @@ all we know is the following:
 •
 •
 •
-•
-
-The probability that an email is spam is ⅕.
+- The probability that an email is spam is ⅕.
 
 The probability that a spam email contains the word ‘lottery’ is ¾.
 The probability that a ham email contains the word ‘lottery’ is 1/40.
@@ -452,13 +414,9 @@ is 1 minus the probability of
 
 .
 So we have the following:
-•
+- P(spam)= .The probability of an email being spam.
 
-P(spam)= .The probability of an email being spam.
-
-•
-
-P(ham)= . The probability of an email being ham.
+- P(ham)= . The probability of an email being ham.
 
 Now, let’s look at the other information. The probability that a spam email contains the word
 ‘lottery’ is ¾. This can be read as, the probability that an email contains the word ‘lottery’
@@ -479,22 +437,14 @@ the word ‘lottery’? Well, the complimentary event is that a spam email conta
 probabilities, as follows:
 . The probability that a spam email contains the word ‘lottery’.
 
-•
+- P (‘lottery’|spam) =
 
-P (‘lottery’|spam) =
+- P (‘no lottery’|spam) = . The probability that a spam email does not contain the word
 
-•
-
-P (‘no lottery’|spam) = . The probability that a spam email does not contain the word
-
-•
-
-P (‘lottery’|ham) = . The probability that a ham email contains the word ‘lottery’.
+- P (‘lottery’|ham) = . The probability that a ham email contains the word ‘lottery’.
 
 ‘lottery’.
-•
-
-P (no ‘lottery’|ham) =
+- P (no ‘lottery’|ham) =
 
 . The probability that a ham email does not contain the word
 
@@ -507,21 +457,13 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 The next thing we do is find the probabilities of two events happening at the same time. More
 specifically, we want the following four probabilities:
-•
+- The probability that an email is spam and contains the word ‘lottery’.
 
-The probability that an email is spam and contains the word ‘lottery’.
+- The probability that an email is spam and does not contain the word ‘lottery’.
 
-•
+- The probability that an email is ham and contains the word ‘lottery’.
 
-The probability that an email is spam and does not contain the word ‘lottery’.
-
-•
-
-The probability that an email is ham and contains the word ‘lottery’.
-
-•
-
-The probability that an email is ham and does not contain the word ‘lottery’.
+- The probability that an email is ham and does not contain the word ‘lottery’.
 
 These events are called intersections of events, and denoted with the symbol
 
@@ -718,18 +660,12 @@ probability of both of them happening is the product of the probabilities of eac
 So now, making this assumption, we can estimate how many spam and ham emails would
 contain the words ‘lottery’ and ‘sale’. Let’s remember the following numbers from before:
 Spam emails:
-•
-
-Among the 20 spam emails, 15 of them contained the word ‘lottery’. Therefore, the
+- Among the 20 spam emails, 15 of them contained the word ‘lottery’. Therefore, the
 probability of the word ‘lottery appearing in a spam email is 15/20, or 0.75.
 
-•
+- Among the 20 spam emails, 6 of them contained the word ‘sale’. Therefore, the
 
-Among the 20 spam emails, 6 of them contained the word ‘sale’. Therefore, the
-
-•
-
-Therefore, the probability of both words appearing in a spam email is 0.75*0.3 =
+- Therefore, the probability of both words appearing in a spam email is 0.75*0.3 =
 
 probability of the word sale appearing in a spam email is 6/20, or 03.
 0.225. This means, among our 20 spam emails, we expect to see 0.225*20 = 4.5 of
@@ -748,19 +684,13 @@ spam emails, we expect to see 45 containing both words. It’s a matter of proba
 about counting actual emails. In probability terms, our assumption boils down to the following:
 
 Ham emails:
-•
-
-Among the 80 ham emails, 5 of them contained the word ‘lottery’. Therefore, the
+- Among the 80 ham emails, 5 of them contained the word ‘lottery’. Therefore, the
 probability of the word ‘lottery appearing in a ham email is 5/80, or 0.0625.
 
-•
-
-Among the 80 ham emails, 4 of them contained the word ‘sale’. Therefore, the
+- Among the 80 ham emails, 4 of them contained the word ‘sale’. Therefore, the
 probability of the word sale appearing in a ham email is 4/80, or 0.05.
 
-•
-
-Therefore, the probability of both words appearing in a ham email is 0.0625*0.05 =
+- Therefore, the probability of both words appearing in a ham email is 0.0625*0.05 =
 0.003125 (quite unlikely!). This means, among our 80 ham emails, we expect to see
 20*0.003125 = 0.0625 of them containing both words.
 
@@ -816,32 +746,20 @@ spam, it actually appears more in ham emails. In fact, out of the 20 spam emails
 them contain the word ‘mom’, and out of the 80 ham emails, 40 of them contain it. We can do
 the same trick again, let’s look at some probabilities:
 Among the spam emails:
-•
+- The probability of an email containing ‘lottery’ is 15/20.
 
-The probability of an email containing ‘lottery’ is 15/20.
+- The probability of an email containing ‘sale’ is 6/20.
 
-•
-
-The probability of an email containing ‘sale’ is 6/20.
-
-•
-
-The probability of an email containing ‘mom’ is 1/20.
+- The probability of an email containing ‘mom’ is 1/20.
 
 Therefore, the probability of an email containing the three words is the product of these three
 probabilities, namely, 90/8000 = 0.01125.
 Among the ham emails:
-•
+- The probability of an email containing ‘lottery’ is 5/80.
 
-The probability of an email containing ‘lottery’ is 5/80.
+- The probability of an email containing ‘sale’ is 4/80.
 
-•
-
-The probability of an email containing ‘sale’ is 4/80.
-
-•
-
-The probability of an email containing ‘mom’ is 40/80.
+- The probability of an email containing ‘mom’ is 40/80.
 
 Therefore, the probability of an email containing the three words is the product of these three
 probabilities, namely, 800/512000 = 0.0015625.
@@ -1020,23 +938,15 @@ I encourage you to explore this and other packages, and use the naive Bayes algo
 types of datasets!
 
 6.4 Summary
-•
-
-Bayes theorem is a technique widely used in probability, statistics, and machine
+- Bayes theorem is a technique widely used in probability, statistics, and machine
 learning.
 
-•
-
-Bayes theorem consists in calculating a posterior probability, based on a prior
+- Bayes theorem consists in calculating a posterior probability, based on a prior
 probability and an event.
 
-•
+- The prior probability is a basic calculation of a probability, given very little information.
 
-The prior probability is a basic calculation of a probability, given very little information.
-
-•
-
-Bayes theorem uses the event to make a much better estimate of the probability in
+- Bayes theorem uses the event to make a much better estimate of the probability in
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -1044,14 +954,10 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 161
 
 question.
-•
-
-The naive Bayes algorithm is used when one wants to combine a prior probability
+- The naive Bayes algorithm is used when one wants to combine a prior probability
 together with several events.
 
-•
-
-The word ‘naive’ comes from the fact that we are making a naive assumption, namely,
+- The word ‘naive’ comes from the fact that we are making a naive assumption, namely,
 that the events in question are all independent.
 
 ©Manning Publications Co. To comment go to liveBook

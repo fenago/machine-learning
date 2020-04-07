@@ -6,29 +6,17 @@
 Types of machine learning
 
 This chapter covers:
-•
+- Three main different types of machine learning.
 
-Three main different types of machine learning.
+- The difference between labelled and unlabelled data.
 
-•
+- What supervised learning is and what it’s useful for.
 
-The difference between labelled and unlabelled data.
+- The difference between regression and classification, and what are they useful for.
 
-•
+- What unsupervised learning is and what it’s useful for.
 
-What supervised learning is and what it’s useful for.
-
-•
-
-The difference between regression and classification, and what are they useful for.
-
-•
-
-What unsupervised learning is and what it’s useful for.
-
-•
-
-What reinforcement learning is and what it’s useful for.
+- What reinforcement learning is and what it’s useful for.
 
 As we learned in Chapter 1, machine learning is common sense, but for a computer. It mimics
 the process in which humans make decisions based on experience, by making decisions based
@@ -39,56 +27,34 @@ which humans make decisions. In this chapter, we overview some of the most impor
 these branches.
 ML has applications in many many fields. Can you think of some fields in which you can
 apply machine learning? Here is a list of some of my favorites:
-•
+- Predicting housing prices based on their size, number of rooms, location, etc.
 
-Predicting housing prices based on their size, number of rooms, location, etc.
-
-•
-
-Predicting the stock market based on other factors of the market, and yesterday’s
+- Predicting the stock market based on other factors of the market, and yesterday’s
 price.
 
-•
+- Detecting spam or non-spam e-mails based on the words of the e-mail, the sender, etc.
 
-Detecting spam or non-spam e-mails based on the words of the e-mail, the sender, etc.
+- Recognizing images as faces, animals, etc., based on the pixels in the image.
 
-•
+- Processing long text documents and outputting a summary.
 
-Recognizing images as faces, animals, etc., based on the pixels in the image.
+- Recommending videos or movies to a user (for example YouTube, Netflix, etc.).
 
-•
-
-Processing long text documents and outputting a summary.
-
-•
-
-Recommending videos or movies to a user (for example YouTube, Netflix, etc.).
-
-•
-
-Chatbots that interact with humans and answer questions.
+- Chatbots that interact with humans and answer questions.
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 17
 
-•
+- Self driving cars that are able to navigate a city.
 
-Self driving cars that are able to navigate a city.
+- Diagnosing patients as sick or healthy.
 
-•
-
-Diagnosing patients as sick or healthy.
-
-•
-
-Segmenting the market into similar groups based on location, acquisitive power,
+- Segmenting the market into similar groups based on location, acquisitive power,
 interests, etc.
 
-•
-
-Playing games like chess or Go.
+- Playing games like chess or Go.
 
 Try to imagine how we could use machine learning in each of these fields. Some applications
 look similar. For example, we can imagine that predicting housing prices and predicting stock
@@ -100,17 +66,11 @@ by topic? And what about playing chess? That sounds very different than predicti
 is spam. But it sounds similar to playing Go.
 Machine learning models are grouped into different types, according to the way they
 operate. The main three families of machine learning models are
-•
+- supervised learning,
 
-supervised learning,
+- unsupervised learning, and
 
-•
-
-unsupervised learning, and
-
-•
-
-reinforcement learning.
+- reinforcement learning.
 
 In this chapter, we overview them all. However, in this book, we only cover supervised
 learning, as it is the most natural one to start learning, and arguably the most commonly
@@ -247,14 +207,10 @@ Example 2 (classification), email spam detection model: In this model, each data
 an email. The label of each email is either spam or ham. Our goal is, when a new email (data
 point) comes into our inbox, we would like to predict its label, namely, if it is spam or ham.
 You can see the difference between models 1 and 2.
-•
-
-Example 1, the housing prices model, is a model that can return many numbers, such
+- Example 1, the housing prices model, is a model that can return many numbers, such
 as $100, $250,000, or $3,125,672. Thus it is a regression model.
 
-•
-
-Example 2, the spam detection model, on the other hand, can only return two things:
+- Example 2, the spam detection model, on the other hand, can only return two things:
 spam or ham. Thus it is a classification model.
 
 Let’s elaborate some more on regression and classification.
@@ -265,24 +221,16 @@ is predicted from the features. In the housing example, the features can be the 
 house, the number of rooms, the distance to the closest school, the crime rate in the
 neighborhood, etc.
 Other places where one can use regression models are the following:
-•
-
-Stock market: Predicting the price of a certain stock based on other stock prices, and
+- Stock market: Predicting the price of a certain stock based on other stock prices, and
 other market signals.
 
-•
-
-Medicine: Predicting the expected lifespan of a patient, or the expected recovery time,
+- Medicine: Predicting the expected lifespan of a patient, or the expected recovery time,
 based on symptoms and the medical history of the patient.
 
-•
-
-Sales: Predicting the expected amount of money a customer will spend, based on the
+- Sales: Predicting the expected amount of money a customer will spend, based on the
 client’s demographics and past purchase behavior.
 
-•
-
-Video recommendations: Predicting the expected amount of time a user will watch a
+- Video recommendations: Predicting the expected amount of time a user will watch a
 video, based on the user’s demographics and past interaction with the site.
 
 The most common method used for regression is linear regression, which is when we use
@@ -339,19 +287,13 @@ link:
 
 https://www.cs.toronto.edu/~kriz/cifar.html.
 Other places where one can use classification models are the following:
-•
+- Sentiment analysis: Predicting if a movie review is positive or negative, based on the
 
-Sentiment analysis: Predicting if a movie review is positive or negative, based on the
-
-•
-
-Website traffic: Predicting if a user will click on a link or not, based on the user’s
+- Website traffic: Predicting if a user will click on a link or not, based on the user’s
 
 words in the review.
 demographics and past interaction with the site.
-•
-
-Social media: Predicting if a user will befriend or interact with another user or not,
+- Social media: Predicting if a user will befriend or interact with another user or not,
 based on their demographics, history, and friends in common.
 
 The bulk of this book talks about classification models. In chapters 3-x, we talk about
@@ -455,37 +397,25 @@ furthermore, imagine if our data was formed by millions of points, with hundreds
 of columns. All of a sudden, we cannot eyeball the data, and clustering becomes hard. Luckily,
 computers can do these type of clustering for huge datasets with lots of columns.
 Other applications of clustering are the following:
-•
-
-Market segmentation: Dividing customers into groups based on demographic and
+- Market segmentation: Dividing customers into groups based on demographic and
 purchasing (or engagement) behavior, in order to create different marketing strategies
 for the groups.
 
-•
+- Genetics: Clustering species into groups based on similarity.
 
-Genetics: Clustering species into groups based on similarity.
-
-•
-
-Medical imaging: Splitting an image into different parts in order to study different types
+- Medical imaging: Splitting an image into different parts in order to study different types
 of tissue.
 
 Unsupervised learning algorithms
 In this book, we don’t get to study unsupervised learning. However, I strongly encourage you to study them on your own.
 Here are some of the most important clustering algorithms out there.
-•
-
-K-means clustering: This algorithm groups points by picking some random centers of mass, and moving them
+- K-means clustering: This algorithm groups points by picking some random centers of mass, and moving them
 closer and closer to the points until they are at the right spots.
 
-•
-
-Hierarchical clustering: This algorithm starts by grouping the closest points together, and continuing in this fashion,
+- Hierarchical clustering: This algorithm starts by grouping the closest points together, and continuing in this fashion,
 until we have some well defined groups.
 
-•
-
-Density-based special clustering (DBSCAN): This algorithm starts grouping points together in points of high density,
+- Density-based special clustering (DBSCAN): This algorithm starts grouping points together in points of high density,
 while leaving the isolated points as noise.
 Gaussian mixture models: This algorithm doesn’t actually determine if an element belongs to a cluster, but instead
 gives a breakdown of percentages. For example, if there are three clusters, A, B, and C, then the algorithm could say
@@ -646,40 +576,26 @@ part, anytime you have an agent navigating an environment, picking up informatio
 learning how to get rewards and avoid punishment, you have reinforcement learning.
 Reinforcement learning has numerous cutting edge applications, and here are some of
 them.
-•
-
-Games: The recent advances teaching computers how to win at games such as Go or
+- Games: The recent advances teaching computers how to win at games such as Go or
 chess, use reinforcement learning. Also, agents have been taught to win at Atari games
 such as Breakout or Super Mario.
 
-•
-
-Robotics: Reinforcement learning is used extensively to help robots do tasks such as
+- Robotics: Reinforcement learning is used extensively to help robots do tasks such as
 picking up boxes, cleaning a room, or any similar actions.
 
-•
-
-Self driving cars: For anything from path planning to controlling the car, reinforcement
+- Self driving cars: For anything from path planning to controlling the car, reinforcement
 learning techniques are used.
 
 2.5 Summary
-•
-
-There are several types of machine learning, including supervised learning and
+- There are several types of machine learning, including supervised learning and
 unsupervised learning.
 
-•
+- Supervised learning is used on labelled data, and it is good for making predictions.
 
-Supervised learning is used on labelled data, and it is good for making predictions.
-
-•
-
-Unsupervised learning is used on unlabelled data, and it is normally used as a
+- Unsupervised learning is used on unlabelled data, and it is normally used as a
 preprocessing step.
 
-•
-
-Two very common types of supervised learning algorithms are called regression and
+- Two very common types of supervised learning algorithms are called regression and
 classification.
 o
 
@@ -694,14 +610,10 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 34
 
-•
-
-Two very common types of unsupervised learning algorithms are clustering and
+- Two very common types of unsupervised learning algorithms are clustering and
 dimensionality reduction.
 
-•
-
-o
+- o
 
 Clustering is used to group our data into similar clusters, in order to extract
 

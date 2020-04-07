@@ -6,25 +6,15 @@ Drawing a line close to our points:
 Linear regression
 
 This chapter covers
-•
+- What is linear regression?
 
-What is linear regression?
+- How to predict the price of a house based on known prices of other houses
 
-•
+- How to fit a line through a set of data points.
 
-How to predict the price of a house based on known prices of other houses
+- How to code the linear regression algorithm in Python.
 
-•
-
-How to fit a line through a set of data points.
-
-•
-
-How to code the linear regression algorithm in Python.
-
-•
-
-Examples of linear regression in the real world, such as medical applications and
+- Examples of linear regression in the real world, such as medical applications and
 recommender systems.
 
 In this chapter we learn linear regression. Linear regression is a very powerful and common
@@ -59,30 +49,20 @@ magnets/points.
 Of course, this can lead to a lot of ambiguity. Do we want a road that goes somewhat close
 to all the houses, or maybe really close to a few of them and a bit far from others? You may
 be asking yourself this and many other questions. Here are some that I can think of:
-•
+- What do we mean by “points that roughly look like they are forming a line”?
 
-What do we mean by “points that roughly look like they are forming a line”?
+- What do we mean by “a line that passes really close to the points”?
 
-•
-
-What do we mean by “a line that passes really close to the points”?
-
-•
-
-How do we (or the computer) find such a line?
+- How do we (or the computer) find such a line?
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 37
 
-•
+- Why is this useful in the real world?
 
-Why is this useful in the real world?
-
-•
-
-Why is this machine learning?
+- Why is this machine learning?
 
 In this chapter, we answer all of these questions. But first, let’s start with a very simple
 example.
@@ -401,13 +381,9 @@ will learn some very simple tricks to do this. But first, a very quick recap on 
 3.3.1 Crash course on slope and y-intercept
 When we think of a line, we can think of it graphically, or as an equation. If we think of it as
 an equation, then it has two components:
-•
+- The slope.
 
-The slope.
-
-•
-
-The y-intercept.
+- The y-intercept.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -466,24 +442,16 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 From these, we can conclude the following, which is summarized in figure 3.9:
 Changing the slope:
-•
+- If we increase the slope of a line, the line will rotate counterclockwise.
 
-If we increase the slope of a line, the line will rotate counterclockwise.
-
-•
-
-If we decrease the slope of a line, the line will rotate clockwise.
+- If we decrease the slope of a line, the line will rotate clockwise.
 
 These rotations are on the pivot shown in figure 3.9, namely, the point of intersection of the
 line and the y-axis.
 Changing the y-intercept:
-•
+- If we increase the y-intercept of a line, the line will translate upwards.
 
-If we increase the y-intercept of a line, the line will translate upwards.
-
-•
-
-If we decrease the y-intercept of a line, the line will translate downwards.
+- If we decrease the y-intercept of a line, the line will translate downwards.
 
 Figure 3.9. Left: Increasing the slope rotates the line counterclockwise, whereas decreasing it rotates it
 clockwise.
@@ -519,22 +487,14 @@ point is, and then we move the line. We simply do the following, we look at wher
 and add or subtract small amounts to the slope and the y-intercept depending on if we need
 to increase them or decrease them. The following four cases summarize our procedure:
 Case 1: If the point is above the line and to the right of the y-axis:
-•
+- Add a small amount to the slope.
 
-Add a small amount to the slope.
-
-•
-
-Add a small amount to the y-intercept.
+- Add a small amount to the y-intercept.
 
 Case 2: If the point is above the line and to the left of the y-axis
-•
+- Subtract a small amount to the slope.
 
-Subtract a small amount to the slope.
-
-•
-
-Add a small amount to the y-intercept.
+- Add a small amount to the y-intercept.
 
 Case 3: If the point is below the line and to the right of the y-axis
 ©Manning Publications Co. To comment go to liveBook
@@ -543,22 +503,14 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 49
 
-•
+- Add a small amount to the slope.
 
-Add a small amount to the slope.
-
-•
-
-Subtract a small amount to the y-intercept.
+- Subtract a small amount to the y-intercept.
 
 Case 4: If the point is below the line and to the left of the y-axis
-•
+- Subtract a small amount to the slope.
 
-Subtract a small amount to the slope.
-
-•
-
-Subtract a small amount to the y-intercept.
+- Subtract a small amount to the y-intercept.
 
 What each of these cases do, is they make sure that the line rotates and translates a small
 amount, in order to get closer to the point.
@@ -582,13 +534,9 @@ described as follows:
 PSEUDOCODE FOR THE SIMPLE TRICK
 Case 1: If the price of the house is higher than the price the model predicted, and the number
 of rooms is positive:
-•
+- Add 1 cent to the price per room
 
-Add 1 cent to the price per room
-
-•
-
-Add 1 cent to the base price.
+- Add 1 cent to the base price.
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -597,33 +545,21 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 Case 2: If the price of the house is higher than the price the model predicted, and the number
 of rooms is negative:
-•
+- Subtract 1 cent to the price per room
 
-Subtract 1 cent to the price per room
-
-•
-
-Add 1 cent to the base price.
+- Add 1 cent to the base price.
 
 Case 3: If the price of the house is lower than the price the model predicted, and the number
 of rooms is positive:
-•
+- Add 1 cent to the price per room
 
-Add 1 cent to the price per room
-
-•
-
-Subtract 1 cent to the base price.
+- Subtract 1 cent to the base price.
 
 Case 4: If the price of the house is lower than the price the model predicted, and the number
 of rooms is negative:
-•
+- Subtract 1 cent to the price per room
 
-Subtract 1 cent to the price per room
-
-•
-
-Subtract 1 cent to the base price.
+- Subtract 1 cent to the base price.
 
 Since the number of rooms is always positive, then only cases 1 and 3 make sense, but in
 cases where variables can have negative values, we need all four cases.
@@ -746,40 +682,28 @@ That product has the correct sign, so that if we add it to the slope, we will al
 the correct direction. Let’s double check this.
 Case 1: If the price of the house is higher than the price the model predicted, and the number
 of rooms is positive:
-•
-
-(Price - Predicted price) * (Number of rooms) is positive.
+- (Price - Predicted price) * (Number of rooms) is positive.
 
 Case 2: If the price of the house is higher than the price the model predicted, and the number
 of rooms is negative:
-•
-
-(Price - Predicted price) * (Number of rooms) is negative.
+- (Price - Predicted price) * (Number of rooms) is negative.
 
 Case 3: If the price of the house is lower than the price the model predicted, and the number
 of rooms is positive:
-•
-
-(Price - Predicted price) * (Number of rooms) is negative.
+- (Price - Predicted price) * (Number of rooms) is negative.
 
 Case 4: If the price of the house is lower than the price the model predicted, and the number
 of rooms is negative:
-•
-
-(Price - Predicted price) * (Number of rooms) is positive.
+- (Price - Predicted price) * (Number of rooms) is positive.
 
 Therefore, the pseudocode for our square trick is the following:
 
 PSEUDOCODE FOR THE SQUARE TRICK
 All cases:
-•
-
-Add the learning rate * (Price - Predicted price) * (Number of rooms) to the price per
+- Add the learning rate * (Price - Predicted price) * (Number of rooms) to the price per
 room.
 
-•
-
-Add the learning rate * (Price - Predicted price) to the base price.
+- Add the learning rate * (Price - Predicted price) to the base price.
 
 And here is the code:
 def square_trick(price_per_room, base_price, num_rooms, price, learning_rate):
@@ -804,13 +728,9 @@ need is to start with random values for our slope and our y-intercept, and then 
 procedure of updating them many many times. Here is the pseudocode:
 
 PSEUDOCODE FOR FITTING A LINE THROUGH A SET OF POINTS (LINEAR REGRESSION)
-•
+- Start with random values for the slope and y-intercept
 
-Start with random values for the slope and y-intercept
-
-•
-
-Repeat many times:
+- Repeat many times:
 o
 o
 
@@ -950,13 +870,9 @@ behavioral, in a similar way as with video and music recommendations.
 3.4.3 Healthcare
 Regression has numerous applications in healthcare. Depending on what problem we want to
 solve, predicting the right label is the key. Here are a couple of examples:
-•
+- Predicting the lifespan of a patient, based on their current health conditions.
 
-Predicting the lifespan of a patient, based on their current health conditions.
-
-•
-
-Predicting the length of a hospital stay, based on current symptoms.
+- Predicting the length of a hospital stay, based on current symptoms.
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -964,44 +880,30 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 58
 
 3.5 Summary
-•
-
-Regression is a very important part of machine learning. It consists of training an
+- Regression is a very important part of machine learning. It consists of training an
 algorithm with labelled data, and using it to make predictions on future (unlabelled)
 data.
 
-•
-
-Labelled data is data that comes with labels, which in the regression case, are
+- Labelled data is data that comes with labels, which in the regression case, are
 numbers. For example, the numbers could be prices of houses.
 
-•
-
-In a dataset, the features are the properties that we use to predict the label. For
+- In a dataset, the features are the properties that we use to predict the label. For
 example, if we want to predict housing prices, the features are anything that describes
 the house and which could determine the price, such as size, number of rooms, school
 quality, crime rate, distance to the highway, etc.
 
-•
-
-The linear regression method for predicting consists in assigning a weight to each of
+- The linear regression method for predicting consists in assigning a weight to each of
 the features, and adding the corresponding weights multiplied by the features, plus a
 bias.
 
-•
+- Graphically, we can see the linear regression algorithm as trying to pass a line as close
 
-Graphically, we can see the linear regression algorithm as trying to pass a line as close
-
-•
-
-The way the linear regression algorithm works is by starting with a random line, and
+- The way the linear regression algorithm works is by starting with a random line, and
 
 as possible to a set of points.
 then slowly moving it closer to each of the points that is misclassified, in order to
 attempt to classify them correctly.
-•
-
-Linear regression has numerous applications, including recommendation systems, ecommerce, and healthcare.
+- Linear regression has numerous applications, including recommendation systems, ecommerce, and healthcare.
 
 ©Manning Publications Co. To comment go to liveBook
 

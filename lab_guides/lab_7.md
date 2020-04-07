@@ -6,33 +6,19 @@ Splitting data by asking questions:
 Decision trees
 
 This chapter covers
-•
+- What is a decision tree?
 
-What is a decision tree?
+- Recommending apps using the demographic information of the users.
 
-•
+- Asking a series of successive questions to build a good classifier.
 
-Recommending apps using the demographic information of the users.
+- Accuracy, Gini index, and Entropy, and their role in building decision trees.
 
-•
+- Examples of decision trees in fields such as biology and genetics.
 
-Asking a series of successive questions to build a good classifier.
+- Coding the decision tree algorithm in Python.
 
-•
-
-Accuracy, Gini index, and Entropy, and their role in building decision trees.
-
-•
-
-Examples of decision trees in fields such as biology and genetics.
-
-•
-
-Coding the decision tree algorithm in Python.
-
-•
-
-Separating points of different colors using a line.
+- Separating points of different colors using a line.
 
 In this chapter, I cover decision trees. Decision trees are very powerful models which help us
 classify data and make predictions. Not only that, they also give us a great deal of information
@@ -244,17 +230,11 @@ to see recommendation problems is to see them as classification problems. Let’
 easy example, we’ll develop our very own app recommendation system using decision trees.
 Let’s say we are the App Store, or Google Play, and we want to recommend to our users
 the app that they are most likely to download. We have three apps in our store:
-•
+- Atom Count: An app that counts the number of atoms in your body.
 
-Atom Count: An app that counts the number of atoms in your body.
+- Beehive Finder: An app that maps your location and finds the closest beehives.
 
-•
-
-Beehive Finder: An app that maps your location and finds the closest beehives.
-
-•
-
-Check Mate Mate: An app for finding Australian chess players.
+- Check Mate Mate: An app for finding Australian chess players.
 
 Figure 7.6. The three apps in our store. Atom Count, an app for counting the number of atoms in your body,
 Beehive Finder, an app for locating the nearest beehives to your location, and Check Mate Mate, an app for
@@ -404,14 +384,10 @@ First question: Is the user female or male?
 This question splits the users into two groups, the females and the males. Each group has 3
 users in it. But we need to keep track of what each user downloaded. A quick look at Table 7.2
 helps us notice that:
-•
-
-Out of the females, one downloaded Atom Count and two downloaded Check Mate
+- Out of the females, one downloaded Atom Count and two downloaded Check Mate
 Mate.
 
-•
-
-Out of the males, two downloaded Atom Count and one downloaded Beehive Finder.
+- Out of the males, two downloaded Atom Count and one downloaded Beehive Finder.
 
 The resulting node is drawn in Figure 7.7.
 
@@ -429,13 +405,9 @@ Now let’s see what happens if we split them by age.
 Second question: Is the user young or adult?
 This question splits the users into two groups, the young and the adult. Again, each group has
 3 users in it. A quick look at Table 7.2 helps us notice what each user downloaded:
-•
+- Out of the young users, all downloaded Atom Count.
 
-Out of the young users, all downloaded Atom Count.
-
-•
-
-Out of the adult users, two downloaded Atom Count and one downloaded Beehive
+- Out of the adult users, two downloaded Atom Count and one downloaded Beehive
 Finder.
 
 The resulting node is drawn in Figure 7.8.
@@ -458,14 +430,10 @@ information gain. Let’s start with the first one: accuracy.
 Accuracy
 Suppose that we are only allowed one question, and with that one question we must
 determine what app to recommend to our users. So we have two classifiers:
-•
-
-Classifier 1: Asks the question ‘what is your gender?’, and from there, determines
+- Classifier 1: Asks the question ‘what is your gender?’, and from there, determines
 what app to recommend.
 
-•
-
-Classifier 2: Asks the question ‘what is your age?’, and from there, determines what
+- Classifier 2: Asks the question ‘what is your age?’, and from there, determines what
 app to recommend.
 ©Manning Publications Co. To comment go to liveBook
 
@@ -667,20 +635,14 @@ B
 
 Note that we have three possible splits, gender, age, and location. We’ll study each one
 separately.
-•
+- If we split on gender, we have four females and four males. Among the four females,
 
-If we split on gender, we have four females and four males. Among the four females,
-
-•
-
-If we split on age, we have four young users and four adult users. Among the four
+- If we split on age, we have four young users and four adult users. Among the four
 
 two downloaded App 1, and two downloaded App 2. Same for the males.
 young ones, three downloaded App 1, and one downloaded App 2. Among the adults,
 one downloaded App 1, and three downloaded App 2.
-•
-
-If we split on location, we have four users who live on City A, and four on City B. The
+- If we split on location, we have four users who live on City A, and four on City B. The
 four that live on City A downloaded App 1, and the four that live on City B downloaded
 App 2.
 
@@ -760,30 +722,20 @@ which all the elements look the same, then the impurity index is very low, and i
 elements look different, then the impurity index is very high. In the previous section, we split
 our dataset into sets of four users. If we only consider what apps they downloaded, we got the
 following sets:
-•
+- Set 1: App 1, App 1, App 1, App 1.
 
-Set 1: App 1, App 1, App 1, App 1.
+- Set 2: App 1, App 1, App 1, App 2.
 
-•
+- Set 3: App 1, App 1, App 2, App 2.
 
-Set 2: App 1, App 1, App 1, App 2.
-
-•
-
-Set 3: App 1, App 1, App 2, App 2.
-
-•
-
-Set 4: App 1, App 2, App 2, App 2.
+- Set 4: App 1, App 2, App 2, App 2.
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 182
 
-•
-
-Set 5: App 2, App 2, App 2, App 2.
+- Set 5: App 2, App 2, App 2, App 2.
 
 Notice that sets 1 and 5 are completely homogeneous, since all users downloaded the same
 app. These two would have a very low impurity index. Set 3 is the most diverse, since it has
@@ -806,13 +758,9 @@ the ball back. We proceed to randomly pick another ball from the bag (it could h
 is the same ball, or a different one, we don’t know). We look at its color. We record the two
 colors we obtained, and we check if they are equal, or different. Here is the main observation
 of Gini index:
-•
+- If the set has low Gini impurity index, then most balls are of the same color. Therefore
 
-If the set has low Gini impurity index, then most balls are of the same color. Therefore
-
-•
-
-If the set has high Gini impurity index, then the balls tend to be of different colors.
+- If the set has high Gini impurity index, then the balls tend to be of different colors.
 
 the probability that the two balls are of different color is very low.
 Therefore the probability that the two balls are of different color is very high.
@@ -886,25 +834,15 @@ Therefore, their Gini impurity index should be the same as the original one. In 
 the Gini impurity index of Set 4 is 0.375, and that of Set 5 is 0.
 Going back to App 1 and App 2 and summarizing, this is what we have calculated for the
 Gini impurity indices of our sets.
-•
+- Set 1: (App 1, App 1, App 1, App 1}. Gini impurity index: 0.
 
-Set 1: (App 1, App 1, App 1, App 1}. Gini impurity index: 0.
+- Set 2: (App 1, App 1, App 1, App 2}. Gini impurity index: 0.375.
 
-•
+- Set 3: (App 1, App 1, App 2, App 2}. Gini impurity index: 05.
 
-Set 2: (App 1, App 1, App 1, App 2}. Gini impurity index: 0.375.
+- Set 4: (App 1, App 2, App 2, App 2}. Gini impurity index: 0375.
 
-•
-
-Set 3: (App 1, App 1, App 2, App 2}. Gini impurity index: 05.
-
-•
-
-Set 4: (App 1, App 2, App 2, App 2}. Gini impurity index: 0375.
-
-•
-
-Set 5: (App 2, App 2, App 2, App 2}. Gini impurity index: 0.
+- Set 5: (App 2, App 2, App 2, App 2}. Gini impurity index: 0.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -958,17 +896,11 @@ sum of the probabilities that we obtain two balls of color i, for i from 1 to N.
 Let’s look at an example with more colors. Let’s say we have a bag with 6 balls, 3 of them
 black, 2 of them gray, and 1 of them white. What is the Gini impurity index here? The
 probabilities of picking each color are the following:
-•
+- Picking blue:
 
-Picking blue:
+- Picking red:
 
-•
-
-Picking red:
-
-•
-
-Picking yellow:
+- Picking yellow:
 
 .
 .
@@ -994,17 +926,11 @@ Now that we know how to calculate the Gini impurity index, we’ll use this for 
 All we have to do is simply calculate the Gini impurity index of the root, and of the two leaves,
 and see where we had the most gain. Let me be more specific.
 Procedure to measure a split:
-•
+- Calculate the Gini impurity index of the root.
 
-Calculate the Gini impurity index of the root.
+- Calculate the average of the the Gini impurity indices of the two leaves.
 
-•
-
-Calculate the average of the the Gini impurity indices of the two leaves.
-
-•
-
-Subtract them, to obtain the gain on Gini impurity index.
+- Subtract them, to obtain the gain on Gini impurity index.
 
 Now, among all the splits, we simply pick the one with the highest gain on Gini impurity index.
 Figure .23 shows this calculation for our app example.
@@ -1099,31 +1025,19 @@ Atom Count
 
 In order to build this tree, we’ll first calculate the Gini impurity index of the root (the labels).
 Let’s abbreviate our apps as follows:
-•
+- A: Atom Count
 
-A: Atom Count
+- B: Beehive Finder
 
-•
-
-B: Beehive Finder
-
-•
-
-C: Check Mate Mate
+- C: Check Mate Mate
 
 Our goal is to find the Gini impurity index of the set {A, C, B, C, A, A}. Note that the
 probabilities that we pick a letter out of this set of three letters are the following:
-•
+- Letter A: ½ (since there are 3 A’s out of 6 letters).
 
-Letter A: ½ (since there are 3 A’s out of 6 letters).
+- Letter B: ⅙ (since there is 1 B out of 6 letters).
 
-•
-
-Letter B: ⅙ (since there is 1 B out of 6 letters).
-
-•
-
-Letter C: ⅓ (since there are 2 C’s out of 6 letters).
+- Letter C: ⅓ (since there are 2 C’s out of 6 letters).
 
 Using the formula that we learned in the previous section, the Gini impurity index for this set
 is:
@@ -1135,22 +1049,14 @@ Now, let’s look at the two possible ways to split this dataset: by Gender or b
 
 SPLITTING BY GENDER
 As we’ve seen before, splitting by gender gives us the two following sets:
-•
+- Females: {A, C, C}
 
-Females: {A, C, C}
-
-•
-
-Males: {B, A, A}
+- Males: {B, A, A}
 
 The Gini impurity indices of these two are the following:
-•
+- Females:
 
-Females:
-
-•
-
-Males:
+- Males:
 
 Therefore, the average Gini impurity index of this splitting is 0.611. Since the Gini impurity of
 the root was 0.444, we conclude that the Gini gain is:
@@ -1158,13 +1064,9 @@ Gini gain = 0.611 - 0.444 = 0.167.
 
 SPLITTING BY AGE
 As we’ve seen before, splitting by gender gives us the two following sets:
-•
+- Young: {A, A, A}
 
-Young: {A, A, A}
-
-•
-
-Adults: {C, B, C}
+- Adults: {C, B, C}
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -1172,13 +1074,9 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 192
 
 The Gini impurity indices of these two are the following:
-•
+- Young:
 
-Young:
-
-•
-
-Adults:
+- Adults:
 
 Therefore, the average Gini impurity index of this splitting is 0.222 (the average of 0 and
 0.444). Since the Gini impurity of the root was 0.611, we conclude that the Gini gain is:
@@ -1192,14 +1090,10 @@ seen in Figure 7.23.
 Figure 7.23. The two splittings, by gender and age, and their Gini index calculations. Notice that the splitting by
 age has a higher Gini gain, so we pick this one.
 So we have decided to go for the age split. We get two nodes:
-•
-
-The left node, where everyone downloaded Atom Count. This node has Gini impurity
+- The left node, where everyone downloaded Atom Count. This node has Gini impurity
 index 0.
 
-•
-
-The right node, where one person downloaded Beehive Finder and two downloaded
+- The right node, where one person downloaded Beehive Finder and two downloaded
 Check Mate Mate. This node has Gini impurity index 0.444.
 
 The left node with Gini impurity index 0 can no longer be split. As a matter of fact, we don’t
@@ -1215,14 +1109,10 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 The right node can still be split. Note that we’ve already split by age, so everyone in this
 node is an adult. The only split we can make is by gender. Let’s see what happens when we
 split by gender.
-•
-
-The two females downloaded Check Mate Mate. If we make a node with these two, the
+- The two females downloaded Check Mate Mate. If we make a node with these two, the
 node has Gini impurity index of 0.
 
-•
-
-The male downloaded Beehive Finder. If we make a node with this one, the node has a
+- The male downloaded Beehive Finder. If we make a node with this one, the node has a
 Gini impurity index of 0.
 
 So we are done! The resulting split is in Figure 7.24.
@@ -1267,17 +1157,11 @@ with the question “Is the user male?”, and the opposite answer. Therefore, w
 question, we can split this feature using one binary question.
 When the feature has more classes, such as Dog/Cat/Bird, we simply use more binary
 (yes/no) questions. In this case, we would ask the following:
-•
+- Does the user own a dog?
 
-Does the user own a dog?
+- Does the user own a cat?
 
-•
-
-Does the user own a cat?
-
-•
-
-Does the user own a bird?
+- Does the user own a bird?
 
 You can see that no matter how many classes there are, we can split it into a number of
 binary questions.
@@ -1362,17 +1246,11 @@ Atom Count
 When the age column was given as two categories, ‘young’ and ‘adult’, it was easy to split,
 since we only had one question to ask, namely “Is the user young or old?”. But now, we have
 many questions, such as:
-•
+- Is the user younger than 16?
 
-Is the user younger than 16?
+- Is the user older than 24?
 
-•
-
-Is the user older than 24?
-
-•
-
-Is the user younger than 27.5?
+- Is the user younger than 27.5?
 
 It seems that we have an infinite number of questions. However, notice that many of them
 give use the same answer. For example, if we ask “Is the user younger than 20?”, our
@@ -1449,18 +1327,14 @@ Figure 7.28. A graphic of the 5 possible splittings we can do of the users by ag
 Now all we have to do is check the accuracy (or Gini impurity) of each of the splittings. For
 example, if we split in between 25 and 32 (say, if we make the cut at 30 years old) we get the
 following:
-•
-
-Younger than 20: {12, 14, 15, 25}
+- Younger than 20: {12, 14, 15, 25}
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
 199
 
-•
-
-Older than 20: {32, 35}
+- Older than 20: {32, 35}
 
 Notice that this split gives us two leaves, as illustrated in Figure 7.29.
 
@@ -1771,25 +1645,15 @@ plotting it are in the Github repo).
 Figure 7.33. The plot of the decision tree that we trained in sklearn.
 Let’s analyze what this plot is. In each of the nodes, we have some information, and it means
 the following:
-•
+- x0: The first column in our features, namely, age.
 
-x0: The first column in our features, namely, age.
+- X1: The second column in our features, namely, Gender_Female.
 
-•
+- Gini: The Gini impurity index of the elements that fall in each node.
 
-X1: The second column in our features, namely, Gender_Female.
+- Samples: The number of samples on each node.
 
-•
-
-Gini: The Gini impurity index of the elements that fall in each node.
-
-•
-
-Samples: The number of samples on each node.
-
-•
-
-Value: This vector shows the distribution of labels in each node. For example, [3, 1, 2]
+- Value: This vector shows the distribution of labels in each node. For example, [3, 1, 2]
 means that in this node, there are 3 users who downloaded Atom Count, one user who
 downloaded Beehive Finder, and 2 who downloaded Check Mate Mate.
 
@@ -2013,13 +1877,9 @@ trees is that aside from predicting, they give us a lot of information about our
 organize it in a hierarchical structure. Many times, this is of as much or even more value as
 the capacity of making predictions. In this section, I give some examples of decision trees
 used in real life in the following fields:
-•
+- Health care
 
-Health care
-
-•
-
-Recommendation systems
+- Recommendation systems
 
 7.8.1 Decision trees are widely used in health care
 Decision trees are widely used in medicine, not only to make predictions, but also to identify
@@ -2049,40 +1909,26 @@ In Chapter 10 we will learn more about gradient boosted decision trees and rando
 forests, but you can see them as a collection of many decision trees, for simplicity.
 
 7.9 Summary
-•
-
-Decision trees are a very important algorithm in machine learning, used for
+- Decision trees are a very important algorithm in machine learning, used for
 classification.
 
-•
-
-The way decision trees work is by asking binary questions about our data, and making
+- The way decision trees work is by asking binary questions about our data, and making
 the prediction based on the answers to those questions.
 
-•
-
-The algorithm for building decision trees consists of finding the feature in our data that
+- The algorithm for building decision trees consists of finding the feature in our data that
 best determines the label, and iterating over this step.
 
-•
-
-There are several ways to tell if a feature determines the label best. The two that we
+- There are several ways to tell if a feature determines the label best. The two that we
 learn in this chapter are accuracy and Gini impurity index.
 
-•
-
-Gini impurity index measures the purity of a set. In that way, a set in which every
+- Gini impurity index measures the purity of a set. In that way, a set in which every
 element has the same label has gini impurity index 0. A set in which every element has
 a different label has a Gini impurity label close to 1.
 
-•
-
-Graphically, we can see decision trees as drawing vertical and horizontal lines (or
+- Graphically, we can see decision trees as drawing vertical and horizontal lines (or
 planes) that split our data according to the different labels.
 
-•
-
-Applications of decision trees range very widely, from recommendation algorithms to
+- Applications of decision trees range very widely, from recommendation algorithms to
 applications in medicine and biology.
 
 ©Manning Publications Co. To comment go to liveBook

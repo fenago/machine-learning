@@ -6,25 +6,15 @@ results
 Ensemble learning
 
 This chapter covers
-•
+- What is ensemble learning.
 
-What is ensemble learning.
+- Joining several weak classifiers to form a strong classifier.
 
-•
+- Bagging: A method to randomly join several classifiers.
 
-Joining several weak classifiers to form a strong classifier.
+- Boosting: A method to join several classifiers in a smarter way.
 
-•
-
-Bagging: A method to randomly join several classifiers.
-
-•
-
-Boosting: A method to join several classifiers in a smarter way.
-
-•
-
-AdaBoost: A very successful example of boosting methods.
+- AdaBoost: A very successful example of boosting methods.
 
 After learning many interesting and very useful machine learning classifiers, a good question
 to ask is “Is there a way to combine them?”. Thankfully the answer is yes! In this chapter we
@@ -442,13 +432,9 @@ In order to come up with the rescaling factor, first let’s digress a bit into 
 between probability and odds. Let’s say we have a box with three balls, two red and one blue,
 and we draw one random ball from the box. The probabilities of obtaining a ball of each color
 are the following:
-•
+- P(red ball) = ⅔.
 
-P(red ball) = ⅔.
-
-•
-
-P(blue ball) = ⅓.
+- P(blue ball) = ⅓.
 
 ©Manning Publications Co. To comment go to liveBook
 
@@ -642,21 +628,15 @@ the accuracy, the ln(odds) is a very large negative number, and for higher value
 a very large positive number). When the accuracy is 50% (or 0.5), the ln(odds) is precisely zero.
 Now we are ready to make the learners vote. Based on the odds, let’s calculate the logarithm
 of the odds of each of the three learners.
-•
-
-Learner 1:
+- Learner 1:
 o
 o
 
-•
-
-Learner 2:
+- Learner 2:
 o
 o
 
-•
-
-Odds: 7/3 = 2.33
+- Odds: 7/3 = 2.33
 log(odds) = 0.846
 
 Odds: 7.84/2.13 = 3.68
@@ -732,14 +712,10 @@ recommendation system than Netflix itself; the best system would win one million
 winning team used a very strong combination of weak learners in an ensemble to win.
 
 10.6 Summary
-•
-
-Ensemble methods are ways we use to combine weak learners into a strong one. There
+- Ensemble methods are ways we use to combine weak learners into a strong one. There
 are two major types of ensemble methods: Bagging and boosting.
 
-•
-
-Bagging, or bootstrap aggregating, consists of building successive learners on random
+- Bagging, or bootstrap aggregating, consists of building successive learners on random
 ©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
@@ -747,15 +723,11 @@ Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 241
 
 subsets of our data, and then building a strong classifier based on a majority vote.
-•
-
-Boosting consists of building a sequence of learners, where each learner focuses on the
+- Boosting consists of building a sequence of learners, where each learner focuses on the
 weaknesses of the previous one, and then building a strong classifier based on a
 weighted majority vote of the learners.
 
-•
-
-Applications of ensemble methods range very widely, from recommendation algorithms
+- Applications of ensemble methods range very widely, from recommendation algorithms
 to applications in medicine and biology.
 
 ©Manning Publications Co. To comment go to liveBook
