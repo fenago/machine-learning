@@ -30,10 +30,6 @@ Here is the scenario. You have to take an exam that consists of 100 true/false q
 many different topics, such as math, geography, science, history, music, and so on. Luckily,
 you are allowed to call your five friends, Alice, Bob, Carlos, Dana, and Emily to help you. What
 
-
-
-
-
 are some techniques that you can use to get their help? Let me show you two techniques that
 I can think of.
 Technique 1: You send the exam to each of the five friends, and ask them to fill it in.
@@ -56,10 +52,6 @@ We call the set of classifiers weak learners, and the super-classifier they form
 combined a strong learner.
 
 
-
-
-
-
 Figure 10.1. Ensemble methods consist of joining several weak learners in order to build a strong learner.
 In this chapter we learn two ensemble learning techniques called bagging and boosting, which
 very much resemble the two previous techniques, respectively. In a nutshell, this is what
@@ -77,10 +69,6 @@ AGGregatING.
 Boosting: Boosting is very similar to bagging, except the classifiers are not picked at
 random. Details vary between algorithms, but in a nutshell, each classifier is picked in a way
 that focuses on the weaknesses of the previous classifiers. Each classifier is not necessarily
-
-
-
-
 
 strong, but the union of them is. One way to do this is to modify our data by giving more
 weight to the misclassified points and less to the correctly classified ones, and fit the next
@@ -150,10 +138,6 @@ No
 No
 
 
-
-
-
-
 1
 
 9
@@ -197,10 +181,6 @@ Figure 10.2. The plot of our dataset, where spam emails are triangles and ham em
 horizontal axis we have the number of appearances of the word ‘lottery’, and in the vertical axis, the number of
 appearances of the word ‘sale’..
 
-
-
-
-
 For this dataset, we trained a decision tree which created a broken linear boundary, as
 illustrated in Figure 10.3.
 
@@ -229,10 +209,6 @@ No
 Yes
 
 
-
-
-
-
 Figure 10.4. The plot with the two new data points added.
 Now let’s try to fit a decision tree to this data. We can use sklearn, like we did in Chapter 7,
 with the following command in sklearn:
@@ -241,10 +217,6 @@ spam_decision_tree.fit(new_X,new_y)
 
 Feel free to look at more details in the repo www.github.com/luisguiserrano/manning. The
 decision tree and the boundary region can be seen in Figure 10.5.
-
-
-
-
 
 
 Figure 10.5. Left: A decision tree that classifies our dataset.
@@ -269,10 +241,6 @@ Let’s try to fit three trees to the data in Figure 10.4. In order to make thin
 easier, we’ll split the data into three random (almost) equal subsets, and we’ll fit a simple
 (depth one) tree to each dataset.
 
-
-
-
-
 Figure 10.6. Splitting our data into three subsets. Notice that the subsets need not be disjoint, and need not
 cover the entire data set..
 Now, we fit a decision tree in each one of them. Using sklearn, we get the three trees in Figure
@@ -285,10 +253,6 @@ means that when a new email comes in, we check the predictions of the three deci
 Whichever prediction got two or more votes, whether it’s spam or ham, is the prediction that
 the random forest makes. The boundary of the random forest is illustrated at the bottom of
 Figure 10.8.
-
-
-
-
 
 
 Figure 10.8. On top, we can see the three boundaries of the decision trees from Figure 10.7. On the bottom, we
@@ -308,10 +272,6 @@ random_forest_model.score(new_X,new_y)
 
 When we plot the boundary defined by this random forests, we get Figure 10.9.
 
-
-
-
-
 Figure 10.9. The boundary of the random forest obtained with sklearn.
 Which seems like a nice boundary. But just out of curiosity, let’s plot the boundaries of the
 estimator trees. They are in Figure 10.10.
@@ -327,10 +287,6 @@ get a stronger classifier
 Boosting is very similar to bagging, except now we don’t select the weak learners at random,
 but we select them in a more intelligent way. The way we do this is by training each learner to
 focus on the weaknesses of the previous ones. In other words, each learner tries really hard to
-
-
-
-
 
 
 correctly classify the points in which the previous classifiers. How do we do this? We start by
@@ -355,10 +311,6 @@ based on if that feature is smaller or larger than some threshold.
 I will show you AdaBoost in a small example. We’ll try to classify the data in Figure 10.11.
 
 
-
-
-
-
 Figure 10.11. The data set that we will classify next.
 First, we’ll do it conceptually, and next I will add some numbers.
 
@@ -374,10 +326,6 @@ and some have weights smaller than one. In the figures, we enlarge or shrink eac
 to illustrate this. The data now looks like the right side of Figure 10.12.
 
 
-
-
-
-
 Figure 10.12. Left: The first learner.
 Right: The rescaled dataset, where we have enlarged the misclassified points, and shrunk the correctly
 classified points..
@@ -389,18 +337,10 @@ this process a third time, and then we decide to stop (we could keep going if we
 The process is illustrated in Figure 10.13.
 
 
-
-
-
-
 Figure 10.13. The whole AdaBoost process in our data set. First we train the first weak learner (top), next we
 rescale the points (bottom), and so on as we move to the right.
 Now, as a final step, we combine the three learners into one by voting, as illustrated by Figure
 10.14.
-
-
-
-
 
 
 Figure 10.14. Making the three weak learners vote. The resulting strong learner is the one at the bottom.
@@ -420,10 +360,6 @@ are the following:
 - P(red ball) = ⅔.
 
 - P(blue ball) = ⅓.
-
-
-
-
 
 
 However, one would like to say something along the lines of “It’s twice as likely to draw a red
@@ -448,10 +384,6 @@ ball) = ⅔, then the odds ratio is:
 
 The odds ratio is widely used in many areas in particular in science and betting. For our case,
 we’ll be using it to build our rescaling factor.
-
-
-
-
 
 
 CALCULATING THE RESCALING FACTOR
@@ -480,10 +412,6 @@ weights are ⅙, ⅙, ⅙, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14. This rescal
 illustrated in Figure 10.15.
 
 
-
-
-
-
 Figure 10.15. We scale the errors by 7/3, and then we normalize everything so the sum of points is 10.
 Notice that if we fit a new classifier on this dataset, it will try to classify those three big
 triangles correctly, since they carry more weight. The best classifier is on the left of Figure
@@ -494,10 +422,6 @@ Figure 10.16. Again, we scale the errors by the rescaling factor and normalize.
 And as a final step, the best learner for the normalized dataset is simply the vertical line in
 Figure 10.17. For this one we will calculate the rescaling factor (you’ll see why in a bit), but
 we’ll stop training more learners right here.
-
-
-
-
 
 
 Figure 10.17. Our last weak learner. We don’t need to scale the points anymore, since we are not building any
@@ -525,10 +449,6 @@ score of zero.
 In machine learning, the equivalent for Truthful Teresa is a model with high accuracy,
 which correctly predicts points most of the time. The equivalent for Lying Lenny is a model
 with very low accuracy, and the equivalent to Unpredictable Umbert is a model with accuracy
-
-
-
-
 
 around 50%. Notice that between a model with accuracy around 50% and a model with
 terrible accuracy, one would actually prefer the one with terrible accuracy (if we are predicting
@@ -589,10 +509,6 @@ ln(Odds)
 -0.8473
 
 
-
-
-
-
 1%
 
 1/99 = 0.0101
@@ -629,19 +545,11 @@ Odds = 8.46/1.35 = 6.27
 log(odds) = 1.836
 
 
-
-
-
-
 Figure 10.19. We use the ln(odds) to calculate the weights of the three weak learners.
 The way they vote is illustrated on Figure 10.20. Basically it weights each learner by its
 weight, and for each point, we add the weight if the learner classified the point as positive,
 and subtract the weight if it classified it as negative. If the resulting sum is positive, we
 classify the point positive, and if it is negative, we classify it as negative.
-
-
-
-
 
 
 Figure 10.20. We weight each of the weak learners, and make them vote based on this weighting (so the larger
@@ -655,10 +563,6 @@ adaboost_model = AdaBoostClassifier(random_state=0, n_estimators=6)
 adaboost_model.fit(new_X, new_y)
 
 
-
-
-
-
 Figure 10.21. The boundary of the AdaBoost strong learner given by sklearn.
 We can go a bit farther and actually explore the six learners we’ve used (Figure 10.22), using
 the following commands. Furthermore, the command estimator_weights will help us look at
@@ -667,10 +571,6 @@ estimators = adaboost_model.estimators_
 for estimator in estimators:
 plot_model(new_X, new_y, estimator)
 plt.show()
-
-
-
-
 
 
 Figure 10.22. The boundaries of the six weak learners given by sklearn.
@@ -691,10 +591,6 @@ winning team used a very strong combination of weak learners in an ensemble to w
 are two major types of ensemble methods: Bagging and boosting.
 
 - Bagging, or bootstrap aggregating, consists of building successive learners on random
-
-
-
-
 
 subsets of our data, and then building a strong classifier based on a majority vote.
 - Boosting consists of building a sequence of learners, where each learner focuses on the

@@ -34,10 +34,6 @@ way:
 other words, among all the features in the data, picks the one that best divides the
 labels.
 
-
-
-
-
 2. Either makes the prediction based on the answer to that question, or picks another
 feature (the next most determining), and iterates.
 This may sound complicated, but it is not, I promise. Consider the following scenario. You
@@ -64,10 +60,6 @@ tree has a root, nodes, and leaves.
 
 ROOT The topmost node of the tree. It contains the first yes/no question.
 
-
-
-
-
 NODE Each yes/no question in our model is represented by a node, or decision stump, with two branches
 emanating from it (one for the ‘yes’ answer, and one from the ‘no’ answer).
 
@@ -84,10 +76,6 @@ question, From each possible answer, one branch emanates, which leads to another
 But how did we get to build that tree? Why were those the questions we asked? We could
 have also checked if it was monday, if we saw a red car outside, or if we were hungry, and
 built the following decision tree:
-
-
-
-
 
 
 Figure 7.3. A second (maybe not as good) decision tree we could use to decide if we want to wear a jacket on a
@@ -117,10 +105,6 @@ question:
 2. Is it hot outside?
 3. Am I hungry?
 
-
-
-
-
 4. Is there a red car outside?
 5. Is it Monday?
 Let’s think, out of these five questions, which one seems like the best one to ask if our goal is
@@ -147,10 +131,6 @@ a jacket. This turns the left leaf of the tree into a node, with two leaves eman
 in Figure 7.5.
 
 
-
-
-
-
 Figure 7.5. A slightly more complicated decision tree than the one in Figure 7.4, where we have picked one leaf,
 and split it into a further two leaves.
 Now we have our decision tree. Can we do better? Maybe we can, if we add more questions
@@ -169,10 +149,6 @@ This chapter answers all of these questions, but let me give you some quick answ
 There are several ways to do this. The simplest one is using accuracy, which means,
 which question helps me be correct more often. However, others such as Gini index or
 entropy will be used in this book as well.
-
-
-
-
 
 
 7. Does this process actually gets us to build the very best decision tree? What if
@@ -215,10 +191,6 @@ videos you may watch, or Amazon recommends you products you might be interested 
 buying? These are all uses of recommendation systems. One very simple and interesting way
 
 
-
-
-
-
 to see recommendation problems is to see them as classification problems. Let’s start with an
 easy example, we’ll develop our very own app recommendation system using decision trees.
 Let’s say we are the App Store, or Google Play, and we want to recommend to our users
@@ -255,10 +227,6 @@ F
 Check Mate Mate
 
 
-
-
-
-
 M
 
 32
@@ -293,10 +261,6 @@ there is one man in the dataset who is 32 years old, and he downloaded Beehive F
 You may have had the same or different recommendations than me, and that is ok, as long as
 you have a justification for the recommendation. However, going customer by customer
 seems like a tedious job. Next, we’ll build a decision tree to take care of all customers at once.
-
-
-
-
 
 
 7.2 The solution: Building an app recommendation system
@@ -341,10 +305,6 @@ adult
 Check Mate Mate
 
 
-
-
-
-
 M
 
 adult
@@ -382,10 +342,6 @@ Mate.
 The resulting node is drawn in Figure 7.7.
 
 
-
-
-
-
 Figure 7.7. If we split our users by gender, we get this split. The females are at the left, and the males at the
 right.
 Out of the females, one downloaded Atom Count and two downloaded Check Mate Mate.
@@ -400,10 +356,6 @@ This question splits the users into two groups, the young and the adult. Again, 
 Finder.
 
 The resulting node is drawn in Figure 7.8.
-
-
-
-
 
 
 Figure 7.8. If we split our users by age, we get this split. The young are at the left, and the adults at the right.
@@ -423,10 +375,6 @@ what app to recommend.
 
 - Classifier 2: Asks the question ‘what is your age?’, and from there, determines what
 app to recommend.
-
-
-
-
 
 Let’s look more carefully at the classifiers.
 Classifier 1: If the answer to the question is ‘female’, then we notice that out of the females,
@@ -450,10 +398,6 @@ Tree 1 is correct 4 out of 6 times, and tree 2 is correct 5 out of 6 times. Ther
 better.
 There are actually many ways to see that tree 2 is better than tree 1. Later in section 5.3, we
 will revisit accuracy, and introduce two new ways to compare the trees.
-
-
-
-
 
 
 7.2.3 Next and final step: Iterate by asking the best question every time
@@ -490,10 +434,6 @@ males (only one male) downloaded Instagram, while the females downloaded Check M
 Mate. Therefore, we can just add this branch to our tree, to obtain the one in Figure 7.11.
 
 
-
-
-
-
 Figure 7.11. Our final decision tree. The prediction goes as follows. The tree makes a prediction as follows: First
 it checks if the user is young. If they are young, it recommends them Atom Count. If not, then it checks if the
 user is male or female. If the user is female, it recommends Check Mate Mate, and if the user is male, it
@@ -508,10 +448,6 @@ if user is female:
 recommend Check Mate Mate
 else:
 recommend Beehive Finder
-
-
-
-
 
 7.2.4 Using the model by making predictions
 Now that we have a tree, let’s put it in practice by making predictions. This is the simplest
@@ -580,10 +516,6 @@ A
 1
 
 
-
-
-
-
 Female
 
 Young
@@ -637,10 +569,6 @@ clear that the best split is on location, since it completely determines who dow
 and App 2. Here is a question, which split is better between the split by gender and age? From
 first glance, it seems that age is better, since it manages to put most of the users who
 
-
-
-
-
 downloaded App 1 on one side, and most of the users who downloaded App 2 on the other
 side. The split by gender leaves us with two groups where two users downloaded App 1 and
 two users downloaded App 2, which gives us very little information. So for us, it seems that
@@ -680,10 +608,6 @@ and if you live in City B, you downloaded App Y”. Notice that all the people i
 downloaded App 1, and all the people in City B downloaded App 2. Therefore, the best
 
 
-
-
-
-
 prediction we can make here, is that every person in City A downloaded App 1, and every
 person in City B downloaded App 2.
 What is the accuracy of this classifier? Well, among our data, it is correct eight times out of
@@ -710,10 +634,6 @@ following sets:
 - Set 3: App 1, App 1, App 2, App 2.
 
 - Set 4: App 1, App 2, App 2, App 2.
-
-
-
-
 
 - Set 5: App 2, App 2, App 2, App 2.
 
@@ -746,10 +666,6 @@ the probability that the two balls are of different color is very low.
 Therefore the probability that the two balls are of different color is very high.
 
 
-
-
-
-
 That probability is the Gini impurity index. In this section, we’ll find a nice closed formula that
 calculates it.
 Let’s go back to the example with App 1 and App 2. For convenience, we’ll think of App 1
@@ -771,10 +687,6 @@ Figure 7.15. If we pick our balls from a bag containing four black balls, we get
 the pair (black, black). Thus, the probability of obtaining two balls of different colors is zero.
 
 
-
-
-
-
 Therefore, we define the Gini impurity of Set 1 to be 0.
 Set 2:
 Now things start getting interesting. We need to pick either the pair (black, white), or the pair
@@ -793,10 +705,6 @@ Gini impurity of Set 2 to be 6/16 (or 0.375).
 Set 3:
 Again, we have 16 possible scenarios. Figure 7.17 shows them, and you can notice that 8 of
 them (exactly half) give us a pair of balls of different colors.
-
-
-
-
 
 
 Figure 7.17. If we pick our balls from a bag containing two black balls and two white balls, we again get 16
@@ -820,10 +728,6 @@ Gini impurity indices of our sets.
 - Set 4: (App 1, App 2, App 2, App 2}. Gini impurity index: 0375.
 
 - Set 5: (App 2, App 2, App 2, App 2}. Gini impurity index: 0.
-
-
-
-
 
 
 Figure 7.18. Our five sets with their corresponding Gini impurities. Notice that sets 1 and 5 are the most pure,
@@ -860,10 +764,6 @@ two balls of different color. Therefore, the probability that we picked two ball
 (or the Gini impurity index) is
 
 
-
-
-
-
 Figure 7.19. The Gini impurity index is the probability that if we pick two different balls (with repetition), the balls
 will have the same color. This is the same as 1 minus the probability that we pick two balls of the same color.
 Since the balls can be of colors 1 up to N, then the probability that we pick two balls of the same color is the
@@ -891,10 +791,6 @@ the same color. Since the balls can be black, grey, or white, we add over the th
 one.
 
 
-
-
-
-
 HOW TO PICK THE BEST FEATURE? GINI GAIN
 Now that we know how to calculate the Gini impurity index, we’ll use this for our decision tree.
 All we have to do is simply calculate the Gini impurity index of the root, and of the two leaves,
@@ -918,10 +814,6 @@ Now we simply select the split that gives us the smallest possible Gini impurity
 third one.
 
 
-
-
-
-
 WEIGHTED GINI IMPURITY
 You may be asking a question, which is, “Why did we average out the Gini impurity?”. In
 reality what we want to consider is a weighted average. This is because when we split our data
@@ -936,10 +828,6 @@ sum.
 Figure 7.22. The Gini impurity of the split is the weighted average of the Gini indices of the two leaves. Since the
 left leaf has 6 elements and the right leaf has 2 elements, then the weights associated to the Gini indices of the
 leaves are 6/8 and 2/8.
-
-
-
-
 
 
 7.4 Back to recommending apps: Building our decision tree using
@@ -982,10 +870,6 @@ M
 young
 
 Atom Count
-
-
-
-
 
 
 M
@@ -1039,10 +923,6 @@ As we’ve seen before, splitting by gender gives us the two following sets:
 
 - Adults: {C, B, C}
 
-
-
-
-
 The Gini impurity indices of these two are the following:
 - Young:
 
@@ -1071,10 +951,6 @@ want this node to be split any longer, since we can already safely recommend Ato
 everyone who lands in this node. This node, then becomes a leaf.
 
 
-
-
-
-
 The right node can still be split. Note that we’ve already split by age, so everyone in this
 node is an adult. The only split we can make is by gender. Let’s see what happens when we
 split by gender.
@@ -1092,10 +968,6 @@ impurity index zero, since everyone in the group downloaded the same app.
 Now we finally have our decision tree! It’s illustrated in Figure 7.25.
 
 
-
-
-
-
 Figure 7.25.The final decision tree that we’ve obtained. The first split divides the users between those whose
 age is 20 or less, and those whose age is more than 20. For the younger than 20, we recommend Atom Count.
 Those older than 20 get split them among males and females. The males get recommended Beehive Finder,
@@ -1109,10 +981,6 @@ pet, which could be a dog, a cat or a bird, and our table had information on the
 worse, what if the age feature actually had numbers, such as 15, 20, 32, instead of just two
 categories such as young/adult? It turns out that these two cases are not much more
 complicated than the original one. We’ll study them separately.
-
-
-
-
 
 
 7.5.1 Features with more categories, such as Dog/Cat/Bird
@@ -1141,10 +1009,6 @@ encoding. One-hot encoding simply removes the column of the table that has three
 categories, and adds as many rows as categories, with each row filled with 0s and 1s. The
 term one-hot encoding comes from the fact that among the resulting new columns, only one
 of them has a 1 per row, and the others have a zero. Here’s an example.
-
-
-
-
 
 
 Figure 7.27. One-hot encoding turns a non-binary feature into several binary features, which helps us build our
@@ -1180,10 +1044,6 @@ Atom Count
 F
 
 25
-
-
-
-
 
 
 Check Mate Mate
@@ -1227,10 +1087,6 @@ ages are, in order, 12, 14, 15, 25, 32, 35. We can add the cutoff anywhere in be
 consecutive pairs of numbers, and no matter what number we pick as a cutoff, we’d get the
 same result. The number we pick can be completely arbitrary.
 So here are the 7 possible questions, with arbitrary cutoffs, as illustrated in Table 7.7.
-
-
-
-
 
 Table 7.7. The 7 possible questions we can pick, each one with the corresponding splitting. In the
 first set, we put the users who are younger than the cutoff, and in the second set, those who are
@@ -1293,10 +1149,6 @@ example, if we split in between 25 and 32 (say, if we make the cut at 30 years o
 following:
 - Younger than 20: {12, 14, 15, 25}
 
-
-
-
-
 - Older than 20: {32, 35}
 
 Notice that this split gives us two leaves, as illustrated in Figure 7.29.
@@ -1311,10 +1163,6 @@ popular app for the group of people under 30 is Atom Count, so we’ll recommend
 this group. Notice that we get three out of four correct. As for the people 30 or older, we can
 either recommend Check Mate Mate or Instagram, since with either one we are correct one
 out of two times. In total, we are correct four times out of six, so our accuracy is 4/6.
-
-
-
-
 
 
 Figure 7.30. Using accuracy to measure this split. For the left leaf, we can recommend Atom Count (the most
@@ -1333,10 +1181,6 @@ The right leaf has one user downloading Instagram, and one downloading Check Mat
 the Gini impurity is
 
 
-
-
-
-
 .
 Also note that the left leaf has four users and the right leaf has two users. Since there are six
 users in total, then the weights for the entropies of the left and right leaves is 4/6 and 2/6,
@@ -1347,10 +1191,6 @@ indices for the left and right leaves, respectively, are 0.375 and 0.5. The Gini
 the Gini indices of the leaves. Since the left leaf has 4 elements and the right leaf has 2 elements, then we
 weight the left Gini index by 4/6, and the right one by 2/6. This gives us a weighted average of 0.417. This gives
 us a Gini gain of 0.194 for this split.
-
-
-
-
 
 
 Comparing our metrics for all the splits
@@ -1451,10 +1291,6 @@ Gini impurity
 Information gain
 
 
-
-
-
-
 Male/Female
 
 P, P, I
@@ -1480,10 +1316,6 @@ else:
 recommend Beehive Finder
 
 
-
-
-
-
 Figure 7.32. Our resulting decision tree. Just like before, the first split is based on age (less than or equal to 20),
 and the second is based on gender (male or female). The recommendations are made accordingly..
 
@@ -1492,10 +1324,6 @@ In order to code our decision trees, we’ll use a great and very well-known pac
 Scikit Learn, or sklearn for short. We need to slightly massage our data in order to have it
 ready for sklearn. We need to make sure that among the features, only numbers are fed. A
 feature with values such as ‘male’ or ‘female’, will not be accepted. Therefore, we’ll one-hot
-
-
-
-
 
 encode the Gender feature. We’ll store the dataset as a Pandas dataframe using the code
 below, and the result is in Table 7.10.
@@ -1591,10 +1419,6 @@ will be called ‘app_decision_tree’, and the command for fitting the data is 
 app_decision_tree = DecisionTreeClassifier()
 app_decision_tree.fit(features, labels)
 
-
-
-
-
 That’s all we need to fit a decision tree to our data! Let’s plot this tree (the commands for
 plotting it are in the Github repo).
 
@@ -1616,10 +1440,6 @@ downloaded Beehive Finder, and 2 who downloaded Check Mate Mate.
 In this case, note that the top node gets split using the rule ‘x0 ≤ 20’, or ‘Age ≤ 20’. To the
 left, we get ‘True’, which is those users whose ages are less than or equal to 20, and to the
 right, we get ‘False’, which is those whose age is greater than 20. The node to the right is split
-
-
-
-
 
 using the rule ‘X1 ≤ 0.5’, or ‘Gender_Female ≤ 0.5’. This is a bit strange, but if we remember
 that this column‘Gender_Female’ assigns a 1 to females, and a 0 to males, then
@@ -1644,10 +1464,6 @@ Lottery
 Sale
 
 Spam
-
-
-
-
 
 
 7
@@ -1734,10 +1550,6 @@ In order to do this graphically, let’s plot the points in a graph (this appear
 repo).
 
 
-
-
-
-
 Figure 7.35. The graph of the set of spam/ham emails, where the horizontal (x) axis represents the number of
 times the word ‘sale’ appears, and the vertical (y) axis represents the number of times the word ‘lottery’
 appears. The gray emails are spam, and the white emails are ham.
@@ -1750,10 +1562,6 @@ spam_decision_tree = DecisionTreeClassifier()
 spam_decision_tree.fit(X,y)
 
 The decision tree we get is in Figure 7.36.
-
-
-
-
 
 
 Figure 7.36. The decision tree that fits our spam/haml dataset.
@@ -1776,10 +1584,6 @@ and see what it is doing to the dataset. The top node splits the data based on t
 3.5. This feature is the second column, namely, the appearances of the word ‘lottery’. Thus,
 
 
-
-
-
-
 the dataset is broken into those emails with 3.5 or less appearances of the word ‘lottery’, and
 those with more than 3.5 appearances. This is a horizontal split, as Figure 7.37 shows.
 
@@ -1796,10 +1600,6 @@ them spam. The tree choses to split using the rule e X1 ≤ 3.5, which correspon
 5.0’. This means, the split corresponds to a vertical line, as Figure 7.38 shows.
 
 
-
-
-
-
 Figure 7.38. The second split in the decision tree. Note that the left leaf corresponds to the area to the left to the
 the vertical line, with four ham emails. The right node corresponds to the area to the right of the vertical line,
 with 6 spam emails and 2 ham emails.
@@ -1813,10 +1613,6 @@ emails.
 So if we plot all these lines together, our tree delineates the boundary seen in Figure 7.40.
 Note that all the emails to one side of the boundary are spam, and to the other side are ham,
 a perfect split!
-
-
-
-
 
 Figure 7.40. The decision tree on the left indicates a boundary on the right, that splits the data.
 
@@ -1844,10 +1640,6 @@ recommendation systems problems, the Netflix prize, was won with the help of dec
 In 2006, Netflix held a competition which involved building the best possible recommendation
 system to predict user ratings of their movies. In 2009, they awarded $1,000,000 USD to the
 winner, who improved the Netflix algorithm by over 10%. The way they do this was using
-
-
-
-
 
 gradient boosted decision trees to combine over 500 different models. Other recommendation
 engines, such as the video recommendation engine at YouTube, also use decision trees to
@@ -1878,8 +1670,4 @@ planes) that split our data according to the different labels.
 
 - Applications of decision trees range very widely, from recommendation algorithms to
 applications in medicine and biology.
-
-
-
-
 

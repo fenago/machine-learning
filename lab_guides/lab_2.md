@@ -42,10 +42,6 @@ price.
 
 - Chatbots that interact with humans and answer questions.
 
-
-
-
-
 - Self driving cars that are able to navigate a city.
 
 - Diagnosing patients as sick or healthy.
@@ -119,10 +115,6 @@ pet. Each pet is described then, by certain features.
 Ok. And what are features?
 
 
-
-
-
-
 Features are simply the columns of the table. In our pet example, the features may be size,
 name, type, weight, etc. This is what describes our data. Some features are special, though,
 and we call them labels.
@@ -147,10 +139,6 @@ set of algorithms in which we use an unlabeled dataset, is called unsupervised l
 what we learn next.
 
 
-
-
-
-
 2.2 What is supervised learning?
 Supervised learning is the type of machine learning you find in the most common applications
 nowadays, including image recognition, various forms of text processing, recommendation
@@ -170,10 +158,6 @@ dog and what is a cat, and when a new image comes in, the model makes a predicti
 what the label of the image is, namely, is it a dog or a cat.
 
 
-
-
-
-
 Figure 2.3. Supervised learning follows the Remember-Formulate-Predict framework from Chapter 1.
 Now, notice that in Figure 2.1, we have two types of datasets, one in which the labels are
 numbers (the weight of the animal), and one in which the labels are states, or classes (the
@@ -190,10 +174,6 @@ dog, a cat, or a bird, we can still use a discrete model. These models are calle
 discrete models. There are classifiers with many states, but it must always be a finite number.
 Let’s look at two examples of supervised learning models, one regression and one
 classification:
-
-
-
-
 
 Example 1 (regression), housing prices model: In this model, each data point is a house.
 The label of each house is its price. Our goal is, when a new house (data point) comes in the
@@ -240,10 +220,6 @@ namely, ‘cat’ or ‘dog’.
 In the email spam recognition example, the state of the email (namely, is it spam or not)
 is predicted from the features. In this case, the features of the email are the words on it, the
 number of spelling mistakes, the sender, and many others.
-
-
-
-
 
 Another very common example of classification is image recognition. The most popular
 image recognition models take as an input the pixels in the image, and output a prediction of
@@ -311,10 +287,6 @@ picture of a cat. Maybe it can group them in some way by similarity, even withou
 what each group represents.
 
 
-
-
-
-
 Figure 2.4. An unsupervised learning model can still extract information from data, for example, it can group
 similar elements together.
 And the branch of machine learning that deals with unlabelled datasets is called unsupervised
@@ -343,10 +315,6 @@ we don’t know if each email is spam or not. However, we can still apply some c
 dataset. A clustering algorithm will return our emails split into, say, 4 or 5 different categories,
 based on different features such as words in the message, sender, attachments, types of links
 
-
-
-
-
 on them, and more. It is then up to a human (or a supervised learning algorithm) to label
 categories such as ‘Personal’, ‘Social’, ‘Promotions’, and others.
 For example, let’s say that we have 9 emails, and we want to cluster them into different
@@ -362,10 +330,6 @@ we plot the data? Let’s plot the emails in a graph, where the horizontal axis 
 and the vertical axis records the number of recipients. We get the following plot.
 
 
-
-
-
-
 Figure 2.6. A plot of the emails with size on the horizontal axis and number of recipients on the vertical axis.
 Eyeballing it, it is obvious that there are three distinct types of emails.
 In Figure
@@ -375,10 +339,6 @@ In Figure
 category in our inbox. They are the ones we see in Figure 2.7.
 
 Figure 2.7. Clustering the emails into three categories based on size and number of recipients.
-
-
-
-
 
 
 This last step is what clustering is all about. Of course, for us humans, it was very easy to
@@ -426,10 +386,6 @@ sense. Take a closer look at the five features. Can you see any way to simplify 
 to group them into some smaller and more general categories?
 
 
-
-
-
-
 After a careful look, maybe you thought the same as I did, which is: The first three
 features seem similar, and the fourth and fifth also seem similar. The first three are all related
 to the size of the house, whereas the fourth and fifth are related to the quality of the
@@ -457,10 +413,6 @@ first and second numbers are the street and avenue, and the third one is the flo
 live in. This looks like a three-dimensional city. We can keep going. What about four numbers?
 Well, now we can’t really visualize it, but if we could, this would be addresses in a four©Manning Publications Co. To comment go to liveBook
 
-
-
-
-
 dimensional city, and so on. The best way I can imagine a four dimensional city, is by
 imagining a table of four columns. And a 100-dimensional city? Simple, a table with 100
 columns, in which each person has an address that consists of 100 numbers. The mental
@@ -469,17 +421,9 @@ Therefore, when we went from five dimensions down to two, we reduced our 5-dimen
 city into a 2-dimensional city, thus applying dimensionality reduction.
 
 
-
-
-
-
 Figure 2.9. How to imagine higher dimensional spaces.
 1 dimension is like a street, in which each house only has one number.
 2 dimensions is like a flat city, in which each address has two numbers, a street and an avenue.
-
-
-
-
 
 
 3 dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a
@@ -495,10 +439,6 @@ reduction as a way to group the columns, as figures 2.10 and 2.11 ilustrate.
 
 Figure 2.10. Clustering can be seen as a way to simplify our data by reducing the number of rows in our dataset,
 by grouping some rows into one.
-
-
-
-
 
 
 Figure 2.11. Dimensionality reduction can be seen as a way to simplify our data by reducing the number of
@@ -521,10 +461,6 @@ supposed to navigate in this environment. The agent has a goal, or a set of goal
 environment has rewards and punishments, which guide the agent to take the right decisions
 in order to reach its goal. That all sounded a bit abstract, but let’s look at some examples.
 
-
-
-
-
 Example 1: Grid world
 In Figure 2.10 we see a grid world with a robot on the bottom left corner. That is our
 agent. The goal is to get to the treasure chest in the top right of the grid. In the grid, we can
@@ -546,10 +482,6 @@ treasure chest, and it starts associating that square, and squares close to it, 
 Eventually, the robot will have a good idea of how good each square is, and can take the path
 following the squares all the way to the chest. Figure 2.11 shows a possible path, although
 this one is not ideal, since it passes close to the dragon. Can you think of a better one?
-
-
-
-
 
 
 Figure 2.13. Here is a path that the robot could take to find the treasure chest.
@@ -589,10 +521,6 @@ Regression models are those in which the answer is any number.
 Classification models are those in which the answer is of a type yes/no. The answer
 is normally given as a number between 0 and 1, denoting a probability.
 
-
-
-
-
 - Two very common types of unsupervised learning algorithms are clustering and
 dimensionality reduction.
 
@@ -610,7 +538,3 @@ information, or make it easier to handle.
 Reinforcement learning is a type of machine learning used where an agent has to
 navigate an environment and reach a goal. It is extensively used in many cutting edge
 applications.
-
-
-
-

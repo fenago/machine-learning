@@ -34,10 +34,6 @@ perceptron algorithm is a beautiful procedure which, in a similar way to the lin
 algorithm, will iterate many times until it finds a good classifier. These two algorithms (and
 many more that we learn in this book) are very useful for working out patterns in data.
 
-
-
-
-
 The use case that we use in this chapter is sentiment analysis. Sentiment analysis is the
 branch of machine learning dedicated to predicting the sentiment of a certain piece of text. For
 example, being able to tell that the sentence “I feel wonderful today!” is a happy sentence, or
@@ -107,10 +103,6 @@ Score:
 
 Prediction: The sentence is sad.
 
-
-
-
-
 Sentence 2:
 
 Everything
@@ -177,10 +169,6 @@ But before we delve into looking at data and building our classifiers, let me gi
 idea of how the perceptron algorithm works. The idea is to iterate many times and improve
 our weights. Let’s start by assigning random scores to each word. And let’s say that our
 
-
-
-
-
 classifier is terrible. For example, it gives the word ‘awful’ a score of +10. Then we bump into
 the sentence “Awful!”, which is classified as sad. Our model classifies it as happy, since it
 assigns it a score of +10. This sentence hints to us that the word ‘awful’ has been assigned a
@@ -234,10 +222,6 @@ Mood: Sad
 Sentence: “Aack beep beep beep!”
 
 
-
-
-
-
 Figure 4.1. Our dataset of aliens. We have recorded their mood (happy or sad) and the sentence they keep
 repeating. Now a fifth alien comes in, saying a different sentence. Do we predict that this alien is happy or sad?
 Now, a fifth alien comes in, and it says “Aack beep aack aack!”. But we have no idea of their
@@ -258,10 +242,6 @@ number of ‘beep’s. This is ok, we can just say that the classifier is undeci
 with lots of variables and words, it is very unlikely that a classifier is undecided, so we don’t
 need to worry much about this. For the rest of this chapter, by default, we’ll say that in this
 case the classifier predicts that the alien is happy.
-
-
-
-
 
 
 We can do something a bit more mathematical. Let’s assign a score to each word, as
@@ -321,10 +301,6 @@ Aack beep beep beep!
 3
 
 
-
-
-
-
 Sad
 
 The plot will consist of two axes, the horizontal (x) axis and the vertical (y) axis. In the
@@ -341,10 +317,6 @@ same number of aack’s than beep’s, namely, the diagonal drawn in Figure 4.3.
 has the equation
 
 #aack = #beep.
-
-
-
-
 
 
 Or equivalently, the equation
@@ -364,10 +336,6 @@ horizontal and the vertical coordinates are equal. The happy zone is the zone in
 #beep, and the sad zone is the zone in which #aack is less than #beep.
 Thus, we can write our classifier as follows.
 Geometric sentiment analysis classifier
-
-
-
-
 
 The classifier is defined by a line of equation #aack - #beep = 0, and a rule.
 Rule:
@@ -423,10 +391,6 @@ o
 
 Mood: Happy
 Sentence: “Crack crack dunk dunk.”
-
-
-
-
 
 - Alien 5:
 o
@@ -499,10 +463,6 @@ crack!
 Happy
 
 
-
-
-
-
 Dunk dunk crack dunk
 
 3
@@ -550,10 +510,6 @@ Rule:
 Add the scores of all the words.
 - If the score is larger than or equal to 3.5, predict that the alien is happy.
 
-
-
-
-
 - If the score is smaller than 3.5, predict that the alien is sad.
 
 Notice that in the previous classifier, the threshold was 0, and in this one, it is 3.5. In some
@@ -589,10 +545,6 @@ that split some point sin the plane. Let’s do this again by plotting the happy
 just like we did with the first example. We get the plot in Figure 4.4.
 
 
-
-
-
-
 Figure 4.4. The plot of the new dataset of aliens. Notice that the happy ones tend to be above and to the right,
 and the sad ones below and to the left.
 Again, our classifier will consist of a line that splits the happy and the sad faces. Many lines
@@ -609,10 +561,6 @@ In that way, we have our geometric interpretation of the perceptron.
 Geometric sentiment analysis classifier
 The classifier is defined by a line of equation #crack + #dunk - 3.5 = 0, and a rule.
 Rule:
-
-
-
-
 
 
 - If the point is in the positive region of this line, with equation #crack - #dunk - 3.5 >
@@ -635,10 +583,6 @@ to your head now. What is the bias? Why would we add a number to the score of ev
 sentence, instead of simply adding the scores of the words? Well, in the second example, we
 saw that only scoring the words is not enough, and a threshold was needed, which then
 turned into the bias. But that doesn’t really answer the question.
-
-
-
-
 
 
 A related question is, what happens when an alien says absolutely nothing. Is that alien
@@ -675,10 +619,6 @@ happy region. The point with coordinates (0,0) is precisely the point correspond
 sentence with no words. This is illustrated in Figure 4.6.
 
 
-
-
-
-
 Figure 4.6. Left: the classifier has a negative bias, or a positive threshold (y-intercept). This means that the alien
 that doesn’t say anything falls in the sad zone, and is classified as sad.
 Right: The classifier has a positive bias, or a negative threshold (y-intercept). This means that the alien that
@@ -699,20 +639,12 @@ that one line will be able to split all the points. We could have an arrangement
 as Figure 4.7.
 
 
-
-
-
-
 Figure 4.7. A larger arrangement of points. Note that this one is impossible to split using a line. This is ok, we
 can find a split that does a good job, namely, not too many mistakes. Can you find some good lines that split
 this dataset well?
 For this dataset, we need to find the line that best splits it, even if it makes some mistakes.
 Figure 4.8 shows a possible solution. This solution only makes three mistakes, since it
 mistakenly classifies two sad aliens as happy, and one happy alien as sad.
-
-
-
-
 
 
 Figure 4.8. This line splits the dataset well. Note that it only makes 3 mistakes, 2 on the happy zone, and one on
@@ -734,17 +666,9 @@ times, the word ‘beep’ appearing once, and the word ‘crack’ appearing 8 
 point with coordinates (5, 1, 8). This is illustrated in Figure 4.9.
 
 
-
-
-
-
 Figure 4.9. A sentence with three words can be plotted as a point in space. In this case, a sentence with the
 word ‘aack’ 5 times, ‘beep’ 8 times, and ‘crack’ 3 times, is plotted in the point with coordinates (5,8,3).
 In this case, a dataset could look like Figure 4.10.
-
-
-
-
 
 
 Figure 4.10. A dataset of sentences with three words gets plotted in three dimensions.
@@ -752,10 +676,6 @@ How would a classifier look on this dataset? It wouldn’t be a line any more, b
 are in space. It would be a plane that cuts the space in two, trying its best to leave all the
 happy points on one side, and the sad points on the other side. A good separating plane looks
 like the one in Figure 4.11.
-
-
-
-
 
 
 Figure 4.11. In the 3-dimensional case, we would need a plane to split our points, instead ofa line.
@@ -779,10 +699,6 @@ What does this mean? Well, for once, we can see that ‘aack’ is a pretty happ
 a happy word since its weight is 2, (although not as happy as ‘aack’, with weight 1) and ‘beep’
 is a very sad word with weight -3. Furthermore, the threshold is 2.5, so an alien that is quiet
 is inherently sad.
-
-
-
-
 
 ALPHABETS WITH MANY WORDS
 What if our alphabet has more than 3 words. What if it has thousands of words? Now we can’t
@@ -828,10 +744,6 @@ high number.
 First, let’s start with the error function.
 
 
-
-
-
-
 4.2.1 How to compare classifiers? The error function
 Let me give you two classifiers, one good one and one bad one, and you can help me assign
 each one an error score. We’ll represent them as a line that tries to separate happy and sad
@@ -858,10 +770,6 @@ as sad, and 4 sad points as happy. The good classifier has an error of 3, since 
 predicts 1 happy point as sad, and 2 sad points as happy. This is illustrated in Figure 4.13.
 
 
-
-
-
-
 Figure 4.13. The way to tell that the left classifier is bad and the right one is good is by counting the number of
 mistakes each one makes. The one in the left makes 8 mistakes, while the one in the right only makes 3.
 This is a good error function. But it’s not a perfect error function. We want one that tells us a
@@ -879,10 +787,6 @@ happy. The one on the left is not very badly misclassified, while the one on the
 misclassified. However, our error function counts both of them as one error.
 
 
-
-
-
-
 Figure 4.14. These two points are misclassified, but at a different degree. The point in the left is not so badly
 misclassified, since it is close to the boundary line. The one in the right, in contrast, is very badly misclassified
 point, since it is very far from the boundary line.
@@ -898,10 +802,6 @@ Figure 4.15. The way to tell how badly misclassified a point is, is by first mak
 of the line (this one is sad, and it lies in the happy zone), and second by checking how far it is from the boundary
 line. The point in the left is at close to the line, so its error is small, and the point in the right is far from the line,
 so its error is large.
-
-
-
-
 
 This is a much better error function. In summary, what this error function does is the
 following:
@@ -928,10 +828,6 @@ different error function, which will capture the essence of the distance, but wh
 calculations very well.
 
 
-
-
-
-
 ERROR FUNCTION 3: SCORE
 Recall that classifiers can be thought of both geometrically and mathematically. In order to
 construct this error function, we’ll use the mathematical definition. Let’s say that our classifier
@@ -954,10 +850,6 @@ following two sad sentences:
 - Sentence 1: “Aack aack aack beep.”
 
 - Sentence 2: “Aack aack aack aack beep beep beep.”
-
-
-
-
 
 
 Since the horizontal coordinate is the number of appearances of the word ‘aack’, and the
@@ -994,10 +886,6 @@ the scores of these sentences.
 o
 
 Score =#aack + 2#beep - 4 = -4.
-
-
-
-
 
 - Sentence 4, coordinates (1,1):
 o
@@ -1040,10 +928,6 @@ negative, then its score must be negative. Likewise, if a point has a negative l
 predicted positive, then its score must be positive. In both cases, we end up with the error
 
 
-
-
-
-
 being the absolute value of the score, since an error should always be positive or zero.
 Therefore, the definition of error is the following:
 Perceptron error
@@ -1077,10 +961,6 @@ Figure 4.20. In the left we have a Classifier 1, and in the right we have Classi
 Calculation of error for Classifier 1:
 Notice that Classifier 1 classifies them as follows:
 - Sentence 1:
-
-
-
-
 
 o
 
@@ -1163,10 +1043,6 @@ Error = 3
 The total error for Classifier 1 is the sum of errors, which is 0+2+0+3 = 5.
 Calculation of error for Classifier 1:
 
-
-
-
-
 This one is much easier. Notice that Classifier 2 classifies every point correctly. To verify this,
 notice that:
 - Sentence 1 (sad):
@@ -1218,10 +1094,6 @@ calculations is in Figure 4.21.
 Figure 4.21. Classifier 1 has an error of 5, while Classifier 2 has an error of 0. Thus, we conclude that Classifier 2
 is better than Classifier 1.
 
-
-
-
-
 Now that we know how to compare classifiers, let’s move on to finding the best one of them,
 or at least, a pretty good one.
 
@@ -1266,10 +1138,6 @@ small steps, moving the line slightly towards the point is a good start.
 Figure 4.22 summarizes our arbitrary step. We’ll call this the perceptron trick.
 
 
-
-
-
-
 Figure 4.22. Case 1 (left): A point that is correctly classified tells the line to stay where it is.
 Case 2 (right): A point that is misclassified tells the line to move closer towards it.
 Now the question is, how much do we move the line? Like all we do in machine learning we’ll
@@ -1299,10 +1167,6 @@ the word ‘aack’ 2 times and ‘beep’ 5 times, so its score is 2+5-4, which
 positive, the sentence gets classified as happy. Since it is labelled sad, then the OK Classifier
 misclassifies it. Furthermore, the error, as we’ve defined it above, is equal to the score, which
 is 3.
-
-
-
-
 
 Let’s try to build a classifier called “Better Classifier”, which may still misclassify the point,
 but with a smaller error. We’ll do the following (again slightly arbitrary) step. We want to
@@ -1351,10 +1215,6 @@ word ‘beep’ zero times. Since the score is negative, the classifier predicts
 sad.
 In this case, the logic is the following. In order for the classifier to be more correct about
 this sentence, it needs to give it a larger score. Therefore, the word ‘aack’ should have a
-
-
-
-
 
 
 higher score, and the bias should also be higher. The word ‘beep’ is irrelevant here. Since the
@@ -1433,10 +1293,6 @@ The perceptron trick takes one point, one line, and modifies the line a little b
 in order for that line to be a better fit for the point. Now we need to use this trick to find the
 
 
-
-
-
-
 best line that will separate two classes of points. How do we do this? Simple, by repeating the
 perceptron trick many times. Allow me to elaborate.
 Let’s begin with a random line, that may not be the best fit for our points. If each point
@@ -1450,10 +1306,6 @@ Now, the line will simply pick one of them at random, and do what the point says
 correctly classified point, then nothing changes, but if it picks an incorrectly classified one,
 then the line moves in order to provide a better for that point (Figure 4.24). It may become a
 worse fit for other points, but that doesn’t matter.
-
-
-
-
 
 
 Figure 4.24. If we apply the perceptron trick to a classifier and a misclassified point, the classifier moves slightly
@@ -1477,10 +1329,6 @@ Input:
 - A number of epochs, n.
 
 - A learning rate
-
-
-
-
 
 Procedure:
 - Start with a random line. In other words, start with random values for the score of each
@@ -1550,10 +1398,6 @@ Happy/Sad
 0
 
 0
-
-
-
-
 book,
 
 at
@@ -1614,10 +1458,6 @@ This gives us the plot on Figure 3.x. In this figure, the happy sentences are tr
 sad ones are squares
 
 
-
-
-
-
 Figure 4.26. The plot of our dataset. Triangles are happy aliens, and squares are sad aliens.
 
 4.5.1 Coding the perceptron trick
@@ -1653,10 +1493,6 @@ Finally, the prediction is simply 1 (happy) if the score is greater than or equa
 (sad) if the score is less than zero.
 Let’s begin by coding the score function and the prediction. Both receive as input, the
 weights of the model and the bias, and the features of one data point. The score function
-
-
-
-
 
 returns the score that the model gives to that data point, and the prediction function returns a
 1 if the score is greater than or equal to zero, and a 0 if the score is less than zero.
@@ -1705,10 +1541,6 @@ Now that we have the error function, we can go ahead and code the perceptron tri
 that the perceptron trick checks if the point is correctly classified. If it is, then it does nothing.
 If it is misclassified, then it adds
 def perceptron_trick(weights, bias, features, label, learning_rate = 0.01):
-
-
-
-
 
 pred = prediction(weights, bias, features)
 if pred == label:
@@ -1770,10 +1602,6 @@ return weights, bias, errors
 #N
 
 
-
-
-
-
 #I Initialize the weights to 1 and the bias to 0. Feel free to initialize them to small random numbers if you prefer.
 #J An array to store the errors.
 #K Repeat the process as many times as the number of epochs.
@@ -1803,10 +1631,6 @@ Figure 4.27. Left: The plot of our resulting classifier. Notice that it classifi
 Right: The error plot. Notice that the more epochs we run the perceptron algorithm, the lower the error gets.
 
 
-
-
-
-
 Let’s see how the classifier improved in each epoch. Figure 4.28 has a plot of each of the 200
 classifiers obtained, one per epoch. Notice how we start with a bad line fit, but each iteration
 gets us closer and closer to separating the points well, until we get to a good classifier.
@@ -1830,10 +1654,6 @@ can also use other features, for example,
 - length of the email,
 
 - size of attachments,
-
-
-
-
 
 - number of senders,
 
@@ -1882,10 +1702,6 @@ than to recommend the wrong treatment for a patient.
 Can you think of other applications of the perceptron algorithm?
 
 
-
-
-
-
 COMPUTER VISION
 Classification algorithms such as the perceptron algorithm are widely used in computer vision,
 more specifically, in image recognition. Imagine if you have a picture and you want to teach
@@ -1927,10 +1743,6 @@ that it consists of training an algorithm with labelled data, and using it to ma
 predictions on future (unlabelled) data, except this time the predictions are categories,
 such as yes/no, spam/ham, etc.
 
-
-
-
-
 - Logistic classifiers work by assigning a weight to each of the features, and a threshold.
 The score of a data point is then calculated as the sum of products of weights times
 features. If the score greater than or equal the threshold, the classifier returns a ‘yes’.
@@ -1964,7 +1776,3 @@ correctly.
 
 - The perceptron algorithm has numerous applications, including spam email detection,
 recommendation systems, e-commerce, and healthcare.
-
-
-
-

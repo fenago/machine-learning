@@ -29,10 +29,6 @@ Machine learning is everywhere, and you can do it.
 Machine learning is everywhere. This statement seems to be more true every day. I have a
 hard time imagining a single aspect of life that cannot be improved in some way or another by
 
-
-
-
-
 machine learning. Anywhere there is a job that requires repetition, that requires looking at
 data and gathering conclusions, machine learning can help. Especially in the last few years,
 where computing power has grown so fast, and where data is gathered and processed pretty
@@ -62,10 +58,7 @@ much of the math burden. My goal with this book is to make machine learning full
 understandable to every human, and this book is a step on that journey, that I’m very happy
 you’re taking with me!
 
-
-
-
-
+![](./images/.png)
 
 Figure 1.1. Music is not only about scales and notes. There is a melody behind all the technicalities.
 In the same way, machine learning is not about formulas and code.
@@ -90,13 +83,11 @@ recognize them. This is machine learning, it is teaching computers how to to som
 experience, rather than by instructions. It is the equivalent of when, as humans, we take
 decisions based on our intuition, which is based on previous experience. In a way, machine
 
-
-
-
-
 learning is about teaching the computer how to think like a human. Here is how I define
 machine learning in the most concise way:
 Machine learning is common sense, except done by a computer.
+
+![](./images/.png)
 
 Figure 1.2. Machine learning is about computers making decisions based on experience.
 In the same way that humans make decisions based on previous experiences, computers can make decisions
@@ -118,26 +109,20 @@ over the algorithms in a very conceptual way that will show us what really is ha
 machine learning.
 
 
-
-
-
-
 1.3.1 What is the difference between artificial intelligence and machine learning?
 First things first, machine learning is a part of artificial intelligence. So anytime we are doing
 machine learning, we are also doing artificial intelligence.
+
+![](./images/.png)
 
 Figure 1.3. Machine learning is a part of artificial intelligence.
 I think of artificial intelligence in the following way:
 Artificial intelligence encompasses all the ways in which a computer can make decisions.
 When I think of how to teach the computer to make decisions, I think of how we as human
 make decisions. There are mainly two ways we use to make most decisions:
-1.
 
-By using reasoning and logic.
-
-2.
-
-By using our experience.
+1. By using reasoning and logic.
+2. By using our experience.
 
 Both of these are mirrored by computers, and they have a name: Artificial intelligence.
 Artificial intelligence is the name given to the process in which the computer makes decisions,
@@ -149,10 +134,6 @@ on previous data. In this book, we focus on point 2, and study many ways in whic
 can learn from data.
 A small example would be how Google maps finds a path between point A and point B.
 There are several approaches, for example the following:
-
-
-
-
 
 
 1. Looking into all the possible roads, measuring the distances, adding them up in all
@@ -174,16 +155,15 @@ So in other words, deep learning is simply a part of machine learning, which in 
 part of artificial intelligence. If this book was about vehicles, then AI would be motion, ML
 would be cars, and deep learning (DL) would be Ferraris.
 
+![](./images/.png)
+
+
 Figure 1.4. Deep learning is a part of machine learning.
 
 1.4 Humans use the remember-formulate-predict framework to
 make decisions (and so can machines!)
 How does the computer make decisions based on previous data? For this, let’s first see the
 process of how humans make decisions based on experience. And this is what I call the
-
-
-
-
 
 remember-formulate-predict framework. The goal of machine learning is to teach computers
 how to think in the same way, following the same framework.
@@ -201,15 +181,13 @@ following:
 3. We predict that today it will rain.
 We may be right or wrong, but at least, we are trying to make an accurate prediction.
 
+![](./images/.png)
+
 Figure 1.2. The remember-formulate-predict framework.
 Let us put this in practice with an example.
 Example 1: An annoying email friend
 Here is an example. We have a friend called Bob, who likes to send us a lot of email. In
 particular, a lot of his emails are spam, in the form of chain letters, and we are starting to get
-
-
-
-
 
 a bit annoyed at him. It is Saturday, and we just got a notification of an email from him. Can
 we guess if it is spam or not without looking at the email?
@@ -243,10 +221,6 @@ ham, can we do better? Let’s try to analyze the emails a little more. Let’s 
 the emails to see if we find a pattern.
 
 
-
-
-
-
 Figure 1.3. A very simple machine learning model.
 Example 2: A seasonal annoying email friend
 Let us look more carefully at the emails that Bob sent us in the previous month. Let’s look at
@@ -278,10 +252,6 @@ maybe during the week he sends us work email, whereas during the weekend, he has
 send spam, and decides to roam free. So, we can formulate a more educated rule:
 
 
-
-
-
-
 Rule 2: Every email that Bob sends during the week is ham, and during the weekend is
 spam.
 And now, let’s look at what day is it today. If it is Saturday, and we just got an email from
@@ -291,6 +261,8 @@ Let’s give things names, in this case, our prediction was based on a feature. 
 was the day of the week, or more specifically, it being a weekday or a day in the weekend.
 You can imagine that there are many more features that could indicate if an email is spam or
 ham. Can you think of some more? In the next paragraphs we’ll see a few more features.
+
+![](./images/.png)
 
 Figure 1.4. A slightly more complex machine learning model, done by a human.
 Example 3: Things are getting complicated!
@@ -305,10 +277,6 @@ see if you can help me find a pattern.
 - 12KB: Ham
 
 - 16KB: Spam
-
-
-
-
 
 - 20KB: Spam
 
@@ -340,10 +308,6 @@ weekends. Each one of them uses exactly one of these two features. But what if w
 rule that worked with both features? Rules like the following may work:
 
 
-
-
-
-
 Rule 4: If an email is larger than 10KB or it is sent on the weekend, then it is classified as
 spam. Otherwise, it is classified as ham.
 Rule 5: If the email is sent during the week, then it must be larger than 15KB to be
@@ -354,6 +318,8 @@ Rule 6: Consider the number of the day, where Monday is 0, Tuesday is 1, Wednesd
 2, Thursday is 3, Friday is 4, Saturday is 5, and Sunday is 6. If we add the number of the day
 and the size of the email (in KB), and the result is 12 or more, then the email is classified as
 spam. Otherwise, it is classified as ham.
+
+![](./images/.png)
 
 Figure 1.6. An even more complex machine learning model, done by a human.
 All of these are valid rules. And we can keep adding layers and layers of complexity. Now the
@@ -367,10 +333,6 @@ Formulate: Go through many rules and formulas, and check which one fits the data
 Predict: Use the rule to make predictions about future data.
 This is not much different than what we did in the previous section. The great
 advancement here is that the computer can try building rules such as rules 4, 5, or 6, trying
-
-
-
-
 
 
 different numbers, different boundaries, and so on, until finding one that works best for the
@@ -395,12 +357,9 @@ Rule 8: If
 + 4 x (number of appearances of the word ‘buy’) > 10,
 then we classify the message as spam. Otherwise we do not.
 
+![](./images/.png)
+
 Figure 1.7. A much more complex machine learning model, done by a computer.
-
-
-
-
-
 
 Now the question is, which is the best rule? The quick answer is: The one that fits the data
 best. Although the real answer is: The one that generalizes best to new data. At the end of the
@@ -448,10 +407,6 @@ science to technology to social problems and medicine, machine learning is makin
 impact, and will continue making it.
 
 - Machine learning is common sense, done by a computer. It mimics the ways humans
-
-
-
-
 
 think in order to make decisions fast and accurately.
 - Just like humans make decisions based on experience, computers can make decisions
