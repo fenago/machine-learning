@@ -33,9 +33,8 @@ way:
 1. Picks the most determining feature, and divides the data according to that feature. In
 other words, among all the features in the data, picks the one that best divides the
 labels.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 163
 
@@ -64,9 +63,8 @@ DECISION TREE A classification model based on yes/no questions and represented b
 tree has a root, nodes, and leaves.
 
 ROOT The topmost node of the tree. It contains the first yes/no question.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 164
 
@@ -87,9 +85,8 @@ But how did we get to build that tree? Why were those the questions we asked? We
 have also checked if it was monday, if we saw a red car outside, or if we were hungry, and
 built the following decision tree:
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 165
 
@@ -119,9 +116,8 @@ question:
 1. Is it raining?
 2. Is it hot outside?
 3. Am I hungry?
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 166
 
@@ -150,9 +146,8 @@ check that it is not raining, then we check the temperature, and if it is cold, 
 a jacket. This turns the left leaf of the tree into a node, with two leaves emanating from it, as
 in Figure 7.5.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 167
 
@@ -175,9 +170,8 @@ There are several ways to do this. The simplest one is using accuracy, which mea
 which question helps me be correct more often. However, others such as Gini index or
 entropy will be used in this book as well.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 168
 
@@ -220,9 +214,8 @@ learning. Have you wondered how Netflix recommends you movies, YouTube guesses w
 videos you may watch, or Amazon recommends you products you might be interested in
 buying? These are all uses of recommendation systems. One very simple and interesting way
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 169
 
@@ -261,9 +254,8 @@ F
 
 Check Mate Mate
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 170
 
@@ -302,9 +294,8 @@ You may have had the same or different recommendations than me, and that is ok, 
 you have a justification for the recommendation. However, going customer by customer
 seems like a tedious job. Next, we’ll build a decision tree to take care of all customers at once.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 171
 
@@ -349,9 +340,8 @@ adult
 
 Check Mate Mate
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 172
 
@@ -391,9 +381,8 @@ Mate.
 
 The resulting node is drawn in Figure 7.7.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 173
 
@@ -412,9 +401,8 @@ Finder.
 
 The resulting node is drawn in Figure 7.8.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 174
 
@@ -435,9 +423,8 @@ what app to recommend.
 
 - Classifier 2: Asks the question ‘what is your age?’, and from there, determines what
 app to recommend.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 175
 
@@ -464,9 +451,8 @@ better.
 There are actually many ways to see that tree 2 is better than tree 1. Later in section 5.3, we
 will revisit accuracy, and introduce two new ways to compare the trees.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 176
 
@@ -503,9 +489,8 @@ What do we see here? Well, notice that if we now divide the users by gender, we 
 males (only one male) downloaded Instagram, while the females downloaded Check Mate
 Mate. Therefore, we can just add this branch to our tree, to obtain the one in Figure 7.11.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 177
 
@@ -523,9 +508,8 @@ if user is female:
 recommend Check Mate Mate
 else:
 recommend Beehive Finder
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 178
 
@@ -595,9 +579,8 @@ A
 
 1
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 179
 
@@ -653,9 +636,8 @@ This three splits are shown graphically in Figure 7.12. From looking at the grap
 clear that the best split is on location, since it completely determines who downloaded App 1
 and App 2. Here is a question, which split is better between the split by gender and age? From
 first glance, it seems that age is better, since it manages to put most of the users who
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 180
 
@@ -697,9 +679,8 @@ Finally, we’d like to build a classifier that says “If you live in City A, y
 and if you live in City B, you downloaded App Y”. Notice that all the people in City A
 downloaded App 1, and all the people in City B downloaded App 2. Therefore, the best
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 181
 
@@ -729,9 +710,8 @@ following sets:
 - Set 3: App 1, App 1, App 2, App 2.
 
 - Set 4: App 1, App 2, App 2, App 2.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 182
 
@@ -765,9 +745,8 @@ of Gini index:
 the probability that the two balls are of different color is very low.
 Therefore the probability that the two balls are of different color is very high.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 183
 
@@ -791,9 +770,8 @@ first and second balls, and none of them contain a pair in which the balls have 
 Figure 7.15. If we pick our balls from a bag containing four black balls, we get 16 scenarios. All of them give us
 the pair (black, black). Thus, the probability of obtaining two balls of different colors is zero.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 184
 
@@ -816,9 +794,8 @@ Set 3:
 Again, we have 16 possible scenarios. Figure 7.17 shows them, and you can notice that 8 of
 them (exactly half) give us a pair of balls of different colors.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 185
 
@@ -844,9 +821,8 @@ Gini impurity indices of our sets.
 
 - Set 5: (App 2, App 2, App 2, App 2}. Gini impurity index: 0.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 186
 
@@ -883,9 +859,8 @@ two balls of different color. Therefore, the probability that we picked two ball
 
 (or the Gini impurity index) is
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 187
 
@@ -915,9 +890,8 @@ probability of picking two balls of different color is the same as 1 minus the p
 the same color. Since the balls can be black, grey, or white, we add over the three probabilities to obtain the last
 one.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 188
 
@@ -943,9 +917,8 @@ largest Gini gain is obtained by splitting on location, and that is the splittin
 Now we simply select the split that gives us the smallest possible Gini impurity, which is the
 third one.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 189
 
@@ -964,9 +937,8 @@ Figure 7.22. The Gini impurity of the split is the weighted average of the Gini 
 left leaf has 6 elements and the right leaf has 2 elements, then the weights associated to the Gini indices of the
 leaves are 6/8 and 2/8.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 190
 
@@ -1011,9 +983,8 @@ young
 
 Atom Count
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 191
 
@@ -1067,9 +1038,8 @@ As we’ve seen before, splitting by gender gives us the two following sets:
 - Young: {A, A, A}
 
 - Adults: {C, B, C}
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 192
 
@@ -1100,9 +1070,8 @@ The left node with Gini impurity index 0 can no longer be split. As a matter of 
 want this node to be split any longer, since we can already safely recommend Atom Count to
 everyone who lands in this node. This node, then becomes a leaf.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 193
 
@@ -1122,9 +1091,8 @@ downloaded Beehive Finder, and one with two females who downloaded Check Mate Ma
 impurity index zero, since everyone in the group downloaded the same app.
 Now we finally have our decision tree! It’s illustrated in Figure 7.25.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 194
 
@@ -1142,9 +1110,8 @@ worse, what if the age feature actually had numbers, such as 15, 20, 32, instead
 categories such as young/adult? It turns out that these two cases are not much more
 complicated than the original one. We’ll study them separately.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 195
 
@@ -1175,9 +1142,8 @@ categories, and adds as many rows as categories, with each row filled with 0s an
 term one-hot encoding comes from the fact that among the resulting new columns, only one
 of them has a 1 per row, and the others have a zero. Here’s an example.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 196
 
@@ -1215,9 +1181,8 @@ F
 
 25
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 197
 
@@ -1262,9 +1227,8 @@ ages are, in order, 12, 14, 15, 25, 32, 35. We can add the cutoff anywhere in be
 consecutive pairs of numbers, and no matter what number we pick as a cutoff, we’d get the
 same result. The number we pick can be completely arbitrary.
 So here are the 7 possible questions, with arbitrary cutoffs, as illustrated in Table 7.7.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 198
 
@@ -1328,9 +1292,8 @@ Now all we have to do is check the accuracy (or Gini impurity) of each of the sp
 example, if we split in between 25 and 32 (say, if we make the cut at 30 years old) we get the
 following:
 - Younger than 20: {12, 14, 15, 25}
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 199
 
@@ -1349,9 +1312,8 @@ this group. Notice that we get three out of four correct. As for the people 30 o
 either recommend Check Mate Mate or Instagram, since with either one we are correct one
 out of two times. In total, we are correct four times out of six, so our accuracy is 4/6.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 200
 
@@ -1370,9 +1332,8 @@ Mate, so the Gini impurity is
 The right leaf has one user downloading Instagram, and one downloading Check Mate Mate, so
 the Gini impurity is
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 201
 
@@ -1387,9 +1348,8 @@ the Gini indices of the leaves. Since the left leaf has 4 elements and the right
 weight the left Gini index by 4/6, and the right one by 2/6. This gives us a weighted average of 0.417. This gives
 us a Gini gain of 0.194 for this split.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 202
 
@@ -1490,9 +1450,8 @@ Gini impurity
 
 Information gain
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 203
 
@@ -1520,9 +1479,8 @@ recommend Check Mate Mate
 else:
 recommend Beehive Finder
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 204
 
@@ -1534,9 +1492,8 @@ In order to code our decision trees, we’ll use a great and very well-known pac
 Scikit Learn, or sklearn for short. We need to slightly massage our data in order to have it
 ready for sklearn. We need to make sure that among the features, only numbers are fed. A
 feature with values such as ‘male’ or ‘female’, will not be accepted. Therefore, we’ll one-hot
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 205
 
@@ -1633,9 +1590,8 @@ Finally, we train our model by using the DecisionTreeClassifier() class from skl
 will be called ‘app_decision_tree’, and the command for fitting the data is simply ‘fit()’.
 app_decision_tree = DecisionTreeClassifier()
 app_decision_tree.fit(features, labels)
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 206
 
@@ -1660,9 +1616,8 @@ downloaded Beehive Finder, and 2 who downloaded Check Mate Mate.
 In this case, note that the top node gets split using the rule ‘x0 ≤ 20’, or ‘Age ≤ 20’. To the
 left, we get ‘True’, which is those users whose ages are less than or equal to 20, and to the
 right, we get ‘False’, which is those whose age is greater than 20. The node to the right is split
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 207
 
@@ -1690,9 +1645,8 @@ Sale
 
 Spam
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 208
 
@@ -1779,9 +1733,8 @@ spam_dataset = pd.DataFrame({
 In order to do this graphically, let’s plot the points in a graph (this appears in the Github
 repo).
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 209
 
@@ -1798,9 +1751,8 @@ spam_decision_tree.fit(X,y)
 
 The decision tree we get is in Figure 7.36.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 210
 
@@ -1823,9 +1775,8 @@ But I like to see decision trees in a graphical way too. Let’s analyze this tr
 and see what it is doing to the dataset. The top node splits the data based on the rule X1 ≤
 3.5. This feature is the second column, namely, the appearances of the word ‘lottery’. Thus,
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 211
 
@@ -1844,9 +1795,8 @@ node in the second row, to the right. Note that it has 8 samples, 2 of them ham,
 them spam. The tree choses to split using the rule e X1 ≤ 3.5, which corresponds to ‘Sale ≤
 5.0’. This means, the split corresponds to a vertical line, as Figure 7.38 shows.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 212
 
@@ -1863,9 +1813,8 @@ emails.
 So if we plot all these lines together, our tree delineates the boundary seen in Figure 7.40.
 Note that all the emails to one side of the boundary are spam, and to the other side are ham,
 a perfect split!
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 213
 
@@ -1895,9 +1844,8 @@ recommendation systems problems, the Netflix prize, was won with the help of dec
 In 2006, Netflix held a competition which involved building the best possible recommendation
 system to predict user ratings of their movies. In 2009, they awarded $1,000,000 USD to the
 winner, who improved the Netflix algorithm by over 10%. The way they do this was using
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 214
 
@@ -1931,8 +1879,7 @@ planes) that split our data according to the different labels.
 - Applications of decision trees range very widely, from recommendation algorithms to
 applications in medicine and biology.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 215

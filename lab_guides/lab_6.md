@@ -35,7 +35,6 @@ with a vague estimate.
 However, if we are given information, we can make a better estimation of the probability.
 If I tell you, for example, that we are in Canada, then the probability that it will snow today
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -77,7 +76,6 @@ Friend: She said it was 99% accurate. That means I’m 99% likely to have the di
 You: Wait, let’s look at all the numbers. How likely is it to have the disease, regardless of the
 test? How many people have the disease?
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -133,7 +131,6 @@ disease given that you tested positive is actually only around 1%!
 Friend: Oh my God, really? That’s such a relief, thank you!
 You: Don’t thank me, thank math (winks eye).
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -168,7 +165,6 @@ Out of 100 sick people:
 
 - 1& of them, or 1, is diagnosed as healthy.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -191,7 +187,6 @@ every 10,000 is sick with the disease, that means a person is sick 0.01% of the 
 more likely, to be among the 1% of the population that got misdiagnosed, or to be among the
 0.01% of the population that is sick? The 1%, although a small group, is massively larger than
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -216,7 +211,6 @@ Notice that in the tree in Figure 6.2, the patients get divided into four groups
 Now let’s count how many people are in each of the groups, starting with 1,000,000 patients,
 as we did above. The results are in Figure 6.3.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -245,7 +239,6 @@ EVENT What gives us information to calculate better probabilities.
 POSTERIOR The final (and more accurate) probability that we calculate using the prior probability and the
 event.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -272,7 +265,6 @@ algorithms do, which is predict a label out of a set of features. Naive Bayes wi
 several probability calculations using the features, and output a final probability for what it
 thinks the label is.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -298,7 +290,6 @@ probability that a new email is spam is 20%. This is the prior probability. The 
 be seen in Figure 6.5, where the spam emails are colored dark grey, and the ham emails
 white.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -324,7 +315,6 @@ emails containing the word ‘lottery’, 15 of them are spam, and 5 of them are
 probability that an email containing the word ‘lottery’ is spam, is precisely 15/20, or 75%.
 That is the posterior probability.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -349,7 +339,6 @@ that the email is spam or ham, and that it contains the word ‘lottery’ or no
 following way, we start by the root, which splits into two branches. The top branch
 corresponds to spam, and the bottom branch corresponds to ham. Each of the branches splits
 into two more branches, namely, when the email contains the word ‘lottery’ or not. The tree
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -367,7 +356,6 @@ don’t contain the word ‘lottery’, thus obtaining Figure 6.7.
 Figure 6.8: From the previous tree, we have removed the two branches where the emails don’t contain the word
 ‘lottery’.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -449,7 +437,6 @@ probabilities, as follows:
 . The probability that a ham email does not contain the word
 
 ‘lottery’.
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -500,7 +487,6 @@ So now we can calculate these probabilities:
 These probabilities are summarized in Figure 6.9. Notice that the product of the probabilities
 on the edges are the probabilities at the right.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -522,7 +508,6 @@ namely:
 In other words, we need only consider two branches from Figure 6.10. These are the first and
 the third, namely, those in which the email contains the word ‘lottery’.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -555,7 +540,6 @@ In math terms, we did the following:
 .
 If we remember what these two probabilities were, using the multiplication rule, we get the
 following:
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -579,7 +563,6 @@ and 4 of the ham emails. Thus, out of these 10 emails that contain the word ‘s
 of them) are spam and 40% (or 4 of them) are ham. We conclude that based on our data, the
 probability that an email is spam containing the word ‘sale’ is 60%.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -605,7 +588,6 @@ Does that work? Well, not so much. Can you see a potential problem there? What i
 emails in our dataset have the words ‘lottery’ and ‘sale’? We only have 100 emails, if only 20
 of them have the word ‘lottery’ and 10 have the word sale, it could be that maybe only 1 or 2
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -637,7 +619,6 @@ likely to appear in this email, since many times they go together. This is why o
 is naive. However, it turns out in practice that this assumption works very well, and it
 simplifies our math a lot. This is called the product rule for probabilities.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -671,7 +652,6 @@ probability of the word sale appearing in a spam email is 6/20, or 03.
 0.225. This means, among our 20 spam emails, we expect to see 0.225*20 = 4.5 of
 them containing both words.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -707,7 +687,6 @@ imagine it that way) is 4.5+0.0625 = 4.5625. Since 4.5 are spam, then the probab
 the dart landed on spam is 4.4/4.5625 = 0.9863. This means, an email with the words ‘lottery’
 and ‘sale’ has a 98.63% probability of being spam. That is quite high!
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -730,7 +709,6 @@ Plugging them into the previous formula, we get
 
 Finally, plugging in the values
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -766,7 +744,6 @@ probabilities, namely, 800/512000 = 0.0015625.
 Thus, among 100 emails, we’d expect to find 0.01125 spam emails containing the three
 words, and 0.0015625 ham emails containing them. If we were to pick at random from these
 two, the probability that the email is spam is 0.01125/(0.01125+0.0015625) = 0.878, or
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -787,7 +764,6 @@ emails = pandas.read_csv('emails.csv')
 
 If we look at the first 10 rows of this dataset, this is how it looks (Table 6.1):
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -811,7 +787,6 @@ return list(set(text.split()))
 Now we use the apply() function to apply this change to the entire column. We call the new
 column emails[‘words’].
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -841,7 +816,6 @@ We’ll do this for all words at the same time. The following function creates a
 ‘model’, which records each word, together with the number of appearances of the word in
 spam emails, and in ham emails.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -890,7 +864,6 @@ spams = []
 hams = []
 for word in words:
 #A
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -947,7 +920,6 @@ probability and an event.
 - The prior probability is a basic calculation of a probability, given very little information.
 
 - Bayes theorem uses the event to make a much better estimate of the probability in
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
@@ -960,7 +932,6 @@ together with several events.
 - The word ‘naive’ comes from the fact that we are making a naive assumption, namely,
 that the events in question are all independent.
 
-©Manning Publications Co. To comment go to liveBook
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 

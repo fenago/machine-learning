@@ -33,9 +33,8 @@ A way to build a good perceptron that fits our data, is via the perceptron algor
 perceptron algorithm is a beautiful procedure which, in a similar way to the linear regression
 algorithm, will iterate many times until it finds a good classifier. These two algorithms (and
 many more that we learn in this book) are very useful for working out patterns in data.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 60
 
@@ -107,9 +106,8 @@ Score:
 = -4
 
 Prediction: The sentence is sad.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 61
 
@@ -178,9 +176,8 @@ long short-term memory networks (LSTM), and hidden Markov models.
 But before we delve into looking at data and building our classifiers, let me give you an
 idea of how the perceptron algorithm works. The idea is to iterate many times and improve
 our weights. Let’s start by assigning random scores to each word. And let’s say that our
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 62
 
@@ -236,9 +233,8 @@ o
 Mood: Sad
 Sentence: “Aack beep beep beep!”
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 63
 
@@ -263,9 +259,8 @@ with lots of variables and words, it is very unlikely that a classifier is undec
 need to worry much about this. For the rest of this chapter, by default, we’ll say that in this
 case the classifier predicts that the alien is happy.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 64
 
@@ -325,9 +320,8 @@ Aack beep beep beep!
 
 3
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 65
 
@@ -348,9 +342,8 @@ has the equation
 
 #aack = #beep.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 66
 
@@ -371,9 +364,8 @@ horizontal and the vertical coordinates are equal. The happy zone is the zone in
 #beep, and the sad zone is the zone in which #aack is less than #beep.
 Thus, we can write our classifier as follows.
 Geometric sentiment analysis classifier
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 67
 
@@ -431,9 +423,8 @@ o
 
 Mood: Happy
 Sentence: “Crack crack dunk dunk.”
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 68
 
@@ -507,9 +498,8 @@ Crack dunk dunk crack
 crack!
 Happy
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 69
 
@@ -559,9 +549,8 @@ Scores:
 Rule:
 Add the scores of all the words.
 - If the score is larger than or equal to 3.5, predict that the alien is happy.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 70
 
@@ -599,9 +588,8 @@ In the previous example we interpreted our perceptron as a set of scores, and al
 that split some point sin the plane. Let’s do this again by plotting the happy and sad aliens
 just like we did with the first example. We get the plot in Figure 4.4.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 71
 
@@ -622,9 +610,8 @@ Geometric sentiment analysis classifier
 The classifier is defined by a line of equation #crack + #dunk - 3.5 = 0, and a rule.
 Rule:
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 72
 
@@ -649,9 +636,8 @@ sentence, instead of simply adding the scores of the words? Well, in the second 
 saw that only scoring the words is not enough, and a threshold was needed, which then
 turned into the bias. But that doesn’t really answer the question.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 73
 
@@ -688,9 +674,8 @@ with coordinates (0,0)), then the origin is in the sad region. If it is above, t
 happy region. The point with coordinates (0,0) is precisely the point corresponding to the
 sentence with no words. This is illustrated in Figure 4.6.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 74
 
@@ -713,9 +698,8 @@ and negative coordinates, coordinates that are not integers, etc. Even more, it�
 that one line will be able to split all the points. We could have an arrangement of points such
 as Figure 4.7.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 75
 
@@ -726,9 +710,8 @@ For this dataset, we need to find the line that best splits it, even if it makes
 Figure 4.8 shows a possible solution. This solution only makes three mistakes, since it
 mistakenly classifies two sad aliens as happy, and one happy alien as sad.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 76
 
@@ -750,9 +733,8 @@ points will be floating in space. For example, a sentence with the word ‘aack�
 times, the word ‘beep’ appearing once, and the word ‘crack’ appearing 8 times, will be at the
 point with coordinates (5, 1, 8). This is illustrated in Figure 4.9.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 77
 
@@ -760,9 +742,8 @@ Figure 4.9. A sentence with three words can be plotted as a point in space. In t
 word ‘aack’ 5 times, ‘beep’ 8 times, and ‘crack’ 3 times, is plotted in the point with coordinates (5,8,3).
 In this case, a dataset could look like Figure 4.10.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 78
 
@@ -772,9 +753,8 @@ are in space. It would be a plane that cuts the space in two, trying its best to
 happy points on one side, and the sad points on the other side. A good separating plane looks
 like the one in Figure 4.11.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 79
 
@@ -799,9 +779,8 @@ What does this mean? Well, for once, we can see that ‘aack’ is a pretty happ
 a happy word since its weight is 2, (although not as happy as ‘aack’, with weight 1) and ‘beep’
 is a very sad word with weight -3. Furthermore, the threshold is 2.5, so an alien that is quiet
 is inherently sad.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 80
 
@@ -848,9 +827,8 @@ function will assign the first (good) classifier a small number, and the second 
 high number.
 First, let’s start with the error function.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 81
 
@@ -879,9 +857,8 @@ In this case, the bad classifier has an error of 8, since it erroneously predict
 as sad, and 4 sad points as happy. The good classifier has an error of 3, since it erroneously
 predicts 1 happy point as sad, and 2 sad points as happy. This is illustrated in Figure 4.13.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 82
 
@@ -901,9 +878,8 @@ but it is very far from it. Figure 4.14 shows two sad points that are incorrectl
 happy. The one on the left is not very badly misclassified, while the one on the right is badly
 misclassified. However, our error function counts both of them as one error.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 83
 
@@ -922,9 +898,8 @@ Figure 4.15. The way to tell how badly misclassified a point is, is by first mak
 of the line (this one is sad, and it lies in the happy zone), and second by checking how far it is from the boundary
 line. The point in the left is at close to the line, so its error is small, and the point in the right is far from the line,
 so its error is large.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 84
 
@@ -952,9 +927,8 @@ unnecessarily. However, there is a nice fix to this. We’ll come up with a simi
 different error function, which will capture the essence of the distance, but which fits our
 calculations very well.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 85
 
@@ -981,9 +955,8 @@ following two sad sentences:
 
 - Sentence 2: “Aack aack aack aack beep beep beep.”
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 86
 
@@ -1021,9 +994,8 @@ the scores of these sentences.
 o
 
 Score =#aack + 2#beep - 4 = -4.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 87
 
@@ -1067,9 +1039,8 @@ But this can be made even simpler. Notice that if a point has a positive label, 
 negative, then its score must be negative. Likewise, if a point has a negative label, but it’s
 predicted positive, then its score must be positive. In both cases, we end up with the error
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 88
 
@@ -1106,9 +1077,8 @@ Figure 4.20. In the left we have a Classifier 1, and in the right we have Classi
 Calculation of error for Classifier 1:
 Notice that Classifier 1 classifies them as follows:
 - Sentence 1:
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 89
 
@@ -1192,9 +1162,8 @@ Error = 3
 
 The total error for Classifier 1 is the sum of errors, which is 0+2+0+3 = 5.
 Calculation of error for Classifier 1:
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 90
 
@@ -1248,9 +1217,8 @@ calculations is in Figure 4.21.
 
 Figure 4.21. Classifier 1 has an error of 5, while Classifier 2 has an error of 0. Thus, we conclude that Classifier 2
 is better than Classifier 1.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 91
 
@@ -1297,9 +1265,8 @@ small steps, moving the line slightly towards the point is a good start.
 
 Figure 4.22 summarizes our arbitrary step. We’ll call this the perceptron trick.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 92
 
@@ -1332,9 +1299,8 @@ the word ‘aack’ 2 times and ‘beep’ 5 times, so its score is 2+5-4, which
 positive, the sentence gets classified as happy. Since it is labelled sad, then the OK Classifier
 misclassifies it. Furthermore, the error, as we’ve defined it above, is equal to the score, which
 is 3.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 93
 
@@ -1386,9 +1352,8 @@ sad.
 In this case, the logic is the following. In order for the classifier to be more correct about
 this sentence, it needs to give it a larger score. Therefore, the word ‘aack’ should have a
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 94
 
@@ -1467,9 +1432,8 @@ algorithm
 The perceptron trick takes one point, one line, and modifies the line a little bit (or not at all),
 in order for that line to be a better fit for the point. Now we need to use this trick to find the
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 95
 
@@ -1487,9 +1451,8 @@ correctly classified point, then nothing changes, but if it picks an incorrectly
 then the line moves in order to provide a better for that point (Figure 4.24). It may become a
 worse fit for other points, but that doesn’t matter.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 96
 
@@ -1514,9 +1477,8 @@ Input:
 - A number of epochs, n.
 
 - A learning rate
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 97
 
@@ -1589,9 +1551,8 @@ Happy/Sad
 
 0
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 book,
 
@@ -1652,9 +1613,8 @@ y = pd.Series([0,0,0,0,1,1,1,1])
 This gives us the plot on Figure 3.x. In this figure, the happy sentences are triangles and the
 sad ones are squares
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 99
 
@@ -1693,9 +1653,8 @@ Finally, the prediction is simply 1 (happy) if the score is greater than or equa
 (sad) if the score is less than zero.
 Let’s begin by coding the score function and the prediction. Both receive as input, the
 weights of the model and the bias, and the features of one data point. The score function
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 100
 
@@ -1746,9 +1705,8 @@ Now that we have the error function, we can go ahead and code the perceptron tri
 that the perceptron trick checks if the point is correctly classified. If it is, then it does nothing.
 If it is misclassified, then it adds
 def perceptron_trick(weights, bias, features, label, learning_rate = 0.01):
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 101
 
@@ -1811,9 +1769,8 @@ return weights, bias, errors
 
 #N
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 102
 
@@ -1845,9 +1802,8 @@ the number of epochs.
 Figure 4.27. Left: The plot of our resulting classifier. Notice that it classifies each point correctly.
 Right: The error plot. Notice that the more epochs we run the perceptron algorithm, the lower the error gets.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 103
 
@@ -1874,9 +1830,8 @@ can also use other features, for example,
 - length of the email,
 
 - size of attachments,
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 104
 
@@ -1926,9 +1881,8 @@ great deal of accuracy! It’s a different thing to recommend a video that a use
 than to recommend the wrong treatment for a patient.
 Can you think of other applications of the perceptron algorithm?
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 105
 
@@ -1972,9 +1926,8 @@ classifiers later in this book.
 that it consists of training an algorithm with labelled data, and using it to make
 predictions on future (unlabelled) data, except this time the predictions are categories,
 such as yes/no, spam/ham, etc.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 106
 
@@ -2012,8 +1965,7 @@ correctly.
 - The perceptron algorithm has numerous applications, including spam email detection,
 recommendation systems, e-commerce, and healthcare.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 107

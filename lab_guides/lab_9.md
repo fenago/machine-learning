@@ -29,9 +29,8 @@ AdaBoost algorithm (Adaptive Boosting), which we study at the end of the chapter
 Here is the scenario. You have to take an exam that consists of 100 true/false questions on
 many different topics, such as math, geography, science, history, music, and so on. Luckily,
 you are allowed to call your five friends, Alice, Bob, Carlos, Dana, and Emily to help you. What
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 216
 
@@ -56,9 +55,8 @@ that classifies our data very well. This discipline is called ensemble learning.
 We call the set of classifiers weak learners, and the super-classifier they form when
 combined a strong learner.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 217
 
@@ -79,9 +77,8 @@ AGGregatING.
 Boosting: Boosting is very similar to bagging, except the classifiers are not picked at
 random. Details vary between algorithms, but in a nutshell, each classifier is picked in a way
 that focuses on the weaknesses of the previous classifiers. Each classifier is not necessarily
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 218
 
@@ -152,9 +149,8 @@ No
 
 No
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 219
 
@@ -200,9 +196,8 @@ squares represent ham emails.
 Figure 10.2. The plot of our dataset, where spam emails are triangles and ham emails are squares. In the
 horizontal axis we have the number of appearances of the word ‘lottery’, and in the vertical axis, the number of
 appearances of the word ‘sale’..
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 220
 
@@ -233,9 +228,8 @@ No
 
 Yes
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 221
 
@@ -248,9 +242,8 @@ spam_decision_tree.fit(new_X,new_y)
 Feel free to look at more details in the repo www.github.com/luisguiserrano/manning. The
 decision tree and the boundary region can be seen in Figure 10.5.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 222
 
@@ -275,9 +268,8 @@ randomness involved in building these trees, we’ll call it a random forest.
 Let’s try to fit three trees to the data in Figure 10.4. In order to make things computationally
 easier, we’ll split the data into three random (almost) equal subsets, and we’ll fit a simple
 (depth one) tree to each dataset.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 223
 
@@ -294,9 +286,8 @@ Whichever prediction got two or more votes, whether it’s spam or ham, is the p
 the random forest makes. The boundary of the random forest is illustrated at the bottom of
 Figure 10.8.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 224
 
@@ -316,9 +307,8 @@ random_forest_model.fit(new_X,new_y)
 random_forest_model.score(new_X,new_y)
 
 When we plot the boundary defined by this random forests, we get Figure 10.9.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 225
 
@@ -338,9 +328,8 @@ Boosting is very similar to bagging, except now we don’t select the weak learn
 but we select them in a more intelligent way. The way we do this is by training each learner to
 focus on the weaknesses of the previous ones. In other words, each learner tries really hard to
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 226
 
@@ -365,9 +354,8 @@ splits our data. It is the classifier that picks only one of the features, and c
 based on if that feature is smaller or larger than some threshold.
 I will show you AdaBoost in a small example. We’ll try to classify the data in Figure 10.11.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 227
 
@@ -385,9 +373,8 @@ each point has weight 1. After rescaling the data, some points have weights larg
 and some have weights smaller than one. In the figures, we enlarge or shrink each data point
 to illustrate this. The data now looks like the right side of Figure 10.12.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 228
 
@@ -401,9 +388,8 @@ smaller weight). After training this learner, we again enlarge the data accordin
 this process a third time, and then we decide to stop (we could keep going if we wanted to).
 The process is illustrated in Figure 10.13.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 229
 
@@ -412,9 +398,8 @@ rescale the points (bottom), and so on as we move to the right.
 Now, as a final step, we combine the three learners into one by voting, as illustrated by Figure
 10.14.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 230
 
@@ -436,9 +421,8 @@ are the following:
 
 - P(blue ball) = ⅓.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 231
 
@@ -465,9 +449,8 @@ ball) = ⅔, then the odds ratio is:
 The odds ratio is widely used in many areas in particular in science and betting. For our case,
 we’ll be using it to build our rescaling factor.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 232
 
@@ -496,9 +479,8 @@ them to ensure they still add to 10, let’s divide them all by their sum, which
 weights are ⅙, ⅙, ⅙, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14, 1/14. This rescaling process is
 illustrated in Figure 10.15.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 233
 
@@ -513,9 +495,8 @@ And as a final step, the best learner for the normalized dataset is simply the v
 Figure 10.17. For this one we will calculate the rescaling factor (you’ll see why in a bit), but
 we’ll stop training more learners right here.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 234
 
@@ -544,9 +525,8 @@ score of zero.
 In machine learning, the equivalent for Truthful Teresa is a model with high accuracy,
 which correctly predicts points most of the time. The equivalent for Lying Lenny is a model
 with very low accuracy, and the equivalent to Unpredictable Umbert is a model with accuracy
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 235
 
@@ -608,9 +588,8 @@ ln(Odds)
 
 -0.8473
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 236
 
@@ -649,9 +628,8 @@ o
 Odds = 8.46/1.35 = 6.27
 log(odds) = 1.836
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 237
 
@@ -661,9 +639,8 @@ weight, and for each point, we add the weight if the learner classified the poin
 and subtract the weight if it classified it as negative. If the resulting sum is positive, we
 classify the point positive, and if it is negative, we classify it as negative.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 238
 
@@ -677,9 +654,8 @@ from sklearn.ensemble import AdaBoostClassifier
 adaboost_model = AdaBoostClassifier(random_state=0, n_estimators=6)
 adaboost_model.fit(new_X, new_y)
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 239
 
@@ -692,9 +668,8 @@ for estimator in estimators:
 plot_model(new_X, new_y, estimator)
 plt.show()
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 240
 
@@ -716,9 +691,8 @@ winning team used a very strong combination of weak learners in an ensemble to w
 are two major types of ensemble methods: Bagging and boosting.
 
 - Bagging, or bootstrap aggregating, consists of building successive learners on random
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 241
 
@@ -730,6 +704,5 @@ weighted majority vote of the learners.
 - Applications of ensemble methods range very widely, from recommendation algorithms
 to applications in medicine and biology.
 
-©Manning Publications Co. To comment go to liveBook
 
 

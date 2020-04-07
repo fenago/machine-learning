@@ -33,9 +33,8 @@ case, the goal is to assign scores close to 0 to the saddest sentences, scores c
 happiest sentences, and scores close to 0.5 to neutral sentences.
 This chapter relies on chapter 4, as the algorithms we develop here are very similar,
 except for some technical differences. I recommend you make sure you understand chapter 4
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 108
 
@@ -66,9 +65,8 @@ smaller than 0.5, where again the farther points from the line get values closer
 gets a value of 1 or 0 (unless we consider points at infinity).
 
 Figure 5.1. Left: The perceptron algorithm trains a discrete perceptron, where the predictions are 0 (happy) and
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 109
 
@@ -99,9 +97,8 @@ Don’t worry much about this formula. What really matters is what the function 
 crunch all the real number line into the interval (0,1). In Figure 5.3 we can see a comparison
 of the graphs of the step and the sigmoid functions.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 110
 
@@ -140,9 +137,8 @@ x
 
 0.269
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 111
 
@@ -197,9 +193,8 @@ the farther a point is from the line in that direction, the closer its predictio
 - Points that are down and to the left of the line are given predictions lower than 0.5,
 and the farther a point is from the line in that direction, the closer its prediction is to 0.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 112
 
@@ -253,9 +248,8 @@ Notice that in Table 5.2, points 1 and 4 get a prediction that is close to the l
 should have small errors. In contrast, points 2 and 3 get a prediction that is far from the label,
 so they should have large errors. Here are the three error functions.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 113
 
@@ -338,9 +332,8 @@ the classifier has assigned a prediction of 0.01. This point is vastly misclassi
 would hope that the classifier assigns it a prediction close to 1. The absolute error for this
 point is the difference between 1 and 0.01, or 0.99. The square error is this difference
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 114
 
@@ -400,9 +393,8 @@ this probability into an error. Ideally, we’d like a function that gives us ve
 points that are close to 0, and very low values for points that are close to 1. We’d like a
 function where the graph looks like Figure 5.5.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 115
 
@@ -415,9 +407,8 @@ All we need to do is find a formula for that function. Can you help me think of 
 may work? Here is an idea, let’s look at the graph of the natural logarithm function, in the
 interval between 0 and 1 in Figure 5.6.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 116
 
@@ -463,9 +454,8 @@ its label
 
 -ln(0.2) = 1.609
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 117
 
@@ -578,9 +568,8 @@ point. Let’s say we have a point with label 1 (happy), for which the classifie
 prediction of 0.00001. This point is very poorly classified. The absolute error will be 0.99999,
 and the square error will be 0.9999800001. However, the log loss will be the negative of the
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 118
 
@@ -611,9 +600,8 @@ specified the probability assigned to each of the points. Recall that this is th
 the point is happy. However, as in the previous section, we care about the probability that our
 classifier assigns to the actual label. Namely, if the point is happy, we care about the
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 119
 
@@ -643,9 +631,8 @@ To summarize, these are the steps for calculating the log loss:
 - For each point, we calculate the probability that the classifier predicts for its label
 (happy or sad).
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 120
 
@@ -678,9 +665,8 @@ the error was small. The classifier we obtained was a discrete perceptron. With 
 perceptrons, we will do the exact same thing. In this section I show you the logistic regression
 algorithm, which does precisely that: It builds a continuous perceptron by reducing the log
 loss of a classifier.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 121
 
@@ -706,9 +692,8 @@ the line. Let’s illustrate this with an example.
 5.2.1 An example with a discrete perceptron and a continuous perceptron
 In order to really understand the difference between a discrete and a continuous perceptron,
 we use the same example as in section 4.3.1. Recall that in this section we started with a
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 122
 
@@ -761,9 +746,8 @@ Why did we subtract from the scores? Recall that in the perceptron algorithm, if
 prediction 0, we would add to the scores. We won’t have to make this decision in the logistic
 regression algorithm; you’ll soon see why.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 123
 
@@ -810,9 +794,8 @@ Let’s update the scores in the exact same way as before.
 
 - Update the bias by adding 0.01*(0.119), thus obtaining -3.999.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 124
 
@@ -869,9 +852,8 @@ Logistic regression algorithm (pseudocode):
 Input:
 - A dataset of points, where every point has a positive or negative label.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 125
 
@@ -951,9 +933,8 @@ score, and the prediction.
 def sigmoid(x):
 return np.exp(x)/(1+np.exp(x))
 def lr_prediction(weights, bias, features):
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 126
 
@@ -1008,9 +989,8 @@ errors.append(total_error(weights, bias, features, labels))
 j = random.randint(0, len(features)-1)
 weights, bias = perceptron_trick(weights, bias, features.loc[j], labels[j])
 draw_line(weights[0], weights[1], bias)
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 127
 
@@ -1042,9 +1022,8 @@ The classifier we obtain has the following weights and biases.
 The plot of the classifier (together with a plot of the previous classifiers at each of the epochs)
 is in Figure 5.12.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 128
 
@@ -1056,9 +1035,8 @@ algorithm for more epochs, the log loss decreases drastically, which is exactly 
 Figure 5.13. The error plot. Notice that the more epochs we run the logistic regression algorithm, the lower the
 error gets.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 129
 
@@ -1083,9 +1061,8 @@ We get the following coefficients:
 •
 •
 - (the intercept)
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 130
 
@@ -1113,9 +1090,8 @@ one step back, and look only at the score. We’ll generalize this sigmoid funct
 classes.
 As an example, say we have our three classifiers: a dog classifier, a cat classifier, and a
 bird classifier. For a particular data point, they all output scores in the following way:
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 131
 
@@ -1166,9 +1142,8 @@ scores a1, a2, … , an, the probabilities obtained are p1, p2, … , pn, where
 
 This formula is known as the softmax formula.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 132
 
@@ -1205,6 +1180,5 @@ to obtain a slightly better classifier.
 - When we have several classes to predict, we can build several linear classifiers, and
 combine them using the softmax function.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+

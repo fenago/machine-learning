@@ -28,9 +28,8 @@ deep into machine learning!
 Machine learning is everywhere, and you can do it.
 Machine learning is everywhere. This statement seems to be more true every day. I have a
 hard time imagining a single aspect of life that cannot be improved in some way or another by
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 2
 
@@ -63,9 +62,8 @@ much of the math burden. My goal with this book is to make machine learning full
 understandable to every human, and this book is a step on that journey, that I’m very happy
 you’re taking with me!
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 3
 
@@ -91,9 +89,8 @@ give the computer lots of images, and make it learn attributes about them, that 
 recognize them. This is machine learning, it is teaching computers how to to something by
 experience, rather than by instructions. It is the equivalent of when, as humans, we take
 decisions based on our intuition, which is based on previous experience. In a way, machine
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 4
 
@@ -120,9 +117,8 @@ from them. But I don’t think they form the big picture of machine learning, an
 over the algorithms in a very conceptual way that will show us what really is happening in
 machine learning.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 5
 
@@ -154,9 +150,8 @@ can learn from data.
 A small example would be how Google maps finds a path between point A and point B.
 There are several approaches, for example the following:
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 6
 
@@ -185,9 +180,8 @@ Figure 1.4. Deep learning is a part of machine learning.
 make decisions (and so can machines!)
 How does the computer make decisions based on previous data? For this, let’s first see the
 process of how humans make decisions based on experience. And this is what I call the
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 7
 
@@ -212,9 +206,8 @@ Let us put this in practice with an example.
 Example 1: An annoying email friend
 Here is an example. We have a friend called Bob, who likes to send us a lot of email. In
 particular, a lot of his emails are spam, in the form of chain letters, and we are starting to get
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 8
 
@@ -249,9 +242,8 @@ But you may be thinking, 6 out of 10 is not enough confidence on the email being
 ham, can we do better? Let’s try to analyze the emails a little more. Let’s see when Bob sent
 the emails to see if we find a pattern.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 9
 
@@ -285,9 +277,8 @@ the week, is ham, and every email he sent during the weekend is spam. This makes
 maybe during the week he sends us work email, whereas during the weekend, he has time to
 send spam, and decides to roam free. So, we can formulate a more educated rule:
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 10
 
@@ -314,9 +305,8 @@ see if you can help me find a pattern.
 - 12KB: Ham
 
 - 16KB: Spam
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 11
 
@@ -349,9 +339,8 @@ Our two classifiers were good, since they rule out large emails and emails sent 
 weekends. Each one of them uses exactly one of these two features. But what if we wanted a
 rule that worked with both features? Rules like the following may work:
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 12
 
@@ -379,9 +368,8 @@ Predict: Use the rule to make predictions about future data.
 This is not much different than what we did in the previous section. The great
 advancement here is that the computer can try building rules such as rules 4, 5, or 6, trying
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 13
 
@@ -409,9 +397,8 @@ then we classify the message as spam. Otherwise we do not.
 
 Figure 1.7. A much more complex machine learning model, done by a computer.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 14
 
@@ -461,9 +448,8 @@ science to technology to social problems and medicine, machine learning is makin
 impact, and will continue making it.
 
 - Machine learning is common sense, done by a computer. It mimics the ways humans
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 15
 
@@ -481,6 +467,5 @@ Remember: Use previous data.
 Formulate: Build a model, or a rule, for this data.
 Predict: Use the model to make predictions about future data.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+

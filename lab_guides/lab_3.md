@@ -27,9 +27,8 @@ moving around to get closer to the points.
 The mental picture of linear regression is simple. Let us say we have some points, that
 roughly look like they are forming a line, like in figure3.1.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 36
 
@@ -54,9 +53,8 @@ be asking yourself this and many other questions. Here are some that I can think
 - What do we mean by “a line that passes really close to the points”?
 
 - How do we (or the computer) find such a line?
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 37
 
@@ -115,9 +113,8 @@ Price
 
 450
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 38
 
@@ -159,9 +156,8 @@ Let’s look at a slightly more complicated dataset, like the one in Table 3.2.
 Table 3.2. A slightly more complicated dataset of houses with their number of rooms and their
 price.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 39
 
@@ -206,9 +202,8 @@ plotting things. If we plot the points in a coordinate system, in which the hori
 represents the number of rooms and the vertical axis represents the price of the house, the
 graph looks like figure 3.3.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 40
 
@@ -233,9 +228,8 @@ that our estimate for the price of a (hypothetical) house with zero rooms, would
 price of $100. The slope being 50 means that each time we add one room to the house, we
 estimate that the price of the house will go up by $50. This line is drawn in figure 3.4.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 41
 
@@ -266,9 +260,8 @@ a better one, but at least we know this one is very good, as opposed to one that
 near the points. Now we are back into the original problem, where we have a set of houses,
 and we want to pass a road as closely as possible for them!
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 42
 
@@ -294,9 +287,8 @@ them!
 2. How on earth did you come up with the scoring system? And what would we do if
 instead of 6 houses, we have thousands of them?
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 43
 
@@ -338,9 +330,8 @@ Now we get to the main question on this chapter. How do we get a computer to dra
 Before we get into the math, let’s think. How would we find the perfect model? Actually, there
 is a simple question we can ask. The question is, imagine if we already had a model. How do
 we make our existing model a little bit better? Even if it is just a little bit. If we have, say, a
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 44
 
@@ -385,9 +376,8 @@ an equation, then it has two components:
 
 - The y-intercept.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 45
 
@@ -415,9 +405,8 @@ directions? We’ll see this next.
 Now we get to our problem, which is: we have a point, and a line, and we need to move the
 line closer to the point.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 46
 
@@ -434,9 +423,8 @@ Figure 3.8. Some examples of slope and y-intercept. In the left, we can see seve
 and different slopes, and notice that the higher the slope, the steeper the line is. In the right, we can see several
 lines with the same slope and different y-intercepts, and notice that the higher the y-intercept, the higher this
 line is located.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 47
 
@@ -465,9 +453,8 @@ to the right of the y-axis, or below the line and to the left of the y-axis, we 
 line counterclockwise. In the other two scenarios, we need to rotate the line clockwise. These
 are summarized in the following four cases, which are illustrated in figure 3.10.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 48
 
@@ -497,9 +484,8 @@ Case 2: If the point is above the line and to the left of the y-axis
 - Add a small amount to the y-intercept.
 
 Case 3: If the point is below the line and to the right of the y-axis
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 49
 
@@ -537,9 +523,8 @@ of rooms is positive:
 - Add 1 cent to the price per room
 
 - Add 1 cent to the base price.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 50
 
@@ -595,9 +580,8 @@ return price_per_room, base_price
 #E Rotating the line.
 
 3.3.3 The square trick: A much more clever way of moving our line closer to one of
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 51
 
@@ -631,9 +615,8 @@ Left: When the point is above the line, the price is larger than the predicted p
 Right: When the point is below the line, the price is smaller than the predicted price, so the difference is
 negative.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 52
 
@@ -667,9 +650,8 @@ to the left of the y-axis.
 Figure 3.13. Left: When the point is to the left of the y-axis, the number of rooms is negative..
 Right: When the point is to the right of the y-axis, the number of rooms is positive.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 53
 
@@ -715,9 +697,8 @@ return price_per_room, base_price
 #B Translating the line.
 #C Rotating the line.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 54
 
@@ -769,9 +750,8 @@ Throughout this chapter, we make plots of our data and models using Matplotlib a
 two very useful Python packages. In this book we show you the plots, but not the code for the
 plots, as it is out of scope. However, you are more than invited to look at it in detail at our
 public Github repository at https://www.github.com/luisguiserrano/manning.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 55
 
@@ -786,9 +766,8 @@ Now, let’s apply the algorithm to our dataset! The following line of code runs
 number of epochs equal to 10000. The result is the plot in figure 3.15.
 linear_regression(features, labels, learning_rate = 0.01, epochs = 10000)
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 56
 
@@ -803,9 +782,8 @@ towards a good solution. After epoch 50, the line is good, but it still doesn’
 well. Then it takes 950 more epochs to go from a good fit to a great fit.
 
 Figure 3.16. Drawing some of the lines in our algorithm, as we approach a better solution.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 57
 
@@ -873,9 +851,8 @@ solve, predicting the right label is the key. Here are a couple of examples:
 - Predicting the lifespan of a patient, based on their current health conditions.
 
 - Predicting the length of a hospital stay, based on current symptoms.
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 58
 
@@ -905,8 +882,7 @@ then slowly moving it closer to each of the points that is misclassified, in ord
 attempt to classify them correctly.
 - Linear regression has numerous applications, including recommendation systems, ecommerce, and healthcare.
 
-©Manning Publications Co. To comment go to liveBook
 
-Licensed to Ernesto Lee Lee <socrates73@gmail.com>
+
 
 59
