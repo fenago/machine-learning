@@ -1,5 +1,5 @@
 
-16
+
 
 2
 
@@ -44,7 +44,7 @@ price.
 
 
 
-17
+
 
 - Self driving cars that are able to navigate a city.
 
@@ -121,7 +121,7 @@ Ok. And what are features?
 
 
 
-18
+
 
 Features are simply the columns of the table. In our pet example, the features may be size,
 name, type, weight, etc. This is what describes our data. Some features are special, though,
@@ -149,7 +149,7 @@ what we learn next.
 
 
 
-19
+
 
 2.2 What is supervised learning?
 Supervised learning is the type of machine learning you find in the most common applications
@@ -172,7 +172,7 @@ what the label of the image is, namely, is it a dog or a cat.
 
 
 
-20
+
 
 Figure 2.3. Supervised learning follows the Remember-Formulate-Predict framework from Chapter 1.
 Now, notice that in Figure 2.1, we have two types of datasets, one in which the labels are
@@ -193,7 +193,7 @@ classification:
 
 
 
-21
+
 
 Example 1 (regression), housing prices model: In this model, each data point is a house.
 The label of each house is its price. Our goal is, when a new house (data point) comes in the
@@ -243,7 +243,7 @@ number of spelling mistakes, the sender, and many others.
 
 
 
-22
+
 
 Another very common example of classification is image recognition. The most popular
 image recognition models take as an input the pixels in the image, and output a prediction of
@@ -313,7 +313,7 @@ what each group represents.
 
 
 
-23
+
 
 Figure 2.4. An unsupervised learning model can still extract information from data, for example, it can group
 similar elements together.
@@ -345,7 +345,7 @@ based on different features such as words in the message, sender, attachments, t
 
 
 
-24
+
 
 on them, and more. It is then up to a human (or a supervised learning algorithm) to label
 categories such as ‘Personal’, ‘Social’, ‘Promotions’, and others.
@@ -364,7 +364,7 @@ and the vertical axis records the number of recipients. We get the following plo
 
 
 
-25
+
 
 Figure 2.6. A plot of the emails with size on the horizontal axis and number of recipients on the vertical axis.
 Eyeballing it, it is obvious that there are three distinct types of emails.
@@ -379,7 +379,7 @@ Figure 2.7. Clustering the emails into three categories based on size and number
 
 
 
-26
+
 
 This last step is what clustering is all about. Of course, for us humans, it was very easy to
 eyeball the three groups once we have the plot. But for a computer, this is not easy. And
@@ -428,7 +428,7 @@ to group them into some smaller and more general categories?
 
 
 
-27
+
 
 After a careful look, maybe you thought the same as I did, which is: The first three
 features seem similar, and the fourth and fifth also seem similar. The first three are all related
@@ -459,7 +459,7 @@ Well, now we can’t really visualize it, but if we could, this would be address
 
 
 
-28
+
 
 dimensional city, and so on. The best way I can imagine a four dimensional city, is by
 imagining a table of four columns. And a 100-dimensional city? Simple, a table with 100
@@ -471,7 +471,7 @@ city into a 2-dimensional city, thus applying dimensionality reduction.
 
 
 
-29
+
 
 Figure 2.9. How to imagine higher dimensional spaces.
 1 dimension is like a street, in which each house only has one number.
@@ -480,7 +480,7 @@ Figure 2.9. How to imagine higher dimensional spaces.
 
 
 
-30
+
 
 3 dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a
 floor.
@@ -499,7 +499,7 @@ by grouping some rows into one.
 
 
 
-31
+
 
 Figure 2.11. Dimensionality reduction can be seen as a way to simplify our data by reducing the number of
 columns in our dataset, by grouping some columns into one.
@@ -523,7 +523,7 @@ in order to reach its goal. That all sounded a bit abstract, but let’s look at
 
 
 
-32
+
 
 Example 1: Grid world
 In Figure 2.10 we see a grid world with a robot on the bottom left corner. That is our
@@ -550,7 +550,7 @@ this one is not ideal, since it passes close to the dragon. Can you think of a b
 
 
 
-33
+
 
 Figure 2.13. Here is a path that the robot could take to find the treasure chest.
 Now, of course this was a very brief explanation, and there is a lot more to this. There are
@@ -591,7 +591,7 @@ is normally given as a number between 0 and 1, denoting a probability.
 
 
 
-34
+
 
 - Two very common types of unsupervised learning algorithms are clustering and
 dimensionality reduction.
@@ -614,4 +614,3 @@ applications.
 
 
 
-35

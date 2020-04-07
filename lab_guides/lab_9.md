@@ -32,7 +32,7 @@ you are allowed to call your five friends, Alice, Bob, Carlos, Dana, and Emily t
 
 
 
-216
+
 
 are some techniques that you can use to get their help? Let me show you two techniques that
 I can think of.
@@ -58,7 +58,7 @@ combined a strong learner.
 
 
 
-217
+
 
 Figure 10.1. Ensemble methods consist of joining several weak learners in order to build a strong learner.
 In this chapter we learn two ensemble learning techniques called bagging and boosting, which
@@ -80,7 +80,7 @@ that focuses on the weaknesses of the previous classifiers. Each classifier is n
 
 
 
-218
+
 
 strong, but the union of them is. One way to do this is to modify our data by giving more
 weight to the misclassified points and less to the correctly classified ones, and fit the next
@@ -152,7 +152,7 @@ No
 
 
 
-219
+
 
 1
 
@@ -199,7 +199,7 @@ appearances of the word ‘sale’..
 
 
 
-220
+
 
 For this dataset, we trained a decision tree which created a broken linear boundary, as
 illustrated in Figure 10.3.
@@ -231,7 +231,7 @@ Yes
 
 
 
-221
+
 
 Figure 10.4. The plot with the two new data points added.
 Now let’s try to fit a decision tree to this data. We can use sklearn, like we did in Chapter 7,
@@ -245,7 +245,7 @@ decision tree and the boundary region can be seen in Figure 10.5.
 
 
 
-222
+
 
 Figure 10.5. Left: A decision tree that classifies our dataset.
 Right: The boundary defined by this decision tree. Notice that it splits the data very well, although it hints at
@@ -271,7 +271,7 @@ easier, we’ll split the data into three random (almost) equal subsets, and we�
 
 
 
-223
+
 
 Figure 10.6. Splitting our data into three subsets. Notice that the subsets need not be disjoint, and need not
 cover the entire data set..
@@ -289,7 +289,7 @@ Figure 10.8.
 
 
 
-224
+
 
 Figure 10.8. On top, we can see the three boundaries of the decision trees from Figure 10.7. On the bottom, we
 can see how the three decision trees vote, to obtain the boundary of the corresponding random forest..
@@ -310,7 +310,7 @@ When we plot the boundary defined by this random forests, we get Figure 10.9.
 
 
 
-225
+
 
 Figure 10.9. The boundary of the random forest obtained with sklearn.
 Which seems like a nice boundary. But just out of curiosity, let’s plot the boundaries of the
@@ -331,7 +331,7 @@ focus on the weaknesses of the previous ones. In other words, each learner tries
 
 
 
-226
+
 
 correctly classify the points in which the previous classifiers. How do we do this? We start by
 training the first learner. We now look at which data points did the learner classify correctly.
@@ -357,7 +357,7 @@ I will show you AdaBoost in a small example. We’ll try to classify the data in
 
 
 
-227
+
 
 Figure 10.11. The data set that we will classify next.
 First, we’ll do it conceptually, and next I will add some numbers.
@@ -376,7 +376,7 @@ to illustrate this. The data now looks like the right side of Figure 10.12.
 
 
 
-228
+
 
 Figure 10.12. Left: The first learner.
 Right: The rescaled dataset, where we have enlarged the misclassified points, and shrunk the correctly
@@ -391,7 +391,7 @@ The process is illustrated in Figure 10.13.
 
 
 
-229
+
 
 Figure 10.13. The whole AdaBoost process in our data set. First we train the first weak learner (top), next we
 rescale the points (bottom), and so on as we move to the right.
@@ -401,7 +401,7 @@ Now, as a final step, we combine the three learners into one by voting, as illus
 
 
 
-230
+
 
 Figure 10.14. Making the three weak learners vote. The resulting strong learner is the one at the bottom.
 Ok, that’s the big picture explanation of AdaBoost. Let’s throw some math at it now.
@@ -424,7 +424,7 @@ are the following:
 
 
 
-231
+
 
 However, one would like to say something along the lines of “It’s twice as likely to draw a red
 ball than to not draw a red ball”. For this, we use odds. We say that the odds of drawing a red
@@ -452,7 +452,7 @@ we’ll be using it to build our rescaling factor.
 
 
 
-232
+
 
 CALCULATING THE RESCALING FACTOR
 After we train a learner, this learner may make some mistakes. We need to blow up these
@@ -482,7 +482,7 @@ illustrated in Figure 10.15.
 
 
 
-233
+
 
 Figure 10.15. We scale the errors by 7/3, and then we normalize everything so the sum of points is 10.
 Notice that if we fit a new classifier on this dataset, it will try to classify those three big
@@ -498,7 +498,7 @@ we’ll stop training more learners right here.
 
 
 
-234
+
 
 Figure 10.17. Our last weak learner. We don’t need to scale the points anymore, since we are not building any
 more weak learners.
@@ -528,7 +528,7 @@ with very low accuracy, and the equivalent to Unpredictable Umbert is a model wi
 
 
 
-235
+
 
 around 50%. Notice that between a model with accuracy around 50% and a model with
 terrible accuracy, one would actually prefer the one with terrible accuracy (if we are predicting
@@ -591,7 +591,7 @@ ln(Odds)
 
 
 
-236
+
 
 1%
 
@@ -631,7 +631,7 @@ log(odds) = 1.836
 
 
 
-237
+
 
 Figure 10.19. We use the ln(odds) to calculate the weights of the three weak learners.
 The way they vote is illustrated on Figure 10.20. Basically it weights each learner by its
@@ -642,7 +642,7 @@ classify the point positive, and if it is negative, we classify it as negative.
 
 
 
-238
+
 
 Figure 10.20. We weight each of the weak learners, and make them vote based on this weighting (so the larger
 the weight, the more voting power that particular learner has).
@@ -657,7 +657,7 @@ adaboost_model.fit(new_X, new_y)
 
 
 
-239
+
 
 Figure 10.21. The boundary of the AdaBoost strong learner given by sklearn.
 We can go a bit farther and actually explore the six learners we’ve used (Figure 10.22), using
@@ -671,7 +671,7 @@ plt.show()
 
 
 
-240
+
 
 Figure 10.22. The boundaries of the six weak learners given by sklearn.
 Notice that when the weak learners in Figure 10.22 vote, we get the strong learner in Figure
@@ -694,7 +694,7 @@ are two major types of ensemble methods: Bagging and boosting.
 
 
 
-241
+
 
 subsets of our data, and then building a strong classifier based on a majority vote.
 - Boosting consists of building a sequence of learners, where each learner focuses on the
@@ -705,4 +705,3 @@ weighted majority vote of the learners.
 to applications in medicine and biology.
 
 
-

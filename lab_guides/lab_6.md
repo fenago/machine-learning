@@ -1,5 +1,5 @@
 
-133
+
 
 6
 
@@ -38,7 +38,7 @@ If I tell you, for example, that we are in Canada, then the probability that it 
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-134
+
 
 increases. If I were to tell you that we are in Jamaica, this probability decreases drastically.
 Bayes theorem helps us calculate these new probabilities, once we know more about the
@@ -79,7 +79,7 @@ test? How many people have the disease?
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-135
+
 
 Friend: I was reading online, and it says that on average, 1 out of every 10,000 people have
 the disease.
@@ -134,7 +134,7 @@ You: Don’t thank me, thank math (winks eye).
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-136
+
 
 And you hang up. But you, being a math person, are still not content with the calculation you
 made. There was a bit of rounding up there. Let’s get more rigorous with the math, and
@@ -168,7 +168,7 @@ Out of 100 sick people:
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-137
+
 
 Figure 6.1. Among our 1,000,000 patients, only 100 of them are sick (bottom of the figure). Among the 10,098
 diagnosed sick (on the left), only 99 of them are actually sick. The remaining 9,999 are healthy, and
@@ -190,7 +190,7 @@ more likely, to be among the 1% of the population that got misdiagnosed, or to b
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-138
+
 
 the 0.01%. So the test has an error rate so much larger than the rate of being sick, that it
 ends up not being as effective as we think.
@@ -214,7 +214,7 @@ as we did above. The results are in Figure 6.3.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-139
+
 
 Figure 6.3. The tree-like diagram with numbers. We start with 1 million patients. 100 of them are sick, and
 999,900 of them are healthy. Out of the 100 sick, 1 gets misdiagnosed as healthy, and the remaining 99 get
@@ -242,7 +242,7 @@ event.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-140
+
 
 Figure 6.4. The prior, the event, and the posterior. The prior is the ‘raw’ probability, namely, the probability we
 calculate when we know very little. The event is the information that we obtain which will help us refine our
@@ -268,7 +268,7 @@ thinks the label is.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-141
+
 
 6.2 Use-case: Spam detection model
 Now consider the following situation, you are reading your email, and you are sick and tired of
@@ -293,7 +293,7 @@ white.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-142
+
 
 Figure 6.5: We have a dataset with 100 emails, 20 of which are spam. A good estimate for the
 probability that any email is spam is 20%. This is the prior probability.
@@ -318,7 +318,7 @@ That is the posterior probability.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-143
+
 
 Figure 6.6: We have removed (blurred) the emails that don’t contain the word ‘lottery’. All of a sudden our
 probabilities change. Now, since among the emails that contain the word ‘lottery’, there are 15 spam emails
@@ -342,7 +342,7 @@ into two more branches, namely, when the email contains the word ‘lottery’ o
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-144
+
 
 looks like Figure 6.6. Notice that in this tree, we’ve also attached how many emails out of the
 total 100 belong to each particular group.
@@ -359,7 +359,7 @@ Figure 6.8: From the previous tree, we have removed the two branches where the e
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-145
+
 
 Now, we simply have 20 emails, 15 of them are spam and 5 of them are ham. Thus, the
 probability of an email being spam given that it contains the word ‘lottery’ is 15/20, also called
@@ -440,7 +440,7 @@ probabilities, as follows:
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-146
+
 
 The next thing we do is find the probabilities of two events happening at the same time. More
 specifically, we want the following four probabilities:
@@ -490,7 +490,7 @@ on the edges are the probabilities at the right.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-147
+
 
 Figure 6.9: The same tree from Figure 6.8, but now with probabilities. From the root, two branches come out,
 one for spam emails and one for ham emails. In each one, we record the corresponding probability. Each branch
@@ -511,7 +511,7 @@ the third, namely, those in which the email contains the word ‘lottery’.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-148
+
 
 Figure 6.10: From the tree in Figure 6.9, we have removed the two branches where the emails don’t contain the
 word ‘lottery’.
@@ -543,7 +543,7 @@ following:
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-149
+
 
 .
 To verify, we plug in the numbers to get:
@@ -566,7 +566,7 @@ probability that an email is spam containing the word ‘sale’ is 60%.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-150
+
 
 Figure 6.11: In a similar calculation as with the word ‘lottery’, we look at the emails containing the word ‘sale’.
 Among these (unblurred) emails, there are 6 spam and 4 ham. Thus, the probability that an email containing
@@ -591,7 +591,7 @@ of them have the word ‘lottery’ and 10 have the word sale, it could be that 
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-151
+
 
 have both words, or maybe none! Moreover, what if we also add the word ‘hamburger’. Out of
 100 emails, how many may have all words, ‘lottery’, ‘sale’, and ‘hamburger’? Probably none.
@@ -622,7 +622,7 @@ simplifies our math a lot. This is called the product rule for probabilities.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-152
+
 
 Figure 6.12: Say 20% of the emails contain the word ‘lottery’, and 10% of the emails contain the word ‘sale’. We
 make the naive assumption that these two words are independent of each other. Under this assumption, the
@@ -655,7 +655,7 @@ them containing both words.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-153
+
 
 This is a fractional number of emails! Why would we have a fractional number of emails? Well,
 since we are referring to probabilities, what we are saying when we say that among 20 spam
@@ -690,7 +690,7 @@ and ‘sale’ has a 98.63% probability of being spam. That is quite high!
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-154
+
 
 Figure 6.13: We have 4.5 spam emails, and 0.0625 ham emails. We throw a dart, and it hits one of the emails.
 What is the probability that it hit a spam email? The answer is 98.63%.
@@ -712,7 +712,7 @@ Finally, plugging in the values
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-155
+
 
 we get
 
@@ -747,7 +747,7 @@ two, the probability that the email is spam is 0.01125/(0.01125+0.0015625) = 0.8
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-156
+
 
 87.8%. This makes sense, since even though the words ‘lottery’ and ‘sale’ make it very likely
 that the email is spam, the word ‘mom’ makes it less likely that it is.
@@ -767,7 +767,7 @@ If we look at the first 10 rows of this dataset, this is how it looks (Table 6.1
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-157
+
 
 Table 6.1. The first 10 rows of our email dataset. The ‘text’ column shows the text in each email,
 and the ‘spam’ column shows a ‘1’ if the email is spam, and a ‘0’ if the email is ham. Notice that
@@ -790,7 +790,7 @@ column emails[‘words’].
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-158
+
 
 emails['words'] = emails['text'].apply(process_email)
 
@@ -819,7 +819,7 @@ spam emails, and in ham emails.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-159
+
 
 model = {}
 for email in emails:
@@ -867,7 +867,7 @@ for word in words:
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-160
+
 
 if word in model:
 #B
@@ -923,7 +923,7 @@ probability and an event.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-161
+
 
 question.
 - The naive Bayes algorithm is used when one wants to combine a prior probability
@@ -935,4 +935,3 @@ that the events in question are all independent.
 
 Licensed to Ernesto Lee Lee <socrates73@gmail.com>
 
-162

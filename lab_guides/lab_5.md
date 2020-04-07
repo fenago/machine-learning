@@ -36,7 +36,7 @@ except for some technical differences. I recommend you make sure you understand 
 
 
 
-108
+
 
 well before you read this chapter. In chapter four we described the perceptron algorithm by
 the means of an error function which tells us how good a perceptron classifier is, and an
@@ -68,7 +68,7 @@ Figure 5.1. Left: The perceptron algorithm trains a discrete perceptron, where t
 
 
 
-109
+
 
 1(sad). Right: The logistic regression algorithm trains a continuous perceptron, where the predictions are
 numbers between 0 and 1 which indicate the predicted level of happiness.
@@ -100,7 +100,7 @@ of the graphs of the step and the sigmoid functions.
 
 
 
-110
+
 
 Figure 5.3. Left: The step function used to build discrete perceptrons. It outputs a value of 0 for any negative
 input and a value of 1 for any input that is positive or zero. It has a discontinuity at zero. Right: The sigmoid
@@ -140,7 +140,7 @@ x
 
 
 
-111
+
 
 0
 
@@ -196,7 +196,7 @@ and the farther a point is from the line in that direction, the closer its predi
 
 
 
-112
+
 
 Table 5.2. Four points, two happy and two sad with their predictions, as illustrated in Figure 5.4.
 Notice that points 1 and 4 are correctly classified, while points 2 and 3 are not. A good error
@@ -251,7 +251,7 @@ so they should have large errors. Here are the three error functions.
 
 
 
-113
+
 
 ERROR FUNCTION 1: ABSOLUTE ERROR
 The absolute error is very similar to the absolute error we defined for linear regression in
@@ -335,7 +335,7 @@ point is the difference between 1 and 0.01, or 0.99. The square error is this di
 
 
 
-114
+
 
 squared, or 0.9801. But this is a small error for a point that is so vastly misclassified. We’d
 like an error function that gives us a higher error for this point.
@@ -396,7 +396,7 @@ function where the graph looks like Figure 5.5.
 
 
 
-115
+
 
 Figure 5.5. In the horizontal axis we see the probability of a point being predicted its label (wether it’s happy or
 sad). In the vertical axis we see the error. Notice that well classified points lie towards the right, as they
@@ -410,7 +410,7 @@ interval between 0 and 1 in Figure 5.6.
 
 
 
-116
+
 
 Figure 5.6. Quite conveniently, the plot of natural logarithm looks a lot like the one we desire in Figure 5.5, only
 inverted!
@@ -457,7 +457,7 @@ its label
 
 
 
-117
+
 
 3
 
@@ -571,7 +571,7 @@ and the square error will be 0.9999800001. However, the log loss will be the neg
 
 
 
-118
+
 
 natural logarithm of (1-0.99999), which is 11.51. This value is much larger than the absolute
 or square errors, which means the log loss error is a better alarm for poorly classified points.
@@ -603,7 +603,7 @@ classifier assigns to the actual label. Namely, if the point is happy, we care a
 
 
 
-119
+
 
 probability that the point is happy (the prediction), and if it is sad, we care about the
 probability that the point is sad (one minus the prediction). Next, we consider all the points at
@@ -634,7 +634,7 @@ To summarize, these are the steps for calculating the log loss:
 
 
 
-120
+
 
 - We multiply all these probabilities to obtain the total probability that the classifier has
 given to these labels.
@@ -668,7 +668,7 @@ loss of a classifier.
 
 
 
-121
+
 
 Recall from Chapter 4 that the perceptron algorithm consisted in starting with a random
 classifier and successively picking a random point and applying the perceptron trick. The
@@ -695,7 +695,7 @@ we use the same example as in section 4.3.1. Recall that in this section we star
 
 
 
-122
+
 
 classifier which predicts whether a sentence is happy or sad by assigning scores to the words.
 Then we used the perceptron algorithm to slightly improve this classifier.
@@ -749,7 +749,7 @@ regression algorithm; you’ll soon see why.
 
 
 
-123
+
 
 The new classifier would assign a score of 0.98*2 + 0.96*4 - 4.01 = 1.79. This is better
 than the previous score of 2, because the sentence is sad, so in order to classify it properly,
@@ -797,7 +797,7 @@ Let’s update the scores in the exact same way as before.
 
 
 
-124
+
 
 Notice that since the difference between the label and the prediction is negative, we
 subtracted negative quantities, which is the same as adding positive quantities. The score and
@@ -855,7 +855,7 @@ Input:
 
 
 
-125
+
 
 - A number of epochs, n.
 
@@ -936,7 +936,7 @@ def lr_prediction(weights, bias, features):
 
 
 
-126
+
 
 return sigmoid(score(weights, bias, features))
 
@@ -992,7 +992,7 @@ draw_line(weights[0], weights[1], bias)
 
 
 
-127
+
 
 plot_points(features, labels)
 plt.show()
@@ -1025,7 +1025,7 @@ is in Figure 5.12.
 
 
 
-128
+
 
 Figure 5.12. A plot of all the intermediate steps of the logistic regression algorithm. Notice that we start with a
 bad classifier, and slowly move towards a good one (the thick line).
@@ -1038,7 +1038,7 @@ error gets.
 
 
 
-129
+
 
 5.2.5 The logistic regression algorithm in Turi Create
 In this section, I show you how to build a continuous perceptron classifier in Turi Create. The
@@ -1064,7 +1064,7 @@ We get the following coefficients:
 
 
 
-130
+
 
 They look different than the ones we obtained when we code it by hand, but that doesn’t
 matter. The boundary lines are still similar, as we can see when we plot it in Figure 5.15.
@@ -1093,7 +1093,7 @@ bird classifier. For a particular data point, they all output scores in the foll
 
 
 
-131
+
 
 - Dog classifier: 4
 
@@ -1145,7 +1145,7 @@ This formula is known as the softmax formula.
 
 
 
-132
+
 
 What would happen if we use the softmax formula for only two classes? We obtain the
 sigmoid function. I encourage you to convince yourself of this as an exercise.

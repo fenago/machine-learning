@@ -30,7 +30,7 @@ roughly look like they are forming a line, like in figure3.1.
 
 
 
-36
+
 
 Figure 3.1. Some points that roughly look like forming a line.
 The goal of linear regression is to draw the line that passes as close as possible to these
@@ -56,7 +56,7 @@ be asking yourself this and many other questions. Here are some that I can think
 
 
 
-37
+
 
 - Why is this useful in the real world?
 
@@ -116,7 +116,7 @@ Price
 
 
 
-38
+
 
 Take a look at this table. What price would you give to house 4, just from this table? If you
 said $300, that is also my guess. You probably saw a pattern, and used it to infer the price of
@@ -159,7 +159,7 @@ price.
 
 
 
-39
+
 
 Number of rooms
 
@@ -205,7 +205,7 @@ graph looks like figure 3.3.
 
 
 
-40
+
 
 Figure 3.3. The plot of our slightly more complicated dataset of houses with their number of rooms and their
 price.
@@ -231,7 +231,7 @@ estimate that the price of the house will go up by $50. This line is drawn in fi
 
 
 
-41
+
 
 SLOPE The slope of a line is a measure of how steep the line is. It is calculated by dividing the rise over the
 run (i.e., how many units it goes up, divided by how many units it goes to the right). This is constant over the
@@ -263,7 +263,7 @@ and we want to pass a road as closely as possible for them!
 
 
 
-42
+
 
 How do we find this line? We’ll look at this later in the chapter. But for now, let’s say that
 we have a magic ball that given a bunch of points, finds the line that passes the closest to
@@ -290,7 +290,7 @@ instead of 6 houses, we have thousands of them?
 
 
 
-43
+
 
 3. Why did you only use the number of rooms to predict the price of the house? I can
 think of other features like size, number of floors, number of parking spots, crime rate
@@ -333,7 +333,7 @@ we make our existing model a little bit better? Even if it is just a little bit.
 
 
 
-44
+
 
 model that says that the price is $50 + $40*(Number of rooms), and a house with 2 rooms
 which costs $150, then what’s wrong with our model? Well, the model predicts that the house
@@ -379,7 +379,7 @@ an equation, then it has two components:
 
 
 
-45
+
 
 The slope simply tells us how steep the line is, and the y-intercept tells us where the line is
 located. The slope is defined as raise divided by run, and the y-intercept tells us where the
@@ -408,7 +408,7 @@ line closer to the point.
 
 
 
-46
+
 
 Figure 3.7. Our goal: To move the line closer to the point.
 Well, the way to do this is to change the slope and the y-intercept by a small amount. We
@@ -426,7 +426,7 @@ line is located.
 
 
 
-47
+
 
 From these, we can conclude the following, which is summarized in figure 3.9:
 Changing the slope:
@@ -456,7 +456,7 @@ are summarized in the following four cases, which are illustrated in figure 3.10
 
 
 
-48
+
 
 Case 1: If the point is above the line and to the right of the y-axis, we rotate the line
 counterclockwise and translate it upwards.
@@ -487,7 +487,7 @@ Case 3: If the point is below the line and to the right of the y-axis
 
 
 
-49
+
 
 - Add a small amount to the slope.
 
@@ -526,7 +526,7 @@ of rooms is positive:
 
 
 
-50
+
 
 Case 2: If the price of the house is higher than the price the model predicted, and the number
 of rooms is negative:
@@ -583,7 +583,7 @@ return price_per_room, base_price
 
 
 
-51
+
 
 the points
 The simple trick works ok, but we can do better. What if we try to bring the four if statements
@@ -618,7 +618,7 @@ negative.
 
 
 
-52
+
 
 So why don’t we change the simple trick, and instead of adding or subtracting a small amount
 (the learning rate), we now simply add the learning rate times this difference? This will
@@ -653,7 +653,7 @@ Right: When the point is to the right of the y-axis, the number of rooms is posi
 
 
 
-53
+
 
 Now, this quantity is not enough to help us out, but if we take the product of it times the
 previous quantity, we get what we want. In other words, we will consider the following
@@ -700,7 +700,7 @@ return price_per_room, base_price
 
 
 
-54
+
 
 3.3.4 The linear regression algorithm: Repeating the square trick many times
 Now we are ready for our linear regression algorithm! This algorithm takes as input a bunch of
@@ -753,7 +753,7 @@ public Github repository at https://www.github.com/luisguiserrano/manning.
 
 
 
-55
+
 
 The first plot we’ll show is figure 3.14, which is the plot of the points in our small housing
 dataset from Table 3. Notice that the points do appear close to forming a line.
@@ -769,7 +769,7 @@ linear_regression(features, labels, learning_rate = 0.01, epochs = 10000)
 
 
 
-56
+
 
 Figure 3.15. The plot of the points on Table 3, and the line that we obtained with the linear regression algorithm.
 Figure 3.15 shows the line where the price per room is $51.07, and the base price is $99.48.
@@ -785,7 +785,7 @@ Figure 3.16. Drawing some of the lines in our algorithm, as we approach a better
 
 
 
-57
+
 
 The first graphic shows the starting point.
 The second graphic shows the first 10 epochs of the linear regression algorithm. Notice how the line is moving
@@ -854,7 +854,7 @@ solve, predicting the right label is the key. Here are a couple of examples:
 
 
 
-58
+
 
 3.5 Summary
 - Regression is a very important part of machine learning. It consists of training an
@@ -885,4 +885,4 @@ attempt to classify them correctly.
 
 
 
-59
+

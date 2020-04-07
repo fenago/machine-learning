@@ -31,7 +31,7 @@ hard time imagining a single aspect of life that cannot be improved in some way 
 
 
 
-2
+
 
 machine learning. Anywhere there is a job that requires repetition, that requires looking at
 data and gathering conclusions, machine learning can help. Especially in the last few years,
@@ -65,7 +65,7 @@ you’re taking with me!
 
 
 
-3
+
 
 Figure 1.1. Music is not only about scales and notes. There is a melody behind all the technicalities.
 In the same way, machine learning is not about formulas and code.
@@ -92,7 +92,7 @@ decisions based on our intuition, which is based on previous experience. In a wa
 
 
 
-4
+
 
 learning is about teaching the computer how to think like a human. Here is how I define
 machine learning in the most concise way:
@@ -120,7 +120,7 @@ machine learning.
 
 
 
-5
+
 
 1.3.1 What is the difference between artificial intelligence and machine learning?
 First things first, machine learning is a part of artificial intelligence. So anytime we are doing
@@ -153,7 +153,7 @@ There are several approaches, for example the following:
 
 
 
-6
+
 
 1. Looking into all the possible roads, measuring the distances, adding them up in all
 possible ways, and finding which combination of roads gives us the shortest path
@@ -183,7 +183,7 @@ process of how humans make decisions based on experience. And this is what I cal
 
 
 
-7
+
 
 remember-formulate-predict framework. The goal of machine learning is to teach computers
 how to think in the same way, following the same framework.
@@ -209,7 +209,7 @@ particular, a lot of his emails are spam, in the form of chain letters, and we a
 
 
 
-8
+
 
 a bit annoyed at him. It is Saturday, and we just got a notification of an email from him. Can
 we guess if it is spam or not without looking at the email?
@@ -245,7 +245,7 @@ the emails to see if we find a pattern.
 
 
 
-9
+
 
 Figure 1.3. A very simple machine learning model.
 Example 2: A seasonal annoying email friend
@@ -280,7 +280,7 @@ send spam, and decides to roam free. So, we can formulate a more educated rule:
 
 
 
-10
+
 
 Rule 2: Every email that Bob sends during the week is ham, and during the weekend is
 spam.
@@ -308,7 +308,7 @@ see if you can help me find a pattern.
 
 
 
-11
+
 
 - 20KB: Spam
 
@@ -342,7 +342,7 @@ rule that worked with both features? Rules like the following may work:
 
 
 
-12
+
 
 Rule 4: If an email is larger than 10KB or it is sent on the weekend, then it is classified as
 spam. Otherwise, it is classified as ham.
@@ -371,7 +371,7 @@ advancement here is that the computer can try building rules such as rules 4, 5,
 
 
 
-13
+
 
 different numbers, different boundaries, and so on, until finding one that works best for the
 data. It can also do it if we have lots of columns. For example, we can make a spam classifier
@@ -400,7 +400,7 @@ Figure 1.7. A much more complex machine learning model, done by a computer.
 
 
 
-14
+
 
 Now the question is, which is the best rule? The quick answer is: The one that fits the data
 best. Although the real answer is: The one that generalizes best to new data. At the end of the
@@ -451,7 +451,7 @@ impact, and will continue making it.
 
 
 
-15
+
 
 think in order to make decisions fast and accurately.
 - Just like humans make decisions based on experience, computers can make decisions

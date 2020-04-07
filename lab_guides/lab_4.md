@@ -36,7 +36,7 @@ many more that we learn in this book) are very useful for working out patterns i
 
 
 
-60
+
 
 The use case that we use in this chapter is sentiment analysis. Sentiment analysis is the
 branch of machine learning dedicated to predicting the sentiment of a certain piece of text. For
@@ -109,7 +109,7 @@ Prediction: The sentence is sad.
 
 
 
-61
+
 
 Sentence 2:
 
@@ -179,7 +179,7 @@ our weights. Let’s start by assigning random scores to each word. And let’s 
 
 
 
-62
+
 
 classifier is terrible. For example, it gives the word ‘awful’ a score of +10. Then we bump into
 the sentence “Awful!”, which is classified as sad. Our model classifies it as happy, since it
@@ -236,7 +236,7 @@ Sentence: “Aack beep beep beep!”
 
 
 
-63
+
 
 Figure 4.1. Our dataset of aliens. We have recorded their mood (happy or sad) and the sentence they keep
 repeating. Now a fifth alien comes in, saying a different sentence. Do we predict that this alien is happy or sad?
@@ -262,7 +262,7 @@ case the classifier predicts that the alien is happy.
 
 
 
-64
+
 
 We can do something a bit more mathematical. Let’s assign a score to each word, as
 follows.
@@ -323,7 +323,7 @@ Aack beep beep beep!
 
 
 
-65
+
 
 Sad
 
@@ -345,7 +345,7 @@ has the equation
 
 
 
-66
+
 
 Or equivalently, the equation
 
@@ -367,7 +367,7 @@ Geometric sentiment analysis classifier
 
 
 
-67
+
 
 The classifier is defined by a line of equation #aack - #beep = 0, and a rule.
 Rule:
@@ -426,7 +426,7 @@ Sentence: “Crack crack dunk dunk.”
 
 
 
-68
+
 
 - Alien 5:
 o
@@ -501,7 +501,7 @@ Happy
 
 
 
-69
+
 
 Dunk dunk crack dunk
 
@@ -552,7 +552,7 @@ Add the scores of all the words.
 
 
 
-70
+
 
 - If the score is smaller than 3.5, predict that the alien is sad.
 
@@ -591,7 +591,7 @@ just like we did with the first example. We get the plot in Figure 4.4.
 
 
 
-71
+
 
 Figure 4.4. The plot of the new dataset of aliens. Notice that the happy ones tend to be above and to the right,
 and the sad ones below and to the left.
@@ -613,7 +613,7 @@ Rule:
 
 
 
-72
+
 
 - If the point is in the positive region of this line, with equation #crack - #dunk - 3.5 >
 0, then the alien is classified as happy.
@@ -639,7 +639,7 @@ turned into the bias. But that doesn’t really answer the question.
 
 
 
-73
+
 
 A related question is, what happens when an alien says absolutely nothing. Is that alien
 happy or sad? In the latest model, if an alien says nothing, then the score of the sentence is 0
@@ -677,7 +677,7 @@ sentence with no words. This is illustrated in Figure 4.6.
 
 
 
-74
+
 
 Figure 4.6. Left: the classifier has a negative bias, or a positive threshold (y-intercept). This means that the alien
 that doesn’t say anything falls in the sad zone, and is classified as sad.
@@ -701,7 +701,7 @@ as Figure 4.7.
 
 
 
-75
+
 
 Figure 4.7. A larger arrangement of points. Note that this one is impossible to split using a line. This is ok, we
 can find a split that does a good job, namely, not too many mistakes. Can you find some good lines that split
@@ -713,7 +713,7 @@ mistakenly classifies two sad aliens as happy, and one happy alien as sad.
 
 
 
-76
+
 
 Figure 4.8. This line splits the dataset well. Note that it only makes 3 mistakes, 2 on the happy zone, and one on
 the sad zone.
@@ -736,7 +736,7 @@ point with coordinates (5, 1, 8). This is illustrated in Figure 4.9.
 
 
 
-77
+
 
 Figure 4.9. A sentence with three words can be plotted as a point in space. In this case, a sentence with the
 word ‘aack’ 5 times, ‘beep’ 8 times, and ‘crack’ 3 times, is plotted in the point with coordinates (5,8,3).
@@ -745,7 +745,7 @@ In this case, a dataset could look like Figure 4.10.
 
 
 
-78
+
 
 Figure 4.10. A dataset of sentences with three words gets plotted in three dimensions.
 How would a classifier look on this dataset? It wouldn’t be a line any more, because the points
@@ -756,7 +756,7 @@ like the one in Figure 4.11.
 
 
 
-79
+
 
 Figure 4.11. In the 3-dimensional case, we would need a plane to split our points, instead ofa line.
 Now, how does the equation of a plane look? If the equation of a line looked like a linear
@@ -782,7 +782,7 @@ is inherently sad.
 
 
 
-80
+
 
 ALPHABETS WITH MANY WORDS
 What if our alphabet has more than 3 words. What if it has thousands of words? Now we can’t
@@ -830,7 +830,7 @@ First, let’s start with the error function.
 
 
 
-81
+
 
 4.2.1 How to compare classifiers? The error function
 Let me give you two classifiers, one good one and one bad one, and you can help me assign
@@ -860,7 +860,7 @@ predicts 1 happy point as sad, and 2 sad points as happy. This is illustrated in
 
 
 
-82
+
 
 Figure 4.13. The way to tell that the left classifier is bad and the right one is good is by counting the number of
 mistakes each one makes. The one in the left makes 8 mistakes, while the one in the right only makes 3.
@@ -881,7 +881,7 @@ misclassified. However, our error function counts both of them as one error.
 
 
 
-83
+
 
 Figure 4.14. These two points are misclassified, but at a different degree. The point in the left is not so badly
 misclassified, since it is close to the boundary line. The one in the right, in contrast, is very badly misclassified
@@ -901,7 +901,7 @@ so its error is large.
 
 
 
-84
+
 
 This is a much better error function. In summary, what this error function does is the
 following:
@@ -930,7 +930,7 @@ calculations very well.
 
 
 
-85
+
 
 ERROR FUNCTION 3: SCORE
 Recall that classifiers can be thought of both geometrically and mathematically. In order to
@@ -958,7 +958,7 @@ following two sad sentences:
 
 
 
-86
+
 
 Since the horizontal coordinate is the number of appearances of the word ‘aack’, and the
 vertical coordinate is the number of appearances of the word ‘beep’, then Sentence 1 is in
@@ -997,7 +997,7 @@ Score =#aack + 2#beep - 4 = -4.
 
 
 
-87
+
 
 - Sentence 4, coordinates (1,1):
 o
@@ -1042,7 +1042,7 @@ predicted positive, then its score must be positive. In both cases, we end up wi
 
 
 
-88
+
 
 being the absolute value of the score, since an error should always be positive or zero.
 Therefore, the definition of error is the following:
@@ -1080,7 +1080,7 @@ Notice that Classifier 1 classifies them as follows:
 
 
 
-89
+
 
 o
 
@@ -1165,7 +1165,7 @@ Calculation of error for Classifier 1:
 
 
 
-90
+
 
 This one is much easier. Notice that Classifier 2 classifies every point correctly. To verify this,
 notice that:
@@ -1220,7 +1220,7 @@ is better than Classifier 1.
 
 
 
-91
+
 
 Now that we know how to compare classifiers, let’s move on to finding the best one of them,
 or at least, a pretty good one.
@@ -1268,7 +1268,7 @@ Figure 4.22 summarizes our arbitrary step. We’ll call this the perceptron tric
 
 
 
-92
+
 
 Figure 4.22. Case 1 (left): A point that is correctly classified tells the line to stay where it is.
 Case 2 (right): A point that is misclassified tells the line to move closer towards it.
@@ -1302,7 +1302,7 @@ is 3.
 
 
 
-93
+
 
 Let’s try to build a classifier called “Better Classifier”, which may still misclassify the point,
 but with a smaller error. We’ll do the following (again slightly arbitrary) step. We want to
@@ -1355,7 +1355,7 @@ this sentence, it needs to give it a larger score. Therefore, the word ‘aack�
 
 
 
-94
+
 
 higher score, and the bias should also be higher. The word ‘beep’ is irrelevant here. Since the
 word ‘aack’ appears once, we’ll increase it by one times the learning rate. We’ll also increase
@@ -1435,7 +1435,7 @@ in order for that line to be a better fit for the point. Now we need to use this
 
 
 
-95
+
 
 best line that will separate two classes of points. How do we do this? Simple, by repeating the
 perceptron trick many times. Allow me to elaborate.
@@ -1454,7 +1454,7 @@ worse fit for other points, but that doesn’t matter.
 
 
 
-96
+
 
 Figure 4.24. If we apply the perceptron trick to a classifier and a misclassified point, the classifier moves slightly
 towards the point.
@@ -1480,7 +1480,7 @@ Input:
 
 
 
-97
+
 
 Procedure:
 - Start with a random line. In other words, start with random values for the score of each
@@ -1558,7 +1558,7 @@ book,
 
 at
 
-98
+
 
 0
 
@@ -1616,7 +1616,7 @@ sad ones are squares
 
 
 
-99
+
 
 Figure 4.26. The plot of our dataset. Triangles are happy aliens, and squares are sad aliens.
 
@@ -1656,7 +1656,7 @@ weights of the model and the bias, and the features of one data point. The score
 
 
 
-100
+
 
 returns the score that the model gives to that data point, and the prediction function returns a
 1 if the score is greater than or equal to zero, and a 0 if the score is less than zero.
@@ -1708,7 +1708,7 @@ def perceptron_trick(weights, bias, features, label, learning_rate = 0.01):
 
 
 
-101
+
 
 pred = prediction(weights, bias, features)
 if pred == label:
@@ -1772,7 +1772,7 @@ return weights, bias, errors
 
 
 
-102
+
 
 #I Initialize the weights to 1 and the bias to 0. Feel free to initialize them to small random numbers if you prefer.
 #J An array to store the errors.
@@ -1805,7 +1805,7 @@ Right: The error plot. Notice that the more epochs we run the perceptron algorit
 
 
 
-103
+
 
 Let’s see how the classifier improved in each epoch. Figure 4.28 has a plot of each of the 200
 classifiers obtained, one per epoch. Notice how we start with a bad line fit, but each iteration
@@ -1833,7 +1833,7 @@ can also use other features, for example,
 
 
 
-104
+
 
 - number of senders,
 
@@ -1884,7 +1884,7 @@ Can you think of other applications of the perceptron algorithm?
 
 
 
-105
+
 
 COMPUTER VISION
 Classification algorithms such as the perceptron algorithm are widely used in computer vision,
@@ -1929,7 +1929,7 @@ such as yes/no, spam/ham, etc.
 
 
 
-106
+
 
 - Logistic classifiers work by assigning a weight to each of the features, and a threshold.
 The score of a data point is then calculated as the sum of products of weights times
@@ -1968,4 +1968,3 @@ recommendation systems, e-commerce, and healthcare.
 
 
 
-107
