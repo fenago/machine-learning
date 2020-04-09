@@ -17,9 +17,9 @@ this is fascinating. And that is what this book is for, to get you up to speed w
 Labs for this course are available at path shared below. Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor.
 
 1. ##### What is machine learning? (Read Only)
-		* <host-ip>:<port>/lab/workspaces/lab1_Introduction
+		* <host-ip>:<port>/lab/workspaces/lab1_introduction
 2. ##### Types of machine learning (Read Only)
-		* <host-ip>:<port>/lab/workspaces/lab2_Types
+		* <host-ip>:<port>/lab/workspaces/lab2_types
 3. ##### Drawing a line close to our points: linear regression
 		* <host-ip>:<port>/lab/workspaces/lab3_regression
 4. ##### Using lines to split our points: the perceptron algorithm
