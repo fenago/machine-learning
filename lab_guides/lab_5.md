@@ -1,11 +1,9 @@
 
 
-5
+## A continuous approach to splitting points: Logistic regression
 
-A continuous approach to splitting
-points: Logistic regression
+**This chapter covers**
 
-This chapter covers
 - The difference between hard assignments and soft assignments.
 
 - Activation functions such as the step function vs the sigmoid function.
@@ -41,7 +39,8 @@ learn the logistic regression algorithm which works in a similar way. The only d
 the new error function changes (it is now based on a probability), and the new iterative step
 also changes slightly to fit this new error function.
 
-5.1 Logistic Regression (or continuous perceptrons)
+## 5.1 Logistic Regression (or continuous perceptrons)
+
 In chapter 4, we covered the perceptron, which is a type of classifier that uses the features of
 our data to make a prediction. The prediction can be 1 or 0. This is called a discrete
 perceptron, since it returns an answer from a discrete set. In this chapter we learn continuous
@@ -60,12 +59,13 @@ the positive region get scores larger than 0.5, where the points even further aw
 smaller than 0.5, where again the farther points from the line get values closer to 0. No point
 gets a value of 1 or 0 (unless we consider points at infinity).
 
-Figure 5.1. Left: The perceptron algorithm trains a discrete perceptron, where the predictions are 0 (happy) and
+![](./images/93.png)
 
 1(sad). Right: The logistic regression algorithm trains a continuous perceptron, where the predictions are
 numbers between 0 and 1 which indicate the predicted level of happiness.
 
-5.1.1 A probability approach to classification - The sigmoid function
+## 5.1.1 A probability approach to classification - The sigmoid function
+
 The question now is, how do we slightly modify the perceptron models from the previous
 section in order to get a score for each sentence, as opposed to a simple ‘happy’ or ‘sad’? Let’s
 recall how we made the predictions in the perceptron models. We scored each sentence by
@@ -80,63 +80,43 @@ close to zero if the score is negative. If the score is zero, then the output is
 you could take the entire number line and crunch it into the interval between 0 and 1. It would
 look like the function in Figure 5.2.
 
-Figure 5.2. INSERT DESCRIPTION
+![](./images/94.png)
+
+
 Many functions can help us here, and in this case, we’ll use one called the sigmoid, denoted
 with the greek letter σ The formula for the sigmoid is the following:
 
-.
+![](./images/95.png)
+
 Don’t worry much about this formula. What really matters is what the function does, which is
 crunch all the real number line into the interval (0,1). In Figure 5.3 we can see a comparison
 of the graphs of the step and the sigmoid functions.
 
+![](./images/96.png)
 
-Figure 5.3. Left: The step function used to build discrete perceptrons. It outputs a value of 0 for any negative
-input and a value of 1 for any input that is positive or zero. It has a discontinuity at zero. Right: The sigmoid
-function used to build continuous perceptrons. It outputs values less than 0.5 for negative inputs, and values
-greater than 0.5 for positive inputs. At zero it outputs 0.5. It is continuous and differentiable everywhere.
 The sigmoid function is in general better than the step function for several reasons. One
 reason is that having continuous predictions gives us more information than discrete
 predictions. Another is that when we do calculus, the sigmoid function has a much nicer
 derivative than the step function, whose derivative is always zero except for the origin, where
 it is undefined.
+
 The code for the sigmoid function in Python is very simple; we make use of the numpy
 function exp, which takes any real number as an input, and returns e to the power of that
 number.
 
+```
 import numpy as np
 def sigmoid(x):
 return 1/(1+np.exp(-x))
+```
 
 In Table 5.1 we use the previous code to calculate some values of the sigmoid function, to
 make sure the function does what we want it to.
 
-Table 5.1. Some inputs and their outputs under the sigmoid function. Notice that large negative
-values have an output close to 0, and large positive values have an output close to 1. The value 0
-has an output of 0.5.
-x
-
-σ(x)
-
--5
-
-0.0067
-
--1
-
-0.269
+![](./images/97.png)
 
 
-0
-
-0.5
-
-1
-
-0.731
-
-5
-
-0.9933
+![](./images/98.png)
 
 Now we are ready to define a prediction. The prediction is obtained by applying the sigmoid
 function to the score, and it returns a number between 0 and 1 which, as I mentioned before,
@@ -144,18 +124,22 @@ can be interpreted in our example as the probability that the sentence is happy.
 code for the prediction function (where the score formula is the same as the one in Chapter
 4).
 
+```
 def lr_prediction(weights, bias, features):
 return sigmoid(score(weights, bias, features))
+```
 
 In the previous chapter we defined an error function for a prediction, and we used it to build a
 slightly better classifier. In this chapter we follow the same procedure. The error of a
 continuous perceptron is slightly different from the one of a discrete predictor, but they still
 have great similarities.
 
-5.1.2 The error functions - Absolute, square, and log loss
+## 5.1.2 The error functions - Absolute, square, and log loss
+
 In this section we cook up some error functions for a continuous perceptron classifier. But first
 let’s stop and think, what properties would we like a good error function to have? Here are
 some I can think of:
+
 - If a point is correctly classified, the error is a small number.
 
 - If a point is incorrectly classified, the error is a large number.
@@ -177,64 +161,21 @@ the farther a point is from the line in that direction, the closer its predictio
 - Points that are down and to the left of the line are given predictions lower than 0.5,
 and the farther a point is from the line in that direction, the closer its prediction is to 0.
 
+![](./images/99.png)
 
-Table 5.2. Four points, two happy and two sad with their predictions, as illustrated in Figure 5.4.
-Notice that points 1 and 4 are correctly classified, while points 2 and 3 are not. A good error
-function should assign small errors to the correctly classified points, and large errors to the poorly
-classified points.
-Point
-
-True label
-
-Predicted label
-
-Error?
-
-1
-
-1 (Happy)
-
-0.95
-
-Should be small
-
-2
-
-0 (Sad)
-
-0.8
-
-Should be large
-
-3
-
-1 (Happy)
-
-0.3
-
-Should be large
-
-4
-
-0 (Sad)
-
-0.1
-
-Should be small
-
-Figure 5.4. The plot of Table 5.2. Notice that points 1 and 4 are correctly classified while points 2 and 3 are
-misclassified. We expect points 1 and 4 to have a small error, and points 2 and 3 to have a large error.
 Notice that in Table 5.2, points 1 and 4 get a prediction that is close to the label, so they
 should have small errors. In contrast, points 2 and 3 get a prediction that is far from the label,
 so they should have large errors. Here are the three error functions.
 
 
-ERROR FUNCTION 1: ABSOLUTE ERROR
+**ERROR FUNCTION 1: ABSOLUTE ERROR**
+
 The absolute error is very similar to the absolute error we defined for linear regression in
 Chapter 3. It is the absolute value of the difference of the prediction and the label. As we can
 see, it is large when the prediction is far from the label, and small when they are close.
 
-ERROR FUNCTION 2: SQUARE ERROR
+**ERROR FUNCTION 2: SQUARE ERROR**
+
 Again, just like in linear regression, we also have the square error. This is the square of the
 difference between the prediction and the label, and it works for the same reason that the
 absolute error works.
@@ -242,57 +183,7 @@ Before we proceed, let’s calculate the absolute and square error for the point
 Notice that points 1 and 4 (correctly classified) have small errors, while points 2 and 3
 (incorrectly classified) have larger errors.
 
-Table 5.3. We have attached the absolute error and the square error for the points in Table 5.2.
-Notice that as we desired, points 1 and 4 have small errors while points 2 and 3 have larger errors.
-Point
-
-True label
-
-Predicted label
-
-Absolute Error
-
-Square Error
-
-1
-
-1 (Happy)
-
-0.95
-
-0.05
-
-0.0025
-
-2
-
-0 (Sad)
-
-0.8
-
-0.8
-
-0.64
-
-3
-
-1 (Happy)
-
-0.3
-
-0.7
-
-0.49
-
-4
-
-0 (Sad)
-
-0.1
-
-0.1
-
-0.01
+![](./images/100.png)
 
 The absolute and the square loss may remind you of the error functions used in regression.
 However, in classification they are not so widely used. The most popular is the next one I’ll
@@ -301,7 +192,8 @@ with the next function. Another one is that if you notice, these errors are all 
 fact, they are all smaller than 1, no matter how poorly classified the point is. I’ll elaborate
 more in the next section but for now I present to you (drumroll...) the log loss.
 
-ERROR FUNCTION 3: LOG LOSS
+**ERROR FUNCTION 3: LOG LOSS**
+
 Notice that with the absolute and square error functions, points that are vastly misclassified
 have large errors, but never too large. Let’s look at an example: a point with label 1 but that
 the classifier has assigned a prediction of 0.01. This point is vastly misclassified, since we
@@ -320,44 +212,30 @@ simply 1 minus the prediction that the point is happy. Now, note that a point th
 classified is assigned a high probability of being its label (whether happy or sad), and a point
 that is poorly classified is assigned a low probability of being its label. If that sounds a bit
 confusing, let’s look at our four points.
-- Point 1:
-o
 
-o
-o
+• Point 1:
 
-- o
-o
+o Label = 1 (happy)
+o Prediction = 0.95
+o Probability of being happy: 0.95
 
-Label = 1 (sad)
-Prediction = 0.8
-Probability of being sad: 1 - 0.8 = 0.2
+• Point 2:
 
-Point 3:
-o
+o Label = 1 (sad)
+o Prediction = 0.8
+o Probability of being sad: 1 - 0.8 = 0.2
 
-o
-o
-- Prediction = 0.95
-Probability of being happy: 0.95
+• Point 3:
 
-Point 2:
-o
+o Label = 1 (happy)
+o Prediction = 0.3
+o Probability of being happy: 0.3
 
-- Label = 1 (happy)
+• Point 4:
 
-Label = 1 (happy)
-Prediction = 0.3
-Probability of being happy: 0.3
-
-Point 4:
-o
-o
-o
-
-Label = 1 (sad)
-Prediction = 0.1
-Probability of being happy: 1 - 0.1 = 0.9
+o Label = 1 (sad)
+o Prediction = 0.1
+o Probability of being happy: 1 - 0.1 = 0.9
 
 As we can see from these points, a point being correctly classified is equivalent to a point that
 has a been assigned a high probability of being its own label. All we need to do now is to turn
@@ -365,174 +243,64 @@ this probability into an error. Ideally, we’d like a function that gives us ve
 points that are close to 0, and very low values for points that are close to 1. We’d like a
 function where the graph looks like Figure 5.5.
 
+![](./images/101.png)
 
-Figure 5.5. In the horizontal axis we see the probability of a point being predicted its label (wether it’s happy or
-sad). In the vertical axis we see the error. Notice that well classified points lie towards the right, as they
-probability that they are their label is high, whereas poorly classified points lie towards the left. We would like
-an error function that looks like this graph, namely, that assigns high values to the poorly classified points in the
-left, and low values to the correctly classified points in the right.
 All we need to do is find a formula for that function. Can you help me think of a function that
 may work? Here is an idea, let’s look at the graph of the natural logarithm function, in the
 interval between 0 and 1 in Figure 5.6.
 
+![](./images/102.png)
 
-Figure 5.6. Quite conveniently, the plot of natural logarithm looks a lot like the one we desire in Figure 5.5, only
-inverted!
 They look familiar, don’t they? All we need to do is flip the function by multiplying it by -1.
 Thus, we obtain our log loss error function. It is precisely the negative natural logarithm of the
 probability of the point being its label.
 
+```
 log loss = -ln(Probability of a point being its label).
+```
+
 Now let’s calculate it for our four data points.
 
-Table 5.4. We add the log loss to our table of values. Notice that we now allow larger values for the
-error, and as you can imagine, the more poorly classified the point, the higher the log loss.
-Point
+![](./images/103.png)
 
-True label
-
-Predicted label
-
-Probability of being
-
-log loss
-
-its label
-1
-
-1 (Happy)
-
-0.95
-
-0.95
-
--ln(0.95) = 0.051
-
-2
-
-0 (Sad)
-
-0.8
-
-0.2
-
--ln(0.2) = 1.609
-
-
-3
-
-1 (Happy)
-
-0.3
-
-0.3
-
--ln(0.4) = 0.916
-
-4
-
-0 (Sad)
-
-0.1
-
-0.9
-
--ln(0.9) = 0.105
+![](./images/104.png)
 
 We can write the log loss as following:
-- If the label is 0:
-o
 
-- log loss = -ln(1 - prediction)
+• If the label is 0:
 
-If the label is 1:
-o
+o log loss = -ln(1 - prediction)
 
-log loss = -ln(prediction).
+• If the label is 1:
+
+o log loss = -ln(prediction)
 
 As a matter of fact, we can make the formula even nicer. Check this out:
 
+```
 log loss = −label ×ln (prediction) – (1 – label) ×ln (1 – prediction)
+```
+
 Notice that this works, since if the label is 0, only the second summand survives, and if the
 label is 1, only the first summand survives, thus giving us exactly what we want.
 
-COMPARING THE ERROR FUNCTIONS
+## COMPARING THE ERROR FUNCTIONS
+
 In table 5.5 we continue our work and add the log loss column using the natural logarithm
 formula from the previous section. Now we have our three desired error functions.
 
-Table 5.5. The full table with the four points, their label, predicted label, absolute error, square error
-and log loss.
-Point
-
-True label
-
-Predicted
-
-Absolute Error
-
-Square Error
-
-Log loss
-
-label
-1
-
-1 (Happy)
-
-0.95
-
-0.05
-
-0.0025
-
-0.051
-
-2
-
-0 (Sad)
-
-0.8
-
-0.8
-
-0.64
-
-1.609
-
-3
-
-1 (Happy)
-
-0.3
-
-0.7
-
-0.49
-
-0.916
-
-4
-
-0 (Sad)
-
-0.1
-
-0.1
-
-0.01
-
-0.105
+![](./images/105.png)
 
 If I haven’t convinced you of the power of the log loss error function, let’s look at an extreme
 point. Let’s say we have a point with label 1 (happy), for which the classifier makes a
 prediction of 0.00001. This point is very poorly classified. The absolute error will be 0.99999,
 and the square error will be 0.9999800001. However, the log loss will be the negative of the
 
-
 natural logarithm of (1-0.99999), which is 11.51. This value is much larger than the absolute
 or square errors, which means the log loss error is a better alarm for poorly classified points.
 
-5.1.3 More on the log loss error function
+## 5.1.3 More on the log loss error function
+
 In section 5.1.1, I made a case for why I prefer the log loss error function over the absolute
 and square error functions. In this section I give you another reason, a reason that has to do
 with independent probabilities. We’ve calculated the log loss for one point. The total log loss
@@ -549,8 +317,8 @@ What are the events we are talking about here? Let’s say we have the dataset i
 5.7, with two classifiers. The classifier on the left is bad, as it misclassifies two of the four
 points, and the one on the right is good, as it classifies every point correctly.
 
-Figure 5.7. Left: A bad classifier that classifies 2 points correctly and 2 incorrectly. Right: A good classifier that
-classifies every point correctly.
+![](./images/106.png)
+
 Now, before we calculate the log loss, let’s think of probabilities. In Figure 5.7, we have
 specified the probability assigned to each of the points. Recall that this is the probability that
 the point is happy. However, as in the previous section, we care about the probability that our
@@ -568,10 +336,8 @@ for a bad classifier. In Figure 5.8, we can see the calculations of this probabi
 the bad model assigns the labels of this dataset a total probability of 0.0504, while the good
 model assigns it a probability of 0.1764, which is higher.
 
-Figure 5.8. The same classifiers as in Figure 5.7. Except for the sad ones, we have calculated the predicted
-probability of being sad as 1 minus the predicted probability of being happy. We have assumed that these
-points are all independent from each other, and multiplied the probabilities to obtain the total probability that
-the classifier has predicted for the labels of the points.
+![](./images/107.png)
+
 Here is a problem. Products are hard. Let me explain why. Imagine if we had a dataset of 1
 million points. Each one is assigned a probability between 0 and 1. The product of 1 million
 numbers between 0 and 1 would be tiny. Furthermore, it is volatile, as changing one of the
@@ -579,7 +345,9 @@ factors could really change this product. In general, big products are something
 to handle. What do we like? We like sums, they are much easier to handle. And how do we
 turn products into sums? We have a very useful function called the logarithm, since the
 logarithm of a product is precisely the sum of the logarithms of the factors.
+
 To summarize, these are the steps for calculating the log loss:
+
 - For each point, we calculate the probability that the classifier predicts for its label
 (happy or sad).
 
@@ -602,10 +370,10 @@ Notice that the classifier in the left, which is bad, has a log loss of 2.988. T
 right, which is good, has a smaller log loss of 1.735. Thus, the log loss does its job, which is to
 assign a large error value to bad classifiers and a smaller one to good classifiers.
 
-Figure 5.9. We now calculate the log loss by taking the probability calculated in Figure 5.8. Notice that the good
-classifier (right) has a smaller log loss than the bad clalssifier (left)
+![](./images/108.png)
 
-5.2 Reducing the log loss error: The logistic regression trick
+## 5.2 Reducing the log loss error: The logistic regression trick
+
 In Chapters 4 we defined an error function for our classifier, and then an algorithm which
 builds a classifier by minimizing that error function. The algorithm worked in an iterative way,
 namely, it started with a random classifier and slowly changed the weights step by step until
@@ -617,64 +385,70 @@ loss of a classifier.
 Recall from Chapter 4 that the perceptron algorithm consisted in starting with a random
 classifier and successively picking a random point and applying the perceptron trick. The
 perceptron trick had the following steps:
+
 1. If the point was correctly classified, it would not move the line.
 2. If the point was incorrectly classified, it would move the line slightly towards the point.
+
 The logistic regression algorithm is very similar to the perceptron algorithm. The only thing
 that changes is that we use the logistic regression trick instead of the perceptron trick. The
 logistic regression trick has the following steps:
+
 1. If the point is correctly classified, it moves the line slightly away from the point.
 2. If the point is incorrectly classified, it moves the line slightly towards the point.
 
-Figure 5.10. In the logistic regression algorithm, every point has a say. Points that are correctly classified tell the
-line to move farther away, in order to be deeper in the correct area. Points that are incorrectly classified tell the
-line to come closer, in hopes of one day being on the correct side of the line.
+![](./images/109.png)
+
 Does this make sense? Think about this: if a point is well classified, it means it is on the
 correct side of the line. How would this point be better classified? Well, if the line were to
 move farther away from the point, this would put the point deeper inside the correct side of
 the line. Let’s illustrate this with an example.
 
-5.2.1 An example with a discrete perceptron and a continuous perceptron
+## 5.2.1 An example with a discrete perceptron and a continuous perceptron
+
 In order to really understand the difference between a discrete and a continuous perceptron,
 we use the same example as in section 4.3.1. Recall that in this section we started with a
 
 classifier which predicts whether a sentence is happy or sad by assigning scores to the words.
 Then we used the perceptron algorithm to slightly improve this classifier.
+
 The features, or words, were ‘aack’ and ‘beep’. The classifier and sentence are the
 following:
-- Classifier (scores):
-o
 
-o
-o
-- ‘Aack’: 1 pt.
-‘Beep’: 1 pts.
-Bias: -4 pts.
+• Classifier (scores):
 
-Sentence 1:
-o
-o
+o ‘Aack’: 1 pt.
+o ‘Beep’: 1 pts.
+o Bias: -4 pts.
 
-Words: ‘Aack beep beep beep aack beep beep!”
-Label: Sad
+• Sentence 1:
+
+o Words: ‘Aack beep beep beep aack beep beep!”
+o Label: Sad
 
 The scores can define a discrete perceptron classifier or a continuous perceptron classifier,
 depending on if we use the step function or the sigmoid as the activation function. What we do
 next is we will improve the discrete perceptron classifier with the perceptron algorithm to get
 a slightly better classifier. Then I will show you a new technique, the logistic regression
 algorithm, which will improve the continuous perceptron classifier, in a very similar way.
-Using the perceptron algorithm to improve our discrete perceptron classifier
+
+**Using the perceptron algorithm to improve our discrete perceptron classifier**
+
 First let’s look at what the step that the perceptron algorithm would take in order to improve
 this classifier. This algorithm would calculate the score of the sentence, which is the sum of
 the scores of the words times the number of times each word appears in the sentence, plus
 the bias:
 
+```
 Score = (score of aack)*#aack + (score of beep)*#beep - 4
 = 1*2 + 1*4 - 4
 =2
+``` 
+
 Since the score is positive, then the discrete perceptron classifier classifies the sentence as
 happy (which means it misclassifies it). In this example, we decided that we would update the
 scores by subtracting from them the error rate times the number of times each word appears
 in the sentence. If the error rate was 0.01, we did the following:
+
 - Update the score of ‘aack’ by subtracting 2*0.01, thus obtaining 0.98.
 
 - Update the score of ‘beep’ by subtracting 4*0.01, thus obtaining 0.96.
@@ -690,17 +464,23 @@ regression algorithm; you’ll soon see why.
 The new classifier would assign a score of 0.98*2 + 0.96*4 - 4.01 = 1.79. This is better
 than the previous score of 2, because the sentence is sad, so in order to classify it properly,
 the classifier would need to give it a negative score.
-Using the logistic regression algorithm to improve our discrete perceptron classifier
+
+**Using the logistic regression algorithm to improve our discrete perceptron classifier**
+
 What would happen with a continuous perceptron classifier? This one would apply the sigmoid
 function to the score, and use that as a prediction. The sigmoid function gives us
 
+```
 Prediction = σ(2) = 0.881.
+```
+
 Now please bear with me, I’ll show you the example of the logistic regression algorithm
 without showing you the algorithm yet. This one will appear in Section 5.3.3 (feel free to skip
 the pages and read it if you need the definition before the example).
 The difference between the label and the prediction is 0-0.881 = -0.881. We’ll update the
 scores just as before, except we will scale everything by this number, -0.881 and we will
 always add to the scores.
+
 - Update the score of ‘aack’ by adding 2*0.01*(-0.881), thus obtaining 0.982.
 
 - Update the score of ‘beep’ by adding 4*0.01*(-0.881), thus obtaining 0.965.
@@ -709,11 +489,16 @@ always add to the scores.
 
 The new classifier will give the point the following score and prediction.
 
+```
 Score = 0.982*2 + 0.965*4 - 4.009 = 1.815
 Prediction = σ(1.815) = 0.86
+```
+
 Notice that this prediction is smaller than the previous one, so the classifier improved again.
 
-5.2.2 A second example with a discrete perceptron and a continuous perceptron
+
+## 5.2.2 A second example with a discrete perceptron and a continuous perceptron
+
 One of the main benefits of the logistic regression algorithm over the perceptron algorithm is
 that if a point is correctly classified, the perceptron algorithm leaves it alone and doesn’t
 improve, while the logistic regression algorithm still uses the information of that point to
@@ -724,6 +509,7 @@ point is correctly classified. However, if we use the logistic regression algori
 same approach of updating the weights as with the previous example, we see that the
 difference between the label and the prediction is now 1 - 0.881 = 0.119 (since the label is 1).
 Let’s update the scores in the exact same way as before.
+
 - Update the score of ‘aack’ by adding 2*0.01*(0.119), thus obtaining 1.002.
 
 - Update the score of ‘beep’ by adding 4*0.01*(0.119), thus obtaining 1.005.
@@ -735,53 +521,55 @@ Notice that since the difference between the label and the prediction is negativ
 subtracted negative quantities, which is the same as adding positive quantities. The score and
 prediction that this new classifier gives to our point is:
 
+```
 Score = 1.002*2 + 1.005*4 - 3.999 = 2.025
 Prediction = σ(2.025) = 0.883
+```
+
 Notice that the prediction went up from 0.881 to 0.883! This is better, even if only by a small
 amount, because it is closer to the label, which is 1.
 
-5.2.3 Moving the line to fit the points - The logistic regression algorithm
+## 5.2.3 Moving the line to fit the points - The logistic regression algorithm
+
 Notice that in the previous two examples, we always added a small amount to the score. The
 amount we added could be positive or negative based on the difference between the label and
 the prediction, but this didn’t matter. We are ready to formally define the logistic regression
 algorithm for our example.
-Logistic regression trick (pseudocode):
+
+**Logistic regression trick (pseudocode):**
+
 Input:
-- A classifier with the following scores:
-o
 
-o
-o
+• A classifier with the following scores:
 
-- Score of ‘aack’: a.
-Score of ‘beep’: b.
-Bias: c.
+o Score of ‘aack’: a.
+o Score of ‘beep’: b.
+o Bias: c.
 
-A point with coordinates (x1, x2) (where x1 is the number of appearances of the word
+• A point with coordinates (x1, x2) (where x1 is the number of appearances of the word
 ‘aack’, and x2 of the word ‘beep’).
 
-- A learning rate η.
+• A learning rate η.
 
 Procedure :
-- Calculate the prediction that the classifier gives to the datapoint as:
-o
 
-- ŷ = σ(ax1 + bx2 + c)
+• Calculate the prediction that the classifier gives to the datapoint as:
 
-Output a classifier with the following scores:
-o
+o ŷ = σ(ax1 + bx2 + c)
 
-o
-o
+• Output a classifier with the following scores:
 
-Score of ‘aack’: a + η (y − ŷ)x1
-Score of beep: b + η(y − ŷ)x2
-Bias: c + η
+o Score of ‘aack’: a + η (y − ŷ)x1
+o Score of beep: b + η(y − ŷ)x2
+o Bias: c + η
 
 And now that we have the logistic regression trick, we can easily write the pseudocode for the
 logistic regression algorithm.
-Logistic regression algorithm (pseudocode):
+
+**Logistic regression algorithm (pseudocode):** 
+
 Input:
+
 - A dataset of points, where every point has a positive or negative label.
 
 
@@ -794,27 +582,28 @@ Procedure:
 word, and the bias.
 
 - Repeat the following procedure n times:
-o
 
-o
+o Pick a random point.
 
-- Pick a random point.
-Apply the logistic regression trick to the point and the line. In other words, if the
+o Apply the logistic regression trick to the point and the line. In other words, if the
 point is well classified, move the line a little farther from the point, and if it is
 misclassified, move the line a little closer to the point.
 
-Enjoy your well fitted line!
+• Enjoy your well fitted line
 
 Notice something very special. If we were to use the logistic regression trick on a classifier
 that only outputs the predictions 0 and 1, we would get the perceptron trick in Chapter 4. I
 encourage you to verify this as an exercise, by running the logistic regression trick but only
 with the values ŷ = 0 and ŷ = 1.
 
-5.2.4 Coding the logistic regression algorithm
+## 5.2.4 Coding the logistic regression algorithm
+
 We use the same notation as in Chapter 4. The label of each sentence is the sentiment (happy
 or sad). We have a language with n words. The features are the number of times each word
 appears, and the weights are the scores corresponding to the words. These weights include
 the bias, which corresponds to no word, it simply gets added to the score of every sentence.
+
+```
 - Features: x1, x2, … , xn
 
 - Label: y
@@ -822,80 +611,59 @@ the bias, which corresponds to no word, it simply gets added to the score of eve
 - Weights: w1, w2, … , wn
 
 - Bias: b
+```
 
 The score for a particular sentence is the sigmoid of the sum of the weight of each word (wi)
 times the number of times that appears (xi), plus the bias (b) (which we called the dot
 product).
-•
-To
 
-Prediction:
-follow
+![](./images/110.png)
 
-along
 
-with
-
-the
-
-code,
-
-take
-
-a
-
-look
-
-at
-
-this
-
-book’s
-
-repo
-
-at
-
-http://www.github.com/luisguiserrano/manning. We start by coding the sigmoid function, the
+To  follow  along  with  the  code,  take  a  look  at  this  book’s  repo  at http://www.github.com/luisguiserrano/manning. We start by coding the sigmoid function, the
 score, and the prediction.
+
+```
 def sigmoid(x):
 return np.exp(x)/(1+np.exp(x))
 def lr_prediction(weights, bias, features):
 
 return sigmoid(score(weights, bias, features))
+```
 
-Now that we have the prediction, we can proceed to the log loss. We need to do a bit of math
-to figure out the formula for the log loss. Recall that the log loss is the natural logarithm of the
-probability that a point is given its own label by the classifier. To be more clear, if a point has
-label 1, then the log loss is the natural logarithm of the probability that the classifier has given
-to that data point. If the point has label 0, then the log loss is the natural logarithm of one
-minus that same probability. This is because the classifier outputs the probability that the
-point has label 1. Since we called the label
-
-and the prediction
+![](./images/111.png)
 
 - If the label is y = 1, then log loss = ln (ŷ)
 
 - If the label is y = 0, then log loss = ln (1 − ŷ)
 
-, we get the following:
-
 Note that we can encode these two easily into one formula:
 
+```
 log loss = y ln (ŷ) + (1 – y) ln (1 − ŷ)
+```
+
 Let’s code that formula.
+
+```
 def log_loss(weights, bias, features, label):
 pred = prediction(weights, bias, features)
 return label*np.log(prediction) + (1-label)*np.log(1-prediction)
+```
 
 We need the log loss over the whole dataset, so we can add over all the data points.
+
+```
 def total_log_loss(weights, bias, X, y):
 total_error = 0
 for i in range(len(X)):
 total_error += log_loss(weights, bias, X.loc[i], y[i])
 return total_error
+```
 
 Now we are ready to code the logistic regression trick, and the logistic regression algorithm.
+
+```
 def lr_trick(weights, bias, features, label, learning_rate = 0.01):
 pred = lr_prediction(weights, bias, features)
 for i in range(len(weights)):
@@ -920,17 +688,25 @@ plt.scatter(range(epochs), errors)
 plt.xlabel('epochs')
 plt.ylabel('error')
 return weights, bias
+```
 
 We’ll test our code in the same dataset that we used in Chapter 4. The code for loading our
 small dataset is below, and the plot of the dataset is in Figure 5.11.
+
+```
 import pandas as pd
 X = pd.DataFrame([[1,0],[0,2],[1,1],[1,2],[1,3],[2,2],[3,2],[2,3]])
 y = pd.Series([0,0,0,0,1,1,1,1])
+```
 
-Figure 5.11. The plot of our dataset, where the happy points are triangles and the sad ones are squares.
+![](./images/112.png)
+
 We run the algorithm to get the classifier.
+
+```
 lr_algorithm(features, labels)
 ([0.46999999999999953, 0.09999999999999937], -0.6800000000000004)
+```
 
 The classifier we obtain has the following weights and biases.
 - w1 = 4.7
@@ -942,53 +718,61 @@ The classifier we obtain has the following weights and biases.
 The plot of the classifier (together with a plot of the previous classifiers at each of the epochs)
 is in Figure 5.12.
 
+![](./images/113.png)
 
-Figure 5.12. A plot of all the intermediate steps of the logistic regression algorithm. Notice that we start with a
-bad classifier, and slowly move towards a good one (the thick line).
 And finally, the plot of the log loss can be seen in Figure 5.13. Notice that as we run the
 algorithm for more epochs, the log loss decreases drastically, which is exactly what we want.
 
-Figure 5.13. The error plot. Notice that the more epochs we run the logistic regression algorithm, the lower the
-error gets.
+![](./images/114.png)
 
+## 5.2.5 The logistic regression algorithm in Turi Create
 
-5.2.5 The logistic regression algorithm in Turi Create
 In this section, I show you how to build a continuous perceptron classifier in Turi Create. The
 process is much easier, since the package will take care of most of the heavy lifting for us.
 First we have to load all the data into an SFrame.
+
+```
 import turicreate as tc
 data = tc.SFrame({'X1': X[0], 'X2': X[1], 'y': y})
+```
 
-Figure 5.14. The dataset that we have been working on.
+![](./images/115.png)
+
 Now, we train the classifier.
+
+```
 classifier = tc.logistic_classifier.create(data,
 features = ['X1', 'X2'],
 target = 'y',
 validation_set=None)
+```
 
 First, let’s evaluate the coefficients of this model, with the following command.
-classifier.coefficients
 
-We get the following coefficients:
-•
-•
-- (the intercept)
+```
+classifier.coefficients
+```
+
+![](./images/116.png)
 
 They look different than the ones we obtained when we code it by hand, but that doesn’t
 matter. The boundary lines are still similar, as we can see when we plot it in Figure 5.15.
 
-Figure 5.15. Plot of our dataset and a good classifier that splits the points.
+![](./images/117.png)
 
-5.3 Classifying into multiple classes - The softmax function
+## 5.3 Classifying into multiple classes - The softmax function
+
 So far we have seen continuous perceptrons classify two classes, happy and sad. But what if
 we have more classes? At the end of Chapter 4 I mentioned that classifying between more
 than two classes is hard for a discrete perceptron. However, for continuous perceptrons, this is
 possible.
+
 If we had different labels, such as, for example, dog and cat, we could still use a
 perceptron. The perceptron would return a number between 0 and 1, which can be interpreted
 as the possibility that the data point is classified as a dog. To find the probability that the data
 point is classified as a cat, we simply take 1 minus the probability that the data point is
 classified as a dog.
+
 However, if we have a dataset with three labels, say, dog, cat, and bird, we can’t do this.
 What we can do instead is build three classifiers, one for dog, one for cat, and one for bird.
 Then we can make the classifiers vote, by deciding that the prediction for our data point
@@ -996,6 +780,7 @@ corresponds to the classifier that scored it the highest. But there is a simpler
 classifier returns a score, and then passes that score through a sigmoid function. Let’s take
 one step back, and look only at the score. We’ll generalize this sigmoid function to several
 classes.
+
 As an example, say we have our three classifiers: a dog classifier, a cat classifier, and a
 bird classifier. For a particular data point, they all output scores in the following way:
 
@@ -1026,6 +811,7 @@ since all you need to go from one to the other is to scale the exponent. By defa
 when you don’t know what exponent to pick, you pick e, since the function ex has wonderful
 mathematical properties (for instance, it is its own derivative!). So we’ll go with ex. We apply it
 to all the scores, to get the following.
+
 - Dog classifier: e2 = 7.389
 
 - Cat classifier: e0 = 1
@@ -1034,6 +820,7 @@ to all the scores, to get the following.
 
 Now, we do what we did before, we normalize, or divide by the sum of these three numbers in
 order for them to add to 1. The sum is 7.389 + 1 + 0.135 = 8.524, so we get the following:
+
 - Probability of dog: 7.389/8.524 = 0.867
 
 - Probability of cat: 1/8.524 = 0.117
@@ -1044,13 +831,16 @@ These are the three probabilities given by our three classifiers. The function w
 softmax, and the general version is the following. If we have n classifiers which output the n
 scores a1, a2, … , an, the probabilities obtained are p1, p2, … , pn, where
 
+![](./images/118.png)
+
 This formula is known as the softmax formula.
 
 
 What would happen if we use the softmax formula for only two classes? We obtain the
 sigmoid function. I encourage you to convince yourself of this as an exercise.
 
-5.4 Summary
+## 5.4 Summary
+
 - Continuous logistic classifiers (or continuous perceptrons) are very similar to their
 discrete counterparts, except instead of making a discrete prediction such as 0 or 1,
 they predict any number between 0 and 1.

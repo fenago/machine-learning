@@ -1,11 +1,8 @@
+<h4><span style="color:red;">Types of machine learning</span></h4>
 
 
+## This chapter covers:
 
-2
-
-Types of machine learning
-
-This chapter covers:
 - Three main different types of machine learning.
 
 - The difference between labelled and unlabelled data.
@@ -73,52 +70,29 @@ used. We encourage you to look up the other types in the literature and learn ab
 as they are all very interesting and useful!
 (Sidebar) Recommended sources: (not sure how to write this)
 1. Grokking Deep Reinforcement Learning, by Miguel Morales (Manning)
-2. UCL
-
-course
-
-on
-
-reinforcement
-
-learning,
-
-by
-
-David
-
-Silver
-
+2. UCL course on reinforcement learning, by David Silver
 (http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
-3. Deep
-
-Reinforcement
-
-Learning
-
-Nanodegree
-
-Program,
-
-by
-
-Udacity.
-
+3. Deep Reinforcement Learning Nanodegree Program, by Udacity
 (https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893)
 
-2.1 What is the difference between labelled and unlabelled data?
-Actually, what is data?
+## 2.1 What is the difference between labelled and unlabelled data?
+
+**Actually, what is data?**
+
 Let’s first establish a clear definition of what we mean by data. Data is simply information. Any
 time we have a table with information, we have data. Normally, each row is a data point. Let’s
 say, for example, that we have a dataset of pets. In this case, each row represents a different
 pet. Each pet is described then, by certain features.
-Ok. And what are features?
+
+**Ok. And what are features?**
 
 
 Features are simply the columns of the table. In our pet example, the features may be size,
 name, type, weight, etc. This is what describes our data. Some features are special, though,
 and we call them labels.
-Labels?
+
+## Tabels?
+
 This one is a bit less obvious, and it depends on the context of the problem we are trying to
 solve. Normally, if we are trying to predict a feature based on the others, that feature is the
 label. If we are trying to predict the type of pet we have (for example cat or dog), based on
@@ -126,12 +100,15 @@ information on that pet, then that is the label. If we are trying to predict if 
 healthy based on symptoms and other information, then that is the label. If we are trying to
 predict the age age of the pet, then the age is the label.
 So now we can define two very important things, labeled and unlabeled data.
-Labeled data: Data that comes with a label.
-Unlabeled data: Data that comes without a label.
 
-Figure 2.1. Labeled data is data that comes with a tag, like a name, a type, or a number. Unlabeled data is data
-that comes with no tag.
-So what is then, supervised and unsupervised learning?
+**Labeled data:** Data that comes with a label.
+**Unlabeled data:** Data that comes without a label.
+
+![](./images/11.png)
+
+
+## So what is then, supervised and unsupervised learning?
+
 Clearly, it is better to have labeled data than unlabeled data. With a labeled dataset, we can
 do much more. But there are still many things that we can do with an unlabeled dataset.
 The set of algorithms in which we use a labeled dataset is called supervised learning. The
@@ -139,7 +116,8 @@ set of algorithms in which we use an unlabeled dataset, is called unsupervised l
 what we learn next.
 
 
-2.2 What is supervised learning?
+## 2.2 What is supervised learning?
+
 Supervised learning is the type of machine learning you find in the most common applications
 nowadays, including image recognition, various forms of text processing, recommendation
 systems, and many more. As we stated in the previous section, it is a type of predictive
@@ -151,21 +129,28 @@ previous data in order to predict the label of new data points. This means, if w
 image without a label, the model would guess if the image is of a dog or a cat, thus predicting
 the label of the data point.
 
-Figure 2.2. A supervised learning model predicts the label of a new data point.
+![](./images/12.png)
+
+
 If you recall Chapter 1, the framework we learned for making a decision was RememberFormulate-Predict. This is precisely how supervised learning works. The model first
-remembers the dataset of dogs and cats, then formulates a model, or a rule for what is a
-dog and what is a cat, and when a new image comes in, the model makes a prediction about
+**remembers** the dataset of dogs and cats, then **formulates** a model, or a rule for what is a
+dog and what is a cat, and when a new image comes in, the model makes a **prediction** about
 what the label of the image is, namely, is it a dog or a cat.
 
 
-Figure 2.3. Supervised learning follows the Remember-Formulate-Predict framework from Chapter 1.
+![](./images/13.png)
+
+
 Now, notice that in Figure 2.1, we have two types of datasets, one in which the labels are
 numbers (the weight of the animal), and one in which the labels are states, or classes (the
 type of animal, namely cat or dog). This gives rise to two types of supervised learning models.
-Regression models: These are the types of models that predict a number, such as the
+
+**Regression models:** These are the types of models that predict a **number**, such as the
 weight of the animal.
-Classification models: These are the types of models that predict a state, such as the
+
+**Classification models:** These are the types of models that predict a **state**, such as the
 type of animal (cat or dog).
+
 We call the output of a regression model continuous, since the prediction can be any real
 value, picked from a continuous interval. We call the output of a classification model discrete,
 since the prediction can be a value from a finite list. An interesting fact is that the output can
@@ -190,7 +175,7 @@ spam or ham. Thus it is a classification model.
 
 Let’s elaborate some more on regression and classification.
 
-2.2.1 Regression models predict numbers
+## 2.2.1 Regression models predict numbers
 As we mentioned previously, regression models are those that predict a number. This number
 is predicted from the features. In the housing example, the features can be the size of the
 house, the number of rooms, the distance to the closest school, the crime rate in the
@@ -212,7 +197,8 @@ The most common method used for regression is linear regression, which is when w
 linear functions (basically lines) to make our predictions based on the features. We study
 linear regression in Chapter 3.
 
-2.2.2 Classification models predict a state
+## 2.2.2 Classification models predict a state
+
 Classification models are those that predict a state, from a finite set of states. The most
 common ones predict a ‘yes’ or a ‘no’, but there are many models which use a larger set of
 states. The example we saw in Figure 2.3 is of classification, as it predicts the type of the pet,
@@ -231,31 +217,9 @@ school students. It can be found in the following link: http://yann.lecun.com/ex
 CIFAR-10 is made of 60,000 32 by 32 colored images of different things. These are classified
 as 10 different classes (thus the 10 in the name), namely airplanes, cars, birds, cats, deer,
 dogs, frogs, horses, ships, and trucks. This database is maintained by the Canadian Institute
-For
-
-Advanced
-
-Research
-
-(CIFAR),
-
-and
-
-can
-
-be
-
-found
-
-in
-
-the
-
-following
-
-link:
-
+For Advanced Research (CIFAR), and can be found in the following link:
 https://www.cs.toronto.edu/~kriz/cifar.html.
+
 Other places where one can use classification models are the following:
 - Sentiment analysis: Predicting if a movie review is positive or negative, based on the
 
@@ -270,7 +234,8 @@ The bulk of this book talks about classification models. In chapters 3-x, we tal
 classification models in the context of logistic regression, decision trees, naive Bayes, support
 vector machines, and the most popular classification models nowadays: neural networks.
 
-2.3 What is unsupervised learning?
+## 2.3 What is unsupervised learning?
+
 Unsupervised learning is also a very common type of machine learning. It differs from
 supervised learning in that the data has no labels. What is a dataset with no labels, you ask?
 Well, it is a dataset with only features, and no target to predict. For example, if our housing
@@ -287,21 +252,25 @@ picture of a cat. Maybe it can group them in some way by similarity, even withou
 what each group represents.
 
 
-Figure 2.4. An unsupervised learning model can still extract information from data, for example, it can group
-similar elements together.
+![](./images/14.png)
+
 And the branch of machine learning that deals with unlabelled datasets is called unsupervised
 machine learning. As a matter of fact, even if the labels are there, we can still use
 unsupervised learning techniques on our data, in order to preprocess it and apply supervised
 learning methods much more effectively.
+
 The two main branches of unsupervised learning are clustering and dimensionality
 reduction. They are defined as follows.
-Clustering: This is the task of grouping our data into clusters based on similarity. (This is
+
+**Clustering:** This is the task of grouping our data into clusters based on similarity. (This is
 what we saw in Figure 2.4.)
-Dimensionality reduction: This is the task of simplifying our data and describing it with
+
+**Dimensionality reduction:** This is the task of simplifying our data and describing it with
 fewerfeatures, without losing much generality.
 Let’s study them in more detail.
 
-2.3.1 Clustering algorithms split a dataset into similar groups
+## 2.3.1 Clustering algorithms split a dataset into similar groups
+
 As we stated previously, clustering algorithms are those that look at a dataset, and split it into
 similar groups
 So let’s go back to our two examples. In the first one, we have a dataset with information
@@ -321,7 +290,8 @@ For example, let’s say that we have 9 emails, and we want to cluster them into
 types. We have, say, the size of the email, and the number of recipients. And the data looks
 like this, ordered by number of recipients:
 
-Table 2.5. A table of emails with their size and number of recipients.
+![](./images/15.png)
+
 To the naked eye, it looks like we could group them by size, where the emails in one group
 would have 1 or 2 recipients, and the emails in the other group would have 5 or more
 recipients. We could also try to group them into three groups by size. But you can imagine
@@ -329,16 +299,11 @@ that as the data gets larger and larger, eyeballing the groups gets harder and h
 we plot the data? Let’s plot the emails in a graph, where the horizontal axis records the size,
 and the vertical axis records the number of recipients. We get the following plot.
 
+![](./images/16.png)
 
-Figure 2.6. A plot of the emails with size on the horizontal axis and number of recipients on the vertical axis.
-Eyeballing it, it is obvious that there are three distinct types of emails.
-In Figure
+In Figure 2.6 we can see three groups, very well defined. We can make each a different category in our inbox. They are the ones we see in Figure 2.7.
 
-2.6 we can see three groups, very well defined. We can make each a different
-
-category in our inbox. They are the ones we see in Figure 2.7.
-
-Figure 2.7. Clustering the emails into three categories based on size and number of recipients.
+![](./images/17.png)
 
 
 This last step is what clustering is all about. Of course, for us humans, it was very easy to
@@ -356,22 +321,10 @@ for the groups.
 - Medical imaging: Splitting an image into different parts in order to study different types
 of tissue.
 
-Unsupervised learning algorithms
-In this book, we don’t get to study unsupervised learning. However, I strongly encourage you to study them on your own.
-Here are some of the most important clustering algorithms out there.
-- K-means clustering: This algorithm groups points by picking some random centers of mass, and moving them
-closer and closer to the points until they are at the right spots.
+![](./images/18.png)
 
-- Hierarchical clustering: This algorithm starts by grouping the closest points together, and continuing in this fashion,
-until we have some well defined groups.
+## 2.3.2 Dimensionality reduction simplifies data without losing much information
 
-- Density-based special clustering (DBSCAN): This algorithm starts grouping points together in points of high density,
-while leaving the isolated points as noise.
-Gaussian mixture models: This algorithm doesn’t actually determine if an element belongs to a cluster, but instead
-gives a breakdown of percentages. For example, if there are three clusters, A, B, and C, then the algorithm could say
-that a point belongs 60% to group A, 25% to group B, and 15% to group C.
-
-2.3.2 Dimensionality reduction simplifies data without losing much information
 Dimensionality reduction is a very useful preprocessing step which we can apply to vastly
 simplify our data, before applying other techniques. Let’s look at the housing example. Let’s
 say that we want to predict the price, and the features are the following:
@@ -380,6 +333,7 @@ say that we want to predict the price, and the features are the following:
 3. Number of bathrooms.
 4. Crime rate in the neighborhood.
 5. Distance to the nearest school.
+
 That is five columns of data. What if we wanted a simpler dataset, with fewer columns, but
 that can portray the information in as faithful a way as possible. Let’s do it using common
 sense. Take a closer look at the five features. Can you see any way to simplify them, maybe
@@ -398,8 +352,10 @@ etc. The dimensionality reduction algorithms will find ways that group them, los
 information as possible, and keeping our data as intact as possible, while managing to simplify
 it for easier process and storage.
 
-Figure 2.8. Using dimensionality reduction to reduce the number of features in a housing dataset, without losing
-much information.
+
+![](./images/19.png)
+
+
 Now, why is it called dimensionality reduction, if all we’re doing is reducing the number of
 columns in our data? Well, the fancy word for number of columns in data is dimension. Think
 about this, if our data has one column, then each data point is one number. This is the same
@@ -420,29 +376,34 @@ picture I have when thinking of higher dimensions is in Figure 2.9.
 Therefore, when we went from five dimensions down to two, we reduced our 5-dimensional
 city into a 2-dimensional city, thus applying dimensionality reduction.
 
+![](./images/20.png)
 
-Figure 2.9. How to imagine higher dimensional spaces.
+
 1 dimension is like a street, in which each house only has one number.
+
 2 dimensions is like a flat city, in which each address has two numbers, a street and an avenue.
 
 
-3 dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a
-floor.
+3 dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a floor.
+
 4 dimensions is like some imaginary place, in which each address has four numbers.
+
 And so on…
 
-2.3.3 Matrix factorization and other types of unsupervised learning
+## 2.3.3 Matrix factorization and other types of unsupervised learning
+
 It seems that clustering and dimensionality reduction look very different, but in reality they
 are not so different. If we have a table full of data, each row is a data point, and each column
 is a feature. Therefore, we can see clustering as a way to group the rows, and dimensionality
 reduction as a way to group the columns, as figures 2.10 and 2.11 ilustrate.
 
-Figure 2.10. Clustering can be seen as a way to simplify our data by reducing the number of rows in our dataset,
-by grouping some rows into one.
+
+![](./images/21.png)
 
 
-Figure 2.11. Dimensionality reduction can be seen as a way to simplify our data by reducing the number of
-columns in our dataset, by grouping some columns into one.
+![](./images/22.png)
+
+
 You may be wondering, is there a way that we can reduce both the rows and the columns at
 the same time? And the answer is yes! One of the ways to do this is called matrix
 factorization. Matrix factorization is a way to condense both our rows and our columns. If you
@@ -454,14 +415,16 @@ is the rating that the user gave the movie. With matrix factorization, one can e
 features such as type of movie, actors appearing in the movie, and others, and be able to
 predict the rating that a user gives a movie, based on these features.
 
-2.4 What is reinforcement learning?
+## 2.4 What is reinforcement learning?
+
 Reinforcement learning is a different type of machine learning, in which no data is given, and
 we must solve a problem. Instead of data, an environment is given, and an agent who is
 supposed to navigate in this environment. The agent has a goal, or a set of goals. The
 environment has rewards and punishments, which guide the agent to take the right decisions
 in order to reach its goal. That all sounded a bit abstract, but let’s look at some examples.
 
-Example 1: Grid world
+## Example 1: Grid world
+
 In Figure 2.10 we see a grid world with a robot on the bottom left corner. That is our
 agent. The goal is to get to the treasure chest in the top right of the grid. In the grid, we can
 also see a mountain, which means we cannot go through that square, since the robot cannot
@@ -472,8 +435,9 @@ score starts at zero. If we get to the treasure chest, then we gain 100 points. 
 dragon, we lose 50 points. And to make things fast, let’s say that for every step the robot
 makes, we lose 1 point, since the robot loses energy.
 
-Figure 2.12. A grid world in which our agent is a robot. The goal of the robot is to find the treasure chest, while
-avoiding the dragon. The mountain represents a place in which the robot can’t pass through.
+
+![](./images/23.png)
+
 The way to train this algorithm, in very rough terms, is as follows. The robot starts walking
 around, recording its score, and remembering what steps took it to each decision. After some
 point, it may meet the dragon, losing many points. Therefore, it learns that the dragon
@@ -484,7 +448,8 @@ following the squares all the way to the chest. Figure 2.11 shows a possible pat
 this one is not ideal, since it passes close to the dragon. Can you think of a better one?
 
 
-Figure 2.13. Here is a path that the robot could take to find the treasure chest.
+![](./images/24.png)
+
 Now, of course this was a very brief explanation, and there is a lot more to this. There are
 many books written only about reinforcement learning. For example, we highly recommend
 you Miguel Morales’s book, called “Grokking Deep Reinforcement Learning”. But for the most
@@ -502,39 +467,28 @@ picking up boxes, cleaning a room, or any similar actions.
 - Self driving cars: For anything from path planning to controlling the car, reinforcement
 learning techniques are used.
 
-2.5 Summary
-- There are several types of machine learning, including supervised learning and
+## 2.5 Summary
+
+• There are several types of machine learning, including supervised learning and
 unsupervised learning.
-
-- Supervised learning is used on labelled data, and it is good for making predictions.
-
-- Unsupervised learning is used on unlabelled data, and it is normally used as a
+• Supervised learning is used on labelled data, and it is good for making predictions.
+• Unsupervised learning is used on unlabelled data, and it is normally used as a
 preprocessing step.
-
-- Two very common types of supervised learning algorithms are called regression and
+• Two very common types of supervised learning algorithms are called regression and
 classification.
-o
 
-o
-
-Regression models are those in which the answer is any number.
-Classification models are those in which the answer is of a type yes/no. The answer
+o Regression models are those in which the answer is any number.
+o Classification models are those in which the answer is of a type yes/no. The answer
 is normally given as a number between 0 and 1, denoting a probability.
 
-- Two very common types of unsupervised learning algorithms are clustering and
+• Two very common types of unsupervised learning algorithms are clustering and
 dimensionality reduction.
 
-- o
-
-Clustering is used to group our data into similar clusters, in order to extract
-
-o
-
-Dimensionality reduction is a way to simplify our data, by joining certain similar
+o Clustering is used to group our data into similar clusters, in order to extract
+information, or make it easier to handle.
+o Dimensionality reduction is a way to simplify our data, by joining certain similar
 features and losing as little information as possible.
 
-information, or make it easier to handle.
-
-Reinforcement learning is a type of machine learning used where an agent has to
+• Reinforcement learning is a type of machine learning used where an agent has to
 navigate an environment and reach a goal. It is extensively used in many cutting edge
-applications.
+applications

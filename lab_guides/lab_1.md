@@ -1,5 +1,5 @@
 
-What is machine learning?
+## What is machine learning?
 
 It is common sense, except done by a computer
 This chapter covers:
@@ -14,7 +14,8 @@ This chapter covers:
 - How do humans think, how do machines think, and what does this have to do with machine
 learning?
 
-I am super happy to join you in your learning journey!
+**I am super happy to join you in your learning journey!**
+
 Welcome to this book! I’m super happy to be joining you in this journey through
 understanding machine learning. At a high level, machine learning is a process in which the
 computer solves problems and makes decisions in a similar way that humans do.
@@ -25,7 +26,9 @@ and to apply these methods to anything that you are passionate about and where y
 make an improvement in the world. I’ve had an absolute blast writing this book, as I love
 understanding these topics more and more, and I hope you have a blast reading it and diving
 deep into machine learning!
-Machine learning is everywhere, and you can do it.
+
+**Machine learning is everywhere, and you can do it.**
+
 Machine learning is everywhere. This statement seems to be more true every day. I have a
 hard time imagining a single aspect of life that cannot be improved in some way or another by
 
@@ -38,8 +41,10 @@ Maybe you have a goal or an area in which you are making, or want to make an imp
 Very likely, machine learning can be applied to this field, and hopefully that brought you to
 this book. So, let’s find out together!
 
-1.1 Why this book?
-We play the music of machine learning; the formulas and code come later.
+## 1.1 Why this book?
+
+**We play the music of machine learning; the formulas and code come later.**
+
 Most of the times, when I read a machine learning book or attend a machine learning lecture,
 I see either a sea of complicated formulas, or a sea of lines of code. For a long time, I thought
 this was machine learning, and it was only reserved for those who had a very solid knowledge
@@ -58,14 +63,13 @@ much of the math burden. My goal with this book is to make machine learning full
 understandable to every human, and this book is a step on that journey, that I’m very happy
 you’re taking with me!
 
-![](./images/.png)
+![](./images/1.png)
 
-Figure 1.1. Music is not only about scales and notes. There is a melody behind all the technicalities.
-In the same way, machine learning is not about formulas and code.
-There is also a melody, and in this book we sing it.
 
-1.2 Is machine learning hard?
+## 1.2 Is machine learning hard?
+
 No.
+
 Machine learning requires imagination, creativity, and a visual mind. This is all. It helps a lot if
 we know mathematics, but the formulas are not required. It helps if we know how to code, but
 nowadays, there are many packages and tools that help us use machine learning with minimal
@@ -73,7 +77,8 @@ coding. Each day, machine learning is more available to everyone in the world. A
 an idea of how to apply it to something, and some knowledge about how to handle data. The
 goal of this book is to give you this knowledge.
 
-1.3 But what exactly is machine learning?
+## 1.3 But what exactly is machine learning?
+
 Once upon a time, if we wanted to make a computer perform a task, we had to write a
 program, namely, a whole set of instructions for the computer to follow. This is good for
 simple tasks, but how do we get a computer to, for example, identify what is on an image? For
@@ -87,12 +92,12 @@ learning is about teaching the computer how to think like a human. Here is how I
 machine learning in the most concise way:
 Machine learning is common sense, except done by a computer.
 
-![](./images/.png)
+![](./images/2.png)
 
-Figure 1.2. Machine learning is about computers making decisions based on experience.
-In the same way that humans make decisions based on previous experiences, computers can make decisions
-based on previous data. The rules computers use to make decisions are called models.
-Not a huge fan of formulas? You are in the right place
+
+
+## Not a huge fan of formulas? You are in the right place
+
 In most machine learning books, each algorithm is explained in a very formulaic way, normally
 with an error function, another formula for the derivative of the error function, and a process
 that will help us minimize this error function in order to get to the solution. These are the
@@ -109,13 +114,15 @@ over the algorithms in a very conceptual way that will show us what really is ha
 machine learning.
 
 
-1.3.1 What is the difference between artificial intelligence and machine learning?
+## 1.3.1 What is the difference between artificial intelligence and machine learning?
+
 First things first, machine learning is a part of artificial intelligence. So anytime we are doing
 machine learning, we are also doing artificial intelligence.
 
-![](./images/.png)
+![](./images/3.png)
 
-Figure 1.3. Machine learning is a part of artificial intelligence.
+
+
 I think of artificial intelligence in the following way:
 Artificial intelligence encompasses all the ways in which a computer can make decisions.
 When I think of how to teach the computer to make decisions, I think of how we as human
@@ -144,7 +151,8 @@ there in less time, and finding patterns on what their routes where.
 As you can see, approach 1 uses logic and reasoning, whereas approach 2 uses previous data.
 Therefore, approach 2 is machine learning. Approaches 1 and 2 are both artificial intelligence.
 
-1.3.2 What about deep learning?
+## 1.3.2 What about deep learning?
+
 Deep learning is arguably the most commonly used type of machine learning. The reason is
 simply that it works really well. If you are looking at any of the cutting edge applications, such
 as image recognition, language generation, playing Go, or self driving cars, very likely you are
@@ -155,36 +163,36 @@ So in other words, deep learning is simply a part of machine learning, which in 
 part of artificial intelligence. If this book was about vehicles, then AI would be motion, ML
 would be cars, and deep learning (DL) would be Ferraris.
 
-![](./images/.png)
+![](./images/4.png)
 
 
-Figure 1.4. Deep learning is a part of machine learning.
+## 1.4 Humans use the remember-formulate-predict framework to make decisions (and so can machines!)
 
-1.4 Humans use the remember-formulate-predict framework to
-make decisions (and so can machines!)
 How does the computer make decisions based on previous data? For this, let’s first see the
 process of how humans make decisions based on experience. And this is what I call the
 
 remember-formulate-predict framework. The goal of machine learning is to teach computers
 how to think in the same way, following the same framework.
 
-1.4.1 How do humans think?
+## 1.4.1 How do humans think?
+
 When we humans need to make a decision based on our experience, we normally use the
 following framework:
 1. We remember past situations that were similar.
-2. We formulate a general rule.
 3. We use this rule to predict what will happen if we take a certain decision.
+
 For example, if the question is: “Will it rain today?”, the process to make a guess will be the
 following:
+
 1. We remember that last week it rained most of the time.
 2. We formulate that in this place, it rains most of the time.
 3. We predict that today it will rain.
 We may be right or wrong, but at least, we are trying to make an accurate prediction.
 
-![](./images/.png)
+![](./images/5.png)
 
-Figure 1.2. The remember-formulate-predict framework.
-Let us put this in practice with an example.
+<h4><span style="color:red;">Let us put this in practice with an example.</span></h4>
+
 Example 1: An annoying email friend
 Here is an example. We have a friend called Bob, who likes to send us a lot of email. In
 particular, a lot of his emails are spam, in the form of chain letters, and we are starting to get
@@ -192,7 +200,7 @@ particular, a lot of his emails are spam, in the form of chain letters, and we a
 a bit annoyed at him. It is Saturday, and we just got a notification of an email from him. Can
 we guess if it is spam or not without looking at the email?
 
-SPAM AND HAM
+## SPAM AND HAM
 
 Spam is the common term used for junk or unwanted email, such as chain letters,
 
@@ -204,7 +212,8 @@ For this, we use the remember-formulate-predict method.
 First let us remember, say, the last 10 emails that we got from Bob. We remember that 4
 of them were spam, and the other 6 were ham. From this information, we can formulate the
 following rule:
-Rule 1: 4 out of every 10 emails that Bob sends us are spam.
+
+**Rule 1**: 4 out of every 10 emails that Bob sends us are spam.
 This rule will be our model. Note, this rule does not need to be true. It could be
 outrageously wrong. But given our data, it is the best that we can come up to, so we’ll live
 with it. Later in this book, we learn how to evaluate models and improve them when needed.
@@ -220,9 +229,11 @@ But you may be thinking, 6 out of 10 is not enough confidence on the email being
 ham, can we do better? Let’s try to analyze the emails a little more. Let’s see when Bob sent
 the emails to see if we find a pattern.
 
+![](./images/6.png)
 
-Figure 1.3. A very simple machine learning model.
-Example 2: A seasonal annoying email friend
+
+## Example 2: A seasonal annoying email friend
+
 Let us look more carefully at the emails that Bob sent us in the previous month. Let’s look at
 what day he sent them. Here are the emails with dates, and information about being spam or
 ham:
@@ -252,7 +263,7 @@ maybe during the week he sends us work email, whereas during the weekend, he has
 send spam, and decides to roam free. So, we can formulate a more educated rule:
 
 
-Rule 2: Every email that Bob sends during the week is ham, and during the weekend is
+**Rule 2:** Every email that Bob sends during the week is ham, and during the weekend is
 spam.
 And now, let’s look at what day is it today. If it is Saturday, and we just got an email from
 him, then we can predict with great confidence that the email he sent is spam. So we make
@@ -262,10 +273,11 @@ was the day of the week, or more specifically, it being a weekday or a day in th
 You can imagine that there are many more features that could indicate if an email is spam or
 ham. Can you think of some more? In the next paragraphs we’ll see a few more features.
 
-![](./images/.png)
+![](./images/7.png)
 
-Figure 1.4. A slightly more complex machine learning model, done by a human.
-Example 3: Things are getting complicated!
+
+## Example 3: Things are getting complicated!
+
 Now, let’s say we continue with this rule, and one day we see Bob in the street, and he says
 “Why didn’t you come to my birthday party?” We have no idea what he is talking about. It
 turns out last Sunday he sent us an invitation to his birthday party, and we missed it! Why did
@@ -295,42 +307,50 @@ see if you can help me find a pattern.
 What do we see? It seems that the large emails tend to be spam, while the smaller ones tend
 to not be spam. This makes sense, since maybe the spam ones have a large attachment.
 So, we can formulate the following rule:
-Rule 3: Any email larger of size 10KB or more is spam, and any email of size less than
+
+**Rule 3:**  Any email larger of size 10KB or more is spam, and any email of size less than
 10KB is ham.
 So now that we have our rule, we can make a prediction. We look at the email we
 received today, and the size is 19KB. So we conclude that it is spam.
 
-Figure 1.5. Another slightly more complex machine learning model, done by a human.
+![](./images/8.png)
+
+
 Is this the end of the story? I don’t know…
-Example 4: More?
+
+## Example 4: More?
+
 Our two classifiers were good, since they rule out large emails and emails sent on the
 weekends. Each one of them uses exactly one of these two features. But what if we wanted a
 rule that worked with both features? Rules like the following may work:
 
 
-Rule 4: If an email is larger than 10KB or it is sent on the weekend, then it is classified as
+**Rule 4:** If an email is larger than 10KB or it is sent on the weekend, then it is classified as
 spam. Otherwise, it is classified as ham.
-Rule 5: If the email is sent during the week, then it must be larger than 15KB to be
+
+**Rule 5:** If the email is sent during the week, then it must be larger than 15KB to be
 classified as spam. If it is sent during the weekend, then it must be larger than 5KB to be
 classified as spam. Otherwise, it is classified as ham.
 Or we can even get much more complicated.
-Rule 6: Consider the number of the day, where Monday is 0, Tuesday is 1, Wednesday is
+
+**Rule 6:**  Consider the number of the day, where Monday is 0, Tuesday is 1, Wednesday is
 2, Thursday is 3, Friday is 4, Saturday is 5, and Sunday is 6. If we add the number of the day
 and the size of the email (in KB), and the result is 12 or more, then the email is classified as
 spam. Otherwise, it is classified as ham.
 
-![](./images/.png)
+![](./images/9.png)
 
-Figure 1.6. An even more complex machine learning model, done by a human.
+
 All of these are valid rules. And we can keep adding layers and layers of complexity. Now the
 question is, which is the best rule? This is where we may start needing the help of a computer.
 
-1.4.2 How do machines think?
+## 1.4.2 How do machines think?
+
 The goal is to make the computer think the way we think, namely, use the rememberformulate-predict framework. In a nutshell, here is what the computer does in each of the
 steps.
-Remember: Look at a huge table of data.
-Formulate: Go through many rules and formulas, and check which one fits the data best.
-Predict: Use the rule to make predictions about future data.
+**Remember:**  Look at a huge table of data.
+**Formulate:** Go through many rules and formulas, and check which one fits the data best.
+**Predict:**  Use the rule to make predictions about future data.
 This is not much different than what we did in the previous section. The great
 advancement here is that the computer can try building rules such as rules 4, 5, or 6, trying
 
@@ -340,26 +360,21 @@ data. It can also do it if we have lots of columns. For example, we can make a s
 with features such as the sender, the date and time of day, the number of words, the number
 of spelling mistakes, the appearances of certain words such as “buy”, or similar words. A rule
 could easily look as follows:
-Rule 7:
-- If the email has two or more spelling mistakes, then it is classified as spam.
-o
-
-Otherwise, if it has an attachment larger than 20KB, it is classified as spam.
-
-
-Otherwise, if the sender is not in our contact list, it is classified as spam.
-- Otherwise, if it has the words “buy” and “win”, it is classified as spam.
+**Rule 7:** 
+• If the email has two or more spelling mistakes, then it is classified as spam.
+o Otherwise, if it has an attachment larger than 20KB, it is classified as spam.
+ Otherwise, if the sender is not in our contact list, it is classified as spam.
+• Otherwise, if it has the words “buy” and “win”, it is classified as spam.
 o Otherwise, it is classified as ham.
-
 Or even more mathematical, such as:
-Rule 8: If
+
+**Rule 8:**  If
 (size) + 10 x (number of spelling mistakes) - (number of appearances of the word ‘mom’)
 + 4 x (number of appearances of the word ‘buy’) > 10,
 then we classify the message as spam. Otherwise we do not.
 
-![](./images/.png)
+![](./images/10.png)
 
-Figure 1.7. A much more complex machine learning model, done by a computer.
 
 Now the question is, which is the best rule? The quick answer is: The one that fits the data
 best. Although the real answer is: The one that generalizes best to new data. At the end of the
@@ -367,7 +382,8 @@ day, we may end up with a very complicated rule, but the computer can formulate 
 it to make predictions very quickly. And now the question is: How to build the best model?
 That is exactly what this book is about.
 
-1.5 What is this book about?
+<h4><span style="color:red;">1.5 What is this book about?</span></h4>
+
 Good question. The rules 1-8 above, are examples of machine learning models, or classifiers.
 As you saw, these are of different types. Some use an equation on the features to make a
 prediction. Others use a combination of if statements. Others will return the answer as a
@@ -381,6 +397,7 @@ graphs of lines, equations, and probability. It is very helpful (although not ma
 know how to code, specially in Python, as you will be given the opportunity to implement and
 apply several models in real datasets throughout the book. After reading this book, you will be
 able to do the following:
+
 - Describe the most important algorithms in predictive machine learning and how they
 work, including linear and logistic regression, decision trees, naive Bayes, support
 vector machines, and neural networks.
@@ -398,7 +415,8 @@ each of the algorithms to your particular dataset or problem, and to use this bo
 point to implement and experiment with your own models.
 I am super excited to start this journey with you, and I hope you are as excited!
 
-1.6 Summary
+## 1.6 Summary
+
 - Machine learning is easy! Anyone can do it, regardless of their background, all that is
 needed is a desire to learn, and great ideas to implement!
 
@@ -413,14 +431,10 @@ think in order to make decisions fast and accurately.
 based on previous data. This is what machine learning is all about.
 
 - Machine learning uses the remember-formulate-predict framework, as follows:
-o
 
-o
-o
-
-Remember: Use previous data.
-Formulate: Build a model, or a rule, for this data.
-Predict: Use the model to make predictions about future data.
+o **Remember:** Use previous data.
+o **Formulate:** Build a model, or a rule, for this data.
+o **Predict:** Use the model to make predictions about future data.
 
 
 
