@@ -139,7 +139,7 @@ code for the prediction function (where the score formula is the same as the one
 
 ```
 def lr_prediction(weights, bias, features):
-return sigmoid(score(weights, bias, features))
+    return sigmoid(score(weights, bias, features))
 ```
 
 In the previous chapter we defined an error function for a prediction, and we used it to build a
@@ -638,10 +638,10 @@ score, and the prediction.
 
 ```
 def sigmoid(x):
-return np.exp(x)/(1+np.exp(x))
+    return np.exp(x)/(1+np.exp(x))
+    
 def lr_prediction(weights, bias, features):
-
-return sigmoid(score(weights, bias, features))
+    return sigmoid(score(weights, bias, features))
 ```
 
 ![](./images/111.png)
@@ -660,40 +660,40 @@ Let’s code that formula.
 
 ```
 def log_loss(weights, bias, features, label):
-pred = prediction(weights, bias, features)
-return label*np.log(prediction) + (1-label)*np.log(1-prediction)
+    pred = prediction(weights, bias, features)
+    return label*np.log(prediction) + (1-label)*np.log(1-prediction)
 ```
 
 We need the log loss over the whole dataset, so we can add over all the data points.
 
 ```
 def total_log_loss(weights, bias, X, y):
-total_error = 0
-for i in range(len(X)):
-total_error += log_loss(weights, bias, X.loc[i], y[i])
-return total_error
+    total_error = 0
+    for i in range(len(X)):
+        total_error += log_loss(weights, bias, X.loc[i], y[i])
+    return total_error
 ```
 
 Now we are ready to code the logistic regression trick, and the logistic regression algorithm.
 
 ```
 def lr_trick(weights, bias, features, label, learning_rate = 0.01):
-pred = lr_prediction(weights, bias, features)
-for i in range(len(weights)):
-weights[i] += (label-pred)*features[i]*learning_rate
-bias += (label-pred)*learning_rate
-return weights, bias
+    pred = lr_prediction(weights, bias, features)
+    for i in range(len(weights)):
+        weights[i] += (label-pred)*features[i]*learning_rate
+        bias += (label-pred)*learning_rate
+    return weights, bias
+
 def lr_algorithm(features, labels, learning_rate = 0.01, epochs = 200):
-weights = [1.0 for i in range(len(features.loc[0]))]
-bias = 0.0
-errors = []
-for i in range(epochs):
-draw_line(weights[0], weights[1], bias, color='grey', linewidth=1.0,
-linestyle='dotted')
-errors.append(total_error(weights, bias, features, labels))
-j = random.randint(0, len(features)-1)
-weights, bias = perceptron_trick(weights, bias, features.loc[j], labels[j])
-draw_line(weights[0], weights[1], bias)
+    weights = [1.0 for i in range(len(features.loc[0]))]
+    bias = 0.0
+    errors = []
+    for i in range(epochs):
+        draw_line(weights[0], weights[1], bias, color='grey', linewidth=1.0, linestyle='dotted')
+        errors.append(total_error(weights, bias, features, labels))
+        j = random.randint(0, len(features)-1)
+        weights, bias = perceptron_trick(weights, bias, features.loc[j], labels[j])
+    draw_line(weights[0], weights[1], bias)
 
 plot_points(features, labels)
 plt.show()
