@@ -30,7 +30,7 @@ Labs for this course are available at path shared below. Elev8ed Notebooks (powe
 		* <host-ip>:<port>/lab/workspaces/lab6_naive_bayes
 7. ##### Splitting data by asking questions: decision trees
 		* <host-ip>:<port>/lab/workspaces/lab7_decision_trees
-8. ##### Finding the best line separation: support vector machines
+8. ##### Predicting Categories with Naive Bayes and SVMs
 		* <host-ip>:<port>/lab/workspaces/lab8_support_vector
 9. ##### Combining models to maximize results: ensemble learning
 		* <host-ip>:<port>/lab/workspaces/lab9_ensemble_learning
