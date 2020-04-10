@@ -226,29 +226,29 @@ classified is assigned a high probability of being its label (whether happy or s
 that is poorly classified is assigned a low probability of being its label. If that sounds a bit
 confusing, let’s look at our four points.
 
-• Point 1:
+- Point 1:
 
-o Label = 1 (happy)
-o Prediction = 0.95
-o Probability of being happy: 0.95
+    * Label = 1 (happy)
+    * Prediction = 0.95
+    * Probability of being happy: 0.95
 
-• Point 2:
+- Point 2:
 
-o Label = 1 (sad)
-o Prediction = 0.8
-o Probability of being sad: 1 - 0.8 = 0.2
+    * Label = 1 (sad)
+    * Prediction = 0.8
+    * Probability of being sad: 1 - 0.8 = 0.2
 
-• Point 3:
+- Point 3:
 
-o Label = 1 (happy)
-o Prediction = 0.3
-o Probability of being happy: 0.3
+    * Label = 1 (happy)
+    * Prediction = 0.3
+    * Probability of being happy: 0.3
 
-• Point 4:
+- Point 4:
 
-o Label = 1 (sad)
-o Prediction = 0.1
-o Probability of being happy: 1 - 0.1 = 0.9
+    * Label = 1 (sad)
+    * Prediction = 0.1
+    * Probability of being happy: 1 - 0.1 = 0.9
 
 As we can see from these points, a point being correctly classified is equivalent to a point that
 has a been assigned a high probability of being its own label. All we need to do now is to turn
@@ -280,13 +280,13 @@ Now let’s calculate it for our four data points.
 
 We can write the log loss as following:
 
-• If the label is 0:
+- If the label is 0:
 
-o log loss = -ln(1 - prediction)
+    * log loss = -ln(1 - prediction)
 
-• If the label is 1:
+- If the label is 1:
 
-o log loss = -ln(prediction)
+    * log loss = -ln(prediction)
 
 As a matter of fact, we can make the formula even nicer. Check this out:
 
@@ -427,16 +427,16 @@ Then we used the perceptron algorithm to slightly improve this classifier.
 The features, or words, were ‘aack’ and ‘beep’. The classifier and sentence are the
 following:
 
-• Classifier (scores):
+- Classifier (scores):
 
-o ‘Aack’: 1 pt.
-o ‘Beep’: 1 pts.
-o Bias: -4 pts.
+    * ‘Aack’: 1 pt.
+    * ‘Beep’: 1 pts.
+    * Bias: -4 pts.
 
-• Sentence 1:
+- Sentence 1:
 
-o Words: ‘Aack beep beep beep aack beep beep!”
-o Label: Sad
+    * Words: ‘Aack beep beep beep aack beep beep!”
+    * Label: Sad
 
 The scores can define a discrete perceptron classifier or a continuous perceptron classifier,
 depending on if we use the step function or the sigmoid as the activation function. What we do
@@ -553,28 +553,28 @@ algorithm for our example.
 
 Input:
 
-• A classifier with the following scores:
+- A classifier with the following scores:
 
-o Score of ‘aack’: a.
-o Score of ‘beep’: b.
-o Bias: c.
+    * Score of ‘aack’: a.
+    * Score of ‘beep’: b.
+    * Bias: c.
 
-• A point with coordinates (x1, x2) (where x1 is the number of appearances of the word
+- A point with coordinates (x1, x2) (where x1 is the number of appearances of the word
 ‘aack’, and x2 of the word ‘beep’).
 
-• A learning rate η.
+- A learning rate η.
 
 Procedure :
 
-• Calculate the prediction that the classifier gives to the datapoint as:
+- Calculate the prediction that the classifier gives to the datapoint as:
 
-o ŷ = σ(ax1 + bx2 + c)
+    * ŷ = σ(ax1 + bx2 + c)
 
-• Output a classifier with the following scores:
+- Output a classifier with the following scores:
 
-o Score of ‘aack’: a + η (y − ŷ)x1
-o Score of beep: b + η(y − ŷ)x2
-o Bias: c + η
+    * Score of ‘aack’: a + η (y − ŷ)x1
+    * Score of beep: b + η(y − ŷ)x2
+    * Bias: c + η
 
 And now that we have the logistic regression trick, we can easily write the pseudocode for the
 logistic regression algorithm.
@@ -596,13 +596,13 @@ word, and the bias.
 
 - Repeat the following procedure n times:
 
-o Pick a random point.
+    * Pick a random point.
 
-o Apply the logistic regression trick to the point and the line. In other words, if the
+    * Apply the logistic regression trick to the point and the line. In other words, if the
 point is well classified, move the line a little farther from the point, and if it is
 misclassified, move the line a little closer to the point.
 
-• Enjoy your well fitted line
+` Enjoy your well fitted line
 
 Notice something very special. If we were to use the logistic regression trick on a classifier
 that only outputs the predictions 0 and 1, we would get the perceptron trick in Lab 4. I

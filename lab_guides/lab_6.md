@@ -322,10 +322,10 @@ things simpler, the benefit is that normally, the information we have is based o
 and not in number of emails. Many times, we don’t know how many emails are spam or ham,
 all we know is the following:
 
-• The probability that an email is spam is ⅕.
-• The probability that a spam email contains the word ‘lottery’ is ¾.
-• The probability that a ham email contains the word ‘lottery’ is 1/40.
-• **Question:** What is the probability that an email that contains the word ‘lottery’ is
+- The probability that an email is spam is ⅕.
+- The probability that a spam email contains the word ‘lottery’ is ¾.
+- The probability that a ham email contains the word ‘lottery’ is 1/40.
+- **Question:** What is the probability that an email that contains the word ‘lottery’ is
 spam
 
 First of all, let’s check if this is enough information. Do we know the probability that an email

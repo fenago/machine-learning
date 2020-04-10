@@ -166,21 +166,21 @@ and “beep”. This forms our dataset:
 
 **Dataset:**
 
-• Alien 1
-o Mood: Happy
-o Sentence: “Aack, aack, aack!”
+- Alien 1
+    * Mood: Happy
+    * Sentence: “Aack, aack, aack!”
 
-• Alien 2:
-o Mood: Sad
-o Sentence: “Beep beep!”
+- Alien 2:
+    * Mood: Sad
+    * Sentence: “Beep beep!”
 
-• Alien 3:
-o Mood: Happy
-o Sentence: “Aack beep aackl!”
+- Alien 3:
+    * Mood: Happy
+    * Sentence: “Aack beep aackl!”
 
-• Alien 4:
-o Mood: Sad
-o Sentence: “Aack beep beep beep!”
+- Alien 4:
+    * Mood: Sad
+    * Sentence: “Aack beep beep beep!”
 
 ![](./images/43.png)
 
@@ -256,10 +256,9 @@ Or equivalently, the equation
 If you like equations with variables, this is simply the equation y=x, or equivalently, the
 equation y-x=0. We also have two areas, as follows:
 
-• The positive (happy) area, where the sentences have more aack’s than beep’s, with
+- The positive (happy) area, where the sentences have more aack’s than beep’s, with
 equation #aack - #beep > 0.
-
-• The negative (sad) area, where the sentences have more beep’s than aack’s, with
+- The negative (sad) area, where the sentences have more beep’s than aack’s, with
 equation #aack - #beep < 0
 
 ![](./images/47.png)
@@ -299,29 +298,29 @@ The dataset is the following (Table 4.2):
 
 **Dataset:**
 
-• Alien 1
-o Mood: Sad
-o Sentence: “Crack!”
+- Alien 1
+    * Mood: Sad
+    * Sentence: “Crack!”
 
-• Alien 2:
-o Mood: Sad
-o Sentence: “Dunk.”
+- Alien 2:
+    * Mood: Sad
+    * Sentence: “Dunk.”
 
-• Alien 3:
-o Mood: Sad
-o Sentence: “Crack dunk!”
+- Alien 3:
+    * Mood: Sad
+    * Sentence: “Crack dunk!”
 
-• Alien 4:
-o Mood: Happy
-o Sentence: “Crack crack dunk dunk.
+- Alien 4:
+    * Mood: Happy
+    * Sentence: “Crack crack dunk dunk.
 
-• Alien 5:
-o Mood: Happy
-o Sentence: “Crack dunk dunk crack crack!”
+- Alien 5:
+    * Mood: Happy
+    * Sentence: “Crack dunk dunk crack crack!”
 
-• Alien 6:
-o Mood: Happy
-o Sentence: “Dunk dunk crack dunk crack!”
+- Alien 6:
+    * Mood: Happy
+    * Sentence: “Dunk dunk crack dunk crack!”
 
 ![](./images/48.png)
 
@@ -733,13 +732,13 @@ position (3,1), and Sentence 2 in position (4,3).
 
 Furthermore, the scores are the following:
 
-• Sentence 1, coordinates (3,1):
+- Sentence 1, coordinates (3,1):
 
-o Score =#aack + 2#beep - 4 = 1.
+    * Score =#aack + 2#beep - 4 = 1.
 
-• Sentence 2, coordinates (4,3):
+- Sentence 2, coordinates (4,3):
 
-o Score = #aack + 2#beep - 4 = 6
+    * Score = #aack + 2#beep - 4 = 6
 
 Notice that Sentence 1 is badly misclassified, although only by a little bit. However, Sentence
 2 is very badly misclassified. Therefore, the score is a good measure of the error for a
@@ -757,11 +756,11 @@ the scores of these sentences.
 
 - Sentence 3, coordinates (0,0):
 
-o Score =#aack + 2#beep - 4 = -4.
+    * Score =#aack + 2#beep - 4 = -4.
 
 - Sentence 4, coordinates (1,1):
 
-o Score = #aack + 2#beep - 4 = -1
+    * Score = #aack + 2#beep - 4 = -1
 
 In this case, as you can see in Figure 4.19, Sentence 3 is very badly misclassified, while
 Sentence 4 is misclassified, but not as badly, since it is much closer to the boundary line.
@@ -775,18 +774,15 @@ negative of the score.
 In other words, the error is defined as follows:
 
 - If the point is correctly classified:
+    * Error = 0
 
-o Error = 0
+- Else, if the point is incorrectly classified:
 
-• Else, if the point is incorrectly classified:
+    * If the point has a positive label, and the prediction is negative:
+        * Error = -Score
 
-o If the point has a positive label, and the prediction is negative:
-
- Error = -Score
-
-o Else, if the point has a negative label, and the prediction is positive:
-
- Error = Score.
+    * Else, if the point has a negative label, and the prediction is positive:
+        *  Error = Score.
 
 But this can be made even simpler. Notice that if a point has a positive label, but it’s predicted
 negative, then its score must be negative. Likewise, if a point has a negative label, but it’s
@@ -798,13 +794,13 @@ Therefore, the definition of error is the following:
 
 **Perceptron error**
 
-• If the point is correctly classified:
+- If the point is correctly classified:
 
-o Error = 0
+    * Error = 0
 
-• Else, if the point is incorrectly classified:
+` Else, if the point is incorrectly classified:
 
-o Error = |Score|
+    * Error = |Score|
 
 
 ## Example
@@ -836,55 +832,55 @@ Notice that Classifier 1 classifies them as follows:
 
 - Sentence 1:
 
-o Coordinates = (1,0)
-o Score = #aack + 2#beep - 4 = -3
-o Prediction: Sad
+    * Coordinates = (1,0)
+    * Score = #aack + 2#beep - 4 = -3
+    * Prediction: Sad
 
-• Sentence 2:
+- Sentence 2:
 
-o Coordinates = (0,2)
-o Score = #aack + 2#beep - 4 = -2
-o Prediction: Sad
+    * Coordinates = (0,2)
+    * Score = #aack + 2#beep - 4 = -2
+    * Prediction: Sad
 
-• Sentence 3:
+- Sentence 3:
 
-o Coordinates = (1,3)
-o Score = #aack + 2#beep - 4 = 3
-o Prediction: Happy
+    * Coordinates = (1,3)
+    * Score = #aack + 2#beep - 4 = 3
+    * Prediction: Happy
 
-• Sentence 4:
+- Sentence 4:
 
-o Coordinates = (3,2)
-o Score = #aack + 2#beep - 4 = 3
-o Prediction: Happy
+    * Coordinates = (3,2)
+    * Score = #aack + 2#beep - 4 = 3
+    * Prediction: Happy
 
 Now on to calculate the errors. Since sentences 1 and 3 are correctly classified, they produce
 0 error. Sentences 2 and 4 are incorrectly classified, so they produce an error. Sentence 2 has
 a score of -2, so its error is 2. Sentence 4 has a score of 3, so its error is 3. In summary:
 
-• Sentence 1:
+- Sentence 1:
 
-o Correctly classified
-o Score = -3
-o Error = 0
+    * Correctly classified
+    * Score = -3
+    * Error = 0
 
-• Sentence 2:
+- Sentence 2:
 
-o Incorrectly classified
-o Score = -2
-o Error = 2
+    * Incorrectly classified
+    * Score = -2
+    * Error = 2
 
-• Sentence 3:
+- Sentence 3:
 
-o Correctly classified
-o Score = 3
-o Error = 0
+    * Correctly classified
+    * Score = 3
+    * Error = 0
 
-• Sentence 4:
+- Sentence 4:
 
-o Incorrectly classified
-o Score = 3
-o Error = 3
+    * Incorrectly classified
+    * Score = 3
+    * Error = 3
 
 The total error for Classifier 1 is the sum of errors, which is 0+2+0+3 = 5.
 
@@ -893,28 +889,28 @@ The total error for Classifier 1 is the sum of errors, which is 0+2+0+3 = 5.
 This one is much easier. Notice that Classifier 2 classifies every point correctly. To verify this,
 notice that:
 
-• Sentence 1 (sad):
-o Coordinates = (1,0)
-o Score = -#aack + #beep = -1
-o Prediction: Sad
+- Sentence 1 (sad):
+    * Coordinates = (1,0)
+    * Score = -#aack + #beep = -1
+    * Prediction: Sad
 
-• Sentence 2 (happy):
+- Sentence 2 (happy):
 
-o Coordinates = (0,2)
-o Score = -#aack + #beep = 2
-o Prediction: Happy
+    * Coordinates = (0,2)
+    * Score = -#aack + #beep = 2
+    * Prediction: Happy
 
-• Sentence 3 (happy):
+- Sentence 3 (happy):
 
-o Coordinates = (1,3)
-o Score = -#aack + #beep = 2
-o Prediction: Happy
+    * Coordinates = (1,3)
+    * Score = -#aack + #beep = 2
+    * Prediction: Happy
 
-• Sentence 4 (sad):
+- Sentence 4 (sad):
 
-o Coordinates = (3,2)
-o Score = -#aack + #beep = -1
-o Prediction: Sad
+    * Coordinates = (3,2)
+    * Score = -#aack + #beep = -1
+    * Prediction: Sad
 
 Therefore, all points, being correctly classified, produce an error of zero. Thus, the total error
 is zero.
@@ -940,7 +936,7 @@ regression algorithm in Lab 3.
 
 - Loop many times:
 
-o Improve the algorithm a small amount
+    * Improve the algorithm a small amount
 
 Output a good classifier.
 
@@ -1125,13 +1121,13 @@ word, and the bias.
 
 - Repeat the following procedure n times:
 
-o Pick a random point.
+    * Pick a random point.
 
-o Apply the perceptron trick to the point and the line. In other words, if the point is
+    * Apply the perceptron trick to the point and the line. In other words, if the point is
 well classified, do nothing, and if it is misclassified, move the line a little bit closer
 to the point 
 
-• Enjoy your well fitted line!
+` Enjoy your well fitted line!
 
 Since the correctly classified points want the line to stay where it is, and the incorrectly
 classified points want it to move closer to them, we can imagine the points yelling at the line

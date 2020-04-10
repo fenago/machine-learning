@@ -421,20 +421,19 @@ weight that we assign to each model in the voting. In Figure 10.18 we can see a 
 Now we are ready to make the learners vote. Based on the odds, let’s calculate the logarithm
 of the odds of each of the three learners.
 
-• Learner 1:
+- Learner 1:
+    * Odds: 7/3 = 2.33
+    * log(odds) = 0.846
 
-o Odds: 7/3 = 2.33
-o log(odds) = 0.846
+- Learner 2:
 
-• Learner 2:
+    * Odds: 7.84/2.13 = 3.68
+    * log(odds) = 1.303
 
-o Odds: 7.84/2.13 = 3.68
-o log(odds) = 1.303
+- Learner 3:
 
-• Learner 3:
-
-o Odds = 8.46/1.35 = 6.27
-o log(odds) = 1.836
+    * Odds = 8.46/1.35 = 6.27
+    * log(odds) = 1.836
 
 ![](./images/230.png)
 

@@ -49,6 +49,7 @@ Most of the times, when I read a machine learning course or attend a machine lea
 I see either a sea of complicated formulas, or a sea of lines of code. For a long time, I thought
 this was machine learning, and it was only reserved for those who had a very solid knowledge
 of both.
+
 I try to compare machine learning with other subjects, such as music. Musical theory and
 practice are complicated subjects. But when we think of music, we do not think of scores and
 scales, we think of songs and melodies. And then I wondered, is machine learning the same?
@@ -360,12 +361,15 @@ data. It can also do it if we have lots of columns. For example, we can make a s
 with features such as the sender, the date and time of day, the number of words, the number
 of spelling mistakes, the appearances of certain words such as “buy”, or similar words. A rule
 could easily look as follows:
+
 **Rule 7:** 
-• If the email has two or more spelling mistakes, then it is classified as spam.
-o Otherwise, if it has an attachment larger than 20KB, it is classified as spam.
- Otherwise, if the sender is not in our contact list, it is classified as spam.
-• Otherwise, if it has the words “buy” and “win”, it is classified as spam.
-o Otherwise, it is classified as ham.
+
+- If the email has two or more spelling mistakes, then it is classified as spam.
+    * Otherwise, if it has an attachment larger than 20KB, it is classified as spam.
+    * Otherwise, if the sender is not in our contact list, it is classified as spam.
+    * Otherwise, if it has the words “buy” and “win”, it is classified as spam.
+    * Otherwise, it is classified as ham.
+    
 Or even more mathematical, such as:
 
 **Rule 8:**  If
@@ -402,7 +406,6 @@ able to do the following:
 work, including linear and logistic regression, decision trees, naive Bayes, support
 vector machines, and neural networks.
 
-•
 - Identify what are their strengths and weaknesses, and what parameters they use.
 Identify how these algorithms are used in the real world, and formulate potential ways
 to apply machine learning to any particular problem you would like to solve.
@@ -430,11 +433,9 @@ think in order to make decisions fast and accurately.
 - Just like humans make decisions based on experience, computers can make decisions
 based on previous data. This is what machine learning is all about.
 
-- Machine learning uses the remember-formulate-predict framework, as follows:
+Machine learning uses the remember-formulate-predict framework, as follows:
 
-o **Remember:** Use previous data.
-o **Formulate:** Build a model, or a rule, for this data.
-o **Predict:** Use the model to make predictions about future data.
-
-
+- **Remember:** Use previous data.
+- **Formulate:** Build a model, or a rule, for this data.
+- **Predict:** Use the model to make predictions about future data.
 

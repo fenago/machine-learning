@@ -610,11 +610,11 @@ procedure of updating them many many times. Here is the pseudocode:
 
 **PSEUDOCODE FOR FITTING A LINE THROUGH A SET OF POINTS (LINEAR REGRESSION)** 
 
-• Start with random values for the slope and y-intercept
-• Repeat many times:
+- Start with random values for the slope and y-intercept
+- Repeat many times:
 
-o Pick a random point
-o Update the slope and the y-intercept using the square (or the simple) trick
+    * Pick a random point
+    * Update the slope and the y-intercept using the square (or the simple) trick
 
 The simple trick was used mostly for illustration, in real life, we use the square trick, which
 works a lot better. Therefore, we’ll use this one. Here is the actual code. Note that we have

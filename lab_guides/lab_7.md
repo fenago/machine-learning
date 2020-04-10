@@ -545,10 +545,9 @@ is the same ball, or a different one, we don’t know). We look at its color. We
 colors we obtained, and we check if they are equal, or different. Here is the main observation
 of Gini index:
 
-• If the set has low Gini impurity index, then most balls are of the same color. Therefore
+- If the set has low Gini impurity index, then most balls are of the same color. Therefore
 the probability that the two balls are of different color is very low.
-
-• If the set has high Gini impurity index, then the balls tend to be of different colors.
+- If the set has high Gini impurity index, then the balls tend to be of different colors.
 Therefore the probability that the two balls are of different color is very high
 
 

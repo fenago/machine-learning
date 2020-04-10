@@ -58,10 +58,9 @@ by topic? And what about playing chess? That sounds very different than predicti
 is spam. But it sounds similar to playing Go.
 Machine learning models are grouped into different types, according to the way they
 operate. The main three families of machine learning models are
+
 - supervised learning,
-
 - unsupervised learning, and
-
 - reinforcement learning.
 
 In this lab, we overview them all. However, in this course, we cover supervised
@@ -93,8 +92,8 @@ healthy based on symptoms and other information, then that is the label. If we a
 predict the age age of the pet, then the age is the label.
 So now we can define two very important things, labeled and unlabeled data.
 
-**Labeled data:** Data that comes with a label.
-**Unlabeled data:** Data that comes without a label.
+- **Labeled data:** Data that comes with a label.
+- **Unlabeled data:** Data that comes without a label.
 
 ![](./images/11.png)
 
@@ -271,6 +270,7 @@ them into similar houses. We could group them by location, by price, by size, or
 combination of these factors. This is called clustering. Clustering is a branch of unsupervised
 machine learning which consists of grouping the elements in our dataset into clusters that are
 similar. Could we do that with other datasets?
+
 Let’s look at our second example, the dataset of emails. Because the dataset is unlabeled,
 we don’t know if each email is spam or not. However, we can still apply some clustering to our
 dataset. A clustering algorithm will return our emails split into, say, 4 or 5 different categories,
@@ -371,14 +371,10 @@ city into a 2-dimensional city, thus applying dimensionality reduction.
 ![](./images/20.png)
 
 
-1 dimension is like a street, in which each house only has one number.
-
-2 dimensions is like a flat city, in which each address has two numbers, a street and an avenue.
-
-
-3 dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a floor.
-
-4 dimensions is like some imaginary place, in which each address has four numbers.
+1. dimension is like a street, in which each house only has one number.
+2. dimensions is like a flat city, in which each address has two numbers, a street and an avenue.
+3. dimensions is like a city with buildings, in which each address has three numbers, a street, an avenue, and a floor.
+4. dimensions is like some imaginary place, in which each address has four numbers.
 
 And so on…
 
@@ -395,12 +391,12 @@ reduction as a way to group the columns, as figures 2.10 and 2.11 ilustrate.
 
 ![](./images/22.png)
 
-
 You may be wondering, is there a way that we can reduce both the rows and the columns at
 the same time? And the answer is yes! One of the ways to do this is called matrix
 factorization. Matrix factorization is a way to condense both our rows and our columns. If you
 are familiar with linear algebra, what we are doing is expressing our big matrix of data into a
 product of two smaller matrices.
+
 Places like Netflix use matrix factorization extensively to make recommendations. Imagine
 a large table where each row is a user, each column is a movie, and each entry in the matrix
 is the rating that the user gave the movie. With matrix factorization, one can extract certain
@@ -455,26 +451,21 @@ learning techniques are used.
 
 ## 2.5 Summary
 
-• There are several types of machine learning, including supervised learning and
+- There are several types of machine learning, including supervised learning and
 unsupervised learning.
-• Supervised learning is used on labelled data, and it is good for making predictions.
-• Unsupervised learning is used on unlabelled data, and it is normally used as a
+- Supervised learning is used on labelled data, and it is good for making predictions.
+- Unsupervised learning is used on unlabelled data, and it is normally used as a
 preprocessing step.
-• Two very common types of supervised learning algorithms are called regression and
-classification.
+- Two very common types of supervised learning algorithms are called regression and classification.
+    * Regression models are those in which the answer is any number.
+    * Classification models are those in which the answer is of a type yes/no. The answer
+    is normally given as a number between 0 and 1, denoting a probability.
 
-o Regression models are those in which the answer is any number.
-o Classification models are those in which the answer is of a type yes/no. The answer
-is normally given as a number between 0 and 1, denoting a probability.
-
-• Two very common types of unsupervised learning algorithms are clustering and
-dimensionality reduction.
-
-o Clustering is used to group our data into similar clusters, in order to extract
-information, or make it easier to handle.
-o Dimensionality reduction is a way to simplify our data, by joining certain similar
+- Two very common types of unsupervised learning algorithms are clustering and dimensionality reduction.
+    * Clustering is used to group our data into similar clusters, in order to extract information, or make it easier to handle.
+    * Dimensionality reduction is a way to simplify our data, by joining certain similar
 features and losing as little information as possible.
 
-• Reinforcement learning is a type of machine learning used where an agent has to
+- Reinforcement learning is a type of machine learning used where an agent has to
 navigate an environment and reach a goal. It is extensively used in many cutting edge
 applications
