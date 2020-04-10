@@ -89,12 +89,7 @@ of *p(h)* and *p(D|h),* as follows:
 Let's take a look at how we can implement this with the method of
 predicting classes, in the case of the mobile transaction example: 
 
-  ------------ ---------- ------------- ----------------
-  **p(D|h)**   **p(h)**   **p(D|-h)**   **(1 - p(h))**
-  8            08         02            92
-  ------------ ---------- ------------- ----------------
-
- 
+![](./images_4/1.png)
 
 Substituting the values in the preceding table into the Bayes theorem
 formula produces a result of 0.77. This means that the classifier
