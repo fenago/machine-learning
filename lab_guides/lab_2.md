@@ -64,16 +64,9 @@ operate. The main three families of machine learning models are
 
 - reinforcement learning.
 
-In this chapter, we overview them all. However, in this book, we only cover supervised
+In this chapter, we overview them all. However, in this course, we cover supervised
 learning, as it is the most natural one to start learning, and arguably the most commonly
-used. We encourage you to look up the other types in the literature and learn about them too,
-as they are all very interesting and useful!
-(Sidebar) Recommended sources: (not sure how to write this)
-1. Grokking Deep Reinforcement Learning, by Miguel Morales (Manning)
-2. UCL course on reinforcement learning, by David Silver
-(http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
-3. Deep Reinforcement Learning Nanodegree Program, by Udacity
-(https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893)
+used.
 
 ## 2.1 What is the difference between labelled and unlabelled data?
 
@@ -85,7 +78,6 @@ say, for example, that we have a dataset of pets. In this case, each row represe
 pet. Each pet is described then, by certain features.
 
 **Ok. And what are features?**
-
 
 Features are simply the columns of the table. In our pet example, the features may be size,
 name, type, weight, etc. This is what describes our data. Some features are special, though,
@@ -450,21 +442,15 @@ this one is not ideal, since it passes close to the dragon. Can you think of a b
 
 ![](./images/24.png)
 
-Now, of course this was a very brief explanation, and there is a lot more to this. There are
-many books written only about reinforcement learning. For example, we highly recommend
-you Miguel Morales’s book, called “Grokking Deep Reinforcement Learning”. But for the most
-part, anytime you have an agent navigating an environment, picking up information and
-learning how to get rewards and avoid punishment, you have reinforcement learning.
 Reinforcement learning has numerous cutting edge applications, and here are some of
 them.
-- Games: The recent advances teaching computers how to win at games such as Go or
+
+- **Games:** The recent advances teaching computers how to win at games such as Go or
 chess, use reinforcement learning. Also, agents have been taught to win at Atari games
 such as Breakout or Super Mario.
-
-- Robotics: Reinforcement learning is used extensively to help robots do tasks such as
+- **Robotics:** Reinforcement learning is used extensively to help robots do tasks such as
 picking up boxes, cleaning a room, or any similar actions.
-
-- Self driving cars: For anything from path planning to controlling the car, reinforcement
+- **Self driving cars:** For anything from path planning to controlling the car, reinforcement
 learning techniques are used.
 
 ## 2.5 Summary

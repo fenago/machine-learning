@@ -18,6 +18,19 @@
 
 - Separating points of different colors using a line.
 
+
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+**Note:** Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor. Password for jupyterLab : `1234`
+
+All Notebooks are present in `work/machine-learning` folder.
+
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab7_decision_trees`
+
 In this chapter, I cover decision trees. Decision trees are very powerful models which help us
 classify data and make predictions. Not only that, they also give us a great deal of information
 about the data. Like the models in the previous chapters, decision trees are trained with

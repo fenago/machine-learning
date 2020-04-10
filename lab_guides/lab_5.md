@@ -16,6 +16,19 @@
 
 - Using the softmax function to build classifiers for more than two classes.
 
+
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+**Note:** Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor. Password for jupyterLab : `1234`
+
+All Notebooks are present in `work/machine-learning` folder.
+
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab5_logistic`
+
 In the previous chapter, we built a classifier that determined if a sentence was happy or sad.
 But as you can imagine, there are sentences that are happier than others. For example, the
 sentence “I’m good.” and the sentence “Today was the most wonderful day in my life!” are

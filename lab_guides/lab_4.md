@@ -19,6 +19,19 @@
 
 - How to code the perceptron algorithm in Python.
 
+
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+**Note:** Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor. Password for jupyterLab : `1234`
+
+All Notebooks are present in `work/machine-learning` folder.
+
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/`
+
 Here is the problem we’ll tackle in this chapter. How do we teach a computer to determine if a
 sentence is happy or sad? The way we tackle this is by introducing a branch of machine
 learning called classification. Much like regression, classification consists of predicting labels

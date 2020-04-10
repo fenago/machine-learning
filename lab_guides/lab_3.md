@@ -15,6 +15,20 @@
 - Examples of linear regression in the real world, such as medical applications and
 recommender systems.
 
+
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+**Note:** Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor. Password for jupyterLab : `1234`
+
+All Notebooks are present in `work/machine-learning` folder.
+
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab3_regression`
+
+
 In this chapter we learn linear regression. Linear regression is a very powerful and common
 method to estimate values, such as the price of a house, the value of a certain stock, the life
 expectancy of an individual, the amount of time a user will watch a video or spend in a

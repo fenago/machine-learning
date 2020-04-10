@@ -25,6 +25,18 @@ consists of building these models in a smarter way, by picking each model strate
 focus on the previous models’ mistakes. One of the most popular examples of boosting is the
 AdaBoost algorithm (Adaptive Boosting), which we study at the end of the chapter.
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+**Note:** Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor. Password for jupyterLab : `1234`
+
+All Notebooks are present in `work/machine-learning` folder.
+
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab9_ensemble_learning`
+
 <h4><span style="color:red;">10.1 With a little help from our friends</span></h4>
 
 Here is the scenario. You have to take an exam that consists of 100 true/false questions on
