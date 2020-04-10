@@ -1,6 +1,6 @@
 <img align="right" src="./logo-small.png">
 
-<h2><span style="color:red;">Grokking Machine Learning</span></h2>
+<h2><span style="color:red;">Machine Learning</span></h2>
 
 ### Description
 Machine learning is, without a doubt, one of the hottest topics in the world right now. Most
