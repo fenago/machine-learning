@@ -3,7 +3,7 @@
 ## Drawing a line close to our points:
 ## Linear regression
 
-## This chapter covers
+## This lab covers
 - What is linear regression?
 
 - How to predict the price of a house based on known prices of other houses
@@ -29,7 +29,7 @@ All Notebooks are present in `work/machine-learning` folder.
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab3_regression`
 
 
-In this chapter we learn linear regression. Linear regression is a very powerful and common
+In this lab we learn linear regression. Linear regression is a very powerful and common
 method to estimate values, such as the price of a house, the value of a certain stock, the life
 expectancy of an individual, the amount of time a user will watch a video or spend in a
 website, etc. In most books you will find linear regression as a plethora of complicated
@@ -70,7 +70,7 @@ be asking yourself this and many other questions. Here are some that I can think
 
 - Why is this machine learning?
 
-In this chapter, we answer all of these questions. But first, let’s start with a very simple
+In this lab, we answer all of these questions. But first, let’s start with a very simple
 example.
 
 ## 3.1 The problem: We need to predict the price of a house
@@ -121,7 +121,7 @@ house, but from what we know, it is very likely that it will be close.
 Ok, now the question is, how did we come up with this formula? Or more specifically, how do
 we get the computer to come up with this formula? In order to illustrate this, let’s look at a
 slightly more complicated example. And since this is a machine learning problem, we will
-approach it using the remember-formulate-predict framework that we learned in Chapter 2.
+approach it using the remember-formulate-predict framework that we learned in Lab 2.
 
 ## 3.2.1 The remember step: looking at the prices of existing houses
 
@@ -186,7 +186,7 @@ near the points. Now we are back into the original problem, where we have a set 
 and we want to pass a road as closely as possible for them!
 
 
-How do we find this line? We’ll look at this later in the chapter. But for now, let’s say that
+How do we find this line? We’ll look at this later in the lab. But for now, let’s say that
 we have a magic ball that given a bunch of points, finds the line that passes the closest to
 them.
 
@@ -216,7 +216,7 @@ in the area, school quality, distance to a highway, etc.
 4. What if we’ve built this prediction mode, and then new houses start appearing in the
 market, is there a way to update the model with new information?
 
-This chapter answers all of these questions, but let me give you some quick answers:
+This lab answers all of these questions, but let me give you some quick answers:
 
 **1. What happens if the model makes a mistake?**
 
@@ -227,16 +227,16 @@ most of the houses, so that we can use it effectively.
 
 **2. How on earth did you come up with the scoring system? And what would we do if instead of 6 houses, we have thousands of them?** 
 
-Yes, this is the main question we address on this chapter! When we have 6 houses, the
+Yes, this is the main question we address on this lab! When we have 6 houses, the
 problem of drawing a line that goes close to them is simple, but if we have thousands
-of houses, this gets hard. What we do in this chapter is to device an algorithm, or a
+of houses, this gets hard. What we do in this lab is to device an algorithm, or a
 procedure, for the computer to find a good line.
 
 **3. Why did you only use the number of rooms to predict the price of the house? I can think of other features like size, number of floors, number of parking spots, crime rate in the area, school quality, distance to a highway, etc.**
 
 Absolutely. The price of a house doesn’t just depend on the number of houses, the
 location matters, the size matters, etc. All of these, and many more, are valid features.
-In this chapter we use only one feature so that we can plot the prices and draw a line
+In this lab we use only one feature so that we can plot the prices and draw a line
 through them. But in real life, we would be predicting the price using lots of features,
 and the formulas we get will be very similar, except with a lot more variables.
 
@@ -248,7 +248,7 @@ we’ve built our model in such a way that we need to recalculate the entire mod
 time new data comes in, it won’t be very useful.
 
 ## 3.3 How to get the computer to draw this line: the linear regression algorithm
-Now we get to the main question on this chapter. How do we get a computer to draw this line.
+Now we get to the main question on this lab. How do we get a computer to draw this line.
 Before we get into the math, let’s think. How would we find the perfect model? Actually, there
 is a simple question we can ask. The question is, imagine if we already had a model. How do
 we make our existing model a little bit better? Even if it is just a little bit. If we have, say, a
@@ -649,8 +649,8 @@ dataset!
 
 ## 3.3.5 Plotting dots and lines
 
-Throughout this chapter, we make plots of our data and models using Matplotlib and Numpy,
-two very useful Python packages. In this book we show you the plots, but not the code for the
+Throughout this lab, we make plots of our data and models using Matplotlib and Numpy,
+two very useful Python packages. In this course we show you the plots, but not the code for the
 plots, as it is out of scope. However, you are more than invited to look at it in detail at our
 public Github repository at https://www.github.com/luisguiserrano/manning.
 
@@ -673,7 +673,7 @@ linear_regression(features, labels, learning_rate = 0.01, epochs = 10000)
 
 
 Figure 3.15 shows the line where the price per room is $51.07, and the base price is $99.48.
-This is not far from the $50 and $100 we eyeballed earlier in the chapter.
+This is not far from the $50 and $100 we eyeballed earlier in the lab.
 
 But let’s look at the progression a bit more, let’s draw a few of the intermediate lines
 (again, for code on how we plot them, please see the Github repo). The result is in figure

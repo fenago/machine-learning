@@ -2,7 +2,7 @@
 
 ## Splitting data by asking questions: Decision trees
 
-**This chapter covers**
+**This lab covers**
 
 - What is a decision tree?
 
@@ -31,14 +31,14 @@ All Notebooks are present in `work/machine-learning` folder.
 
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab7_decision_trees`
 
-In this chapter, I cover decision trees. Decision trees are very powerful models which help us
+In this lab, I cover decision trees. Decision trees are very powerful models which help us
 classify data and make predictions. Not only that, they also give us a great deal of information
 about the data. Like the models in the previous chapters, decision trees are trained with
 labelled data, where the labels (or targets) that we want to predict are given by a set of
 classes. The classes can be yes/no, spam/ham, dog/cat/bird, or anything that we wish to
 predict based on the features. Decision trees are a very intuitive way to build classifiers, and
 one that really resembles human reasoning.
-In this chapter you will learn how to build decision trees that fit your data. The algorithm
+In this lab you will learn how to build decision trees that fit your data. The algorithm
 that we use to build decision trees is quite intuitive, and in a nutshell, it works the following
 way:
 
@@ -104,7 +104,7 @@ Almost! Unfortunately even for a computer, searching over all the possible trees
 most effective one would take a really long time. But luckily, we have algorithms that make
 this search much faster, and thus, we can use decision trees for many wonderful applications,
 including spam detection, sentiment analysis, medical diagnosis, and much more. In this
-chapter, we’ll go over an algorithm for constructing good decision trees quickly. In a nutshell,
+lab, we’ll go over an algorithm for constructing good decision trees quickly. In a nutshell,
 the process goes as follows.
 
 ## PICKING A GOOD FIRST QUESTION
@@ -122,7 +122,7 @@ question:
 Let’s think, out of these five questions, which one seems like the best one to ask if our goal is
 to determine when we should wear a jacket or not. I’ll say that the last three questions are
 pretty irrelevant when it comes to wearing a jacket or not. We should decide between the first
-two. In this chapter, we learn how to pick the right question based on data, so we’ll get into
+two. In this lab, we learn how to pick the right question based on data, so we’ll get into
 details later. But for now, imagine that for an entire year, we decide if we wear a jacket or not
 based on if it’s raining or not, and for another entire year, we decide if we wear a jacket or not
 based on if it was hot outside or not. We check how many times we were correct, namely, how
@@ -148,7 +148,7 @@ in Figure 7.5.
 Now we have our decision tree. Can we do better? Maybe we can, if we add more questions
 and more nodes and leaves to our tree. But for now, this one works very well. In this
 example, we made our decisions using some data, but also some human intuition. In this
-chapter, we’ll learn an algorithm that builds these trees solely based on data.
+lab, we’ll learn an algorithm that builds these trees solely based on data.
 Many questions may arise in your head, for example:
 
 1. How exactly do you decide which is the best possible question to ask?
@@ -158,12 +158,12 @@ a different way, by not picking the best question every time, and I get to a bet
 4. How do we code this algorithm?
 5. Where in real life can we find decision trees?
 
-This chapter answers all of these questions, but let me give you some quick answers:
+This lab answers all of these questions, but let me give you some quick answers:
 
 6. **How exactly do you decide which is the best possible question to ask?**
 There are several ways to do this. The simplest one is using accuracy, which means,
 which question helps me be correct more often. However, others such as Gini index or
-entropy will be used in this book as well.
+entropy will be used in this course as well.
 
 
 7. **Does this process actually gets us to build the very best decision tree? What if I start in a different way, by not picking the best question every time, and I get to a better tree?**
@@ -175,7 +175,7 @@ it’s not always the case that making the best possible move gets you to the be
 outcome. There may be times in which asking a weaker question groups our data in a
 way that we end up with a better tree at the end of the day. However, the algorithms
 for building decision trees tend to work very well and very quickly, so we’ll live with
-this. I challenge you to look at the algorithms that we see in this chapter, and try to
+this. I challenge you to look at the algorithms that we see in this lab, and try to
 figure out ways to improve them by removing the greedy property!
 
 8. **How is this process any faster than going through all possible decision trees?**
@@ -187,7 +187,7 @@ much faster.
 
 9. **How do we code this algorithm?**
 
-Yep! By the end of this chapter we’ll code most elements of this algorithm. However,
+Yep! By the end of this lab we’ll code most elements of this algorithm. However,
 you’ll see that since the algorithm is recursive, the coding can get a bit tedious. Thus,
 we’ll use a very useful package called scikit learn to build decision trees with real data.
 
@@ -201,7 +201,7 @@ email is spam or not), in sentiment analysis (to decide if a sentence is happy o
 and in biology (to decide if a patient is sick or not, or to help identify certain hierarchies
 in species or in types of genomes).
 
-All these will be answered in this chapter, and more! Let’s begin by introducing a very popular
+All these will be answered in this lab, and more! Let’s begin by introducing a very popular
 application in machine learning: recommendation systems.
 
 ## 7.1 The problem: We need to recommend apps to users according to what they are likely to download
@@ -263,8 +263,8 @@ determining feature for the data in that branch, thus building our decision tree
 
 ## 7.2.1 The remember-formulate-predict framework
 
-As we do for most algorithms in this book, we’ll build the remember-formulate-predict
-framework which we learned in Chapter 1. This one works as follows:
+As we do for most algorithms in this course, we’ll build the remember-formulate-predict
+framework which we learned in Lab 1. This one works as follows:
 
 1. **Remember:** Look at previous data (previous customers, their age, gender, and what
 apps they have downloaded).
@@ -322,7 +322,7 @@ The resulting node is drawn in Figure 7.8.
 From looking at figures 5.8 and 5.9, which one looks like a better split? To me it seems that
 age is better, since it has picked up on the fact that all three young people downloaded Atom
 Count. But we need the computer to figure out that age is a better feature, so we need to give
-it some numbers to compare. Later in this chapter we learn three ways to attach a number to
+it some numbers to compare. Later in this lab we learn three ways to attach a number to
 each of the features, in order to compare them. These are called accuracy, Gini impurity, and
 information gain. Let’s start with the first one: accuracy.
 
@@ -406,7 +406,7 @@ we ask the gender question. Since she is a female, we recommend her Check Mate M
 Customer 3: A man aged 34. Again we ask the age question, and since he is an adult, we ask
 the gender question. Since he is a male, we recommend him Instagram.
 
-Notice that this matches our intuition from the beginning of the chapter. That means our
+Notice that this matches our intuition from the beginning of the lab. That means our
 decision tree worked!
 Now, there was one little step here that we didn’t elaborate much on. It’s the step where
 we decided that age was a better split than gender. Let’s study this one in more detail with a
@@ -639,7 +639,7 @@ we pick another ball, and both balls are of different color? This is called pick
 repetition, since we put the first ball back after we pick it. Let’s consider the complementary
 event, namely, that both balls are of the same color. Clearly, whatever we obtain for this last
 probability, should be one minus the original one, since two probabilities of complementary
-events must add to one (as we learned in Chapter 5). Now, what is the probability that both
+events must add to one (as we learned in Lab 5). Now, what is the probability that both
 balls are the same color? Well, the balls could both be black, or white. The probability that a
 ball is black is ¾, so the probability that both balls are white i ¾ * ¾ = 9/16. Similarly, the
 probability that both balls are white is ¼ * ¼ = 1/16. We add these two to obtain the
@@ -1065,7 +1065,7 @@ try with a slightly larger example, let’s go back to our days of spam recommen
 
 ## 7.7 A slightly larger example: Spam detection again!
 
-Let’s go back to our example from Chapter 5, where we predicted spam/ham emails from the
+Let’s go back to our example from Lab 5, where we predicted spam/ham emails from the
 number of appearances of the word ‘lottery’ and ‘sale’. Can we use decision trees for spam
 detection too? Of course! Let’s look at a bigger table of emails, such as shown in Table 7.11.
 
@@ -1191,7 +1191,7 @@ gradient boosted decision trees to combine over 500 different models. Other reco
 engines, such as the video recommendation engine at YouTube, also use decision trees to
 study the engagement of their users, and figure out what are the demographic features that
 best determine engagement.
-In Chapter 10 we will learn more about gradient boosted decision trees and random
+In Lab 9 we will learn more about gradient boosted decision trees and random
 forests, but you can see them as a collection of many decision trees, for simplicity.
 
 ## 7.9 Summary
@@ -1206,7 +1206,7 @@ the prediction based on the answers to those questions.
 best determines the label, and iterating over this step.
 
 - There are several ways to tell if a feature determines the label best. The two that we
-learn in this chapter are accuracy and Gini impurity index.
+learn in this lab are accuracy and Gini impurity index.
 
 - Gini impurity index measures the purity of a set. In that way, a set in which every
 element has the same label has gini impurity index 0. A set in which every element has

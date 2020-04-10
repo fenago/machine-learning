@@ -1,7 +1,7 @@
 <h4><span style="color:red;">Types of machine learning</span></h4>
 
 
-## This chapter covers:
+## This lab covers:
 
 - Three main different types of machine learning.
 
@@ -15,12 +15,12 @@
 
 - What reinforcement learning is and what it’s useful for.
 
-As we learned in Chapter 1, machine learning is common sense, but for a computer. It mimics
+As we learned in Lab 1, machine learning is common sense, but for a computer. It mimics
 the process in which humans make decisions based on experience, by making decisions based
 on previous data. Of course, this is challenging for computers, as all they do is store numbers
 and do operations on them, so programming them to mimic human level of thought is difficult.
 Machine learning is divided into several branches, and they all mimic different types of ways in
-which humans make decisions. In this chapter, we overview some of the most important of
+which humans make decisions. In this lab, we overview some of the most important of
 these branches.
 ML has applications in many many fields. Can you think of some fields in which you can
 apply machine learning? Here is a list of some of my favorites:
@@ -64,7 +64,7 @@ operate. The main three families of machine learning models are
 
 - reinforcement learning.
 
-In this chapter, we overview them all. However, in this course, we cover supervised
+In this lab, we overview them all. However, in this course, we cover supervised
 learning, as it is the most natural one to start learning, and arguably the most commonly
 used.
 
@@ -124,7 +124,7 @@ the label of the data point.
 ![](./images/12.png)
 
 
-If you recall Chapter 1, the framework we learned for making a decision was RememberFormulate-Predict. This is precisely how supervised learning works. The model first
+If you recall Lab 1, the framework we learned for making a decision was RememberFormulate-Predict. This is precisely how supervised learning works. The model first
 **remembers** the dataset of dogs and cats, then **formulates** a model, or a rule for what is a
 dog and what is a cat, and when a new image comes in, the model makes a **prediction** about
 what the label of the image is, namely, is it a dog or a cat.
@@ -187,7 +187,7 @@ video, based on the user’s demographics and past interaction with the site.
 
 The most common method used for regression is linear regression, which is when we use
 linear functions (basically lines) to make our predictions based on the features. We study
-linear regression in Chapter 3.
+linear regression in Lab 3.
 
 ## 2.2.2 Classification models predict a state
 
@@ -222,7 +222,7 @@ demographics and past interaction with the site.
 - Social media: Predicting if a user will befriend or interact with another user or not,
 based on their demographics, history, and friends in common.
 
-The bulk of this book talks about classification models. In chapters 3-x, we talk about
+The bulk of this course talks about classification models. In chapters 3-x, we talk about
 classification models in the context of logistic regression, decision trees, naive Bayes, support
 vector machines, and the most popular classification models nowadays: neural networks.
 

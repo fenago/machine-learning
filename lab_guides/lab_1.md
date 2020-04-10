@@ -2,28 +2,28 @@
 ## What is machine learning?
 
 It is common sense, except done by a computer
-This chapter covers:
+This lab covers:
 - What is machine learning?
 
 - Is machine learning hard? (Spoiler: No)
 
-- Why you should read this book?
+- Why you should read this course?
 
-- What will we learn in this book?
+- What will we learn in this course?
 
 - How do humans think, how do machines think, and what does this have to do with machine
 learning?
 
 **I am super happy to join you in your learning journey!**
 
-Welcome to this book! I’m super happy to be joining you in this journey through
+Welcome to this course! I’m super happy to be joining you in this journey through
 understanding machine learning. At a high level, machine learning is a process in which the
 computer solves problems and makes decisions in a similar way that humans do.
-In this book, I want to bring one message to you, and it is: Machine learning is easy! You
+In this course, I want to bring one message to you, and it is: Machine learning is easy! You
 do not need to have a heavy math knowledge or a heavy programming background to
 understand it. What you need is common sense, a good visual intuition, and a desire to learn
 and to apply these methods to anything that you are passionate about and where you want to
-make an improvement in the world. I’ve had an absolute blast writing this book, as I love
+make an improvement in the world. I’ve had an absolute blast writing this course, as I love
 understanding these topics more and more, and I hope you have a blast reading it and diving
 deep into machine learning!
 
@@ -39,13 +39,13 @@ much anywhere. Just to name a few applications of machine learning: recommendati
 systems, image recognition, text processing, self-driving cars, spam recognition, anything.
 Maybe you have a goal or an area in which you are making, or want to make an impact on.
 Very likely, machine learning can be applied to this field, and hopefully that brought you to
-this book. So, let’s find out together!
+this course. So, let’s find out together!
 
-## 1.1 Why this book?
+## 1.1 Why this course?
 
 **We play the music of machine learning; the formulas and code come later.**
 
-Most of the times, when I read a machine learning book or attend a machine learning lecture,
+Most of the times, when I read a machine learning course or attend a machine learning lecture,
 I see either a sea of complicated formulas, or a sea of lines of code. For a long time, I thought
 this was machine learning, and it was only reserved for those who had a very solid knowledge
 of both.
@@ -59,8 +59,8 @@ on napkins with my family, friends, and colleagues, trained models on small and 
 datasets, experimented, until finally some very pretty mental pictures started appearing. But
 it doesn’t have to be that hard for you. You can learn more easily without having to deal with
 the math from the start. Especially since the increasing sophistication of ML tools removes
-much of the math burden. My goal with this book is to make machine learning fully
-understandable to every human, and this book is a step on that journey, that I’m very happy
+much of the math burden. My goal with this course is to make machine learning fully
+understandable to every human, and this course is a step on that journey, that I’m very happy
 you’re taking with me!
 
 ![](./images/1.png)
@@ -75,7 +75,7 @@ we know mathematics, but the formulas are not required. It helps if we know how 
 nowadays, there are many packages and tools that help us use machine learning with minimal
 coding. Each day, machine learning is more available to everyone in the world. All you need is
 an idea of how to apply it to something, and some knowledge about how to handle data. The
-goal of this book is to give you this knowledge.
+goal of this course is to give you this knowledge.
 
 ## 1.3 But what exactly is machine learning?
 
@@ -105,7 +105,7 @@ descriptions of the methods that work well in the practice, but explaining them 
 is the equivalent of teaching someone how to drive by opening the hood and frantically
 pointing at different parts of the car, while reading their descriptions out of a manual. This
 doesn’t show what really happens, which is, the car moves forward when we press the gas
-pedal, and stops when we hit the breaks. In this book, we study the algorithms in a different
+pedal, and stops when we hit the breaks. In this course, we study the algorithms in a different
 way. We do not use error functions and derivatives. Instead, we look at what is really
 happening with our data, and how is it that we are modeling it.
 Don’t get me wrong, I think formulas are wonderful, and when needed, we won’t shy away
@@ -137,7 +137,7 @@ mimicking a human. So in short, points 1 and 2 form artificial intelligence.
 Machine learning, as we stated before, is when we only focus on point 2. Namely, when
 the computer makes decisions based on experience. And experience has a fancy term in
 computer lingo: data. Thus, machine learning is when the computer makes decisions, based
-on previous data. In this book, we focus on point 2, and study many ways in which machine
+on previous data. In this course, we focus on point 2, and study many ways in which machine
 can learn from data.
 A small example would be how Google maps finds a path between point A and point B.
 There are several approaches, for example the following:
@@ -158,9 +158,9 @@ simply that it works really well. If you are looking at any of the cutting edge 
 as image recognition, language generation, playing Go, or self driving cars, very likely you are
 looking at deep learning in some way or another. But what exactly is deep learning? This term
 applies to every type of machine learning that uses Neural Networks. Neural networks are one
-type of algorithm, which we learn in Chapter 5.
+type of algorithm, which we learn in Lab 5.
 So in other words, deep learning is simply a part of machine learning, which in turn is a
-part of artificial intelligence. If this book was about vehicles, then AI would be motion, ML
+part of artificial intelligence. If this course was about vehicles, then AI would be motion, ML
 would be cars, and deep learning (DL) would be Ferraris.
 
 ![](./images/4.png)
@@ -206,7 +206,7 @@ Spam is the common term used for junk or unwanted email, such as chain letters,
 
 promotions, and so on. The term comes from a 1972 Monty Python sketch in which every item in the menu of
 a restaurant contained spam as an ingredient. Among software developers, the term ‘ham’ is used to refer to
-non-spam emails. I use this terminology in this book.
+non-spam emails. I use this terminology in this course.
 
 For this, we use the remember-formulate-predict method.
 First let us remember, say, the last 10 emails that we got from Bob. We remember that 4
@@ -216,7 +216,7 @@ following rule:
 **Rule 1**: 4 out of every 10 emails that Bob sends us are spam.
 This rule will be our model. Note, this rule does not need to be true. It could be
 outrageously wrong. But given our data, it is the best that we can come up to, so we’ll live
-with it. Later in this book, we learn how to evaluate models and improve them when needed.
+with it. Later in this course, we learn how to evaluate models and improve them when needed.
 But for now, we can live with this.
 Now that we have our rule, we can use it to predict if the email is spam or not. If 40 out
 of 10 of the emails that Bob sends us are spam, then we can assume that this new email is
@@ -380,22 +380,22 @@ Now the question is, which is the best rule? The quick answer is: The one that f
 best. Although the real answer is: The one that generalizes best to new data. At the end of the
 day, we may end up with a very complicated rule, but the computer can formulate it and use
 it to make predictions very quickly. And now the question is: How to build the best model?
-That is exactly what this book is about.
+That is exactly what this course is about.
 
-<h4><span style="color:red;">1.5 What is this book about?</span></h4>
+<h4><span style="color:red;">1.5 What is this course about?</span></h4>
 
 Good question. The rules 1-8 above, are examples of machine learning models, or classifiers.
 As you saw, these are of different types. Some use an equation on the features to make a
 prediction. Others use a combination of if statements. Others will return the answer as a
-probability. Others may even return the answer as a number! In this book, we study the main
+probability. Others may even return the answer as a number! In this course, we study the main
 algorithms of what we call predictive machine learning. Each one has its own style, way to
-interpret the features, and way to make a prediction. In this book, each chapter is dedicated
+interpret the features, and way to make a prediction. In this course, each lab is dedicated
 to one different type of model.
-This book provides you with a solid framework of predictive machine learning. To get the
-most out of this book, you should have a visual mind, and a basis of mathematics, such as
+This course provides you with a solid framework of predictive machine learning. To get the
+most out of this course, you should have a visual mind, and a basis of mathematics, such as
 graphs of lines, equations, and probability. It is very helpful (although not mandatory) if you
 know how to code, specially in Python, as you will be given the opportunity to implement and
-apply several models in real datasets throughout the book. After reading this book, you will be
+apply several models in real datasets throughout the course. After reading this course, you will be
 able to do the following:
 
 - Describe the most important algorithms in predictive machine learning and how they
@@ -411,7 +411,7 @@ to apply machine learning to any particular problem you would like to solve.
 the best machine learning models we can.
 
 If you have a particular dataset or problem in mind, we invite you to think about how to apply
-each of the algorithms to your particular dataset or problem, and to use this book as a starting
+each of the algorithms to your particular dataset or problem, and to use this course as a starting
 point to implement and experiment with your own models.
 I am super excited to start this journey with you, and I hope you are as excited!
 

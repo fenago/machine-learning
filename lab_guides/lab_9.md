@@ -4,7 +4,7 @@
 
 ## Ensemble learning
 
-**This chapter covers**
+**This lab covers**
 
 - What is ensemble learning.
 
@@ -17,13 +17,13 @@
 - AdaBoost: A very successful example of boosting methods.
 
 After learning many interesting and very useful machine learning classifiers, a good question
-to ask is “Is there a way to combine them?”. Thankfully the answer is yes! In this chapter we
+to ask is “Is there a way to combine them?”. Thankfully the answer is yes! In this lab we
 learn several ways to build stronger classifiers by combining weaker ones. The methods we
-learn in this chapter are bagging and boosting. In a nutshell, bagging consists on constructing
+learn in this lab are bagging and boosting. In a nutshell, bagging consists on constructing
 a few classifiers in a random way and putting them together. Boosting, on the other hand,
 consists of building these models in a smarter way, by picking each model strategically to
 focus on the previous models’ mistakes. One of the most popular examples of boosting is the
-AdaBoost algorithm (Adaptive Boosting), which we study at the end of the chapter.
+AdaBoost algorithm (Adaptive Boosting), which we study at the end of the lab.
 
 #### Pre-reqs:
 - Google Chrome (Recommended)
@@ -70,7 +70,7 @@ combined a strong learner.
 
 ![](./images/206.png)
 
-In this chapter we learn two ensemble learning techniques called bagging and boosting, which
+In this lab we learn two ensemble learning techniques called bagging and boosting, which
 very much resemble the two previous techniques, respectively. In a nutshell, this is what
 bagging and boosting do:
 
@@ -95,25 +95,25 @@ strong, but the union of them is. One way to do this is to modify our data by gi
 weight to the misclassified points and less to the correctly classified ones, and fit the next
 classifier to this modified data.
 
-The canonical example of boosting that we learn in this chapter is AdaBoost (ADAptive
+The canonical example of boosting that we learn in this lab is AdaBoost (ADAptive
 BOOSTing). I encourage you to further your studies with other algorithms such as gradient
 boosted trees, and XGBoost (eXtreme Gradient Boosting).
-Most ensemble methods in this chapter use decision trees as the weak learners. Many
+Most ensemble methods in this lab use decision trees as the weak learners. Many
 ensemble methods started in order to prevent overfitting in decision trees, and for this reason
 decision trees tend to be more popular for this kind of approaches. However, as you read this
-chapter, I encourage you to look at how the strong learners would look if the weak learners
+lab, I encourage you to look at how the strong learners would look if the weak learners
 were other types of classifiers, such as perceptrons, SVMs, and so on.
 
 ## 10.2 Why an ensemble of learners? Why not just one really good learner?
 
 When I suggested combining several different weak learners to form a strong learner, a
-question may have popped into our minds. We’ve spent an entire book learning how to build
+question may have popped into our minds. We’ve spent an entire course learning how to build
 strong learners, why all of a sudden do we want to combine them? For example, if we are
 going to combine a few simple decision trees, why not build one very robust one? Let me
 illustrate why with a small example.
 
-Let’s go back to our spam example in Chapter 7 (Decision Trees). To remind you, the
-dataset consisted of spam and ham emails, and the features were the number of times the
+Let’s go back to our spam example. The
+dataset consists of spam and ham emails, and the features were the number of times the
 words ‘lottery’ and ‘sale’ appeared on the email (Table 10.1).
 
 ![](./images/207.png)
@@ -140,7 +140,7 @@ following two more points?
 ![](./images/212.png)
 
 
-Now let’s try to fit a decision tree to this data. We can use sklearn, like we did in Chapter 7,
+Now let’s try to fit a decision tree to this data. We can use sklearn,
 with the following command in sklearn:
 
 ```
@@ -163,7 +163,7 @@ us a nicer boundary? We’ll see in the next section!
 Bagging is a technique in which we build a strong learner based on a set of weak learners. The
 way the strong learner makes a prediction is simply by allowing the weak learners to vote.
 Whichever prediction gets more votes, is the one the strong learner makes. You can imagine
-the weak learners to be any type of classifier, but in this chapter, we’ll use decision trees. And
+the weak learners to be any type of classifier, but in this lab, we’ll use decision trees. And
 going by that analogy, a set of decision trees is called a forest. Since there is some
 randomness involved in building these trees, we’ll call it a random forest.
 

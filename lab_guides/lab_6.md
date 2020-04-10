@@ -2,7 +2,7 @@
 ## Using probability to its maximum:
 ## The naive Bayes algorithm
 
-**This chapter covers**
+**This lab covers**
 
 - What is Bayes theorem?
 
@@ -33,7 +33,7 @@ All Notebooks are present in `work/machine-learning` folder.
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab6_naive_bayes`
 
 Naive Bayes is a very important machine learning algorithm used for prediction. As opposed to
-the previous algorithms you’ve learned in this book, such as the perceptron algorithm, in
+the previous algorithms you’ve learned in this course, such as the perceptron algorithm, in
 which the prediction is discrete (0 or 1), the naive Bayes algorithm is purely probabilistic. This
 means, the prediction is a number between 0 and 1, indicating the probability that a label is
 positive. The main component of naive Bayes is Bayes Theorem.
@@ -56,7 +56,7 @@ hard time dealing with so much information. But there is a very simple trick we 
 makes the calculation much easier. The trick relies on making an assumption that is not
 necessarily true, but that works pretty well in practice and simplifies our life quite a lot. This
 assumption is the heart of the naive Bayes algorithm.
-In this chapter, I will show you Bayes theorem with some real life examples. We’ll start by
+In this lab, I will show you Bayes theorem with some real life examples. We’ll start by
 studying an interesting and slightly surprising medical example. Then we’ll dive deep into the
 naive Bayes algorithm by applying it to a very common problem in machine learning: spam
 classification. We’ll finalize by coding the algorithm in Python, and using it to make predictions
@@ -234,7 +234,7 @@ that comes out to 0.0098. This is the posterior.
 
 Bayes Theorem is one of the most important building blocks of probability and of machine
 learning. It is so important that and several fields are named after it, Bayesian learning,
-Bayesian statistics, Bayesian analysis, and so on. In this chapter, we’ll learn Bayes theorem
+Bayesian statistics, Bayesian analysis, and so on. In this lab, we’ll learn Bayes theorem
 and a very important algorithm that will help us put in practice when analyzing data: the naive
 Bayes algorithm. In a nutshell, the naive Bayes algorithm does what most classification
 algorithms do, which is predict a label out of a set of features. Naive Bayes will simply perform

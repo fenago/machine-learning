@@ -2,7 +2,7 @@
 
 ## A continuous approach to splitting points: Logistic regression
 
-**This chapter covers**
+**This lab covers**
 
 - The difference between hard assignments and soft assignments.
 
@@ -29,7 +29,7 @@ All Notebooks are present in `work/machine-learning` folder.
 
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab5_logistic`
 
-In the previous chapter, we built a classifier that determined if a sentence was happy or sad.
+In the previous lab, we built a classifier that determined if a sentence was happy or sad.
 But as you can imagine, there are sentences that are happier than others. For example, the
 sentence “I’m good.” and the sentence “Today was the most wonderful day in my life!” are
 both happy, yet the second one is much happier than the first one. Wouldn’t it be nice to have
@@ -42,21 +42,21 @@ In a nutshell, logistic regression is a type of model which works just like a pe
 except instead of returning a yes/no answer, it returns a number between 0 and 1. In this
 case, the goal is to assign scores close to 0 to the saddest sentences, scores close to 1 to the
 happiest sentences, and scores close to 0.5 to neutral sentences.
-This chapter relies on chapter 4, as the algorithms we develop here are very similar,
-except for some technical differences. I recommend you make sure you understand chapter 4
+This lab relies on lab 4, as the algorithms we develop here are very similar,
+except for some technical differences. I recommend you make sure you understand lab 4
 
-well before you read this chapter. In chapter four we described the perceptron algorithm by
+well before you read this lab. In lab four we described the perceptron algorithm by
 the means of an error function which tells us how good a perceptron classifier is, and an
-iterative step which moves us from a classifier to a slightly better classifier. In this chapter we
+iterative step which moves us from a classifier to a slightly better classifier. In this lab we
 learn the logistic regression algorithm which works in a similar way. The only difference is that
 the new error function changes (it is now based on a probability), and the new iterative step
 also changes slightly to fit this new error function.
 
 ## 5.1 Logistic Regression (or continuous perceptrons)
 
-In chapter 4, we covered the perceptron, which is a type of classifier that uses the features of
+In lab 4, we covered the perceptron, which is a type of classifier that uses the features of
 our data to make a prediction. The prediction can be 1 or 0. This is called a discrete
-perceptron, since it returns an answer from a discrete set. In this chapter we learn continuous
+perceptron, since it returns an answer from a discrete set. In this lab we learn continuous
 perceptrons, which are called this because they return an answer that can be any number in
 the interval between 0 and 1. This answer can be interpreted as a probability in the sense that
 sentences with a higher score are more likely to be happy sentences, and viceversa. The way I
@@ -134,7 +134,7 @@ make sure the function does what we want it to.
 Now we are ready to define a prediction. The prediction is obtained by applying the sigmoid
 function to the score, and it returns a number between 0 and 1 which, as I mentioned before,
 can be interpreted in our example as the probability that the sentence is happy. Here’s the
-code for the prediction function (where the score formula is the same as the one in Chapter
+code for the prediction function (where the score formula is the same as the one in Lab
 4).
 
 ```
@@ -142,8 +142,8 @@ def lr_prediction(weights, bias, features):
     return sigmoid(score(weights, bias, features))
 ```
 
-In the previous chapter we defined an error function for a prediction, and we used it to build a
-slightly better classifier. In this chapter we follow the same procedure. The error of a
+In the previous lab we defined an error function for a prediction, and we used it to build a
+slightly better classifier. In this lab we follow the same procedure. The error of a
 continuous perceptron is slightly different from the one of a discrete predictor, but they still
 have great similarities.
 
@@ -184,7 +184,7 @@ so they should have large errors. Here are the three error functions.
 **ERROR FUNCTION 1: ABSOLUTE ERROR**
 
 The absolute error is very similar to the absolute error we defined for linear regression in
-Chapter 3. It is the absolute value of the difference of the prediction and the label. As we can
+Lab 3. It is the absolute value of the difference of the prediction and the label. As we can
 see, it is large when the prediction is far from the label, and small when they are close.
 
 **ERROR FUNCTION 2: SQUARE ERROR**
@@ -322,7 +322,7 @@ have a sum of logarithms; does this ring a bell? Whenever I see a sum of logarit
 thing I think of is the logarithm of a product. And whenever I see a product, I check if that
 product may have come from multiplying probabilities. Why do we multiply probabilities?
 Because when events are independent (or when we assume they are, for the sake of
-simplicity) their probabilities get multiplied. In Chapter 6 we delve much deeper into
+simplicity) their probabilities get multiplied. In Lab 6 we delve much deeper into
 independent events and their probabilities, but for now, we can use the fact that if the
 occurrences of two events don’t depend on each other, the probability of both of them
 happening is the product of the probabilities of both events happening.
@@ -395,7 +395,7 @@ perceptrons, we will do the exact same thing. In this section I show you the log
 algorithm, which does precisely that: It builds a continuous perceptron by reducing the log
 loss of a classifier.
 
-Recall from Chapter 4 that the perceptron algorithm consisted in starting with a random
+Recall from Lab 4 that the perceptron algorithm consisted in starting with a random
 classifier and successively picking a random point and applying the perceptron trick. The
 perceptron trick had the following steps:
 
@@ -605,13 +605,13 @@ misclassified, move the line a little closer to the point.
 • Enjoy your well fitted line
 
 Notice something very special. If we were to use the logistic regression trick on a classifier
-that only outputs the predictions 0 and 1, we would get the perceptron trick in Chapter 4. I
+that only outputs the predictions 0 and 1, we would get the perceptron trick in Lab 4. I
 encourage you to verify this as an exercise, by running the logistic regression trick but only
 with the values ŷ = 0 and ŷ = 1.
 
 ## 5.2.4 Coding the logistic regression algorithm
 
-We use the same notation as in Chapter 4. The label of each sentence is the sentiment (happy
+We use the same notation as in Lab 4. The label of each sentence is the sentiment (happy
 or sad). We have a language with n words. The features are the number of times each word
 appears, and the weights are the scores corresponding to the words. These weights include
 the bias, which corresponds to no word, it simply gets added to the score of every sentence.
@@ -703,7 +703,7 @@ plt.ylabel('error')
 return weights, bias
 ```
 
-We’ll test our code in the same dataset that we used in Chapter 4. The code for loading our
+We’ll test our code in the same dataset that we used in Lab 4. The code for loading our
 small dataset is below, and the plot of the dataset is in Figure 5.11.
 
 ```
@@ -776,7 +776,7 @@ matter. The boundary lines are still similar, as we can see when we plot it in F
 ## 5.3 Classifying into multiple classes - The softmax function
 
 So far we have seen continuous perceptrons classify two classes, happy and sad. But what if
-we have more classes? At the end of Chapter 4 I mentioned that classifying between more
+we have more classes? At the end of Lab 4 I mentioned that classifying between more
 than two classes is hard for a discrete perceptron. However, for continuous perceptrons, this is
 possible.
 

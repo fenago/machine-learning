@@ -3,7 +3,7 @@
 ## Using lines to split our points:
 ## The perceptron algorithm
 
-## This chapter covers
+## This lab covers
 
 - What is classification?
 
@@ -32,22 +32,22 @@ All Notebooks are present in `work/machine-learning` folder.
 
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/`
 
-Here is the problem we’ll tackle in this chapter. How do we teach a computer to determine if a
+Here is the problem we’ll tackle in this lab. How do we teach a computer to determine if a
 sentence is happy or sad? The way we tackle this is by introducing a branch of machine
 learning called classification. Much like regression, classification consists of predicting labels
 according to the features of our data. However, in regression we predicted numbers, such as
 the price of a house, and in classification, we predict categories, such as sad/happy, yes/no,
 or dog/cat/bird.
 There are many classification models and many algorithms which will help us find them,
-and we’ll see some of the most important ones in the next few chapters. In this chapter we
+and we’ll see some of the most important ones in the next few chapters. In this lab we
 cover the perceptron. The perceptron is a type of model, or classifier, which takes as input the
 features, and returns a 1 or a 0, which can be interpreted as the answer to a yes/no question.
 A way to build a good perceptron that fits our data, is via the perceptron algorithm. The
 perceptron algorithm is a beautiful procedure which, in a similar way to the linear regression
 algorithm, will iterate many times until it finds a good classifier. These two algorithms (and
-many more that we learn in this book) are very useful for working out patterns in data.
+many more that we learn in this course) are very useful for working out patterns in data.
 
-The use case that we use in this chapter is sentiment analysis. Sentiment analysis is the
+The use case that we use in this lab is sentiment analysis. Sentiment analysis is the
 branch of machine learning dedicated to predicting the sentiment of a certain piece of text. For
 example, being able to tell that the sentence “I feel wonderful today!” is a happy sentence, or
 that the sentence “I am so sad, this is terrible.” is a sad sentence.
@@ -64,7 +64,7 @@ marketing strategies are well received.
 they buy or sell their stock.
 
 Let’s stop and think for a moment, how would we build a classifier for sentiment analysis? I
-invite you to put the book down for a couple of minutes, and think of how you would go about
+invite you to put the course down for a couple of minutes, and think of how you would go about
 building this type of model.
 Here’s an idea, let’s look at the words in the sentence. For simplicity, let’s forget the
 structure of the sentence, and only think of the words in it. We’d imagine that if a sentence
@@ -115,7 +115,7 @@ score the same, no matter the classifier. How do we account for this?
 of voice, time of the day, or the overall situation? Too many things to take into account,
 aaahhh!
 
-The answer to questions 1, 2, and 3, is the topic of this chapter. We’ll introduce the
+The answer to questions 1, 2, and 3, is the topic of this lab. We’ll introduce the
 perceptron algorithm and use it to train a classifier over a set of data, which will give us scores
 for each word. The scores of the words are those that best fit the given data, so we have
 some confidence in their validity. Furthermore, since we are running an algorithm in a dataset,
@@ -125,7 +125,7 @@ language, as long as our data consists in a set of sentences with the sentiment 
 I mean by this is that our dataset has many sentences, and each sentence has a label
 attached which says ‘happy’ or ‘sad’.
 The answer to questions 4 and 5 is more complicated, and we won’t deal with it in this
-chapter. Our classifier will not take into account the order of words, punctuation, or any other
+lab. Our classifier will not take into account the order of words, punctuation, or any other
 external features, and thus, it will make some mistakes. This is ok, the goal is to have a
 classifier that is correct most of the time, and it is nearly impossible to have a classifier that is
 always correct. And believe it or not, simple classifiers like this tend to do a good job in
@@ -133,7 +133,7 @@ general.
 
 There are classifiers that take into account the order of the words, and they have great
 performance. Of course, they require lots of data and more computational power. Although
-they are out of the scope of this book, I recommend you to look at recurrent neural networks,
+they are out of the scope of this course, I recommend you to look at recurrent neural networks,
 long short-term memory networks (LSTM), and hidden Markov models.
 But before we delve into looking at data and building our classifiers, let me give you an
 idea of how the perceptron algorithm works. The idea is to iterate many times and improve
@@ -203,7 +203,7 @@ alien is happy. If there are more ‘beep’s, then the alien is sad.
 Notice that we didn’t specify what happens when the number of ‘aack’s is equal to the
 number of ‘beep’s. This is ok, we can just say that the classifier is undecided. In the practice,
 with lots of variables and words, it is very unlikely that a classifier is undecided, so we don’t
-need to worry much about this. For the rest of this chapter, by default, we’ll say that in this
+need to worry much about this. For the rest of this lab, by default, we’ll say that in this
 case the classifier predicts that the alien is happy.
 
 
@@ -597,7 +597,7 @@ something as follows:
 Ok, now a question is, how do we come up with these scores and this threshold? And even for
 the simpler classifiers, how do we come up with the scores of ‘aack’ and ‘beep’? In other
 words, how do we draw a line, or a plane, that splits happy and sad points in the best possible
-way? This is what I’ll explain in the remainder of the chapter. I will show you two very similar
+way? This is what I’ll explain in the remainder of the lab. I will show you two very similar
 ways of doing this called the perceptron algorithm and logistic regression.
 
 ## 4.2 How do we determine if a classifier is good or bad? The error function
@@ -605,7 +605,7 @@ ways of doing this called the perceptron algorithm and logistic regression.
 The 1 million dollar question here is: How do we find these classifiers? We need to find an
 algorithm, or a sequence of steps, which receives as input a dataset of sentences with ‘happy’
 and ‘sad’ labels attached to them, and returns a set of scores for each of the words, plus a
-threshold. This will be done in a similar way as we did for regression in chapter three, namely:
+threshold. This will be done in a similar way as we did for regression in lab three, namely:
 
 1. Start with a set of random scores, and a random threshold.
 2. Take a step to improve these scores just a little bit.
@@ -929,10 +929,10 @@ or at least, a pretty good one.
 ## 4.3 How to find a good classifier? The perceptron algorithm
 
 In order to build a good classifier, we’ll follow a very similar approach as we followed with
-linear regression on Chapter 3. We start with a random classifier, and slowly improve it until
+linear regression on Lab 3. We start with a random classifier, and slowly improve it until
 we have a good one. We’ll also use the error to tell us when it’s okay to stop improving it.
 Here is some pseudocode of how the algorithm looks. You’ll find it very similar to the linear
-regression algorithm in Chapter 3.
+regression algorithm in Lab 3.
 
 **Pseudocode for the perceptron algorithm:**
 
@@ -956,12 +956,12 @@ trick.
 ## 4.3.1 The perceptron trick
 
 The perceptron trick is a tiny step that helps us go from a classifier, to a slightly better
-classifier. We’ll actually take a less ambitious step. Like in Chapter 3, we’ll only focus on one
+classifier. We’ll actually take a less ambitious step. Like in Lab 3, we’ll only focus on one
 point, and ask the question: “How can I make this classifier a little bit better for this one
 point?
 
 We’ll take a slightly arbitrary approach (if you don’t like it and have ideas to improve it,
-you’ll really enjoy the later parts of this chapter!). The arbitrary step is the following:
+you’ll really enjoy the later parts of this lab!). The arbitrary step is the following:
 
 - If the point is correctly classified, we won’t touch the classifier. It’s good as it is.
 
@@ -976,9 +976,9 @@ Figure 4.22 summarizes our arbitrary step. We’ll call this the perceptron tric
 
 Now the question is, how much do we move the line? Like all we do in machine learning we’ll
 move it a very tiny amount. Since we repeat this algorithm many times, the line will
-eventually make significant moves. The way we control the size of the step is, like in Chapter
+eventually make significant moves. The way we control the size of the step is, like in Lab
 3, with a learning rate. We pick a very small number for our learning rate. For the duration of
-this chapter, let’s pick 0.01.
+this lab, let’s pick 0.01.
 
 Let’s focus on the case when a point is misclassified, and see how much we need to change
 the weights in order to move the line. We look at an example. Our classifier is the same as
@@ -1014,7 +1014,7 @@ but with a smaller error. We’ll do the following (again slightly arbitrary) st
 decrease the error, which is equal to the score of the sentence. Therefore, we need to reduce
 the score of the sentence by a small amount. The score is the sum of the scores of the words
 plus the bias, so we simply reduce all these a small amount. We’ll do the following,
-remembering that the learning rate we’re using in this chapter is 0.01:
+remembering that the learning rate we’re using in this lab is 0.01:
 
 - Since the word ‘aack’ appears twice, we’ll reduce its score by two times the learning
 rate, or 0.02.
@@ -1047,7 +1047,7 @@ But why the logic of decreasing the score of ‘aack’ only by 0.02 and the sco
 0.05? Well, since beep appears much more than ‘aack’ in the sentence, we can assume that
 the score of ‘beep’ is more crucial to our score, and needs to be decreased more. In reality,
 these numbers come out of calculating a derivative in a step called gradient descent. If you’re
-curious and want to look at the calculus, it is all in the Appendix at the end of the book.
+curious and want to look at the calculus, it is all in the Appendix at the end of the course.
 Now, that was for a sad sentence that got classified as happy. What about the opposite?
 Let’s say we again have the Ok Classifier, and the following sentence:
 
@@ -1157,7 +1157,7 @@ a better idea of when to stop running it.
 
 ## 4.5 Coding the perceptron algorithm
 Ok, ready to get our hands dirty and code the perceptron algorithm? Here we go. The code is
-available on  the  public  Github  repo  for  this  book, http://github.com/luisguiserrano/manning. We’ll test it on the following dataset.
+available on  the  public  Github  repo  for  this  course, http://github.com/luisguiserrano/manning. We’ll test it on the following dataset.
 
 ![](./images/79.png)
 
@@ -1246,7 +1246,7 @@ statement as follows.
 
 ![](./images/89.png)
 
-The functions perceptron_trick and perceptron_trick_clever do the exact same job, so it doesn’t matter which one we use. However, later in this chapter when we study logistic regression, the function perceptron_trick_clever will be much more useful.
+The functions perceptron_trick and perceptron_trick_clever do the exact same job, so it doesn’t matter which one we use. However, later in this lab when we study logistic regression, the function perceptron_trick_clever will be much more useful.
 Now, recall that for the perceptron algorithm all we need to do is repeat the perceptron trick many times (as many as the number of epochs). For convenience, we’ll also keep track of
 the errors at each epoch. As inputs, we not only have the data (features and labels), we also
 have the learning rate which we default to 0.01, and the number of epochs which we default
@@ -1372,7 +1372,7 @@ the image is a dog or not.
 The perceptron algorithm has decent performance in curated datasets such as MNIST,
 which is a dataset of handwritten digits. However, for more complicated images, it doesn’t do
 very well. For these, one uses a more advanced counterpart called multi-layer perceptrons,
-also called neural networks. We will learn them later in the book.
+also called neural networks. We will learn them later in the course.
 Can you think of other applications of the perceptron algorithm?
 
 ## 4.7 Some drawbacks of the perceptron algorithm, which will be addressed very soon!
@@ -1398,7 +1398,7 @@ between 0 and 1. A sentence with a low score such as 0.1 gets classified as sad,
 sentence with a high score such as 0.9 gets classified as happy. For the dog/cat/bird problem,
 three continuous perceptrons will return three different scores, and the prediction will be given
 by the classifier that gives the image the highest score. We’ll learn continuous logistic
-classifiers later in this book.
+classifiers later in this course.
 
 ## 4.8 Summary
 

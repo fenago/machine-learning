@@ -10,7 +10,7 @@ call it the new renaissance. Why? Because in the Renaissance, progress was made 
 the sciences, engineering, mathematics, and almost all the fields by the same people. With
 machine learning, this is finally possible again. With a strong knowledge of machine learning,
 one is able to derive cutting edge results in almost any field one decides to apply them, and
-this is fascinating. And that is what this book is for, to get you up to speed with the fastmoving world of machine learning!
+this is fascinating. And that is what this course is for, to get you up to speed with the fastmoving world of machine learning!
 
 ### Labs
 
@@ -49,7 +49,7 @@ particular, linear algebra, calculus, and probability. While a solid understandi
 these topics is very useful for learning machine learning, I strongly believe that they
 are not absolutely necessary. What is needed to understand machine learning is a
 visual mind, an intuition of basic probability, and a strong desire to learn.
-In this book, I present machine learning as a series of exercises of increasing difficulty, in
-which the final goal is to teach a computer how to take a particular decision. Each chapter is
+In this course, I present machine learning as a series of exercises of increasing difficulty, in
+which the final goal is to teach a computer how to take a particular decision. Each lab is
 dedicated to a different machine learning algorithm, and is focused in one use-case of this
 algorithm, such as spam detection, language analysis, image recognition, and so on. 
