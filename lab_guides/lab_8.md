@@ -19,7 +19,7 @@ Notebooks are ready to run. All packages have been installed. There is no requir
 
 All Notebooks are present in `work/machine-learning` folder.
 
-You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/`
+You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab8_support_vector`
 
 In this section, you will learn about **support vector machines
 (SVMs),** or, to be more specific, **linear support vector machines**.
