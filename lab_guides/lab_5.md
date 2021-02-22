@@ -29,48 +29,9 @@ All Notebooks are present in `work/machine-learning` folder.
 
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab5_logistic`
 
-In the previous lab, we built a classifier that determined if a sentence was happy or sad.
-But as you can imagine, there are sentences that are happier than others. For example, the
-sentence “I’m good.” and the sentence “Today was the most wonderful day in my life!” are
-both happy, yet the second one is much happier than the first one. Wouldn’t it be nice to have
-a classifier that not only predicts if sentences are happy or sad, but that actually gives us a
-rating for how happy sentences are? Say, a classifier that tells us that the first sentence is
-60% happy and the second one is 95% happy? In this section we will define the logistic
-regression classifier, which does precisely that. This classifier assigns a score from 0 to 1 to
-each sentence, in a way that the happier a sentence is, the higher the score it is assigned.
-In a nutshell, logistic regression is a type of model which works just like a perceptron,
-except instead of returning a yes/no answer, it returns a number between 0 and 1. In this
-case, the goal is to assign scores close to 0 to the saddest sentences, scores close to 1 to the
-happiest sentences, and scores close to 0.5 to neutral sentences.
-This lab relies on lab 4, as the algorithms we develop here are very similar,
-except for some technical differences. I recommend you make sure you understand lab 4
-
-well before you read this lab. In lab four we described the perceptron algorithm by
-the means of an error function which tells us how good a perceptron classifier is, and an
-iterative step which moves us from a classifier to a slightly better classifier. In this lab we
-learn the logistic regression algorithm which works in a similar way. The only difference is that
-the new error function changes (it is now based on a probability), and the new iterative step
-also changes slightly to fit this new error function.
 
 ## 5.1 Logistic Regression (or continuous perceptrons)
 
-In lab 4, we covered the perceptron, which is a type of classifier that uses the features of
-our data to make a prediction. The prediction can be 1 or 0. This is called a discrete
-perceptron, since it returns an answer from a discrete set. In this lab we learn continuous
-perceptrons, which are called this because they return an answer that can be any number in
-the interval between 0 and 1. This answer can be interpreted as a probability in the sense that
-sentences with a higher score are more likely to be happy sentences, and viceversa. The way I
-visualize continuous perceptrons is similar to how I visualize discrete perceptrons: with a line
-(or high-dimensional plane) that separates two classes of data. The only difference is that the
-discrete perceptron predicts that everything to one side of the line has label 1, and to the
-other side has label 0, while the continuous perceptron assigns a value from 0 to 1 to all the
-points based on their position. Every point on the line gets a value of 0.5. This value means
-the model can’t decide if the sentence is happy or sad. For example, the sentence “Today is
-Tuesday” is neither happy or sad, so the model would assign it a score close to 0.5. Points in
-the positive region get scores larger than 0.5, where the points even further away from the
-0.5 line in the positive direction get values closer to 1. Points in the negative region get scores
-smaller than 0.5, where again the farther points from the line get values closer to 0. No point
-gets a value of 1 or 0 (unless we consider points at infinity).
 
 ![](./images/93.png)
 
@@ -297,20 +258,6 @@ log loss = −label ×ln (prediction) – (1 – label) ×ln (1 – prediction)
 Notice that this works, since if the label is 0, only the second summand survives, and if the
 label is 1, only the first summand survives, thus giving us exactly what we want.
 
-## COMPARING THE ERROR FUNCTIONS
-
-In table 5.5 we continue our work and add the log loss column using the natural logarithm
-formula from the previous section. Now we have our three desired error functions.
-
-![](./images/105.png)
-
-If I haven’t convinced you of the power of the log loss error function, let’s look at an extreme
-point. Let’s say we have a point with label 1 (happy), for which the classifier makes a
-prediction of 0.00001. This point is very poorly classified. The absolute error will be 0.99999,
-and the square error will be 0.9999800001. However, the log loss will be the negative of the
-
-natural logarithm of (1-0.99999), which is 11.51. This value is much larger than the absolute
-or square errors, which means the log loss error is a better alarm for poorly classified points.
 
 ## 5.1.3 More on the log loss error function
 
