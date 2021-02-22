@@ -17,23 +17,30 @@ this is fascinating. And that is what this course is for, to get you up to speed
 Labs for this course are available at path shared below. Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor.
 
 1. ##### What is machine learning? (Read Only)
-		* <host-ip>:<port>/lab/workspaces/lab1_introduction
+		* http://<host-ip>/lab/workspaces/lab1_introduction
 2. ##### Types of machine learning (Read Only)
-		* <host-ip>:<port>/lab/workspaces/lab2_types
+		* http://<host-ip>/lab/workspaces/lab2_types
 3. ##### Drawing a line close to our points: linear regression
-		* <host-ip>:<port>/lab/workspaces/lab3_regression
+		* http://<host-ip>/lab/workspaces/lab3_regression
 4. ##### Using lines to split our points: the perceptron algorithm
-		* <host-ip>:<port>/lab/workspaces/lab4_perceptron
+		* http://<host-ip>/lab/workspaces/lab4_perceptron
 5. ##### A continuous approach to splitting points: logistic regression
-		* <host-ip>:<port>/lab/workspaces/lab5_logistic
+		* http://<host-ip>/lab/workspaces/lab5_logistic
 6. ##### Using probability to its maximum: naive Bayes algorithm
-		* <host-ip>:<port>/lab/workspaces/lab6_naive_bayes
+		* http://<host-ip>/lab/workspaces/lab6_naive_bayes
 7. ##### Splitting data by asking questions: decision trees
-		* <host-ip>:<port>/lab/workspaces/lab7_decision_trees
+		* http://<host-ip>/lab/workspaces/lab7_decision_trees
 8. ##### Predicting Categories with Naive Bayes and SVMs
-		* <host-ip>:<port>/lab/workspaces/lab8_support_vector
+		* http://<host-ip>/lab/workspaces/lab8_support_vector
 9. ##### Combining models to maximize results: ensemble learning
-		* <host-ip>:<port>/lab/workspaces/lab9_ensemble_learning
+		* http://<host-ip>/lab/workspaces/lab9_ensemble_learning
+10. ##### Testing, Overfitting, Underfitting
+		* http://<host-ip>/lab/workspaces/lab10_testing
+11. ##### Neural Networks
+		* http://<host-ip>/lab/workspaces/lab11_neural_networks
+12. ##### End to end example
+		* http://<host-ip>/lab/workspaces/lab12_example
+
 
 ### About
 
