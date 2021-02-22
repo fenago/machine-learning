@@ -1152,8 +1152,7 @@ code the perceptron algorithm, and analyze it by measuring the error in each ste
 a better idea of when to stop running it.
 
 ## 4.5 Coding the perceptron algorithm
-Ok, ready to get our hands dirty and code the perceptron algorithm? Here we go. The code is
-available on  the  public  Github  repo  for  this  course, http://github.com/luisguiserrano/manning. We’ll test it on the following dataset.
+Ok, ready to get our hands dirty and code the perceptron algorithm? Here we go. We’ll test it on the following dataset.
 
 ![](./images/79.png)
 

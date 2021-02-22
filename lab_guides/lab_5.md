@@ -633,8 +633,6 @@ product).
 ![](./images/110.png)
 
 
-To  follow  along  with  the  code,  take  a  look  at  this  book’s  repo  at http://www.github.com/luisguiserrano/manning. We start by coding the sigmoid function, the
-score, and the prediction.
 
 ```
 def sigmoid(x):

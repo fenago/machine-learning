@@ -148,8 +148,7 @@ spam_decision_tree = DecisionTreeClassifier()
 spam_decision_tree.fit(new_X,new_y)
 ```
 
-Feel free to look at more details in the repo www.github.com/luisguiserrano/manning. The
-decision tree and the boundary region can be seen in Figure 10.5.
+The decision tree and the boundary region can be seen in Figure 10.5.
 
 ![](./images/213.png)
 
@@ -158,16 +157,11 @@ considered noise, but instead the tree went out of its way to classify them corr
 saw before, decision trees are very prone to overfitting. Could it be that random forests give
 us a nicer boundary? We’ll see in the next section!
 
-## 10.3 Bagging - Joining some classifiers together to build a stronger classifier
+### 10.3 Bagging - Joining some classifiers together to build a stronger classifier
 
-Bagging is a technique in which we build a strong learner based on a set of weak learners. The
-way the strong learner makes a prediction is simply by allowing the weak learners to vote.
-Whichever prediction gets more votes, is the one the strong learner makes. You can imagine
-the weak learners to be any type of classifier, but in this lab, we’ll use decision trees. And
-going by that analogy, a set of decision trees is called a forest. Since there is some
-randomness involved in building these trees, we’ll call it a random forest.
 
-## 10.3.1 Building random forests by joining several trees
+
+### 10.3.1 Building random forests by joining several trees
 Let’s try to fit three trees to the data in Figure 10.4. In order to make things computationally
 easier, we’ll split the data into three random (almost) equal subsets, and we’ll fit a simple
 (depth one) tree to each dataset.
@@ -186,7 +180,7 @@ Figure 10.8.
 Notice that the random forest is a good classifier, as it classifies most of the points correctly,
 but it allows a few mistakes in order to not overfit the data.
 
-## 10.3.2 Coding a random forest in sklearn
+### 10.3.2 Coding a random forest in sklearn
 
 Now you may be thinking “that way you partitioned the data was a bit convenient, what if you
 don’t get such nice subsets?” You are right, let’s allow sklearn to build a random forest, and
@@ -211,24 +205,6 @@ clean boundary. The beauty of machine learning.
 
 ## 10.4 Boosting - Joining some classifiers together in a smarter way to get a stronger classifier
 
-Boosting is very similar to bagging, except now we don’t select the weak learners at random,
-but we select them in a more intelligent way. The way we do this is by training each learner to
-focus on the weaknesses of the previous ones. In other words, each learner tries really hard to
-
-
-correctly classify the points in which the previous classifiers. How do we do this? We start by
-training the first learner. We now look at which data points did the learner classify correctly.
-We shrink them by weighting them by a number smaller than 1. Then we look at the data
-points that the learner didn’t classify correctly. We enlarge them by weighting them by a
-number larger than 1. Now we have a new weighted dataset, where the errors of the first
-learner are weighted more heavily than the rest of the points. We now fit a second learner on
-this new dataset. The second learner, naturally, will try to fit the errors of the previous learner
-better. After the second learner, we now reweight the data based on which points it classified
-correctly and incorrectly. We now build a third learner on this new weighted dataset. We
-continue in this fashion, until we end up with a set of learners, each focusing on the previous
-learners’ weaknesses. As a final step, we make the classifiers vote. The voting canbe weighted
-if we need to. The best way to learn boosting is to look at a very famous example of it:
-AdaBoost.
 
 AdaBoost (Adaptive Boosting), developed by Freund and Shapire in 1997, is a very
 powerful boosting algorithm that has produced great results. In AdaBoost, all the weak
@@ -249,11 +225,6 @@ There are a few that work, so let’s pick the vertical line in the left of Figu
 correctly classifies the two triangles in the left, and all the squares. That classifier is weak
 learner 1.
 
-The next step is rescaling our data. We’ll enlarge the points that are misclassified, and
-shrink the ones that are correctly classified. You can imagine this as follows: In the beginning,
-each point has weight 1. After rescaling the data, some points have weights larger than one,
-and some have weights smaller than one. In the figures, we enlarge or shrink each data point
-to illustrate this. The data now looks like the right side of Figure 10.12.
 
 ![](./images/218.png)
 
@@ -348,27 +319,6 @@ we’ll stop training more learners right here.
 
 ## JOINING THE LEARNERS - THE LOGIT
 
-Alright, we now have our three learners! But how do we put them together? In the last section
-we mentioned voting, but actually what we want is some kind of weighted voting, where the
-models that are doing very well get more of a say. We have a measure for how good models
-are, which is the rescaling factor, so what about using that one? For reasons that will be clear
-soon, what we actually want is the logarithm of the rescaling factor, also called the logit. Allow
-me to elaborate.
-
-Let’s imagine that we have three friends, Truthful Teresa, Unpredictable Umbert, and Lying
-Lenny. Truthful Teresa almost always says the truth, Lying Lenny almost always lies, and
-Unpredictable Umbert says the truth exactly half of the time, and lies the other half. Here is a
-question, out of those three, who is the least useful one?
-
-The way I see it, Truthful Teresa is tremendously reliable. As she almost always says the
-truth, when she tells us anything, we can be pretty sure that it’s true. Among the other two,
-though, I prefer Lying Lenny. Since he almost always lies, we pretty much have to do the
-opposite of what he says, and we’ll be correct most of the time! Unpredictable Umbert,
-however, is useless, since we don’t know if he’s telling the truth or lying.
-
-In that case, if we were to assign a weight to what each friend says, we’d give Truthful
-Teresa a very high score, Lying Lenny a very high negative score, and Unpredictable Umbert a
-score of zero.
 
 In machine learning, the equivalent for Truthful Teresa is a model with high accuracy,
 which correctly predicts points most of the time. The equivalent for Lying Lenny is a model

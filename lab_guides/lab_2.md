@@ -359,8 +359,7 @@ floor. Now, what happens when our data has 3 columns? In this case, then each da
 formed by 3 numbers. We can imagine that if every address in our city is a building, then the
 first and second numbers are the street and avenue, and the third one is the floor in which we
 live in. This looks like a three-dimensional city. We can keep going. What about four numbers?
-Well, now we can’t really visualize it, but if we could, this would be addresses in a four©Manning Publications Co. To comment go to liveBook
-
+Well, now we can’t really visualize it, but if we could, this would be addresses in a four
 dimensional city, and so on. The best way I can imagine a four dimensional city, is by
 imagining a table of four columns. And a 100-dimensional city? Simple, a table with 100
 columns, in which each person has an address that consists of 100 numbers. The mental

@@ -443,8 +443,6 @@ of rooms is negative:
 - Subtract 1 cent to the base price.
 
 
-We are ready to code this algorithm in Python! All this code appears in our public
-repository at https://www.github.com/luisguiserrano/manning.
 
 ```
 def simple_trick(base_price, price_per_room, num_rooms, price, learning_rate): #A
@@ -626,10 +624,6 @@ dataset!
 
 ## 3.3.5 Plotting dots and lines
 
-Throughout this lab, we make plots of our data and models using Matplotlib and Numpy,
-two very useful Python packages. In this course we show you the plots, but not the code for the
-plots, as it is out of scope. However, you are more than invited to look at it in detail at our
-public Github repository at https://www.github.com/luisguiserrano/manning.
 
 The first plot we’ll show is figure 3.14, which is the plot of the points in our small housing
 dataset from Table 3. Notice that the points do appear close to forming a line.

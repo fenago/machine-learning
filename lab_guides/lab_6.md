@@ -531,7 +531,7 @@ that the email is spam, the word ‘mom’ makes it less likely that it is.
 
 Ok, now that we have developed the algorithm, let’s roll up our sleeves and work with a real
 email dataset. Kaggle has a very good spam/ham email dataset which can be found at
-https://www.kaggle.com/karthickveerakumar/spamfilter/downloads/emails.csv/1. If you like coding, you can find this example worked out in our Github repo at www.github.com/luisguiserrano/manning.
+https://www.kaggle.com/karthickveerakumar/spamfilter/downloads/emails.csv/1.
 
 In the repo, we have processed the dataset as a Pandas DataFrame with the following
 command:
