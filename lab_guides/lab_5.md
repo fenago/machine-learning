@@ -773,115 +773,16 @@ matter. The boundary lines are still similar, as we can see when we plot it in F
 
 ![](./images/117.png)
 
-## 5.3 Classifying into multiple classes - The softmax function
-
-So far we have seen continuous perceptrons classify two classes, happy and sad. But what if
-we have more classes? At the end of Lab 4 I mentioned that classifying between more
-than two classes is hard for a discrete perceptron. However, for continuous perceptrons, this is
-possible.
-
-If we had different labels, such as, for example, dog and cat, we could still use a
-perceptron. The perceptron would return a number between 0 and 1, which can be interpreted
-as the possibility that the data point is classified as a dog. To find the probability that the data
-point is classified as a cat, we simply take 1 minus the probability that the data point is
-classified as a dog.
-
-However, if we have a dataset with three labels, say, dog, cat, and bird, we can’t do this.
-What we can do instead is build three classifiers, one for dog, one for cat, and one for bird.
-Then we can make the classifiers vote, by deciding that the prediction for our data point
-corresponds to the classifier that scored it the highest. But there is a simpler way: each
-classifier returns a score, and then passes that score through a sigmoid function. Let’s take
-one step back, and look only at the score. We’ll generalize this sigmoid function to several
-classes.
-
-As an example, say we have our three classifiers: a dog classifier, a cat classifier, and a
-bird classifier. For a particular data point, they all output scores in the following way:
-
-- Dog classifier: 4
-
-- Cat classifier: 2
-
-- Bird classifier: 1
-
-How do we turn these into probabilities? Well, here’s an idea: why don’t we divide all these
-three numbers by their sum, which is 7? Now we get the probabilities 4/7 for dog, 2/7 for cat,
-and 1/7 for bird. This works, but what if we have the following numbers:
-- Dog classifier: 2
-
-- Cat classifier: 0
-
-- Bird classifier: -2
-
-Their sum is 0, so when we try to divide by the sum, we have a problem. What if we square
-them? Then the sum is not zero, but our probabilities would be 2/4 for dog, 0 for cat, and 2/4
-for bird. This also doesn’t work, since we want the cat to have a higher probability than the
-bird (which has a negative score). We need some function to apply to these scores, which is
-high if the input is high, low if the input is low, and never negative. What function has these
-properties? If you said the exponential function, you are on the right track. Any power
-function, or function that raises some number to the power of the input, works. For example,
-the functions 2x, 3x, or 10x would work perfectly. As a matter of fact, they all work the same,
-since all you need to go from one to the other is to scale the exponent. By default, in math,
-when you don’t know what exponent to pick, you pick e, since the function ex has wonderful
-mathematical properties (for instance, it is its own derivative!). So we’ll go with ex. We apply it
-to all the scores, to get the following.
-
-- Dog classifier: e2 = 7.389
-
-- Cat classifier: e0 = 1
-
-- Bird classifier: e-2 = 0.135
-
-Now, we do what we did before, we normalize, or divide by the sum of these three numbers in
-order for them to add to 1. The sum is 7.389 + 1 + 0.135 = 8.524, so we get the following:
-
-- Probability of dog: 7.389/8.524 = 0.867
-
-- Probability of cat: 1/8.524 = 0.117
-
-- Probability of bird: 0.135/8.524 = 0..016
-
-These are the three probabilities given by our three classifiers. The function we used was the
-softmax, and the general version is the following. If we have n classifiers which output the n
-scores a1, a2, … , an, the probabilities obtained are p1, p2, … , pn, where
-
-![](./images/118.png)
-
-This formula is known as the softmax formula.
-
-
-What would happen if we use the softmax formula for only two classes? We obtain the
-sigmoid function. I encourage you to convince yourself of this as an exercise.
-
-## 5.4 Summary
-
-- Continuous logistic classifiers (or continuous perceptrons) are very similar to their
-discrete counterparts, except instead of making a discrete prediction such as 0 or 1,
-they predict any number between 0 and 1.
-
-- Continuous perceptrons are more useful than discrete perceptrons, since they give us
-more information. Continuous perceptrons don’t just tell us which class the classifier
-predicts, but it also gives us a probability. It would assign low probabilities to points it
-predicts to have label 0, and high probabilities to points it predicts to have label 1.
-
-- The log loss is an error function for continuous perceptrons. It is calculated separately
-for every point as the natural logarithm of the probability that the point is classified
-correctly according to its label.
-
-- The total log loss of a classifier on a dataset is the sum of the log loss at every point.
-
-- The logistic regression trick takes a labelled data point and a line. If the point is
-incorrectly classified, the line is moved closer to the point, and if it is correctly
-classified, the line is moved farther from the point. This is more useful than the
-perceptron trick, since the perceptron trick doesn’t move the line if the point is
-correctly classified.
-
-- The logistic regression algorithm is used to fit a continuous perceptron to a labelled
-dataset. It consists of starting with a continuous perceptron with random weights, and
-continuously picking a random point and applying the logistic regression trick in order
-to obtain a slightly better classifier.
-
-- When we have several classes to predict, we can build several linear classifiers, and
-combine them using the softmax function.
 
 
 
+#### Exercises
+
+
+![](./exercises/7.PNG)
+
+
+![](./exercises/8.PNG)
+
+
+![](./exercises/9.PNG)

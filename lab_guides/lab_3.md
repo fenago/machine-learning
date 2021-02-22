@@ -311,16 +311,6 @@ y = 0.5 x + 2.
 
 What does this equation mean? It means that the slope is 0.5, and the y-intercept is 2.
 
-The slope being 0.5 means that when we walk along this line, for every unit that we move
-towards the right, we are moving 0.5 units up. The slope can be zero if we don’t move up at
-all, or negative if we move down. However, many lines can have the same slope. I can draw a
-parallel line to this one, and it would also rise 0.5 units for every unit it moves towards the
-right. This is where the y-intercept comes in. The y-intercept tells us where the line cuts the yaxis. This particular line cuts the line at height 2, so that is the y-intercept.
-In other words, the slope of the line tells us the direction that the line is pointing towards,
-and the y-intercept tells us the location of the line. Notice that by specifying the slope and the
-y-intercept, the line gets completely specified. Also, think of what would happen if we change
-the slope and the y-intercept by small amounts. The line would move a little, right? In which
-directions? We’ll see this next.
 
 ## 3.3.2 A simple trick to move a line closer to a set of points, one point at a time.
 Now we get to our problem, which is: we have a point, and a line, and we need to move the
@@ -425,12 +415,6 @@ very important in machine learning, it is called the learning rate.
 sure our models change in very small amounts while training. The learning rate works in different ways for
 different models. In the linear regression case, it is a number that we add or subtract to the slope and the yintercept in order to move the line towards a point very slowly.
 
-We are almost ready to code the algorithm. But before, let’s remember that the slope is the
-price we add per room, and the y-intercept is the base price of the house. The linear equation
-for the price is the base price plus the price per room times the number of rooms, which
-makes sense. Since the point on the line is the price that the model predicted, and the point
-we are approximating is the price of the house, then our four cases from above can be
-described as follows:
 
 ## PSEUDOCODE FOR THE SIMPLE TRICK
 
@@ -458,13 +442,6 @@ of rooms is negative:
 
 - Subtract 1 cent to the base price.
 
-Since the number of rooms is always positive, then only cases 1 and 3 make sense, but in
-cases where variables can have negative values, we need all four cases.
-Notice too, that cases 1 and 3 make sense, for the following reason. If we predicted a price
-lower than the price of the house, we would be inclined to think that our base price and our
-price per room are too small. Therefore, it makes sense to add 1 cent to each one. This would
-make our model just a little better, but remember, we can loop over this many many times,
-until we get a good model.
 
 We are ready to code this algorithm in Python! All this code appears in our public
 repository at https://www.github.com/luisguiserrano/manning.
@@ -671,16 +648,9 @@ linear_regression(features, labels, learning_rate = 0.01, epochs = 10000)
 
 ![](./images/41.png)
 
-
-Figure 3.15 shows the line where the price per room is $51.07, and the base price is $99.48.
+Figure  shows the line where the price per room is $51.07, and the base price is $99.48.
 This is not far from the $50 and $100 we eyeballed earlier in the lab.
 
-But let’s look at the progression a bit more, let’s draw a few of the intermediate lines
-(again, for code on how we plot them, please see the Github repo). The result is in figure
-3.16, where we can see that the line starts far from the points, and moves slowly to fit better
-and better every time. Notice that at first (in the first 10 epochs), the line moves quickly
-towards a good solution. After epoch 50, the line is good, but it still doesn’t fit the points very
-well. Then it takes 950 more epochs to go from a good fit to a great fit.
 
 ![](./images/42.png)
 
@@ -692,43 +662,6 @@ closer to fitting the points.
 The third graphic shows the first 50 epochs.
 
 The fourth graphic shows epochs 51 to 10000 (the last epoch).
-
-## 3.4 Applications of linear regression
-
-The impact of machine learning is measured not only by the power of its algorithms, but also
-by the breadth of useful applications it has. Machine learning is used widely to generate good
-recommendations in some of the most well known apps, including YouTube, Netflix, Facebook,
-Spotify, and Amazon. Regression plays a key part in most of these recommender systems.
-Since regression predicts a quantity, then all one has to do to generate good
-recommendations is figure out what quantity is the best at indicating user interaction or user
-satisfaction. Here are some examples.In this section, we see some applications of the linear
-regression in real life. In each of the examples, I will outline the problem, show you some
-features to solve it, and then let the perceptron algorithm do its magic!
-
-## 3.4.1 Video and music recommendations
-
-One of the ways used to generate video and music recommendations is to predict the amount
-of time a user will watch a video or listen to a song. For this, one can create a linear
-regression model where the labels on the data are the amount of minutes that each song is
-watched by each user. The features can be demographics on the user, such as their age,
-location, gender, etc., but they can also be behavioral, such as other videos or songs they
-have clicked on or interacted with.
-
-## 3.4.2 Product recommendations
-
-Stores and e-commerce websites also use linear regression to predict their sales. One way to
-do this is to predict how much will a customer spend in the store. This can be done using
-linear regression, using the amount spent as a label, and the features can be demographic and
-behavioral, in a similar way as with video and music recommendations.
-
-## 3.4.3 Healthcare
-
-Regression has numerous applications in healthcare. Depending on what problem we want to
-solve, predicting the right label is the key. Here are a couple of examples:
-
-- Predicting the lifespan of a patient, based on their current health conditions.
-
-- Predicting the length of a hospital stay, based on current symptoms.
 
 ## 3.5 Summary
 
@@ -755,3 +688,60 @@ then slowly moving it closer to each of the points that is misclassified, in ord
 
 - Linear regression has numerous applications, including recommendation systems, ecommerce, and healthcare.
 
+
+
+
+#### Exercises
+
+#### Exercise 3.1
+A website has trained a linear regression model to predict the amount of minutes that a user
+will spend on the site. The formula they have obtained is
+
+![](./exercises/1.PNG)
+
+Where t^ is the predicted time in minutes, and w, m, y, and a are indicator variables (namely,
+they only take the values 0 or 1) defined as follows:
+
+- d is a variable that indicates if the user is on desktop,
+- m is a variable that indicates if the user is on mobile,
+- y is a variable that indicates if the user is young (under 21 years old), and
+- a is a variable that indicates if the user is an adult (21 years old or older).
+
+![](./exercises/2.PNG)
+
+If a 45 year old user looks at the website from their phone, what is the expected time
+they will spend on the site?
+
+#### Exercise 3.2
+
+Imagine that we trained a linear regression model in a medical dataset. The model predicts
+the expected lifetime of a patient. To each of the features in our dataset, the model would
+assign a weight.
+
+    a) For the following quantities, state if you believe the weight attached to this
+    quantity would be a positive number, a negative number, or 0. Note: If you
+    believe that the weight is a very small number, whether positive or negative, you
+    can say 0.
+
+1. Number of hours of exercise the patient gets per week.
+2. Number of cigarettes the patient smokes per week.
+3. Number of family members with heart problems.
+4. Number of siblings of the patient.
+5. If the patient has been hospitalized or not.
+
+b) The model also has a bias. Do you think the bias is positive, negative, or 0?
+
+
+#### Exercise 3.3
+The following is a dataset of houses with price (in sq/ft) and price (in $).
+
+
+![](./exercises/3.PNG)
+
+a) Calculate the predictions that this model makes on the dataset.
+b) Calculate the mean absolute error of this model.
+c) Calculate the mean square error of this model.
+
+#### Exercise 3.4
+
+![](./exercises/4.PNG)

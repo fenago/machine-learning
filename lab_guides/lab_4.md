@@ -1291,147 +1291,17 @@ gets us closer and closer to separating the points well, until we get to a good 
 That’s it, that’s the perceptron classifier! In the next section we learn a slight variation of it
 called logistic regression, in which the predictions are not as drastic as happy/sad.
 
-## 4.6 Applications
-
-Like linear regression, the perceptron algorithm has many applications in real life. Basically
-any time we try to answer a question with yes or no, where the answer is predicted from
-previous data, the perceptron algorithm can help us. Here are some examples of real life
-applications of the perceptron algorithm.
-
-## 4.6.1 Applications of the perceptron algorithm 
-
-**SPAM EMAIL FILTERS**
-
-In a very similar way as we predicted if a sentence is happy or sad based on the words in the
-sentence, we can predict if an email is spam or not spam based on the words in the email. We
-can also use other features, for example,
-- length of the email,
-
-- size of attachments,
-
-- number of senders,
-
-- if any of our contacts is a sender (categorical variable),
-
-- and many others.
-
-Currently, the perceptron algorithm (and its more avanced counterparts, logistic regression
-and neural networks) and other classification models are used as a part of spam classification
-pipelines by most of the biggest email providers, with great results.
-As you may imagine, any other categorization of emails can also be done with classification
-algorithms like the perceptron algorithm. Classifying your email into personal, subscriptions,
-promotions, etc., is the exact same problem. Even coming up with potential responses to an
-email is also a classification problem, except now the labels that we train the algorithm with,
-are responses to emails.
-
-**RECOMMENDATION SYSTEMS** 
-
-In many recommendation systems, recommending a video/movie/song/product to a user boils
-down to a yes/no as to answer. In these cases, the question can be any of the following:
-- Will the user click on the the video/movie we’re recommending?
-
-- Will the user finish the video/movie we’re recommending?
-
-- Will the user listen to the song we’re recommending?
-
-- Will the user buy the product we’re recommending?
-
-The features can be anything, going from demographic features (age, gender, location of the
-user), to behavioral (what videos did the user watch, what songs did they hear, what products
-did they buy?). You can imagine that the user vector would be a really long one! For this,
-large computing power and very clever implementations of the algorithms are needed.
-Companies such as Netflix, YouTube, or Amazon, among many others, use the perceptron
-algorithm or similar more advanced classification models in their recommendation systems.
-
-**HEALTHCARE** 
-
-Many medical models also use classification algorithms such as the perceptron algorithm to
-answer questions such as the following:
-- Does the patient suffer from a particular illness?
-
-- Will a certain treatment work for a patient?
-
-The features for these models will normally be the medical history of the patient, as well as
-their family medical history. You can imagine that for these types of algorithms, one needs a
-great deal of accuracy! It’s a different thing to recommend a video that a user won’t watch,
-than to recommend the wrong treatment for a patient.
-Can you think of other applications of the perceptron algorithm?
 
 
-**COMPUTER VISION**
+#### Exercises
 
-Classification algorithms such as the perceptron algorithm are widely used in computer vision,
-more specifically, in image recognition. Imagine if you have a picture and you want to teach
-the computer to tell if the picture is of a dog or not. You can use classification. The features of
-the model are simply the pixels of the image, and the label is precisely a variable that tells if
-the image is a dog or not.
-The perceptron algorithm has decent performance in curated datasets such as MNIST,
-which is a dataset of handwritten digits. However, for more complicated images, it doesn’t do
-very well. For these, one uses a more advanced counterpart called multi-layer perceptrons,
-also called neural networks. We will learn them later in the course.
-Can you think of other applications of the perceptron algorithm?
 
-## 4.7 Some drawbacks of the perceptron algorithm, which will be addressed very soon!
+##### Exercise 4.1
 
-Perceptrons are very useful for answering questions such as yes/no, which is good when our
-labels are one of two categories such as happy/sad, spam/ham, or dog/no-dog. However,
-what if we have more categories? Say we have an image dataset with dogs, cats, and birds.
-What would we do? In general, the approach is to use three perceptrons, one for deciding if
-the image is a dog or not a dog, one for cat, and one for bird. If the dog classifier says ‘yes’,
-and the other two say ‘no’, then we classify the image as a dog. But what would happen if all
-three classifiers say ‘yes’?
+![](./exercises/5.PNG)
 
-This hints at another problem that perceptron classifiers have, which is that their answers
-are too drastic, and offer very little information. For example, the sentence “I’m happy”, and
-the sentence “I’m thrilled, this is the best day of my life!”, are both happy sentences.
-However, the second one is much happier than the other one. A perceptron classifier will
-classify them both as ‘happy’. How would we tweak the classifier to tell us that the second
-sentence is happier?
 
-The solution to the previous two problems is continuous logistic classifiers, or continuous
-perceptrons, which instead of answering a question with a ‘yes’ or ‘no’, they return a score
-between 0 and 1. A sentence with a low score such as 0.1 gets classified as sad, and a
-sentence with a high score such as 0.9 gets classified as happy. For the dog/cat/bird problem,
-three continuous perceptrons will return three different scores, and the prediction will be given
-by the classifier that gives the image the highest score. We’ll learn continuous logistic
-classifiers later in this course.
+##### Exercise 4.2
 
-## 4.8 Summary
+![](./exercises/6.PNG)
 
-- Classification is a very important part of machine learning. It is similar to regression in
-that it consists of training an algorithm with labelled data, and using it to make
-predictions on future (unlabelled) data, except this time the predictions are categories,
-such as yes/no, spam/ham, etc.
-
-- Logistic classifiers work by assigning a weight to each of the features, and a threshold.
-The score of a data point is then calculated as the sum of products of weights times
-features. If the score greater than or equal the threshold, the classifier returns a ‘yes’.
-Otherwise, it returns a ‘no’.
-
-- One can tweak the classifier so that the threshold is always 0. For this, one introduces
-a bias, which is a number added to the score. The bias is equal to the negative of the
-previous threshold.
-
-- For sentiment analysis, a logistic classifier consists of a score for each of the words in
-the dictionary, together with a threshold. Happy words will normally end up with a
-positive score, and sad words with a negative score. Neutral words like ‘the’ will likely
-end up with a score close to zero.
-
-- The bias helps us decide if the empty sentence is happy or sad. If the bias is positive,
-then the empty sentence is happy, and if it is negative, then the empty sentence is
-sad.
-
-- Graphically, we can see a logistic classifier as line trying to separate two classes of
-
-- In higher dimensions, a logistic classifier will be a high dimensional plane separating
-points. This is hard to imagine for dimensions higher than 3, but in 3 dimensions, one
-can imagine points of two colors flying in space, and a plane separating the points.
-
-- The way the perceptron algorithm works is by starting with a random line, and then
-slowly moving it to separate the points well. In every iteration it picks a random point.
-If the point is correctly classified, the line doesn’t move. If it is misclassified, then the
-line moves a little bit closer to the point, in an attempt to pass over it and classify it
-correctly.
-
-- The perceptron algorithm has numerous applications, including spam email detection,
-recommendation systems, e-commerce, and healthcare.
