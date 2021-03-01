@@ -39,7 +39,7 @@ according to the features of our data. However, in regression we predicted numbe
 the price of a house, and in classification, we predict categories, such as sad/happy, yes/no,
 or dog/cat/bird.
 There are many classification models and many algorithms which will help us find them,
-and we’ll see some of the most important ones in the next few chapters. In this lab we
+and we’ll see some of the most important ones in the next few labs. In this lab we
 cover the perceptron. The perceptron is a type of model, or classifier, which takes as input the
 features, and returns a 1 or a 0, which can be interpreted as the answer to a yes/no question.
 A way to build a good perceptron that fits our data, is via the perceptron algorithm. The
@@ -1292,15 +1292,17 @@ called logistic regression, in which the predictions are not as drastic as happy
 
 
 
-#### Exercises
+### Exercises
 
 
-##### Exercise 4.1
 
-![](./exercises/5.PNG)
+#### Exercise 1
+
+![](./exercises/7.PNG)
+
+#### Exercise 2
+![](./exercises/8.PNG)
 
 
-##### Exercise 4.2
-
-![](./exercises/6.PNG)
-
+#### Exercise 3
+![](./exercises/9.PNG)

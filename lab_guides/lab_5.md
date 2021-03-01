@@ -334,7 +334,7 @@ assign a large error value to bad classifiers and a smaller one to good classifi
 
 ## 5.2 Reducing the log loss error: The logistic regression trick
 
-In Chapters 4 we defined an error function for our classifier, and then an algorithm which
+In labs 4 we defined an error function for our classifier, and then an algorithm which
 builds a classifier by minimizing that error function. The algorithm worked in an iterative way,
 namely, it started with a random classifier and slowly changed the weights step by step until
 the error was small. The classifier we obtained was a discrete perceptron. With continuous
@@ -720,14 +720,17 @@ matter. The boundary lines are still similar, as we can see when we plot it in F
 
 
 
-
-#### Exercises
-
-
-![](./exercises/7.PNG)
+### Exercises
 
 
-![](./exercises/8.PNG)
+#### Exercise 1
 
+![](./exercises/11.PNG)
 
-![](./exercises/9.PNG)
+#### Exercise 2
+
+![](./exercises/12.PNG)
+
+#### Exercise 3
+
+![](./exercises/13.PNG)

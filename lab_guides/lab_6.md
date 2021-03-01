@@ -697,3 +697,26 @@ together with several events.
 - The word ‘naive’ comes from the fact that we are making a naive assumption, namely,
 that the events in question are all independent.
 
+
+
+### Exercises
+
+
+#### Exercise 1
+
+![](./exercises/14.PNG)
+
+#### Exercise 2
+
+![](./exercises/15.PNG)
+
+#### Exercise 3
+
+![](./exercises/16.PNG)
+
+
+
+
+
+
+

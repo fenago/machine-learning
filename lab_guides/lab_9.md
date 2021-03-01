@@ -1,8 +1,7 @@
 
 
-## Combining models to maximize results
+## Combining models to maximize results. Ensemble learning
 
-## Ensemble learning
 
 **This lab covers**
 
@@ -452,3 +451,13 @@ weighted majority vote of the learners.
 to applications in medicine and biology.
 
 
+### Exercises
+
+
+#### Exercise 1
+
+![](./exercises/23.PNG)
+
+#### Exercise 2
+
+![](./exercises/24.PNG)

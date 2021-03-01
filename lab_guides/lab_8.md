@@ -31,14 +31,6 @@ All Notebooks are present in `work/machine-learning` folder.
 You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab8_support_vector`
 
 
-Technical requirements
-----------------------
-
-* * * * *
-
-You will be required to have Python 3.6 or greater, Pandas ≥
-0.23.4, Scikit-learn ≥ 0.20.0, and Matplotlib ≥ 3.0.0 installed on your
-system.
 
 The Naive Bayes algorithm 
 --------------------------
@@ -393,7 +385,7 @@ graphical method of hyperparameter optimization with that of
 In this section, you will learn about how scaling and standardizing the
 data can lead to an improvement in the overall performance of the linear
 support vector machines. The concept of scaling remains the same as in
-the case of the previous chapters, and it will not be discussed here. In
+the case of the previous labs, and it will not be discussed here. In
 order to scale the data, we use the following code:
 
 ```
@@ -452,4 +444,13 @@ In the next lab, you will learn about the other type of supervised
 machine learning algorithm, which is used to predict numeric values,
 rather than classes and categories: linear regression!
 
+### Exercises
 
+
+#### Exercise 1
+
+![](./exercises/20.PNG)
+
+#### Exercise 2
+
+![](./exercises/21.PNG)

@@ -212,18 +212,13 @@ For Advanced Research (CIFAR), and can be found in the following link:
 https://www.cs.toronto.edu/~kriz/cifar.html.
 
 Other places where one can use classification models are the following:
+
 - Sentiment analysis: Predicting if a movie review is positive or negative, based on the
-
 - Website traffic: Predicting if a user will click on a link or not, based on the user’s
-
-words in the review.
-demographics and past interaction with the site.
+words in the review. demographics and past interaction with the site.
 - Social media: Predicting if a user will befriend or interact with another user or not,
 based on their demographics, history, and friends in common.
 
-The bulk of this course talks about classification models. In chapters 3-x, we talk about
-classification models in the context of logistic regression, decision trees, naive Bayes, support
-vector machines, and the most popular classification models nowadays: neural networks.
 
 ## 2.3 What is unsupervised learning?
 

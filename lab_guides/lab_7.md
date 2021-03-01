@@ -33,7 +33,7 @@ You can access jupyter lab at `<host-ip>:<port>/lab/workspaces/lab7_decision_tre
 
 In this lab, I cover decision trees. Decision trees are very powerful models which help us
 classify data and make predictions. Not only that, they also give us a great deal of information
-about the data. Like the models in the previous chapters, decision trees are trained with
+about the data. Like the models in the previous labs, decision trees are trained with
 labelled data, where the labels (or targets) that we want to predict are given by a set of
 classes. The classes can be yes/no, spam/ham, dog/cat/bird, or anything that we wish to
 predict based on the features. Decision trees are a very intuitive way to build classifiers, and
@@ -1217,3 +1217,18 @@ planes) that split our data according to the different labels.
 - Applications of decision trees range very widely, from recommendation algorithms to
 applications in medicine and biology.
 
+
+### Exercises
+
+
+#### Exercise 1
+
+![](./exercises/17.PNG)
+
+#### Exercise 2
+
+![](./exercises/18.PNG)
+
+#### Exercise 3
+
+![](./exercises/19.PNG)

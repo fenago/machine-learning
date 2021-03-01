@@ -685,7 +685,7 @@ then slowly moving it closer to each of the points that is misclassified, in ord
 
 
 
-#### Exercises
+### Exercises
 
 #### Exercise 3.1
 A website has trained a linear regression model to predict the amount of minutes that a user
