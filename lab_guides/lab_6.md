@@ -1,5 +1,5 @@
-A continuous approach to splitting points: Logistic classifiers
-===============================================================
+Lab 6: A continuous approach to splitting points: Logistic classifiers
+======================================================================
 
 ### In this lab
 

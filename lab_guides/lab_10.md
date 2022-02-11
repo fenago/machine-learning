@@ -1,5 +1,5 @@
-Combining building blocks to gain more power: Neural networks
-=============================================================
+Lab 10: Combining building blocks to gain more power: Neural networks
+=====================================================================
 
 ### In this lab
 

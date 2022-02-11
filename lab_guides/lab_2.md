@@ -1,10 +1,11 @@
-Types of machine learning
-=========================
+Lab 2: Types of machine learning
+================================
 
 
 Exercises
 ---------
 
+**Note:** Exercises solution are present in `solutions.md`.
 
 #### Exercise 2.1
 

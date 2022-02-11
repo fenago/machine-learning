@@ -1,4 +1,4 @@
-1. What is machine learning
+Lab 1: What is machine learning
 ===========================
 
 

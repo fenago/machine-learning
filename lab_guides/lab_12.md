@@ -1,5 +1,5 @@
-Combining models to maximize results: Ensemble learning
-=======================================================
+Lab 12: Combining models to maximize results: Ensemble learning
+===============================================================
 
 ### In this lab
 

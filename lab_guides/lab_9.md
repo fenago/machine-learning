@@ -1,5 +1,5 @@
-Splitting data by asking questions: Decision trees
-================================================================================================================================================
+Lab 9: Splitting data by asking questions: Decision trees
+=========================================================
 
 ### In this lab
 

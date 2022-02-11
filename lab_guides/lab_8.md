@@ -1,5 +1,5 @@
-Using probability to its maximum: The naive Bayes model
-=====================================================================================================================================================
+Lab 8: Using probability to its maximum: The naive Bayes model
+==============================================================
 
 ### In this lab
 

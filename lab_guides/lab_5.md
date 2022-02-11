@@ -1,5 +1,5 @@
-Using lines to split our points: The perceptron algorithm
-=========================================================
+Lab 5: Using lines to split our points: The perceptron algorithm
+===============================================================
 
 ### In this lab
 

@@ -1,5 +1,5 @@
-Drawing a line close to our points: Linear regression
-=====================================================
+Lab 3: Drawing a line close to our points: Linear regression
+=============================================================
 
 ### In this lab
 

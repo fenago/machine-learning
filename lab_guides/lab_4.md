@@ -1,5 +1,5 @@
-Optimizing the training process: Underfitting, overfitting, testing, and regularization
-===============================================================================
+Lab 4: Optimizing the training process: Underfitting, overfitting, testing, and regularization
+==============================================================================================
 
 ### In this lab
 

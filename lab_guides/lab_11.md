@@ -1,5 +1,5 @@
-Finding boundaries with style: Support vector machines and the kernel method
-============================================================================
+Lab 11: Finding boundaries with style: Support vector machines and the kernel method
+====================================================================================
 
 ### In this lab
 

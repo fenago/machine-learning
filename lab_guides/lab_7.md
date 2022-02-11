@@ -1,5 +1,5 @@
-How do you measure classification models? Accuracy and its friends
-==================================================================
+Lab 7: How do you measure classification models? Accuracy and its friends
+=========================================================================
 
 
 Exercises
