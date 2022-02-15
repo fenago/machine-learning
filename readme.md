@@ -1,5 +1,7 @@
-<img align="right" src="./logo.png">
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fenago/machine-learning/HEAD)
+
+
+<img align="right" src="./logo.png">
 
 <h2><span style="color:red;">Intro to AI & Machine Learning</span></h2>
 
