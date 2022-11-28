@@ -3,7 +3,7 @@
 
 <img align="right" src="./logo.png">
 
-<h2><span style="color:red;">Intro to AI & Machine Learning</span></h2>
+<h2><span style="color:red;">AI & Machine Learning for the Enterprise</span></h2>
 
 
 ### Labs
